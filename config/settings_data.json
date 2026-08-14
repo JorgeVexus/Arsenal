@@ -99,6 +99,7 @@
     "show_price_varies": true,
     "productcards_show_tax": false,
     "show_vendor": false,
+    "show_product_rating": false,
     "enable_free_shipping": true,
     "free_shipping_amount": 300,
     "default_product_deliverytime_in_stock": "Delivered in 24 hours",
@@ -108,7 +109,6 @@
     "social_youtube": "https://www.youtube.com/@arsenalprotectionmexicomx6856?app=desktop",
     "social_facebook": "https://www.facebook.com/arsenalinternational",
     "social_twitter": "https://x.com/mexico_arsenal",
-    "show_product_rating": false,
     "social_tiktok": "https://www.tiktok.com/@arsenalprotectionmexico?_t=8oRC6RylJYL&_r=1",
     "checkout_logo_size": "small",
     "checkout_body_background_color": "#f6f6f6",
@@ -145,20 +145,24 @@
         "settings": {}
       },
       "6810584612362904079": {
-        "type": "shopify://apps/findter-custom-filter-search/blocks/search-filters-core/bf706e6d-709f-4687-a2e2-1fbe1b007cc7",
-        "disabled": false,
+        "type": "shopify://apps/findter-filter-search/blocks/search-filters-core/bf706e6d-709f-4687-a2e2-1fbe1b007cc7",
+        "disabled": true,
         "settings": {
+          "theme_compatible": "unselected",
           "search_input_selector": "[name=q]",
           "link_no_results": "shopify://collections/all",
+          "collection_grid_selector": "",
+          "search_result_selector": "",
           "custom_css": ""
         }
       },
       "1408126219959914567": {
-        "type": "shopify://apps/findter-custom-filter-search/blocks/search-suggestion/bf706e6d-709f-4687-a2e2-1fbe1b007cc7",
+        "type": "shopify://apps/findter-filter-search/blocks/search-suggestion/bf706e6d-709f-4687-a2e2-1fbe1b007cc7",
         "disabled": false,
         "settings": {
           "search_input_selector": "[name=q]",
-          "predictive_body_selector": ".predictive-search-form__content-wrapper,.predictive-search"
+          "predictive_body_selector": ".predictive-search-form__content-wrapper,.predictive-search",
+          "predictive_body_selector_mobile": ""
         }
       }
     },
