@@ -54,6 +54,10 @@
       display: none !important;
     }
 
+    .timeline-header-mobile {
+      display: contents !important;
+    }
+
     .arsenal-timeline-track::before {
       content: '';
       position: absolute;
@@ -88,9 +92,11 @@
       margin-bottom: 0;
     }
 
-    .timeline-item:nth-child(even) .timeline-content {
+    .timeline-item:nth-child(even) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-link {
       order: 3;
       text-align: left;
+      width: 100%;
     }
 
     .timeline-item:nth-child(even) .timeline-icon {
@@ -102,9 +108,11 @@
       text-align: right;
     }
 
-    .timeline-item:nth-child(odd) .timeline-content {
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(odd) .timeline-link {
       order: 1;
       text-align: right;
+      width: 100%;
     }
 
     .timeline-item:nth-child(odd) .timeline-icon {
