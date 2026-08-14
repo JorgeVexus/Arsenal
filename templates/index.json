@@ -1,1 +1,1289 @@
-{"sections":{"hero_certificacion_YE6FgU":{"type":"hero-certificacion","blocks":{"feature_pillar_i8xjxD":{"type":"feature_pillar","settings":{"icon":"shield","title":"PROTECCIÓN CERTIFICADA","description":"Estándar oficial NIJ 0101.07"}},"feature_pillar_wabhqq":{"type":"feature_pillar","settings":{"icon":"target","title":"ALTO DESEMPEÑO BALÍSTICO","description":"Máxima resistencia a impactos"}},"feature_pillar_dNxGDB":{"type":"feature_pillar","settings":{"icon":"tech","title":"TECNOLOGÍA AVANZADA","description":"Paneles ultraligeros de vanguardia"}},"feature_pillar_Dn3RHB":{"type":"feature_pillar","settings":{"icon":"trust","title":"COMPROMISO Y CONFIANZA","description":"Garantía de calidad para tu seguridad"}}},"block_order":["feature_pillar_i8xjxD","feature_pillar_wabhqq","feature_pillar_dNxGDB","feature_pillar_Dn3RHB"],"name":"Hero Certificación NIJ","settings":{"full_width":true,"image_position":"right","max_width":1250,"min_height_desktop":650,"padding_top":60,"padding_bottom":60,"top_tagline":"#SuSeguridadEsNuestraPrioridad","cert_badge":"CERTIFICACIÓN","title":"NIJ 0101.07","subtitle":"EN PANELES BALÍSTICOS","highlight_text":"Somos de las 5 primeras empresas en el mundo en obtener la certificación NIJ 0101.07","description":"Cumplimos con el más alto estándar internacional en protección balística. Nuestros paneles <strong>certificados<\/strong> brindan <strong>confianza, resistencia y tecnología de vanguardia<\/strong> para quienes protegen lo más importante.","btn_primary_label":"Ver Productos Certificados","btn_primary_link":"shopify:\/\/collections\/all","btn_secondary_label":"","btn_secondary_link":"","hero_image":"shopify:\/\/shop_images\/imagen_main.webp","image_radius":16,"show_seal_badge":true,"seal_tag":"CERTIFICADO","seal_title":"NIJ 0101.07","seal_subtitle":"CALIDAD Y CONFIANZA","bg_color_1":"#0b0c10","bg_color_2":"#1a1c23","gradient_angle":135,"title_color":"#ffffff","text_color":"#e5e7eb","accent_color":"#ff5500","secondary_accent":"#e64a19","badge_bg_color":"#12141ad9","pillar_bg_color":"#ffffff08","button_radius":50,"title_size_desktop":64}},"scroll_text_mask_reveal_aaECGH":{"type":"scroll-text-mask-reveal","disabled":true,"name":"Scroll Text Mask Reveal","settings":{"full_width":true,"background_color":"#000000","heading":"ARSENAL","svg_font_size":16,"svg_font_size_mobile":10,"font_weight":900,"font_family":"","letter_spacing":0,"image":"shopify:\/\/shop_images\/imagen-de-soldados-policias-utilizando-cascos-bal-sticos.png","mobile_image":"shopify:\/\/shop_images\/Nivel_de_proteccion_IIIA_III_y_IV.jpg","video_url":"","bg_start_scale":1,"bg_end_scale":1.2,"show_scroll_hint":true,"scroll_hint_text":"Scroll","scroll_hint_color":"#0e1320","show_grain":false,"grain_opacity":0.1}},"14417d0b-5a73-41a7-b78e-b301455bcc51":{"type":"section-static","settings":{"width":"wide","transparent":true,"layout":"layout_10","custom_height":50,"color_palette":"scheme-2","background_overlay_opacity":100,"image_1":"shopify:\/\/shop_images\/chaleco-antibalas.webp","image_1_overlay_opacity":20,"image_2":"shopify:\/\/shop_images\/equipo-tactico.webp","image_2_overlay_opacity":20,"image_3_overlay_opacity":0,"video_1":"shopify:\/\/files\/videos\/13884574-hd_1920_1080_60fps.mp4","video_1_enable_controls":false,"video_1_mute":true,"video_1_overlay_opacity":10,"title":"<h3>Fabricación y distribución en tecnología balística<\/h3><h3> personal de la más alta calidad.<\/h3>","recommended_heading_size":false,"title_underline_style":"none","text":"","show_link":true,"link_text":"Cotiza ahora","link_url":"shopify:\/\/pages\/contacto","button_style":"secondary link","slideshow_mobile_height":"size-m","spacing_desktop":0,"spacing_mobile":0,"fix_zindex":0}},"fead47b1-756e-4aec-9652-9f507860d707":{"type":"section-image-with-text","blocks":{"45bf4798-4990-42d2-9188-83549a0bd195":{"type":"title","settings":{"title":"<h2>Somos una empresa mexicana con más de 25 años de experiencia...<\/h2>","title_underline_style":"none"}},"0ce552bc-b4ca-4149-9d93-cdbcbda4e6aa":{"type":"text","settings":{"text":"<p>En el diseño, fabricación y distribución de la más alta calidad en tecnología balística personal; con la cual, custodiamos la integridad física de los distintos cuerpos de seguridad nacional e internacional, que brindan protección pública y privada.<\/p>","font":"secondary","enable_custom_text_styling":false,"font_size":"18px"}},"c3f303c5-bc6a-4b46-a7c4-3c60d07e7c32":{"type":"buttons","settings":{"show_first_link":true,"first_link_text":"Contáctanos","first_link_url":"shopify:\/\/pages\/contacto","first_button_style":"secondary solid","show_second_link":true,"second_link_text":"Saber más","second_link_url":"shopify:\/\/pages\/nosotros","second_button_style":"tertiary solid"}}},"block_order":["45bf4798-4990-42d2-9188-83549a0bd195","0ce552bc-b4ca-4149-9d93-cdbcbda4e6aa","c3f303c5-bc6a-4b46-a7c4-3c60d07e7c32"],"settings":{"image":"shopify:\/\/shop_images\/Empresa_Mexicana.jpg","fill_image":true,"overlay_opacity_img":0,"enable_controls":false,"video_mute":false,"width":"boxed","height":"size-l","enable_custom_height":false,"custom_height":630,"color_palette":"scheme-2","overlay_opacity":100,"layout":"image-left","text_position":"text-start","background_color_palette":"scheme-5","background_overlay_opacity":100,"background_position":"right","background_width":60,"background_height":100,"background_width_mobile":100,"background_height_mobile":100,"spacing_desktop":0,"spacing_mobile":50,"fix_zindex":0}},"arsenal_collection_list_FdEbW9":{"type":"arsenal-collection-list","name":"Lista de Colecciones","settings":{"collections_list":["placas-balisticas","accesorios","cascos","equipamiento-no-balistico","prendas-balisticas"],"collections_limit":8,"show_header":true,"badge_text":"","heading":"Categorías","subtitle":"","header_layout":"split","show_view_all":true,"view_all_link":"","view_all_text":"Ver todas","layout":"editorial","columns":3,"grid_gap":24,"card_style":"overlay","image_ratio":"1\/1","card_radius":16,"show_product_count":true,"product_singular":"producto","product_plural":"productos","show_arrow":true,"show_accent_line":true,"background_color":"#ffffff","accent_color":"#6366f1","secondary_accent":"#ffffff","heading_color":"#1f2937","text_color":"#6b7280","card_background":"#0e1320","border_color":"#e5e7eb","overlay_color":"#000000","overlay_opacity":100,"button_background":"#1f2937","button_text":"#ffffff","heading_size":42,"title_size":22,"show_decorations":true,"max_width":1400,"padding_top":100,"padding_bottom":100}},"section_collection_list_68grPz":{"type":"section-collection-list","disabled":true,"name":"t:sections.collection_list.presets.name","settings":{"collections":["accesorios","cascos-balisticos","chalecos-balisticos","equipamiento","placas-balisticas"],"custom_image_ratio":100,"show_in_circle":false,"fill_images":false,"layout":"grid","number_of_items":3,"show_below":true,"show_arrow":true,"color_palette":"scheme-2","image_overlay_opacity":58,"text_alignment":"start","background_color_palette":"scheme-5","background_overlay_opacity":100,"background_position":"left","background_width":50,"background_height":100,"background_color_section":false,"title":"<h2>Categorías<\/h2>","title_underline_style":"none","show_link":false,"link_text":"Button","link_url":"","button_style":"primary plain","collection_title_position":"start","show_collection_titles":true,"collection_title_size":"h4","mobile_layout":"slider","number_of_items_mobile":"w100-mobile","background_width_mobile":100,"background_height_mobile":100,"spacing_desktop":50,"spacing_mobile":30,"fix_zindex":0}},"arsenal_featured_grid_products_8DHCMB":{"type":"arsenal-featured-grid-products","blocks":{"product_KXnGfX":{"type":"product","settings":{"product":"chaleco-arsenal-one","badge_text":""}},"product_DYTTbz":{"type":"product","settings":{"product":"equipo-anti-motin-modelo-mv-02","badge_text":""}},"product_Nry4i8":{"type":"product","settings":{"product":"chamarra-casual-balistica","badge_text":""}},"product_JgEqra":{"type":"product","settings":{"product":"botas-tacticas-modelo-ar-black-04","badge_text":"Oferta"}}},"block_order":["product_KXnGfX","product_DYTTbz","product_Nry4i8","product_JgEqra"],"name":"Featured Products Grid","settings":{"title":"Conoce nuestros productos","cta_label":"Ver todos","cta_link":"shopify:\/\/collections\/prendas-balisticas","hide_prices":true,"columns_desktop":3,"page_width":1200,"arrow_size":40,"arrow_icon_size":16,"arrow_stroke_width":2,"arrow_border_width":1,"arrow_radius":50,"arrows_gap":8,"arrow_bg_color":"rgba(0,0,0,0)","arrow_bg_hover":"#f5f5f5","arrow_border_color":"#e5e5e5","arrow_border_hover":"#cccccc","arrow_icon_color":"#333333","arrow_icon_hover":"#000000","dot_size":6,"dots_gap":8,"dots_margin_top":24,"dot_inactive_color":"#cccccc","dot_hover_color":"#999999","dot_active_color":"#000000","padding_top":36,"padding_bottom":36}},"arsenal_shop_the_look_iGCYaK":{"type":"arsenal-shop-the-look","blocks":{"hotspot_JzxjDT":{"type":"hotspot","settings":{"product":"botas-tacticas-modelo-ar-black-04","pos_x":46,"pos_y":96,"line_dir":"top-right"}},"hotspot_RzH9AJ":{"type":"hotspot","settings":{"product":"casco-balistico-fast","pos_x":60,"pos_y":14,"line_dir":"top-right"}}},"block_order":["hotspot_JzxjDT","hotspot_RzH9AJ"],"name":"Shop the Look Interactive","settings":{"image":"shopify:\/\/shop_images\/imagen-de-soldados-policias-con-accesorios-como-googles-o-bastones-retractiles.png","title":"Kit Táctico","hotspot_color":"#ea5c10","line_thickness":1,"quote_method":"email","whatsapp_number":"","quote_email":"jorge@vexusagency.com","form_title":"Solicitar Cotización","form_submit_text":"Enviar solicitud","quote_message":"Hola, me interesa solicitar cotización para el siguiente producto:","email_subject":"Solicitud de Cotización","org_label":"Dependencia \/ Organización","organization_options":"","padding_top":36,"padding_bottom":36}},"marquee_JzJhwG":{"type":"marquee","blocks":{"image_pgVqBY":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/cliente-1.jpg"}},"image_JETnim":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/cliente-2.jpg"}},"image_K7DN6M":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/cliente-3.jpg"}},"image_LgDhDb":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/cliente-4.jpg"}},"image_hQEjNL":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/cliente-5.jpg"}},"image_xp9Adq":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/cliente-6.jpg"}}},"block_order":["image_pgVqBY","image_JETnim","image_K7DN6M","image_LgDhDb","image_hQEjNL","image_xp9Adq"],"name":"Arsenal Marquee","settings":{"heading":"<h3><strong>Clientes del Sector Público y Privado:<\/strong><\/h3>","header_margin":32,"background_color":"#ffffff","speed":30,"direction":"left","logo_height":150,"gap":50,"logo_filter":"none","pause_on_hover":true,"hover_effect":true,"padding_top":40,"padding_bottom":40}},"arsenal_testimonials_btJT9P":{"type":"arsenal-testimonials","blocks":{"testimonial_beRGGG":{"type":"testimonial","settings":{"text":"Me dispararon en el pecho 10 veces con una escopeta y de no haber portado el chaleco antibalas Arsenal, no tendría historia que contarles ahorita.","rating":5,"author":"OFICIAL DEL MARQUES","position":"Policía del Estado de Carabobo","company":"Venezuela"}},"testimonial_yHiUi4":{"type":"testimonial","settings":{"text":"Hay que usar el chaleco antibalas Arsenal, aunque haga calor, aunque se sienta uno cansado, hay que usarlo. Yo recibí 4 impactos y el chaleco de Arsenal salvó mi vida.","rating":5,"author":"RICARDO CAMEJO","position":"Policía Nacional","company":"Venezuela"}},"testimonial_y8NAnC":{"type":"testimonial","settings":{"text":"Vi el impacto en el chaleco Arsenal y me sorprendió, pensé que estaba muerto pero el chaleco salvó mi vida. …utilizar el chaleco Arsenal en todo momento, pues no sabes el día que te toque enfrentar una situación de peligro","rating":5,"author":"IAN CARLOS URBINA","position":"Policía del Estado de Carabobo","company":"Venezuela"}}},"block_order":["testimonial_beRGGG","testimonial_yHiUi4","testimonial_y8NAnC"],"name":"Arsenal Testimonials","settings":{"heading":"Lo que dicen nuestros clientes","text":"<p>Conoce las experiencias de quienes confían en nosotros<\/p>","columns_desktop":3,"background_color":"#ececec","card_background":"#ffffff","accent_color":"#ff6b35","max_width":1400,"padding_top":80,"padding_bottom":80}},"section_testimonials_h4XtwT":{"type":"section-testimonials","blocks":{"testimonial_NFcBQR":{"type":"testimonial","settings":{"initials":false,"initials_color_palette":"scheme-5","author":"OFICIAL DEL MARQUES","place":"Policía del Estado de Carabobo- Venezuela","text":"“Me dispararon en el pecho 10 veces con una escopeta y de no haber portado el chaleco antibalas Arsenal, no tendría historia que contarles ahorita.”","score":5}},"testimonial_8hWiMQ":{"type":"testimonial","settings":{"initials":false,"initials_color_palette":"","author":"RICARDO CAMEJO","place":"Policía Nacional- Venezuela","text":"“Hay que usar el chaleco antibalas Arsenal, aunque haga calor, aunque se sienta uno cansado, hay que usarlo. Yo recibí 4 impactos y el chaleco de Arsenal salvó mi vida.”","score":5}},"testimonial_6Ypxkj":{"type":"testimonial","settings":{"initials":false,"initials_color_palette":"","author":"IAN CARLOS URBINA","place":"Policía del Estado de Carabobo- Venezuela","text":"“Vi el impacto en el chaleco Arsenal y me sorprendió, pensé que estaba muerto pero el chaleco salvó mi vida. …utilizar el chaleco Arsenal en todo momento, pues no sabes el día que te toque enfrentar una situación de peligro”","score":5}}},"block_order":["testimonial_NFcBQR","testimonial_8hWiMQ","testimonial_6Ypxkj"],"disabled":true,"name":"t:sections.testimonials.presets.name","settings":{"color_palette":"scheme-2","overlay_opacity":100,"testimonials_boxed_overlay_opacity":10,"color_palette_stars":"primary","layout":"rows","items_width":3,"autoplay":false,"autoplay_seconds":3,"text_alignment":"start","title":"<h3><strong>Testimonios<\/strong><\/h3>","title_underline_style":"none","text":"","enable_custom_font_styling":false,"font_size":"16px","show_link":true,"link_text":"Button","link_url":"","button_style":"primary plain","spacing_desktop":50,"spacing_mobile":30,"fix_zindex":0}},"marquee_KUgw9Q":{"type":"marquee","blocks":{"image_etnUQD":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/WhatsApp_Image_2026-05-08_at_1.49.33_PM_2.jpg"}},"image_wmatgU":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/cer-1.jpg"}},"image_RRd4pj":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/cer-2.jpg"}},"image_QmhDqc":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/cer-3.jpg"}},"image_rtTKAD":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/cer-4.jpg"}},"image_BpapQJ":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/cer-5.jpg"}},"image_nhAiEP":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/cer-6.jpg"}},"image_ymp8k9":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/cer-7.jpg"}}},"block_order":["image_etnUQD","image_wmatgU","image_RRd4pj","image_QmhDqc","image_rtTKAD","image_BpapQJ","image_nhAiEP","image_ymp8k9"],"name":"Arsenal Marquee","settings":{"heading":"<h3><strong>Certificaciones<\/strong><\/h3>","header_margin":32,"background_color":"rgba(0,0,0,0)","speed":30,"direction":"left","logo_height":80,"gap":100,"logo_filter":"grayscale(100%)","pause_on_hover":true,"hover_effect":true,"padding_top":40,"padding_bottom":40}},"775b0d3f-c52f-4fbc-86df-16c6438f3870":{"type":"section-rich-text","blocks":{"201b99cb-5168-4611-993a-b1dea29b7ad1":{"type":"spacer","settings":{"height":35,"height_mobile":20}},"280f4b02-41f9-472a-8074-431bb72e6991":{"type":"image","settings":{"image_width":740,"link_url":""}},"41e7d7f3-5e90-433e-a148-07b01e6e4b4d":{"type":"content","disabled":true,"settings":{"page":"","text":"<p>Unyielding comfort. Uplifting sound. Beosound A9 draws you nearer to the musicians you adore,no matter where you are or what you're doing.<\/p>","font":"secondary","enable_custom_text_styling":true,"font_weight":"400","font_size":"18px"}},"80b63c6b-0676-42dc-b2dd-dae7ac07c551":{"type":"button","settings":{"link_text":"Discover now","link_url":"\/","button_style":"primary solid"}},"4779e3d2-8b26-4a75-a443-5be46a3888a4":{"type":"spacer","settings":{"height":35,"height_mobile":20}}},"block_order":["201b99cb-5168-4611-993a-b1dea29b7ad1","280f4b02-41f9-472a-8074-431bb72e6991","41e7d7f3-5e90-433e-a148-07b01e6e4b4d","80b63c6b-0676-42dc-b2dd-dae7ac07c551","4779e3d2-8b26-4a75-a443-5be46a3888a4"],"disabled":true,"settings":{"width":"wide","height":"xs","enable_custom_height":false,"custom_height":300,"color_palette":"","background_overlay_opacity":0,"background_position":"left","background_width":100,"background_height":100,"background_color_section":true,"text_position":"align-center text-center","content_width":900,"height_mobile":"xs","background_width_mobile":100,"background_height_mobile":100,"spacing_desktop":0,"spacing_mobile":0,"fix_zindex":0}},"ed153ab6-765b-4377-941d-851867030a7b":{"type":"section-flexible","blocks":{"76c9b346-4703-4e2d-9348-845add5bc25c":{"type":"image","settings":{"fill_image":true,"image_opacity":100,"color_palette":"scheme-2","overlay_opacity_img":0,"horizontal_position":58,"vertical_position":0,"image_width":33,"constrain":true,"image_height":50,"border_radius":0,"shape":"none","link_url":"","mobile_hide":false,"mobile_sizes":true,"image_width_mobile":98,"image_height_mobile":81}},"0446aeb8-a6c8-4d64-8d62-48686de57898":{"type":"image","settings":{"fill_image":true,"image_opacity":100,"color_palette":"scheme-2","overlay_opacity_img":0,"horizontal_position":0,"vertical_position":0,"image_width":31,"constrain":true,"image_height":58,"border_radius":8,"shape":"none","link_url":"","mobile_hide":false,"mobile_sizes":false,"image_width_mobile":50,"image_height_mobile":50}},"template--19595896783169__ed153ab6-765b-4377-941d-851867030a7b-content-1":{"type":"content","settings":{"text_alignment":"left","content_width":540,"content_opacity":100,"background_color_palette":"white","enable_background":true,"background_overlay_opacity":0,"background_radius":0,"horizontal_position":100,"vertical_position":5,"title":"<h2>Atelier Limited Editions<\/h2>","title_underline_style":"none","enable_custom_title_size":false,"custom_title_size":42,"text":"<p>Only a limited number of each speaker are available.<br\/>Enjoy the sound of Bang & Olufsen.<\/p>","enable_custom_font_styling":false,"text_font":"primary","font_size":"18px","show_first_link":true,"first_link_text":"Discover now","first_link_url":"\/","first_button_style":"secondary plain","show_second_link":false,"second_link_text":"Button","second_link_url":"\/","second_button_style":"secondary plain","background_color_palette_mobile":"white","mobile_hide":false}},"6ed50eab-df18-4426-9211-061769db3df0":{"type":"video","settings":{"fill_video":true,"image_opacity":100,"enable_controls":false,"video_mute":true,"color_palette":"scheme-2","overlay_opacity_img":0,"horizontal_position":27,"vertical_position":30,"image_width":33,"constrain":false,"image_height":48,"border_radius":8,"mobile_hide":false,"mobile_sizes":true,"image_width_mobile":60,"image_height_mobile":55}},"a578be17-9b12-41d9-be7b-7e5efddeceb7":{"type":"image","settings":{"fill_image":false,"image_opacity":100,"color_palette":"scheme-2","overlay_opacity_img":0,"horizontal_position":100,"vertical_position":50,"image_width":50,"constrain":false,"image_height":50,"border_radius":0,"shape":"none","link_url":"","mobile_hide":true,"mobile_sizes":true,"image_width_mobile":83,"image_height_mobile":71}}},"block_order":["76c9b346-4703-4e2d-9348-845add5bc25c","0446aeb8-a6c8-4d64-8d62-48686de57898","template--19595896783169__ed153ab6-765b-4377-941d-851867030a7b-content-1","6ed50eab-df18-4426-9211-061769db3df0","a578be17-9b12-41d9-be7b-7e5efddeceb7"],"disabled":true,"settings":{"transparent":true,"background_color_palette":"scheme-5","background_overlay_opacity":100,"background_position":"left","background_width":82,"background_height":68,"width":"wide","custom_height":78,"custom_height_tablet":80,"layout_mobile":"flexible","content_below_media":true,"media_mobile_height":"size-l","background_width_mobile":80,"background_height_mobile":59,"height_mobile":"xs","spacing_desktop":-300,"spacing_mobile":30,"fix_zindex":0}},"arsenal_contact_form_PQagyc":{"type":"arsenal-contact-form","blocks":{"contact_info_jrzpb7":{"type":"contact_info","settings":{"icon":"location","content":"Gob. Vicente Villada 6, Ahuizotla, 53378 Naucalpan de Juárez, Méx."}},"contact_info_UcFc9h":{"type":"contact_info","settings":{"icon":"phone","content":"5515537039"}}},"block_order":["contact_info_jrzpb7","contact_info_UcFc9h"],"name":"Arsenal Contact Form","settings":{"heading":"Contacto","text":"<p>Escríbenos y nos pondremos en contacto contigo lo antes posible.<\/p>","map_url":"<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m14!1m8!1m3!1d7523.355397734888!2d-99.211942!3d19.469458000000003!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d2039713c171f9%3A0x509a5c8ad2652f2!2sARSENAL%20PROTECTION%20MEXICO!5e0!3m2!1ses-419!2smx!4v1768934695826!5m2!1ses-419!2smx\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"><\/iframe>","map_height":250,"label_name":"Nombre","placeholder_name":"Tu nombre completo","label_email":"Email","placeholder_email":"correo@ejemplo.com","label_phone":"Teléfono","placeholder_phone":"+1 (555) 000-0000","label_country":"País","placeholder_country":"Selecciona tu país","label_message":"Mensaje","placeholder_message":"¿Cómo podemos ayudarte?","button_text":"Enviar Mensaje","success_message":"¡Gracias! Tu mensaje ha sido enviado con éxito.","background_color":"#f9f9f9","card_background":"#ffffff","button_background":"#ffffff","button_text_color":"#ffffff","max_width":1100,"padding_top":80,"padding_bottom":80}},"cf8678d5-3555-4d07-9e57-e627fdd3429e":{"type":"section-spacer","settings":{"height":70,"height_mobile":0}},"7a402088-4fac-4648-a5da-0d223645ac23":{"type":"section-masonry","blocks":{"template--19595896783169__7a402088-4fac-4648-a5da-0d223645ac23-image-1":{"type":"image","settings":{"overlay_opacity":10,"enable_controls":false,"video_mute":true,"color_palette":"scheme-2","text_position":"text-center","title":"<h3>Waterproof Bluetooth speaker<\/h3>","title_underline_style":"none","text":"","enable_custom_font_styling":false,"font_size":"18px","show_link":true,"link_text":"Shop now","link_url":"\/","button_style":"primary plain","show_overlay_link":true,"overlay_url":""}},"template--19595896783169__7a402088-4fac-4648-a5da-0d223645ac23-image-2":{"type":"image","settings":{"overlay_opacity":0,"enable_controls":false,"video_mute":true,"color_palette":"scheme-2","text_position":"align-end text-start","title":"<h3>Beoplay H95<\/h3>","title_underline_style":"none","text":"<p>Enjoy the sound of Bang & Olufsen<\/p>","enable_custom_font_styling":false,"font_size":"16px","show_link":true,"link_text":"","link_url":"\/","button_style":"primary plain","show_overlay_link":true,"overlay_url":""}},"template--19595896783169__7a402088-4fac-4648-a5da-0d223645ac23-image-3":{"type":"image","settings":{"overlay_opacity":5,"enable_controls":false,"video_mute":true,"color_palette":"scheme-2","text_position":"text-center","title":"<h3>Designed to built to last<\/h3>","title_underline_style":"none","text":"","enable_custom_font_styling":false,"font_size":"16px","show_link":true,"link_text":"Read more","link_url":"\/","button_style":"primary plain","show_overlay_link":true,"overlay_url":""}},"template--19595896783169__7a402088-4fac-4648-a5da-0d223645ac23-image-4":{"type":"image","settings":{"overlay_opacity":0,"enable_controls":false,"video_mute":true,"color_palette":"scheme-2","text_position":"align-end text-start","title":"<h3>Televisions<\/h3>","title_underline_style":"none","text":"<p>Experience the combination of television and speakers<\/p>","enable_custom_font_styling":false,"font_size":"16px","show_link":true,"link_text":"","link_url":"\/","button_style":"primary plain","show_overlay_link":true,"overlay_url":""}}},"block_order":["template--19595896783169__7a402088-4fac-4648-a5da-0d223645ac23-image-1","template--19595896783169__7a402088-4fac-4648-a5da-0d223645ac23-image-2","template--19595896783169__7a402088-4fac-4648-a5da-0d223645ac23-image-3","template--19595896783169__7a402088-4fac-4648-a5da-0d223645ac23-image-4"],"disabled":true,"settings":{"mirrored":false,"width":"boxed","space_between":12,"image_zoom":true,"layout_mobile":"compact","mobile_height":"size-m","spacing_desktop":80,"spacing_mobile":30,"fix_zindex":3}},"d66a43f9-eb08-46db-9803-1af6a52e0d58":{"type":"section-static","disabled":true,"settings":{"width":"wide","transparent":false,"layout":"layout_5","custom_height":50,"color_palette":"scheme-1","background_overlay_opacity":50,"image_1_overlay_opacity":15,"image_2_overlay_opacity":0,"image_3_overlay_opacity":15,"video_1_enable_controls":false,"video_1_mute":true,"video_1_overlay_opacity":60,"title":"<h2>Beosound Balance<\/h2>","recommended_heading_size":false,"title_underline_style":"none","text":"<p>Bang & Olufsen BeoSound Balance. The BeoSound Balance is a 360 degree living room filling speaker with internet radio, Airplay 2 and Google cast<\/p>","show_link":true,"link_text":"Discover now","link_url":"\/","button_style":"secondary solid","slideshow_mobile_height":"size-m","spacing_desktop":50,"spacing_mobile":30,"fix_zindex":0}},"54c30640-99ef-4027-ae0f-1703b381db1d":{"type":"section-banner-columns","blocks":{"template--19595896783169__54c30640-99ef-4027-ae0f-1703b381db1d-1689759164fd8d25d2-0":{"type":"image","settings":{"overlay_opacity":5,"enable_controls":false,"video_mute":true,"color_palette":"scheme-2","text_position":"end center","title":"<h3>Bluetooth speakers<\/h3>","title_underline_style":"none","text":"<p>Designed to be functional and visually appealing<\/p>","enable_custom_font_styling":false,"font_size":"16px","show_link":false,"link_text":"","link_url":"\/","button_style":"primary plain","show_overlay_link":true,"overlay_url":""}},"template--19595896783169__54c30640-99ef-4027-ae0f-1703b381db1d-1689759164fd8d25d2-1":{"type":"image","settings":{"overlay_opacity":0,"enable_controls":false,"video_mute":true,"color_palette":"scheme-2","text_position":"end center","title":"<h3>Portable speakers<\/h3>","title_underline_style":"none","text":"<p>Well designed compact speakers<\/p>","enable_custom_font_styling":false,"font_size":"16px","show_link":false,"link_text":"","link_url":"\/","button_style":"primary plain","show_overlay_link":true,"overlay_url":""}},"template--19595896783169__54c30640-99ef-4027-ae0f-1703b381db1d-1689759164fd8d25d2-2":{"type":"image","settings":{"overlay_opacity":0,"enable_controls":false,"video_mute":true,"color_palette":"scheme-2","text_position":"end center","title":"<h3>Headphones<\/h3>","title_underline_style":"none","text":"<p>In-ear, over-ear and bluetooth headphones<\/p>","enable_custom_font_styling":false,"font_size":"16px","show_link":false,"link_text":"","link_url":"\/","button_style":"primary plain","show_overlay_link":true,"overlay_url":""}}},"block_order":["template--19595896783169__54c30640-99ef-4027-ae0f-1703b381db1d-1689759164fd8d25d2-0","template--19595896783169__54c30640-99ef-4027-ae0f-1703b381db1d-1689759164fd8d25d2-1","template--19595896783169__54c30640-99ef-4027-ae0f-1703b381db1d-1689759164fd8d25d2-2"],"disabled":true,"settings":{"items_width":3,"width":"boxed","height":"size-m","enable_custom_height":true,"custom_height":600,"space_between":30,"image_zoom":false,"show_content_below":false,"layout_mobile":"compact","mobile_height":"1\/1","spacing_desktop":70,"spacing_mobile":30,"fix_zindex":0}},"aba84caf-9ba8-44be-bd68-4450d4e11c9d":{"type":"section-rich-text","blocks":{"b3c04fc5-7abc-4de4-bb19-be5cb2812ef9":{"type":"title","settings":{"title":"<h3>‘’The speakers are known for their exceptional audio quality, characterized by a rich and balanced sound profile. They often produce crisp highs, deep, resonant lows, and clear midrange tones, creating an immersive and detailed listening experience. ’’<\/h3>","title_underline_style":"none"}},"0aebd2a5-649d-43dd-a066-53938600d5fe":{"type":"content","settings":{"page":"","text":"<p><strong>Merchant<\/strong><br\/>Store location<\/p>","font":"secondary","enable_custom_text_styling":false,"font_weight":"400","font_size":"16px"}}},"block_order":["b3c04fc5-7abc-4de4-bb19-be5cb2812ef9","0aebd2a5-649d-43dd-a066-53938600d5fe"],"disabled":true,"settings":{"width":"wide","height":"s","enable_custom_height":false,"custom_height":410,"color_palette":"scheme-5","background_overlay_opacity":100,"background_position":"left","background_width":100,"background_height":100,"background_color_section":true,"text_position":"align-center text-center","content_width":1140,"height_mobile":"m","background_width_mobile":100,"background_height_mobile":100,"spacing_desktop":90,"spacing_mobile":40,"fix_zindex":0}},"f161db6e-ec3e-49bc-9f77-9b2ac050455d":{"type":"section-blog-posts","disabled":true,"settings":{"blog":"news","number_of_items":3,"text_alignment":"start","title":"<h3>Blog posts<\/h3>","title_underline_style":"none","show_link":false,"link_text":"Button","link_url":"","button_style":"primary plain","custom_image_ratio":75,"show_image":true,"show_tags":true,"show_date":true,"show_author":true,"show_excerpt":false,"button_style_post":"primary link","spacing_desktop":140,"spacing_mobile":30,"fix_zindex":0}}},"order":["hero_certificacion_YE6FgU","scroll_text_mask_reveal_aaECGH","14417d0b-5a73-41a7-b78e-b301455bcc51","fead47b1-756e-4aec-9652-9f507860d707","arsenal_collection_list_FdEbW9","section_collection_list_68grPz","arsenal_featured_grid_products_8DHCMB","arsenal_shop_the_look_iGCYaK","marquee_JzJhwG","arsenal_testimonials_btJT9P","section_testimonials_h4XtwT","marquee_KUgw9Q","775b0d3f-c52f-4fbc-86df-16c6438f3870","ed153ab6-765b-4377-941d-851867030a7b","arsenal_contact_form_PQagyc","cf8678d5-3555-4d07-9e57-e627fdd3429e","7a402088-4fac-4648-a5da-0d223645ac23","d66a43f9-eb08-46db-9803-1af6a52e0d58","54c30640-99ef-4027-ae0f-1703b381db1d","aba84caf-9ba8-44be-bd68-4450d4e11c9d","f161db6e-ec3e-49bc-9f77-9b2ac050455d"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_certificacion_YE6FgU": {
+      "type": "hero-certificacion",
+      "blocks": {
+        "feature_pillar_i8xjxD": {
+          "type": "feature_pillar",
+          "settings": {
+            "icon": "shield",
+            "title": "PROTECCIÓN CERTIFICADA",
+            "description": "Estándar oficial NIJ 0101.07"
+          }
+        },
+        "feature_pillar_wabhqq": {
+          "type": "feature_pillar",
+          "settings": {
+            "icon": "target",
+            "title": "ALTO DESEMPEÑO BALÍSTICO",
+            "description": "Máxima resistencia a impactos"
+          }
+        },
+        "feature_pillar_dNxGDB": {
+          "type": "feature_pillar",
+          "settings": {
+            "icon": "tech",
+            "title": "TECNOLOGÍA AVANZADA",
+            "description": "Paneles ultraligeros de vanguardia"
+          }
+        },
+        "feature_pillar_Dn3RHB": {
+          "type": "feature_pillar",
+          "settings": {
+            "icon": "trust",
+            "title": "COMPROMISO Y CONFIANZA",
+            "description": "Garantía de calidad para tu seguridad"
+          }
+        }
+      },
+      "block_order": [
+        "feature_pillar_i8xjxD",
+        "feature_pillar_wabhqq",
+        "feature_pillar_dNxGDB",
+        "feature_pillar_Dn3RHB"
+      ],
+      "name": "Hero Certificación NIJ",
+      "settings": {
+        "full_width": true,
+        "image_position": "right",
+        "max_width": 1250,
+        "min_height_desktop": 650,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "top_tagline": "#SuSeguridadEsNuestraPrioridad",
+        "cert_badge": "CERTIFICACIÓN",
+        "title": "NIJ 0101.07",
+        "subtitle": "EN PANELES BALÍSTICOS",
+        "highlight_text": "Somos de las 5 primeras empresas en el mundo en obtener la certificación NIJ 0101.07",
+        "description": "Cumplimos con el más alto estándar internacional en protección balística. Nuestros paneles <strong>certificados</strong> brindan <strong>confianza, resistencia y tecnología de vanguardia</strong> para quienes protegen lo más importante.",
+        "btn_primary_label": "Ver Productos Certificados",
+        "btn_primary_link": "shopify://collections/all",
+        "btn_secondary_label": "",
+        "btn_secondary_link": "",
+        "hero_image": "shopify://shop_images/imagen_main.webp",
+        "image_radius": 16,
+        "show_seal_badge": true,
+        "seal_tag": "CERTIFICADO",
+        "seal_title": "NIJ 0101.07",
+        "seal_subtitle": "CALIDAD Y CONFIANZA",
+        "bg_color_1": "#0b0c10",
+        "bg_color_2": "#1a1c23",
+        "gradient_angle": 135,
+        "title_color": "#ffffff",
+        "text_color": "#e5e7eb",
+        "accent_color": "#ff5500",
+        "secondary_accent": "#e64a19",
+        "badge_bg_color": "#12141ad9",
+        "pillar_bg_color": "#ffffff08",
+        "button_radius": 50,
+        "title_size_desktop": 64
+      }
+    },
+    "scroll_text_mask_reveal_aaECGH": {
+      "type": "scroll-text-mask-reveal",
+      "disabled": true,
+      "name": "Scroll Text Mask Reveal",
+      "settings": {
+        "full_width": true,
+        "background_color": "#000000",
+        "heading": "ARSENAL",
+        "svg_font_size": 16,
+        "svg_font_size_mobile": 10,
+        "font_weight": 900,
+        "font_family": "",
+        "letter_spacing": 0,
+        "image": "shopify://shop_images/imagen-de-soldados-policias-utilizando-cascos-bal-sticos.png",
+        "mobile_image": "shopify://shop_images/Nivel_de_proteccion_IIIA_III_y_IV.jpg",
+        "video_url": "",
+        "bg_start_scale": 1,
+        "bg_end_scale": 1.2,
+        "show_scroll_hint": true,
+        "scroll_hint_text": "Scroll",
+        "scroll_hint_color": "#0e1320",
+        "show_grain": false,
+        "grain_opacity": 0.1
+      }
+    },
+    "14417d0b-5a73-41a7-b78e-b301455bcc51": {
+      "type": "section-static",
+      "settings": {
+        "width": "wide",
+        "transparent": true,
+        "layout": "layout_10",
+        "custom_height": 50,
+        "color_palette": "scheme-2",
+        "background_overlay_opacity": 100,
+        "image_1": "shopify://shop_images/chaleco-antibalas.webp",
+        "image_1_overlay_opacity": 20,
+        "image_2": "shopify://shop_images/equipo-tactico.webp",
+        "image_2_overlay_opacity": 20,
+        "image_3_overlay_opacity": 0,
+        "video_1": "shopify://files/videos/13884574-hd_1920_1080_60fps.mp4",
+        "video_1_enable_controls": false,
+        "video_1_mute": true,
+        "video_1_overlay_opacity": 10,
+        "title": "<h3>Fabricación y distribución en tecnología balística</h3><h3> personal de la más alta calidad.</h3>",
+        "recommended_heading_size": false,
+        "title_underline_style": "none",
+        "text": "",
+        "show_link": true,
+        "link_text": "Cotiza ahora",
+        "link_url": "shopify://pages/contacto",
+        "button_style": "secondary link",
+        "slideshow_mobile_height": "size-m",
+        "spacing_desktop": 0,
+        "spacing_mobile": 0,
+        "fix_zindex": 0
+      }
+    },
+    "fead47b1-756e-4aec-9652-9f507860d707": {
+      "type": "section-image-with-text",
+      "blocks": {
+        "45bf4798-4990-42d2-9188-83549a0bd195": {
+          "type": "title",
+          "settings": {
+            "title": "<h2>Somos una empresa mexicana con más de 25 años de experiencia...</h2>",
+            "title_underline_style": "none"
+          }
+        },
+        "0ce552bc-b4ca-4149-9d93-cdbcbda4e6aa": {
+          "type": "text",
+          "settings": {
+            "text": "<p>En el diseño, fabricación y distribución de la más alta calidad en tecnología balística personal; con la cual, custodiamos la integridad física de los distintos cuerpos de seguridad nacional e internacional, que brindan protección pública y privada.</p>",
+            "font": "secondary",
+            "enable_custom_text_styling": false,
+            "font_size": "18px"
+          }
+        },
+        "c3f303c5-bc6a-4b46-a7c4-3c60d07e7c32": {
+          "type": "buttons",
+          "settings": {
+            "show_first_link": true,
+            "first_link_text": "Contáctanos",
+            "first_link_url": "shopify://pages/contacto",
+            "first_button_style": "secondary solid",
+            "show_second_link": true,
+            "second_link_text": "Saber más",
+            "second_link_url": "shopify://pages/nosotros",
+            "second_button_style": "tertiary solid"
+          }
+        }
+      },
+      "block_order": [
+        "45bf4798-4990-42d2-9188-83549a0bd195",
+        "0ce552bc-b4ca-4149-9d93-cdbcbda4e6aa",
+        "c3f303c5-bc6a-4b46-a7c4-3c60d07e7c32"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/Empresa_Mexicana.jpg",
+        "fill_image": true,
+        "overlay_opacity_img": 0,
+        "enable_controls": false,
+        "video_mute": false,
+        "width": "wide",
+        "height": "size-l",
+        "enable_custom_height": false,
+        "custom_height": 630,
+        "color_palette": "scheme-2",
+        "overlay_opacity": 100,
+        "layout": "image-left",
+        "text_position": "text-start",
+        "background_color_palette": "scheme-5",
+        "background_overlay_opacity": 100,
+        "background_position": "right",
+        "background_width": 60,
+        "background_height": 100,
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 0,
+        "spacing_mobile": 50,
+        "fix_zindex": 0
+      }
+    },
+    "arsenal_collection_list_FdEbW9": {
+      "type": "arsenal-collection-list",
+      "name": "Lista de Colecciones",
+      "settings": {
+        "collections_list": [
+          "placas-balisticas",
+          "accesorios",
+          "cascos",
+          "equipamiento-no-balistico",
+          "prendas-balisticas"
+        ],
+        "collections_limit": 8,
+        "show_header": true,
+        "badge_text": "",
+        "heading": "Categorías",
+        "subtitle": "",
+        "header_layout": "split",
+        "show_view_all": true,
+        "view_all_link": "",
+        "view_all_text": "Ver todas",
+        "layout": "editorial",
+        "columns": 3,
+        "grid_gap": 24,
+        "card_style": "overlay",
+        "image_ratio": "1/1",
+        "card_radius": 16,
+        "show_product_count": true,
+        "product_singular": "producto",
+        "product_plural": "productos",
+        "show_arrow": true,
+        "show_accent_line": true,
+        "background_color": "#ffffff",
+        "accent_color": "#6366f1",
+        "secondary_accent": "#ffffff",
+        "heading_color": "#1f2937",
+        "text_color": "#6b7280",
+        "card_background": "#0e1320",
+        "border_color": "#e5e7eb",
+        "overlay_color": "#000000",
+        "overlay_opacity": 100,
+        "button_background": "#1f2937",
+        "button_text": "#ffffff",
+        "heading_size": 42,
+        "title_size": 22,
+        "show_decorations": true,
+        "max_width": 1600,
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "section_collection_list_68grPz": {
+      "type": "section-collection-list",
+      "disabled": true,
+      "name": "t:sections.collection_list.presets.name",
+      "settings": {
+        "collections": [
+          "accesorios",
+          "cascos-balisticos",
+          "chalecos-balisticos",
+          "equipamiento",
+          "placas-balisticas"
+        ],
+        "custom_image_ratio": 100,
+        "show_in_circle": false,
+        "fill_images": false,
+        "layout": "grid",
+        "number_of_items": 3,
+        "show_below": true,
+        "show_arrow": true,
+        "color_palette": "scheme-2",
+        "image_overlay_opacity": 58,
+        "text_alignment": "start",
+        "background_color_palette": "scheme-5",
+        "background_overlay_opacity": 100,
+        "background_position": "left",
+        "background_width": 50,
+        "background_height": 100,
+        "background_color_section": false,
+        "title": "<h2>Categorías</h2>",
+        "title_underline_style": "none",
+        "show_link": false,
+        "link_text": "Button",
+        "link_url": "",
+        "button_style": "primary plain",
+        "collection_title_position": "start",
+        "show_collection_titles": true,
+        "collection_title_size": "h4",
+        "mobile_layout": "slider",
+        "number_of_items_mobile": "w100-mobile",
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "arsenal_featured_grid_products_8DHCMB": {
+      "type": "arsenal-featured-grid-products",
+      "blocks": {
+        "product_KXnGfX": {
+          "type": "product",
+          "settings": {
+            "product": "chaleco-arsenal-one",
+            "badge_text": "",
+            "stars_count": 5
+          }
+        },
+        "product_DYTTbz": {
+          "type": "product",
+          "settings": {
+            "product": "equipo-anti-motin-modelo-mv-02",
+            "badge_text": "",
+            "stars_count": 5
+          }
+        },
+        "product_Nry4i8": {
+          "type": "product",
+          "settings": {
+            "product": "chamarra-casual-balistica",
+            "badge_text": "",
+            "stars_count": 5
+          }
+        },
+        "product_JgEqra": {
+          "type": "product",
+          "settings": {
+            "product": "botas-tacticas-modelo-ar-black-04",
+            "badge_text": "Oferta",
+            "stars_count": 5
+          }
+        }
+      },
+      "block_order": [
+        "product_KXnGfX",
+        "product_DYTTbz",
+        "product_Nry4i8",
+        "product_JgEqra"
+      ],
+      "name": "Featured Products Grid",
+      "settings": {
+        "title": "Conoce nuestros productos",
+        "cta_label": "Ver todos",
+        "cta_link": "shopify://collections/prendas-balisticas",
+        "hide_prices": true,
+        "columns_desktop": 3,
+        "page_width": 1600,
+        "arrow_size": 40,
+        "arrow_icon_size": 16,
+        "arrow_stroke_width": 2,
+        "arrow_border_width": 1,
+        "arrow_radius": 50,
+        "arrows_gap": 8,
+        "arrow_bg_color": "rgba(0,0,0,0)",
+        "arrow_bg_hover": "#f5f5f5",
+        "arrow_border_color": "#e5e5e5",
+        "arrow_border_hover": "#cccccc",
+        "arrow_icon_color": "#333333",
+        "arrow_icon_hover": "#000000",
+        "dot_size": 6,
+        "dots_gap": 8,
+        "dots_margin_top": 24,
+        "dot_inactive_color": "#cccccc",
+        "dot_hover_color": "#999999",
+        "dot_active_color": "#000000",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "arsenal_shop_the_look_iGCYaK": {
+      "type": "arsenal-shop-the-look",
+      "blocks": {
+        "hotspot_JzxjDT": {
+          "type": "hotspot",
+          "settings": {
+            "product": "botas-tacticas-modelo-ar-black-04",
+            "pos_x": 46,
+            "pos_y": 96,
+            "line_dir": "top-right"
+          }
+        },
+        "hotspot_RzH9AJ": {
+          "type": "hotspot",
+          "settings": {
+            "product": "casco-balistico-fast",
+            "pos_x": 60,
+            "pos_y": 14,
+            "line_dir": "top-right"
+          }
+        }
+      },
+      "block_order": [
+        "hotspot_JzxjDT",
+        "hotspot_RzH9AJ"
+      ],
+      "name": "Shop the Look Interactive",
+      "settings": {
+        "image": "shopify://shop_images/imagen-de-soldados-policias-con-accesorios-como-googles-o-bastones-retractiles.png",
+        "title": "Kit Táctico",
+        "hotspot_color": "#ea5c10",
+        "line_thickness": 1,
+        "quote_method": "email",
+        "whatsapp_number": "",
+        "quote_email": "jorge@vexusagency.com",
+        "form_title": "Solicitar Cotización",
+        "form_submit_text": "Enviar solicitud",
+        "quote_message": "Hola, me interesa solicitar cotización para el siguiente producto:",
+        "email_subject": "Solicitud de Cotización",
+        "org_label": "Dependencia / Organización",
+        "organization_options": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "marquee_JzJhwG": {
+      "type": "marquee",
+      "blocks": {
+        "image_pgVqBY": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cliente-1.jpg"
+          }
+        },
+        "image_JETnim": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cliente-2.jpg"
+          }
+        },
+        "image_K7DN6M": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cliente-3.jpg"
+          }
+        },
+        "image_LgDhDb": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cliente-4.jpg"
+          }
+        },
+        "image_hQEjNL": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cliente-5.jpg"
+          }
+        },
+        "image_xp9Adq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cliente-6.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_pgVqBY",
+        "image_JETnim",
+        "image_K7DN6M",
+        "image_LgDhDb",
+        "image_hQEjNL",
+        "image_xp9Adq"
+      ],
+      "name": "Arsenal Marquee",
+      "settings": {
+        "heading": "<h3><strong>Clientes del Sector Público y Privado:</strong></h3>",
+        "header_margin": 32,
+        "background_color": "#ffffff",
+        "speed": 30,
+        "direction": "left",
+        "logo_height": 150,
+        "gap": 50,
+        "logo_filter": "none",
+        "pause_on_hover": true,
+        "hover_effect": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "arsenal_testimonials_btJT9P": {
+      "type": "arsenal-testimonials",
+      "blocks": {
+        "testimonial_beRGGG": {
+          "type": "testimonial",
+          "settings": {
+            "text": "Me dispararon en el pecho 10 veces con una escopeta y de no haber portado el chaleco antibalas Arsenal, no tendría historia que contarles ahorita.",
+            "rating": 5,
+            "author": "OFICIAL DEL MARQUES",
+            "position": "Policía del Estado de Carabobo",
+            "company": "Venezuela"
+          }
+        },
+        "testimonial_yHiUi4": {
+          "type": "testimonial",
+          "settings": {
+            "text": "Hay que usar el chaleco antibalas Arsenal, aunque haga calor, aunque se sienta uno cansado, hay que usarlo. Yo recibí 4 impactos y el chaleco de Arsenal salvó mi vida.",
+            "rating": 5,
+            "author": "RICARDO CAMEJO",
+            "position": "Policía Nacional",
+            "company": "Venezuela"
+          }
+        },
+        "testimonial_y8NAnC": {
+          "type": "testimonial",
+          "settings": {
+            "text": "Vi el impacto en el chaleco Arsenal y me sorprendió, pensé que estaba muerto pero el chaleco salvó mi vida. …utilizar el chaleco Arsenal en todo momento, pues no sabes el día que te toque enfrentar una situación de peligro",
+            "rating": 5,
+            "author": "IAN CARLOS URBINA",
+            "position": "Policía del Estado de Carabobo",
+            "company": "Venezuela"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_beRGGG",
+        "testimonial_yHiUi4",
+        "testimonial_y8NAnC"
+      ],
+      "name": "Arsenal Testimonials",
+      "settings": {
+        "heading": "Lo que dicen nuestros clientes",
+        "text": "<p>Conoce las experiencias de quienes confían en nosotros</p>",
+        "columns_desktop": 3,
+        "background_color": "#ececec",
+        "card_background": "#ffffff",
+        "accent_color": "#ff6b35",
+        "max_width": 1600,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "section_testimonials_h4XtwT": {
+      "type": "section-testimonials",
+      "blocks": {
+        "testimonial_NFcBQR": {
+          "type": "testimonial",
+          "settings": {
+            "initials": false,
+            "initials_color_palette": "scheme-5",
+            "author": "OFICIAL DEL MARQUES",
+            "place": "Policía del Estado de Carabobo- Venezuela",
+            "text": "“Me dispararon en el pecho 10 veces con una escopeta y de no haber portado el chaleco antibalas Arsenal, no tendría historia que contarles ahorita.”",
+            "score": 5
+          }
+        },
+        "testimonial_8hWiMQ": {
+          "type": "testimonial",
+          "settings": {
+            "initials": false,
+            "initials_color_palette": "",
+            "author": "RICARDO CAMEJO",
+            "place": "Policía Nacional- Venezuela",
+            "text": "“Hay que usar el chaleco antibalas Arsenal, aunque haga calor, aunque se sienta uno cansado, hay que usarlo. Yo recibí 4 impactos y el chaleco de Arsenal salvó mi vida.”",
+            "score": 5
+          }
+        },
+        "testimonial_6Ypxkj": {
+          "type": "testimonial",
+          "settings": {
+            "initials": false,
+            "initials_color_palette": "",
+            "author": "IAN CARLOS URBINA",
+            "place": "Policía del Estado de Carabobo- Venezuela",
+            "text": "“Vi el impacto en el chaleco Arsenal y me sorprendió, pensé que estaba muerto pero el chaleco salvó mi vida. …utilizar el chaleco Arsenal en todo momento, pues no sabes el día que te toque enfrentar una situación de peligro”",
+            "score": 5
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_NFcBQR",
+        "testimonial_8hWiMQ",
+        "testimonial_6Ypxkj"
+      ],
+      "disabled": true,
+      "name": "t:sections.testimonials.presets.name",
+      "settings": {
+        "color_palette": "scheme-2",
+        "overlay_opacity": 100,
+        "testimonials_boxed_overlay_opacity": 10,
+        "color_palette_stars": "primary",
+        "layout": "rows",
+        "items_width": 3,
+        "autoplay": false,
+        "autoplay_seconds": 3,
+        "text_alignment": "start",
+        "title": "<h3><strong>Testimonios</strong></h3>",
+        "title_underline_style": "none",
+        "text": "",
+        "enable_custom_font_styling": false,
+        "font_size": "16px",
+        "show_link": true,
+        "link_text": "Button",
+        "link_url": "",
+        "button_style": "primary plain",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "marquee_KUgw9Q": {
+      "type": "marquee",
+      "blocks": {
+        "image_etnUQD": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/WhatsApp_Image_2026-05-08_at_1.49.33_PM_2.jpg"
+          }
+        },
+        "image_wmatgU": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cer-1.jpg"
+          }
+        },
+        "image_RRd4pj": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cer-2.jpg"
+          }
+        },
+        "image_QmhDqc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cer-3.jpg"
+          }
+        },
+        "image_rtTKAD": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cer-4.jpg"
+          }
+        },
+        "image_BpapQJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cer-5.jpg"
+          }
+        },
+        "image_nhAiEP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cer-6.jpg"
+          }
+        },
+        "image_ymp8k9": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cer-7.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_etnUQD",
+        "image_wmatgU",
+        "image_RRd4pj",
+        "image_QmhDqc",
+        "image_rtTKAD",
+        "image_BpapQJ",
+        "image_nhAiEP",
+        "image_ymp8k9"
+      ],
+      "name": "Arsenal Marquee",
+      "settings": {
+        "heading": "<h3><strong>Certificaciones</strong></h3>",
+        "header_margin": 32,
+        "background_color": "rgba(0,0,0,0)",
+        "speed": 30,
+        "direction": "left",
+        "logo_height": 80,
+        "gap": 100,
+        "logo_filter": "grayscale(100%)",
+        "pause_on_hover": true,
+        "hover_effect": true,
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "775b0d3f-c52f-4fbc-86df-16c6438f3870": {
+      "type": "section-rich-text",
+      "blocks": {
+        "201b99cb-5168-4611-993a-b1dea29b7ad1": {
+          "type": "spacer",
+          "settings": {
+            "height": 35,
+            "height_mobile": 20
+          }
+        },
+        "280f4b02-41f9-472a-8074-431bb72e6991": {
+          "type": "image",
+          "settings": {
+            "image_width": 740,
+            "link_url": ""
+          }
+        },
+        "41e7d7f3-5e90-433e-a148-07b01e6e4b4d": {
+          "type": "content",
+          "disabled": true,
+          "settings": {
+            "page": "",
+            "text": "<p>Unyielding comfort. Uplifting sound. Beosound A9 draws you nearer to the musicians you adore,no matter where you are or what you're doing.</p>",
+            "font": "secondary",
+            "enable_custom_text_styling": true,
+            "font_weight": "400",
+            "font_size": "18px"
+          }
+        },
+        "80b63c6b-0676-42dc-b2dd-dae7ac07c551": {
+          "type": "button",
+          "settings": {
+            "link_text": "Discover now",
+            "link_url": "/",
+            "button_style": "primary solid"
+          }
+        },
+        "4779e3d2-8b26-4a75-a443-5be46a3888a4": {
+          "type": "spacer",
+          "settings": {
+            "height": 35,
+            "height_mobile": 20
+          }
+        }
+      },
+      "block_order": [
+        "201b99cb-5168-4611-993a-b1dea29b7ad1",
+        "280f4b02-41f9-472a-8074-431bb72e6991",
+        "41e7d7f3-5e90-433e-a148-07b01e6e4b4d",
+        "80b63c6b-0676-42dc-b2dd-dae7ac07c551",
+        "4779e3d2-8b26-4a75-a443-5be46a3888a4"
+      ],
+      "disabled": true,
+      "settings": {
+        "width": "wide",
+        "height": "xs",
+        "enable_custom_height": false,
+        "custom_height": 300,
+        "color_palette": "",
+        "background_overlay_opacity": 0,
+        "background_position": "left",
+        "background_width": 100,
+        "background_height": 100,
+        "background_color_section": true,
+        "text_position": "align-center text-center",
+        "content_width": 900,
+        "height_mobile": "xs",
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 0,
+        "spacing_mobile": 0,
+        "fix_zindex": 0
+      }
+    },
+    "ed153ab6-765b-4377-941d-851867030a7b": {
+      "type": "section-flexible",
+      "blocks": {
+        "76c9b346-4703-4e2d-9348-845add5bc25c": {
+          "type": "image",
+          "settings": {
+            "fill_image": true,
+            "image_opacity": 100,
+            "color_palette": "scheme-2",
+            "overlay_opacity_img": 0,
+            "horizontal_position": 58,
+            "vertical_position": 0,
+            "image_width": 33,
+            "constrain": true,
+            "image_height": 50,
+            "border_radius": 0,
+            "shape": "none",
+            "link_url": "",
+            "mobile_hide": false,
+            "mobile_sizes": true,
+            "image_width_mobile": 98,
+            "image_height_mobile": 81
+          }
+        },
+        "0446aeb8-a6c8-4d64-8d62-48686de57898": {
+          "type": "image",
+          "settings": {
+            "fill_image": true,
+            "image_opacity": 100,
+            "color_palette": "scheme-2",
+            "overlay_opacity_img": 0,
+            "horizontal_position": 0,
+            "vertical_position": 0,
+            "image_width": 31,
+            "constrain": true,
+            "image_height": 58,
+            "border_radius": 8,
+            "shape": "none",
+            "link_url": "",
+            "mobile_hide": false,
+            "mobile_sizes": false,
+            "image_width_mobile": 50,
+            "image_height_mobile": 50
+          }
+        },
+        "template--19595896783169__ed153ab6-765b-4377-941d-851867030a7b-content-1": {
+          "type": "content",
+          "settings": {
+            "text_alignment": "left",
+            "content_width": 540,
+            "content_opacity": 100,
+            "background_color_palette": "white",
+            "enable_background": true,
+            "background_overlay_opacity": 0,
+            "background_radius": 0,
+            "horizontal_position": 100,
+            "vertical_position": 5,
+            "title": "<h2>Atelier Limited Editions</h2>",
+            "title_underline_style": "none",
+            "enable_custom_title_size": false,
+            "custom_title_size": 42,
+            "text": "<p>Only a limited number of each speaker are available.<br/>Enjoy the sound of Bang & Olufsen.</p>",
+            "enable_custom_font_styling": false,
+            "text_font": "primary",
+            "font_size": "18px",
+            "show_first_link": true,
+            "first_link_text": "Discover now",
+            "first_link_url": "/",
+            "first_button_style": "secondary plain",
+            "show_second_link": false,
+            "second_link_text": "Button",
+            "second_link_url": "/",
+            "second_button_style": "secondary plain",
+            "background_color_palette_mobile": "white",
+            "mobile_hide": false
+          }
+        },
+        "6ed50eab-df18-4426-9211-061769db3df0": {
+          "type": "video",
+          "settings": {
+            "fill_video": true,
+            "image_opacity": 100,
+            "enable_controls": false,
+            "video_mute": true,
+            "color_palette": "scheme-2",
+            "overlay_opacity_img": 0,
+            "horizontal_position": 27,
+            "vertical_position": 30,
+            "image_width": 33,
+            "constrain": false,
+            "image_height": 48,
+            "border_radius": 8,
+            "mobile_hide": false,
+            "mobile_sizes": true,
+            "image_width_mobile": 60,
+            "image_height_mobile": 55
+          }
+        },
+        "a578be17-9b12-41d9-be7b-7e5efddeceb7": {
+          "type": "image",
+          "settings": {
+            "fill_image": false,
+            "image_opacity": 100,
+            "color_palette": "scheme-2",
+            "overlay_opacity_img": 0,
+            "horizontal_position": 100,
+            "vertical_position": 50,
+            "image_width": 50,
+            "constrain": false,
+            "image_height": 50,
+            "border_radius": 0,
+            "shape": "none",
+            "link_url": "",
+            "mobile_hide": true,
+            "mobile_sizes": true,
+            "image_width_mobile": 83,
+            "image_height_mobile": 71
+          }
+        }
+      },
+      "block_order": [
+        "76c9b346-4703-4e2d-9348-845add5bc25c",
+        "0446aeb8-a6c8-4d64-8d62-48686de57898",
+        "template--19595896783169__ed153ab6-765b-4377-941d-851867030a7b-content-1",
+        "6ed50eab-df18-4426-9211-061769db3df0",
+        "a578be17-9b12-41d9-be7b-7e5efddeceb7"
+      ],
+      "disabled": true,
+      "settings": {
+        "transparent": true,
+        "background_color_palette": "scheme-5",
+        "background_overlay_opacity": 100,
+        "background_position": "left",
+        "background_width": 82,
+        "background_height": 68,
+        "width": "wide",
+        "custom_height": 78,
+        "custom_height_tablet": 80,
+        "layout_mobile": "flexible",
+        "content_below_media": true,
+        "media_mobile_height": "size-l",
+        "background_width_mobile": 80,
+        "background_height_mobile": 59,
+        "height_mobile": "xs",
+        "spacing_desktop": -300,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "arsenal_contact_form_PQagyc": {
+      "type": "arsenal-contact-form",
+      "blocks": {
+        "contact_info_jrzpb7": {
+          "type": "contact_info",
+          "settings": {
+            "icon": "location",
+            "content": "Gob. Vicente Villada 6, Ahuizotla, 53378 Naucalpan de Juárez, Méx."
+          }
+        },
+        "contact_info_UcFc9h": {
+          "type": "contact_info",
+          "settings": {
+            "icon": "phone",
+            "content": "5515537039"
+          }
+        }
+      },
+      "block_order": [
+        "contact_info_jrzpb7",
+        "contact_info_UcFc9h"
+      ],
+      "name": "Arsenal Contact Form",
+      "settings": {
+        "heading": "Contacto",
+        "text": "<p>Escríbenos y nos pondremos en contacto contigo lo antes posible.</p>",
+        "map_url": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7523.355397734888!2d-99.211942!3d19.469458000000003!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d2039713c171f9%3A0x509a5c8ad2652f2!2sARSENAL%20PROTECTION%20MEXICO!5e0!3m2!1ses-419!2smx!4v1768934695826!5m2!1ses-419!2smx\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+        "map_height": 250,
+        "label_name": "Nombre",
+        "placeholder_name": "Tu nombre completo",
+        "label_email": "Email",
+        "placeholder_email": "correo@ejemplo.com",
+        "label_phone": "Teléfono",
+        "placeholder_phone": "+1 (555) 000-0000",
+        "label_country": "País",
+        "placeholder_country": "Selecciona tu país",
+        "label_message": "Mensaje",
+        "placeholder_message": "¿Cómo podemos ayudarte?",
+        "button_text": "Enviar Mensaje",
+        "success_message": "¡Gracias! Tu mensaje ha sido enviado con éxito.",
+        "background_color": "#f9f9f9",
+        "card_background": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#ffffff",
+        "max_width": 1400,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "cf8678d5-3555-4d07-9e57-e627fdd3429e": {
+      "type": "section-spacer",
+      "settings": {
+        "height": 70,
+        "height_mobile": 0
+      }
+    },
+    "7a402088-4fac-4648-a5da-0d223645ac23": {
+      "type": "section-masonry",
+      "blocks": {
+        "template--19595896783169__7a402088-4fac-4648-a5da-0d223645ac23-image-1": {
+          "type": "image",
+          "settings": {
+            "overlay_opacity": 10,
+            "enable_controls": false,
+            "video_mute": true,
+            "color_palette": "scheme-2",
+            "text_position": "text-center",
+            "title": "<h3>Waterproof Bluetooth speaker</h3>",
+            "title_underline_style": "none",
+            "text": "",
+            "enable_custom_font_styling": false,
+            "font_size": "18px",
+            "show_link": true,
+            "link_text": "Shop now",
+            "link_url": "/",
+            "button_style": "primary plain",
+            "show_overlay_link": true,
+            "overlay_url": ""
+          }
+        },
+        "template--19595896783169__7a402088-4fac-4648-a5da-0d223645ac23-image-2": {
+          "type": "image",
+          "settings": {
+            "overlay_opacity": 0,
+            "enable_controls": false,
+            "video_mute": true,
+            "color_palette": "scheme-2",
+            "text_position": "align-end text-start",
+            "title": "<h3>Beoplay H95</h3>",
+            "title_underline_style": "none",
+            "text": "<p>Enjoy the sound of Bang & Olufsen</p>",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_link": true,
+            "link_text": "",
+            "link_url": "/",
+            "button_style": "primary plain",
+            "show_overlay_link": true,
+            "overlay_url": ""
+          }
+        },
+        "template--19595896783169__7a402088-4fac-4648-a5da-0d223645ac23-image-3": {
+          "type": "image",
+          "settings": {
+            "overlay_opacity": 5,
+            "enable_controls": false,
+            "video_mute": true,
+            "color_palette": "scheme-2",
+            "text_position": "text-center",
+            "title": "<h3>Designed to built to last</h3>",
+            "title_underline_style": "none",
+            "text": "",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_link": true,
+            "link_text": "Read more",
+            "link_url": "/",
+            "button_style": "primary plain",
+            "show_overlay_link": true,
+            "overlay_url": ""
+          }
+        },
+        "template--19595896783169__7a402088-4fac-4648-a5da-0d223645ac23-image-4": {
+          "type": "image",
+          "settings": {
+            "overlay_opacity": 0,
+            "enable_controls": false,
+            "video_mute": true,
+            "color_palette": "scheme-2",
+            "text_position": "align-end text-start",
+            "title": "<h3>Televisions</h3>",
+            "title_underline_style": "none",
+            "text": "<p>Experience the combination of television and speakers</p>",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_link": true,
+            "link_text": "",
+            "link_url": "/",
+            "button_style": "primary plain",
+            "show_overlay_link": true,
+            "overlay_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--19595896783169__7a402088-4fac-4648-a5da-0d223645ac23-image-1",
+        "template--19595896783169__7a402088-4fac-4648-a5da-0d223645ac23-image-2",
+        "template--19595896783169__7a402088-4fac-4648-a5da-0d223645ac23-image-3",
+        "template--19595896783169__7a402088-4fac-4648-a5da-0d223645ac23-image-4"
+      ],
+      "disabled": true,
+      "settings": {
+        "mirrored": false,
+        "width": "boxed",
+        "space_between": 12,
+        "image_zoom": true,
+        "layout_mobile": "compact",
+        "mobile_height": "size-m",
+        "spacing_desktop": 80,
+        "spacing_mobile": 30,
+        "fix_zindex": 3
+      }
+    },
+    "d66a43f9-eb08-46db-9803-1af6a52e0d58": {
+      "type": "section-static",
+      "disabled": true,
+      "settings": {
+        "width": "wide",
+        "transparent": false,
+        "layout": "layout_5",
+        "custom_height": 50,
+        "color_palette": "scheme-1",
+        "background_overlay_opacity": 50,
+        "image_1_overlay_opacity": 15,
+        "image_2_overlay_opacity": 0,
+        "image_3_overlay_opacity": 15,
+        "video_1_enable_controls": false,
+        "video_1_mute": true,
+        "video_1_overlay_opacity": 60,
+        "title": "<h2>Beosound Balance</h2>",
+        "recommended_heading_size": false,
+        "title_underline_style": "none",
+        "text": "<p>Bang & Olufsen BeoSound Balance. The BeoSound Balance is a 360 degree living room filling speaker with internet radio, Airplay 2 and Google cast</p>",
+        "show_link": true,
+        "link_text": "Discover now",
+        "link_url": "/",
+        "button_style": "secondary solid",
+        "slideshow_mobile_height": "size-m",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "54c30640-99ef-4027-ae0f-1703b381db1d": {
+      "type": "section-banner-columns",
+      "blocks": {
+        "template--19595896783169__54c30640-99ef-4027-ae0f-1703b381db1d-1689759164fd8d25d2-0": {
+          "type": "image",
+          "settings": {
+            "overlay_opacity": 5,
+            "enable_controls": false,
+            "video_mute": true,
+            "color_palette": "scheme-2",
+            "text_position": "end center",
+            "title": "<h3>Bluetooth speakers</h3>",
+            "title_underline_style": "none",
+            "text": "<p>Designed to be functional and visually appealing</p>",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_link": false,
+            "link_text": "",
+            "link_url": "/",
+            "button_style": "primary plain",
+            "show_overlay_link": true,
+            "overlay_url": ""
+          }
+        },
+        "template--19595896783169__54c30640-99ef-4027-ae0f-1703b381db1d-1689759164fd8d25d2-1": {
+          "type": "image",
+          "settings": {
+            "overlay_opacity": 0,
+            "enable_controls": false,
+            "video_mute": true,
+            "color_palette": "scheme-2",
+            "text_position": "end center",
+            "title": "<h3>Portable speakers</h3>",
+            "title_underline_style": "none",
+            "text": "<p>Well designed compact speakers</p>",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_link": false,
+            "link_text": "",
+            "link_url": "/",
+            "button_style": "primary plain",
+            "show_overlay_link": true,
+            "overlay_url": ""
+          }
+        },
+        "template--19595896783169__54c30640-99ef-4027-ae0f-1703b381db1d-1689759164fd8d25d2-2": {
+          "type": "image",
+          "settings": {
+            "overlay_opacity": 0,
+            "enable_controls": false,
+            "video_mute": true,
+            "color_palette": "scheme-2",
+            "text_position": "end center",
+            "title": "<h3>Headphones</h3>",
+            "title_underline_style": "none",
+            "text": "<p>In-ear, over-ear and bluetooth headphones</p>",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_link": false,
+            "link_text": "",
+            "link_url": "/",
+            "button_style": "primary plain",
+            "show_overlay_link": true,
+            "overlay_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--19595896783169__54c30640-99ef-4027-ae0f-1703b381db1d-1689759164fd8d25d2-0",
+        "template--19595896783169__54c30640-99ef-4027-ae0f-1703b381db1d-1689759164fd8d25d2-1",
+        "template--19595896783169__54c30640-99ef-4027-ae0f-1703b381db1d-1689759164fd8d25d2-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "items_width": 3,
+        "width": "boxed",
+        "height": "size-m",
+        "enable_custom_height": true,
+        "custom_height": 600,
+        "space_between": 30,
+        "image_zoom": false,
+        "show_content_below": false,
+        "layout_mobile": "compact",
+        "mobile_height": "1/1",
+        "spacing_desktop": 70,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "aba84caf-9ba8-44be-bd68-4450d4e11c9d": {
+      "type": "section-rich-text",
+      "blocks": {
+        "b3c04fc5-7abc-4de4-bb19-be5cb2812ef9": {
+          "type": "title",
+          "settings": {
+            "title": "<h3>‘’The speakers are known for their exceptional audio quality, characterized by a rich and balanced sound profile. They often produce crisp highs, deep, resonant lows, and clear midrange tones, creating an immersive and detailed listening experience. ’’</h3>",
+            "title_underline_style": "none"
+          }
+        },
+        "0aebd2a5-649d-43dd-a066-53938600d5fe": {
+          "type": "content",
+          "settings": {
+            "page": "",
+            "text": "<p><strong>Merchant</strong><br/>Store location</p>",
+            "font": "secondary",
+            "enable_custom_text_styling": false,
+            "font_weight": "400",
+            "font_size": "16px"
+          }
+        }
+      },
+      "block_order": [
+        "b3c04fc5-7abc-4de4-bb19-be5cb2812ef9",
+        "0aebd2a5-649d-43dd-a066-53938600d5fe"
+      ],
+      "disabled": true,
+      "settings": {
+        "width": "wide",
+        "height": "s",
+        "enable_custom_height": false,
+        "custom_height": 410,
+        "color_palette": "scheme-5",
+        "background_overlay_opacity": 100,
+        "background_position": "left",
+        "background_width": 100,
+        "background_height": 100,
+        "background_color_section": true,
+        "text_position": "align-center text-center",
+        "content_width": 1140,
+        "height_mobile": "m",
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 90,
+        "spacing_mobile": 40,
+        "fix_zindex": 0
+      }
+    },
+    "f161db6e-ec3e-49bc-9f77-9b2ac050455d": {
+      "type": "section-blog-posts",
+      "disabled": true,
+      "settings": {
+        "blog": "news",
+        "number_of_items": 3,
+        "text_alignment": "start",
+        "title": "<h3>Blog posts</h3>",
+        "title_underline_style": "none",
+        "show_link": false,
+        "link_text": "Button",
+        "link_url": "",
+        "button_style": "primary plain",
+        "custom_image_ratio": 75,
+        "show_image": true,
+        "show_tags": true,
+        "show_date": true,
+        "show_author": true,
+        "show_excerpt": false,
+        "button_style_post": "primary link",
+        "spacing_desktop": 140,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    }
+  },
+  "order": [
+    "hero_certificacion_YE6FgU",
+    "scroll_text_mask_reveal_aaECGH",
+    "14417d0b-5a73-41a7-b78e-b301455bcc51",
+    "fead47b1-756e-4aec-9652-9f507860d707",
+    "arsenal_collection_list_FdEbW9",
+    "section_collection_list_68grPz",
+    "arsenal_featured_grid_products_8DHCMB",
+    "arsenal_shop_the_look_iGCYaK",
+    "marquee_JzJhwG",
+    "arsenal_testimonials_btJT9P",
+    "section_testimonials_h4XtwT",
+    "marquee_KUgw9Q",
+    "775b0d3f-c52f-4fbc-86df-16c6438f3870",
+    "ed153ab6-765b-4377-941d-851867030a7b",
+    "arsenal_contact_form_PQagyc",
+    "cf8678d5-3555-4d07-9e57-e627fdd3429e",
+    "7a402088-4fac-4648-a5da-0d223645ac23",
+    "d66a43f9-eb08-46db-9803-1af6a52e0d58",
+    "54c30640-99ef-4027-ae0f-1703b381db1d",
+    "aba84caf-9ba8-44be-bd68-4450d4e11c9d",
+    "f161db6e-ec3e-49bc-9f77-9b2ac050455d"
+  ]
+}
