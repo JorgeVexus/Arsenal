@@ -3914,6 +3914,207 @@ figure .icon-play, figure .icon-cube { --size: 60px; }
   text-decoration: line-through !important;
 }
 
+/* ==========================================
+   APPLE DESIGN DEFAULT PRODUCT PAGE ELEVATION
+   ========================================== */
+
+/* 1. Main Product Container Layout & Spacing */
+#shopify-section-main-product,
+.product-wrapper,
+#content > .shopify-section:has(#main-product-content) {
+  padding-top: max(32px, var(--rpp)) !important;
+  padding-left: max(32px, var(--rpp)) !important;
+  padding-right: max(32px, var(--rpp)) !important;
+  padding-bottom: max(48px, var(--rpp)) !important;
+  box-sizing: border-box !important;
+  max-width: 1440px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+@media screen and (max-width: 767px) {
+  #shopify-section-main-product,
+  .product-wrapper {
+    padding-top: 20px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-bottom: 32px !important;
+  }
+}
+
+/* 2. Desktop Two-Column Layout & Sticky Details Panel */
+@media screen and (min-width: 990px) {
+  #shopify-section-main-product > article,
+  #shopify-section-main-product .cols,
+  .product-wrapper > article {
+    display: flex !important;
+    gap: 48px !important;
+    align-items: flex-start !important;
+  }
+
+  .l4pr-container {
+    flex: 1 1 60% !important;
+    max-width: 60% !important;
+  }
+
+  #main-product-content {
+    flex: 1 1 40% !important;
+    max-width: 40% !important;
+    position: sticky !important;
+    top: 110px !important;
+    align-self: flex-start !important;
+    z-index: 10 !important;
+  }
+}
+
+/* 3. Product Gallery Image Cards (Apple Elevated Modules) */
+.l4pr > li,
+#main-product-slider > li {
+  margin-bottom: 24px !important;
+  border-radius: 24px !important;
+  overflow: hidden !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02) !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.l4pr > li:hover,
+#main-product-slider > li:hover {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08) !important;
+}
+
+.l4pr > li figure,
+#main-product-slider > li figure {
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 24px !important;
+  overflow: hidden !important;
+  background: #f8f8f9 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  aspect-ratio: 1 / 1 !important;
+}
+
+.l4pr > li figure img,
+#main-product-slider > li figure img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 24px !important;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.l4pr > li:hover figure img,
+#main-product-slider > li:hover figure img {
+  transform: scale(1.04) !important;
+}
+
+/* 4. Product Details Box Typography */
+#main-product-content h1,
+#main-product-content h2.title,
+#main-product-content .product-title {
+  font-size: 2.1rem !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.025em !important;
+  color: #1d1d1f !important;
+  margin-top: 0 !important;
+  margin-bottom: 14px !important;
+}
+
+#main-product-content .short-description,
+#main-product-content p,
+#main-product-content div.m6lm {
+  font-size: 1.05rem !important;
+  line-height: 1.55 !important;
+  color: #333336 !important;
+  font-weight: 400 !important;
+  margin-bottom: 24px !important;
+}
+
+/* 5. WhatsApp Quote Button ("Solicitar Cotización" - Apple Primary CTA) */
+#main-product-content a[href*="whatsapp"],
+#main-product-content button[name="add"],
+#main-product-content .btn-whatsapp,
+#main-product-content a.submit-whatsapp,
+#main-product-content .f8pr-buy-button button,
+#main-product-content .f8pr-buy-button a {
+  background: linear-gradient(135deg, #ea5c10 0%, #f26b21 100%) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 99px !important;
+  padding: 16px 32px !important;
+  font-size: 1.08rem !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em !important;
+  box-shadow: 0 8px 24px rgba(234, 92, 16, 0.35) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 10px !important;
+  text-decoration: none !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  cursor: pointer !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, background 0.25s ease !important;
+}
+
+#main-product-content a[href*="whatsapp"]:hover,
+#main-product-content button[name="add"]:hover,
+#main-product-content .f8pr-buy-button button:hover,
+#main-product-content .f8pr-buy-button a:hover {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 0 14px 32px rgba(234, 92, 16, 0.45) !important;
+}
+
+#main-product-content a[href*="whatsapp"]:active,
+#main-product-content button[name="add"]:active,
+#main-product-content .f8pr-buy-button button:active,
+#main-product-content .f8pr-buy-button a:active {
+  transform: scale(0.97) !important;
+}
+
+/* 6. Social Share Button ("Comparte" - Apple Secondary Pill) */
+#main-product-content .share-btn,
+#main-product-content a.share-link,
+#main-product-content .social-share a,
+#main-product-content [class*="share"] a,
+#main-product-content button.share-btn {
+  background: rgba(0, 0, 0, 0.04) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  color: #1d1d1f !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 99px !important;
+  padding: 12px 24px !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  margin-top: 14px !important;
+  text-decoration: none !important;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease !important;
+}
+
+#main-product-content .share-btn:hover,
+#main-product-content a.share-link:hover,
+#main-product-content [class*="share"] a:hover {
+  background: rgba(0, 0, 0, 0.08) !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  transform: translateY(-1px) !important;
+}
+
+#main-product-content .share-btn:active,
+#main-product-content a.share-link:active,
+#main-product-content [class*="share"] a:active {
+  transform: scale(0.97) !important;
+}
+
+
 
 
 
