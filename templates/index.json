@@ -235,7 +235,7 @@
         "card_style": "overlay",
         "image_ratio": "1/1",
         "card_radius": 16,
-        "show_product_count": true,
+        "show_product_count": false,
         "product_singular": "producto",
         "product_plural": "productos",
         "show_arrow": true,

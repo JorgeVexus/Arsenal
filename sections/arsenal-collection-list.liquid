@@ -553,6 +553,7 @@
             <div class="cl-card-content-{{ section.id }}">
               <h3 class="cl-card-title-{{ section.id }}">{{ collection.title }}</h3>
               
+              {%- comment -%}
               {%- if section.settings.show_product_count -%}
                 <span class="cl-card-count-{{ section.id }}">
                   {{ collection.products_count }} 
@@ -563,6 +564,7 @@
                   {%- endif -%}
                 </span>
               {%- endif -%}
+              {%- endcomment -%}
             </div>
             {%- if section.settings.show_accent_line -%}
               <div class="cl-card-accent-{{ section.id }}"></div>
@@ -731,7 +733,7 @@
       "type": "checkbox",
       "id": "show_product_count",
       "label": "Mostrar Conteo de Productos",
-      "default": true
+      "default": false
     },
     {
       "type": "text",

@@ -3617,5 +3617,13 @@ figure .icon-play, figure .icon-cube { --size: 60px; }
   width: 100% !important;
 }
 
+/* Arsenal Protection Mexico - Disable Collection Product Counts Site-wide */
+[class*="cl-card-count"],
+.collection-count,
+.products-count {
+  display: none !important;
+}
+
+
 
 
