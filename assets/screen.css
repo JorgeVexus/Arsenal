@@ -3624,6 +3624,185 @@ figure .icon-play, figure .icon-cube { --size: 60px; }
   display: none !important;
 }
 
+/* ==========================================
+   APPLE DESIGN PRODUCT CARDS & COLLECTION PADDING
+   ========================================== */
+
+/* 1. Collection Layout Horizontal Side Padding */
+#shopify-section-main-collection,
+.collection-wrapper,
+#shopify-section-main-search {
+  padding-left: max(28px, var(--rpp)) !important;
+  padding-right: max(28px, var(--rpp)) !important;
+  box-sizing: border-box !important;
+  max-width: 1440px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+@media screen and (max-width: 767px) {
+  #shopify-section-main-collection,
+  .collection-wrapper,
+  #shopify-section-main-search {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+}
+
+/* 2. Collection Header & Toolbar Spacing */
+.collection-wrapper header.cols,
+.collection-wrapper .n6as,
+.collection-wrapper .f8fl,
+.collection-wrapper .l4vw {
+  padding: 8px 0;
+  margin-bottom: 24px;
+}
+
+.collection-wrapper .l4cl {
+  gap: 24px;
+  margin-top: 16px;
+}
+
+/* 3. Apple Design Elevated Product Cards */
+.l4cl > li.product-card,
+.product-card,
+#collection.l4cl > li {
+  background: #ffffff !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+  overflow: hidden !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  position: relative !important;
+}
+
+/* Apple Rule #1: Response on Press (Touch-down) & Hover Lift */
+.l4cl > li.product-card:hover,
+.product-card:hover,
+#collection.l4cl > li:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.09), 0 4px 12px rgba(0, 0, 0, 0.04) !important;
+  border-color: rgba(234, 92, 16, 0.3) !important;
+}
+
+.l4cl > li.product-card:active,
+.product-card:active,
+#collection.l4cl > li:active {
+  transform: scale(0.98) translateY(-2px) !important;
+  transition: transform 0.1s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* 4. Product Image Container & Smooth Zoom */
+.l4cl > li.product-card figure,
+.product-card figure,
+#collection.l4cl > li figure {
+  background: #fcfcfd !important;
+  border-radius: 16px 16px 0 0 !important;
+  overflow: hidden !important;
+  position: relative !important;
+  margin: 0 !important;
+  padding: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.l4cl > li.product-card figure img,
+.product-card figure img,
+#collection.l4cl > li figure img {
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  object-fit: contain !important;
+  max-height: 280px !important;
+}
+
+.l4cl > li.product-card:hover figure img,
+.product-card:hover figure img,
+#collection.l4cl > li:hover figure img {
+  transform: scale(1.07) !important;
+}
+
+/* 5. Glassmorphism Quick Buy / Quickshop Button (Apple Rule #12) */
+.product-card .quickshop a,
+.product-card .link-btn a,
+#collection.l4cl > li .link-btn a {
+  background: rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  color: #1d1d1f !important;
+  border: 1px solid rgba(255, 255, 255, 0.6) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1) !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.product-card .quickshop a:hover,
+.product-card .link-btn a:hover,
+#collection.l4cl > li .link-btn a:hover {
+  background: #ea5c10 !important;
+  color: #ffffff !important;
+  transform: scale(1.12) !important;
+  box-shadow: 0 8px 24px rgba(234, 92, 16, 0.45) !important;
+}
+
+.product-card .quickshop a:active,
+.product-card .link-btn a:active,
+#collection.l4cl > li .link-btn a:active {
+  transform: scale(0.92) !important;
+}
+
+/* 6. Typography & Details Box Padding */
+.product-card > div:not(figure),
+#collection.l4cl > li > div:not(figure) {
+  padding: 18px 20px 22px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  background: #ffffff !important;
+}
+
+.product-card h3,
+#collection.l4cl > li h3 {
+  margin: 0 !important;
+  font-size: 1.08rem !important;
+  font-weight: 600 !important;
+  line-height: 1.35 !important;
+  letter-spacing: -0.015em !important;
+}
+
+.product-card h3 a,
+#collection.l4cl > li h3 a {
+  color: #1d1d1f !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+
+.product-card:hover h3 a,
+#collection.l4cl > li:hover h3 a {
+  color: #ea5c10 !important;
+}
+
+.product-card .s1pr,
+#collection.l4cl > li .s1pr {
+  margin-top: 4px !important;
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  color: #1d1d1f !important;
+  letter-spacing: -0.02em !important;
+}
+
+.product-card .s1pr .old-price,
+#collection.l4cl > li .s1pr .old-price {
+  font-size: 0.9rem !important;
+  font-weight: 400 !important;
+  color: #86868b !important;
+  text-decoration: line-through !important;
+}
+
+
 
 
 
