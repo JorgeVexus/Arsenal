@@ -1,0 +1,313 @@
+{
+  "sections": {
+    "ac11523d-6c23-4faf-8195-2c076b4e74fd": {
+      "type": "section-static",
+      "settings": {
+        "width": "wide",
+        "transparent": true,
+        "layout": "layout_7",
+        "custom_height": 50,
+        "color_palette": "scheme-7",
+        "background_overlay_opacity": 100,
+        "image_1_overlay_opacity": 0,
+        "image_2_overlay_opacity": 0,
+        "image_3_overlay_opacity": 0,
+        "video_1_enable_controls": false,
+        "video_1_mute": true,
+        "video_1_overlay_opacity": 14,
+        "title": "<h4>B&O</h4><h1>Beoplay EX</h1>",
+        "recommended_heading_size": true,
+        "title_underline_style": "none",
+        "text": "<h4>Noise-Canceling In-Ear Earbuds.</h4>",
+        "show_link": true,
+        "link_text": "Discover now",
+        "link_url": "/",
+        "button_style": "primary solid",
+        "slideshow_mobile_height": "size-m",
+        "spacing_desktop": -10,
+        "spacing_mobile": 0,
+        "fix_zindex": 2
+      }
+    },
+    "f09b6dee-afa6-465f-93dc-5e73a40e52e0": {
+      "type": "section-image-with-text",
+      "blocks": {
+        "template--20703577571649__f09b6dee-afa6-465f-93dc-5e73a40e52e0-title-1": {
+          "type": "title",
+          "settings": {
+            "title": "<h3>Headphone with active noise cancelling</h3>",
+            "title_underline_style": "none"
+          }
+        },
+        "template--20703577571649__f09b6dee-afa6-465f-93dc-5e73a40e52e0-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Passion, design and craftsmanship led to the creation of our best headphones with active noise cancelling<br/><br/><strong>Battery Playing time<br/></strong>19 hours<br/><br/><strong>Frequency range</strong><br/>20-22,000 hz<br/><br/><strong>Bluetooth versie</strong><br/>Bluetooth 5.1</p>",
+            "font": "secondary",
+            "enable_custom_text_styling": false,
+            "font_size": "16px"
+          }
+        },
+        "template--20703577571649__f09b6dee-afa6-465f-93dc-5e73a40e52e0-buttons-1": {
+          "type": "buttons",
+          "settings": {
+            "show_first_link": true,
+            "first_link_text": "Discover now",
+            "first_link_url": "/",
+            "first_button_style": "secondary plain",
+            "show_second_link": false,
+            "second_link_text": "Button",
+            "second_link_url": "/",
+            "second_button_style": "secondary plain"
+          }
+        }
+      },
+      "block_order": [
+        "template--20703577571649__f09b6dee-afa6-465f-93dc-5e73a40e52e0-title-1",
+        "template--20703577571649__f09b6dee-afa6-465f-93dc-5e73a40e52e0-text-1",
+        "template--20703577571649__f09b6dee-afa6-465f-93dc-5e73a40e52e0-buttons-1"
+      ],
+      "settings": {
+        "fill_image": false,
+        "overlay_opacity_img": 0,
+        "enable_controls": false,
+        "video_mute": true,
+        "width": "boxed",
+        "height": "size-m",
+        "enable_custom_height": false,
+        "custom_height": 300,
+        "color_palette": "scheme-1",
+        "overlay_opacity": 0,
+        "layout": "image-left",
+        "text_position": "text-start",
+        "background_color_palette": "scheme-5",
+        "background_overlay_opacity": 100,
+        "background_position": "left",
+        "background_width": 29,
+        "background_height": 100,
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 100,
+        "spacing_mobile": 40,
+        "fix_zindex": 0
+      }
+    },
+    "965cc171-3bf5-4f7c-b5de-dcced37badd4": {
+      "type": "section-collection-list",
+      "settings": {
+        "custom_image_ratio": 100,
+        "show_in_circle": true,
+        "fill_images": true,
+        "layout": "slider",
+        "number_of_items": 4,
+        "show_below": true,
+        "show_arrow": true,
+        "color_palette": "scheme-2",
+        "image_overlay_opacity": 25,
+        "text_alignment": "center",
+        "background_color_palette": "scheme-5",
+        "background_overlay_opacity": 0,
+        "background_position": "left",
+        "background_width": 29,
+        "background_height": 100,
+        "title": "<h3>You may also like</h3>",
+        "title_underline_style": "none",
+        "show_link": true,
+        "link_text": "",
+        "link_url": "",
+        "button_style": "primary plain",
+        "collection_title_position": "center",
+        "show_collection_titles": true,
+        "collection_title_size": "h4",
+        "mobile_layout": "slider",
+        "number_of_items_mobile": "w100-mobile",
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 100,
+        "spacing_mobile": 0,
+        "fix_zindex": 0
+      }
+    },
+    "dbdbf204-d146-4880-a506-b872bacd9f52": {
+      "type": "section-featured-products",
+      "settings": {
+        "number_of_items": 5,
+        "text_alignment": "start",
+        "color_palette": "scheme-5",
+        "background_overlay_opacity": 100,
+        "background_position": "left",
+        "background_width": 29,
+        "background_height": 100,
+        "title": "<h3>More headphones</h3>",
+        "title_underline_style": "none",
+        "text": "",
+        "enable_custom_font_styling": false,
+        "font_size": "14px",
+        "show_link": true,
+        "link_text": "Discover all",
+        "link_url": "/",
+        "button_style": "secondary plain",
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 30,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "2f40c085-f6b4-4003-a4a8-335a69c0f0cf": {
+      "type": "section-video-banner",
+      "blocks": {
+        "template--20703577571649__2f40c085-f6b4-4003-a4a8-335a69c0f0cf-title-1": {
+          "type": "title",
+          "settings": {
+            "title": "<h3>Beoplay H95</h3>",
+            "title_underline_style": "none"
+          }
+        },
+        "template--20703577571649__2f40c085-f6b4-4003-a4a8-335a69c0f0cf-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>BeoPlay H95. 95 years of passion, design and craftsmanship led to the creation of our best headphones with Active Noise Cancelling.</p>",
+            "font": "secondary",
+            "font_size": "16px"
+          }
+        },
+        "template--20703577571649__2f40c085-f6b4-4003-a4a8-335a69c0f0cf-buttons-1": {
+          "type": "buttons",
+          "settings": {
+            "show_first_link": true,
+            "first_link_text": "Discover now",
+            "first_link_url": "/",
+            "first_button_style": "secondary plain",
+            "show_second_link": true,
+            "second_link_text": "All headphones",
+            "second_link_url": "/",
+            "second_button_style": "secondary inv"
+          }
+        }
+      },
+      "block_order": [
+        "template--20703577571649__2f40c085-f6b4-4003-a4a8-335a69c0f0cf-title-1",
+        "template--20703577571649__2f40c085-f6b4-4003-a4a8-335a69c0f0cf-text-1",
+        "template--20703577571649__2f40c085-f6b4-4003-a4a8-335a69c0f0cf-buttons-1"
+      ],
+      "settings": {
+        "overlay_opacity": 0,
+        "enable_controls": false,
+        "video_mute": true,
+        "video_url": "",
+        "video_alt_text": "",
+        "width": "boxed",
+        "text_position": "center",
+        "color_palette": "scheme-1",
+        "background_overlay_opacity": 100,
+        "background_position": "left",
+        "background_width": 100,
+        "background_height": 100,
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 0,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {
+        "hide_mobile": false,
+        "back_button": false
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "sorting": {
+          "type": "sorting",
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {}
+        },
+        "423fb7f6-2c97-4420-8211-d45378349d2a": {
+          "type": "description",
+          "settings": {
+            "text_alignment": "left",
+            "enable_read_more": false,
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "sorting",
+        "product_grid",
+        "423fb7f6-2c97-4420-8211-d45378349d2a"
+      ],
+      "disabled": true,
+      "settings": {
+        "pagination_qty": 12,
+        "pagination_type": "pages",
+        "show_amount_of_products_in_collection": true,
+        "products_per_row": 2,
+        "secondary_products_per_row": 3,
+        "fill_images": false,
+        "fill_not_first": false,
+        "images_padding": 0,
+        "images_vertical_position": 0,
+        "show_collection_image": false,
+        "enable_filters": true,
+        "enable_menu": false,
+        "enable_collections": true,
+        "filters_layout": "drawer",
+        "enable_filters_checkboxes": true,
+        "collections_menu": [],
+        "main_menu_items_clickable": true,
+        "filter_sticky": false,
+        "filters_show_more_limit": 5,
+        "enable_custom_filters_font_size": true,
+        "filters_font_size": "14px",
+        "image_swatches_size": "xs",
+        "image_swatches_fill_images": true,
+        "image_swatches_show_in_circle": true,
+        "fix_zindex": 1
+      }
+    },
+    "355ac00d-f828-42d6-84fd-4482421a1575": {
+      "type": "section-featured-products",
+      "settings": {
+        "number_of_items": 4,
+        "text_alignment": "start",
+        "color_palette": "",
+        "background_overlay_opacity": 0,
+        "background_position": "left",
+        "background_width": 50,
+        "background_height": 100,
+        "title": "<h3>In ear headphones</h3>",
+        "title_underline_style": "none",
+        "text": "",
+        "enable_custom_font_styling": false,
+        "font_size": "14px",
+        "show_link": true,
+        "link_text": "Discover all",
+        "link_url": "/",
+        "button_style": "secondary plain",
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    }
+  },
+  "order": [
+    "ac11523d-6c23-4faf-8195-2c076b4e74fd",
+    "breadcrumbs",
+    "f09b6dee-afa6-465f-93dc-5e73a40e52e0",
+    "965cc171-3bf5-4f7c-b5de-dcced37badd4",
+    "dbdbf204-d146-4880-a506-b872bacd9f52",
+    "2f40c085-f6b4-4003-a4a8-335a69c0f0cf",
+    "main-collection",
+    "355ac00d-f828-42d6-84fd-4482421a1575"
+  ]
+}

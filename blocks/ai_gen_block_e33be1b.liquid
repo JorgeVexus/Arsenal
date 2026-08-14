@@ -1,0 +1,385 @@
+{% doc %}
+  @prompt
+    seccion de texto con 2 imagenes destacadas, texto a la izaquierda, las 2 imagenes a la derecha, responsive con efecto de animación de entrada y hover efect sobre las 2 imagenes
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-text-images-{{ ai_gen_id }} {
+    display: block;
+    width: 100%;
+    padding: {{ block.settings.section_padding }}px 0;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-text-images-container-{{ ai_gen_id }} {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ai-text-images-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: {{ block.settings.grid_gap }}px;
+    align-items: center;
+  }
+
+  .ai-text-images-text-{{ ai_gen_id }} {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .ai-text-images-text-{{ ai_gen_id }}.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .ai-text-images-heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.heading_size }}px;
+    color: {{ block.settings.heading_color }};
+    margin: 0 0 {{ block.settings.text_spacing }}px;
+    line-height: 1.2;
+  }
+
+  .ai-text-images-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.text_size }}px;
+    color: {{ block.settings.text_color }};
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .ai-text-images-images-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: {{ block.settings.image_gap }}px;
+  }
+
+  .ai-text-images-image-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    overflow: hidden;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .ai-text-images-image-wrapper-{{ ai_gen_id }}:nth-child(1) {
+    transition-delay: 0.2s;
+  }
+
+  .ai-text-images-image-wrapper-{{ ai_gen_id }}:nth-child(2) {
+    transition-delay: 0.4s;
+  }
+
+  .ai-text-images-image-wrapper-{{ ai_gen_id }}.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .ai-text-images-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+
+  .ai-text-images-image-wrapper-{{ ai_gen_id }}:hover .ai-text-images-image-{{ ai_gen_id }} {
+    transform: scale({{ block.settings.hover_scale }});
+  }
+
+  .ai-text-images-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: {{ block.settings.image_border_radius }}px;
+  }
+
+  .ai-text-images-placeholder-{{ ai_gen_id }} svg {
+    width: 60%;
+    height: 60%;
+    opacity: 0.3;
+  }
+
+  @media screen and (max-width: 768px) {
+    .ai-text-images-grid-{{ ai_gen_id }} {
+      grid-template-columns: 1fr;
+      gap: {{ block.settings.mobile_gap }}px;
+    }
+
+    .ai-text-images-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size | times: 0.7 }}px;
+    }
+
+    .ai-text-images-description-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size | times: 0.9 }}px;
+    }
+
+    .ai-text-images-text-{{ ai_gen_id }} {
+      transform: translateX(0);
+      transform: translateY(-20px);
+    }
+  }
+{% endstyle %}
+
+<text-with-images-{{ ai_gen_id }} class="ai-text-images-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-text-images-container-{{ ai_gen_id }}">
+    <div class="ai-text-images-grid-{{ ai_gen_id }}">
+      <div class="ai-text-images-text-{{ ai_gen_id }}" data-animate>
+        {% if block.settings.heading != blank %}
+          <h2 class="ai-text-images-heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+        {% endif %}
+        {% if block.settings.description != blank %}
+          <div class="ai-text-images-description-{{ ai_gen_id }}">{{ block.settings.description }}</div>
+        {% endif %}
+      </div>
+
+      <div class="ai-text-images-images-{{ ai_gen_id }}">
+        <div class="ai-text-images-image-wrapper-{{ ai_gen_id }}" data-animate>
+          {% if block.settings.image_1 %}
+            <img
+              src="{{ block.settings.image_1 | image_url: width: 600 }}"
+              alt="{{ block.settings.image_1.alt | escape }}"
+              class="ai-text-images-image-{{ ai_gen_id }}"
+              loading="lazy"
+              width="{{ block.settings.image_1.width }}"
+              height="{{ block.settings.image_1.height }}"
+            >
+          {% else %}
+            <div class="ai-text-images-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="ai-text-images-image-wrapper-{{ ai_gen_id }}" data-animate>
+          {% if block.settings.image_2 %}
+            <img
+              src="{{ block.settings.image_2 | image_url: width: 600 }}"
+              alt="{{ block.settings.image_2.alt | escape }}"
+              class="ai-text-images-image-{{ ai_gen_id }}"
+              loading="lazy"
+              width="{{ block.settings.image_2.width }}"
+              height="{{ block.settings.image_2.height }}"
+            >
+          {% else %}
+            <div class="ai-text-images-placeholder-{{ ai_gen_id }}">
+              {{ 'image' | placeholder_svg_tag }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</text-with-images-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class TextWithImages{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.observer = null;
+      }
+
+      connectedCallback() {
+        this.setupIntersectionObserver();
+      }
+
+      setupIntersectionObserver() {
+        const options = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+
+        this.observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        }, options);
+
+        const animateElements = this.querySelectorAll('[data-animate]');
+        animateElements.forEach((element) => {
+          this.observer.observe(element);
+        });
+      }
+
+      disconnectedCallback() {
+        if (this.observer) {
+          this.observer.disconnect();
+        }
+      }
+    }
+
+    customElements.define('text-with-images-{{ ai_gen_id }}', TextWithImages{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Text with images",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Discover our story</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>We are passionate about creating exceptional products that make a difference in your daily life. Our commitment to quality and innovation drives everything we do.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    },
+    {
+      "type": "range",
+      "id": "image_gap",
+      "label": "Gap between images",
+      "min": 0,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "Image border radius",
+      "min": 0,
+      "max": 40,
+      "step": 5,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "hover_scale",
+      "label": "Hover zoom effect",
+      "min": 1,
+      "max": 1.5,
+      "step": 0.1,
+      "default": 1.1
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "section_padding",
+      "label": "Section padding",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "label": "Gap between text and images",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "mobile_gap",
+      "label": "Mobile gap",
+      "min": 20,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Heading size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Text size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "text_spacing",
+      "label": "Spacing below heading",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#333333"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text with images"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,592 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .arsenal-contact-section {
+    background: {{ section.settings.background_color }};
+  }
+
+  .arsenal-contact-container {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .arsenal-contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    background: {{ section.settings.card_background }};
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+
+  @media screen and (min-width: 990px) {
+    .arsenal-contact-grid {
+      grid-template-columns: 1fr 1.5fr;
+      padding: 60px;
+      gap: 80px;
+    }
+  }
+
+  .arsenal-contact-info h2 {
+    margin-top: 0;
+    font-size: clamp(24px, 5vw, 40px);
+    line-height: 1.1;
+  }
+
+  .arsenal-contact-info .rte {
+    margin-top: 15px;
+    color: rgba(0,0,0,0.7);
+  }
+
+  .arsenal-contact-details {
+    margin-top: 40px;
+  }
+
+  .contact-detail-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .contact-detail-item svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  /* Map Styles */
+  .arsenal-map-container {
+    margin-top: 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  .arsenal-map-container iframe {
+    width: 100%;
+    height: {{ section.settings.map_height }}px;
+    border: none;
+    display: block;
+  }
+
+  @media screen and (max-width: 749px) {
+    .arsenal-map-container iframe {
+      height: {{ section.settings.map_height | times: 0.7 | round: 0 }}px;
+    }
+  }
+
+  /* Form Styles */
+  .arsenal-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .form-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-field label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+  }
+
+  .form-field input, 
+  .form-field select, 
+  .form-field textarea {
+    padding: 12px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    outline: none;
+  }
+
+  .form-field input:focus, 
+  .form-field select:focus, 
+  .form-field textarea:focus {
+    border-color: {{ section.settings.button_background }};
+    box-shadow: 0 0 0 4px {{ section.settings.button_background | color_modify: 'alpha', 0.1 }};
+  }
+
+  .form-field textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .form-submit-btn {
+    background: {{ section.settings.button_background }};
+    color: {{ section.settings.button_text_color }};
+    padding: 16px 32px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    width: max-content;
+  }
+
+  .form-submit-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
+
+  .form-submit-btn:active {
+    transform: translateY(0);
+  }
+
+  .form-status {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .form-status--success {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+  }
+
+  .form-status--error {
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+  }
+{%- endstyle -%}
+
+<section class="arsenal-contact-section section-{{ section.id }}-padding">
+  <div class="arsenal-contact-container">
+    <div class="arsenal-contact-grid">
+      
+      <div class="arsenal-contact-info">
+        {%- if section.settings.heading != blank -%}
+          <h2>{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <div class="rte">{{ section.settings.text }}</div>
+        {%- endif -%}
+
+        <div class="arsenal-contact-details">
+          {%- for block in section.blocks -%}
+            <div class="contact-detail-item" {{ block.shopify_attributes }}>
+              {%- if block.settings.icon == 'email' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              {%- elsif block.settings.icon == 'phone' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              {%- elsif block.settings.icon == 'location' -%}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              {%- endif -%}
+              <span>{{ block.settings.content }}</span>
+            </div>
+          {%- endfor -%}
+        </div>
+
+        {%- if section.settings.map_url != blank -%}
+          <div class="arsenal-map-container">
+            {%- assign map_url = section.settings.map_url -%}
+            {%- comment -%} Check if it's already an iframe code {%- endcomment -%}
+            {%- if map_url contains '<iframe' -%}
+              {{ map_url }}
+            {%- else -%}
+              {%- comment -%} Convert Google Maps URL to embed URL {%- endcomment -%}
+              {%- if map_url contains 'google.com/maps' -%}
+                {%- if map_url contains '/embed' -%}
+                  <iframe src="{{ map_url }}" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                {%- elsif map_url contains '@' -%}
+                  {%- comment -%} Extract coordinates from URL like maps.google.com/@19.123,-99.456,15z {%- endcomment -%}
+                  {%- assign coords_part = map_url | split: '@' | last | split: '/' | first -%}
+                  {%- assign coords = coords_part | split: ',' -%}
+                  <iframe src="https://www.google.com/maps?q={{ coords[0] }},{{ coords[1] }}&z={{ coords[2] | remove: 'z' | default: 15 }}&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                {%- elsif map_url contains 'place/' -%}
+                  {%- comment -%} Handle place URLs {%- endcomment -%}
+                  {%- assign place_name = map_url | split: 'place/' | last | split: '/' | first | url_encode -%}
+                  <iframe src="https://www.google.com/maps?q={{ place_name }}&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                {%- else -%}
+                  {%- comment -%} Fallback: use URL as search query {%- endcomment -%}
+                  <iframe src="https://www.google.com/maps?q={{ map_url | url_encode }}&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                {%- endif -%}
+              {%- else -%}
+                {%- comment -%} Treat as address/search query {%- endcomment -%}
+                <iframe src="https://www.google.com/maps?q={{ map_url | url_encode }}&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              {%- endif -%}
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="contact-form-wrapper">
+        {%- form 'contact', id: 'ContactForm' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="form-status form-status--success" tabindex="-1" autofocus>
+              {{ section.settings.success_message }}
+            </div>
+          {%- elsif form.errors -%}
+            <div class="form-status form-status--error">
+              {{ form.errors | default_errors }}
+            </div>
+          {%- endif -%}
+
+          <div class="arsenal-contact-form">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="ContactForm-name">{{ section.settings.label_name }}</label>
+                <input
+                  type="text"
+                  id="ContactForm-name"
+                  name="contact[name]"
+                  value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+                  placeholder="{{ section.settings.placeholder_name }}"
+                  required
+                >
+              </div>
+              <div class="form-field">
+                <label for="ContactForm-email">{{ section.settings.label_email }}</label>
+                <input
+                  type="email"
+                  id="ContactForm-email"
+                  name="contact[email]"
+                  spellcheck="false"
+                  autocapitalize="off"
+                  value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                  aria-required="true"
+                  {% if form.errors contains 'email' %}
+                    aria-invalid="true"
+                    aria-describedby="ContactForm-email-error"
+                  {% endif %}
+                  placeholder="{{ section.settings.placeholder_email }}"
+                  required
+                >
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="ContactForm-phone">{{ section.settings.label_phone }}</label>
+                <input
+                  type="tel"
+                  id="ContactForm-phone"
+                  name="contact[phone]"
+                  pattern="[0-9\- \(\)\+\s]*"
+                  value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+                  placeholder="{{ section.settings.placeholder_phone }}"
+                >
+              </div>
+              <div class="form-field">
+                <label for="ContactForm-country">{{ section.settings.label_country }}</label>
+                <select id="ContactForm-country" name="contact[country]">
+                  <option value="" disabled selected>{{ section.settings.placeholder_country }}</option>
+                  
+                  <optgroup label="América del Norte">
+                    <option value="Canada">Canadá</option>
+                    <option value="USA">Estados Unidos</option>
+                    <option value="Mexico">México</option>
+                  </optgroup>
+
+                  <optgroup label="América Central">
+                    <option value="Belize">Belice</option>
+                    <option value="Costa Rica">Costa Rica</option>
+                    <option value="El Salvador">El Salvador</option>
+                    <option value="Guatemala">Guatemala</option>
+                    <option value="Honduras">Honduras</option>
+                    <option value="Nicaragua">Nicaragua</option>
+                    <option value="Panama">Panamá</option>
+                  </optgroup>
+
+                  <optgroup label="El Caribe">
+                    <option value="Cuba">Cuba</option>
+                    <option value="Puerto Rico">Puerto Rico</option>
+                    <option value="Republica Dominicana">República Dominicana</option>
+                    <option value="Other Caribbean">Otros países del Caribe</option>
+                  </optgroup>
+
+                  <optgroup label="América del Sur">
+                    <option value="Argentina">Argentina</option>
+                    <option value="Bolivia">Bolivia</option>
+                    <option value="Brazil">Brasil</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Colombia">Colombia</option>
+                    <option value="Ecuador">Ecuador</option>
+                    <option value="Guyana">Guyana</option>
+                    <option value="Paraguay">Paraguay</option>
+                    <option value="Peru">Perú</option>
+                    <option value="Suriname">Surinam</option>
+                    <option value="Uruguay">Uruguay</option>
+                    <option value="Venezuela">Venezuela</option>
+                  </optgroup>
+
+                  <optgroup label="Otros">
+                    <option value="Spain">España</option>
+                    <option value="Other">Otro país</option>
+                  </optgroup>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="ContactForm-body">{{ section.settings.label_message }}</label>
+              <textarea
+                rows="10"
+                id="ContactForm-body"
+                name="contact[body]"
+                placeholder="{{ section.settings.placeholder_message }}"
+                required
+              >
+                {{- form.body -}}
+              </textarea>
+            </div>
+
+            <button type="submit" class="form-submit-btn">
+              {{ section.settings.button_text }}
+            </button>
+          </div>
+        {%- endform -%}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Arsenal Contact Form",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Contacto"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Escríbenos y nos pondremos en contacto contigo lo antes posible.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Map Settings"
+    },
+    {
+      "type": "textarea",
+      "id": "map_url",
+      "label": "Google Maps URL or Embed Code",
+      "info": "Paste a Google Maps link, an address, or the full iframe embed code from Google Maps. Leave blank to hide the map."
+    },
+    {
+      "type": "range",
+      "id": "map_height",
+      "min": 150,
+      "max": 400,
+      "step": 25,
+      "unit": "px",
+      "label": "Map Height",
+      "default": 250
+    },
+    {
+      "type": "header",
+      "content": "Form Labels"
+    },
+    {
+      "type": "text",
+      "id": "label_name",
+      "label": "Name Label",
+      "default": "Nombre"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_name",
+      "label": "Name Placeholder",
+      "default": "Tu nombre completo"
+    },
+    {
+      "type": "text",
+      "id": "label_email",
+      "label": "Email Label",
+      "default": "Email"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_email",
+      "label": "Email Placeholder",
+      "default": "correo@ejemplo.com"
+    },
+    {
+      "type": "text",
+      "id": "label_phone",
+      "label": "Phone Label",
+      "default": "Teléfono"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_phone",
+      "label": "Phone Placeholder",
+      "default": "+1 (555) 000-0000"
+    },
+    {
+      "type": "text",
+      "id": "label_country",
+      "label": "Country Label",
+      "default": "País"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_country",
+      "label": "Country Placeholder",
+      "default": "Selecciona tu país"
+    },
+    {
+      "type": "text",
+      "id": "label_message",
+      "label": "Message Label",
+      "default": "Mensaje"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_message",
+      "label": "Message Placeholder",
+      "default": "¿Cómo podemos ayudarte?"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Enviar Mensaje"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success Message",
+      "default": "¡Gracias! Tu mensaje ha sido enviado con éxito."
+    },
+    {
+      "type": "header",
+      "content": "Design Settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section Background",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Form Card Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 800,
+      "max": 1400,
+      "step": 50,
+      "unit": "px",
+      "label": "Max Width",
+      "default": 1100
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "contact_info",
+      "name": "Contact Info Item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "email", "label": "Email" },
+            { "value": "phone", "label": "Phone" },
+            { "value": "location", "label": "Location" }
+          ],
+          "default": "email"
+        },
+        {
+          "type": "text",
+          "id": "content",
+          "label": "Content",
+          "default": "info@tumarca.com"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Arsenal Contact Form",
+      "blocks": [
+        { "type": "contact_info", "settings": { "icon": "email", "content": "contacto@arsenal.com" } },
+        { "type": "contact_info", "settings": { "icon": "phone", "content": "+1 234 567 890" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

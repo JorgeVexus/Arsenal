@@ -1,0 +1,731 @@
+{%- style -%}
+  /* Base Section Styles */
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  /* Featured Image Section */
+  .featured-image-section-{{ section.id }} {
+    position: relative;
+    background: {{ section.settings.background_color }};
+    overflow: hidden;
+  }
+  /* Decorative Gradient Orbs */
+  .featured-image-section-{{ section.id }} .fi-decoration {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  .featured-image-section-{{ section.id }} .fi-decoration-1 {
+    width: 500px;
+    height: 500px;
+    background: {{ section.settings.accent_color }};
+    top: -200px;
+    left: -150px;
+  }
+  .featured-image-section-{{ section.id }} .fi-decoration-2 {
+    width: 400px;
+    height: 400px;
+    background: {{ section.settings.secondary_accent }};
+    bottom: -150px;
+    right: -100px;
+  }
+  /* Container */
+  .featured-image-container-{{ section.id }} {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+  }
+  /* Header */
+  .fi-header-{{ section.id }} {
+    text-align: {{ section.settings.header_alignment }};
+    margin-bottom: 50px;
+    max-width: 900px;
+    {% if section.settings.header_alignment == 'center' %}
+      margin-left: auto;
+      margin-right: auto;
+    {% endif %}
+  }
+  .fi-header-{{ section.id }} .fi-badge {
+    display: inline-block;
+    padding: 10px 24px;
+    background: {{ section.settings.accent_color | color_modify: 'alpha', 0.1 }};
+    color: {{ section.settings.accent_color }};
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    margin-bottom: 24px;
+  }
+  .fi-header-{{ section.id }} h2 {
+    font-size: clamp(32px, 6vw, {{ section.settings.title_size }}px);
+    font-weight: 800;
+    color: {{ section.settings.heading_color }};
+    margin: 0 0 20px 0;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .fi-header-{{ section.id }} .fi-description {
+    font-size: clamp(16px, 2.5vw, {{ section.settings.description_size }}px);
+    color: {{ section.settings.text_color }};
+    line-height: 1.7;
+    margin: 0;
+    opacity: 0.85;
+  }
+  /* Image Wrapper */
+  .fi-image-wrapper-{{ section.id }} {
+    position: relative;
+    border-radius: {{ section.settings.image_border_radius }}px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 25px 80px {{ section.settings.accent_color | color_modify: 'alpha', 0.15 }};
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .fi-image-wrapper-{{ section.id }}:hover {
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0 40px 100px {{ section.settings.accent_color | color_modify: 'alpha', 0.25 }};
+  }
+  .fi-image-wrapper-{{ section.id }}::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg, 
+      transparent 50%, 
+      {{ section.settings.accent_color | color_modify: 'alpha', 0.3 }} 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .fi-image-wrapper-{{ section.id }}:hover::before {
+    opacity: 1;
+  }
+  /* Zoom Icon Overlay */
+  .fi-zoom-icon-{{ section.id }} {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 80px;
+    height: 80px;
+    background: {{ section.settings.accent_color }};
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 3;
+    box-shadow: 0 10px 40px {{ section.settings.accent_color | color_modify: 'alpha', 0.4 }};
+  }
+  .fi-image-wrapper-{{ section.id }}:hover .fi-zoom-icon-{{ section.id }} {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .fi-zoom-icon-{{ section.id }} svg {
+    width: 32px;
+    height: 32px;
+    color: #ffffff;
+    stroke: #ffffff;
+  }
+  /* Main Image */
+  .fi-image-{{ section.id }} {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: {{ section.settings.image_aspect_ratio }};
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .fi-image-wrapper-{{ section.id }}:hover .fi-image-{{ section.id }} {
+    transform: scale(1.05);
+  }
+  /* Image Caption */
+  .fi-caption-{{ section.id }} {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px 40px;
+    background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, transparent 100%);
+    color: #ffffff;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+    z-index: 4;
+  }
+  .fi-image-wrapper-{{ section.id }}:hover .fi-caption-{{ section.id }} {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .fi-caption-{{ section.id }} span {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .fi-caption-{{ section.id }} span svg {
+    width: 18px;
+    height: 18px;
+  }
+  /* Lightbox Overlay */
+  .fi-lightbox-{{ section.id }} {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    padding: 40px;
+    cursor: zoom-out;
+  }
+  .fi-lightbox-{{ section.id }}.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  .fi-lightbox-{{ section.id }}.active .fi-lightbox-image {
+    transform: scale(1);
+    opacity: 1;
+  }
+  /* Lightbox Image */
+  .fi-lightbox-{{ section.id }} .fi-lightbox-image {
+    max-width: 95%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: default;
+  }
+  /* Close Button */
+  .fi-lightbox-close-{{ section.id }} {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+  .fi-lightbox-close-{{ section.id }}:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+  }
+  .fi-lightbox-close-{{ section.id }} svg {
+    width: 24px;
+    height: 24px;
+    color: #ffffff;
+    stroke: #ffffff;
+  }
+  /* Lightbox Caption */
+  .fi-lightbox-caption-{{ section.id }} {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #ffffff;
+    max-width: 600px;
+  }
+  .fi-lightbox-caption-{{ section.id }} h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+  }
+  .fi-lightbox-caption-{{ section.id }} p {
+    font-size: 14px;
+    opacity: 0.7;
+    margin: 0;
+  }
+  /* Placeholder Styles */
+  .fi-placeholder-{{ section.id }} {
+    width: 100%;
+    aspect-ratio: {{ section.settings.image_aspect_ratio }};
+    background: linear-gradient(135deg, #e0e0e0 0%, #f5f5f5 50%, #e0e0e0 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+  .fi-placeholder-{{ section.id }} svg {
+    width: 60px;
+    height: 60px;
+    opacity: 0.3;
+  }
+  .fi-placeholder-{{ section.id }} span {
+    font-size: 14px;
+    color: #999;
+  }
+  /* Animation */
+  .fi-header-{{ section.id }},
+  .fi-image-wrapper-{{ section.id }} {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fiFadeInUp 0.8s ease forwards;
+  }
+  .fi-image-wrapper-{{ section.id }} {
+    animation-delay: 0.2s;
+  }
+  @keyframes fiFadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  /* Responsive */
+  @media screen and (max-width: 749px) {
+    .fi-header-{{ section.id }} {
+      margin-bottom: 30px;
+    }
+    .fi-image-wrapper-{{ section.id }} {
+      border-radius: {{ section.settings.image_border_radius | divided_by: 2 }}px;
+    }
+    .fi-zoom-icon-{{ section.id }} {
+      width: 60px;
+      height: 60px;
+    }
+    .fi-zoom-icon-{{ section.id }} svg {
+      width: 24px;
+      height: 24px;
+    }
+    .fi-caption-{{ section.id }} {
+      padding: 20px;
+    }
+    .fi-lightbox-{{ section.id }} {
+      padding: 20px;
+    }
+    .fi-lightbox-close-{{ section.id }} {
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+    }
+    .fi-decoration {
+      display: none;
+    }
+  }
+{%- endstyle -%}
+<section class="featured-image-section-{{ section.id }} section-{{ section.id }}-padding">
+  
+  {%- if section.settings.show_decorations -%}
+    <div class="fi-decoration fi-decoration-1"></div>
+    <div class="fi-decoration fi-decoration-2"></div>
+  {%- endif -%}
+  <div class="featured-image-container-{{ section.id }}">
+    
+    {%- if section.settings.show_header -%}
+      <div class="fi-header-{{ section.id }}">
+        {%- if section.settings.badge_text != blank -%}
+          <span class="fi-badge">{{ section.settings.badge_text }}</span>
+        {%- endif -%}
+        
+        {%- if section.settings.heading != blank -%}
+          <h2>{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        
+        {%- if section.settings.description != blank -%}
+          <p class="fi-description">{{ section.settings.description }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+    <div 
+      class="fi-image-wrapper-{{ section.id }}"
+      onclick="openLightbox{{ section.id | replace: '-', '' }}()"
+      role="button"
+      tabindex="0"
+      aria-label="{{ section.settings.lightbox_label }}"
+    >
+      {%- if section.settings.image != blank -%}
+        <img 
+          class="fi-image-{{ section.id }}"
+          src="{{ section.settings.image | image_url: width: 1920 }}"
+          srcset="
+            {{ section.settings.image | image_url: width: 600 }} 600w,
+            {{ section.settings.image | image_url: width: 900 }} 900w,
+            {{ section.settings.image | image_url: width: 1200 }} 1200w,
+            {{ section.settings.image | image_url: width: 1920 }} 1920w
+          "
+          sizes="(min-width: {{ section.settings.max_width }}px) {{ section.settings.max_width }}px, 100vw"
+          alt="{{ section.settings.image.alt | default: section.settings.heading }}"
+          loading="lazy"
+        >
+      {%- else -%}
+        <div class="fi-placeholder-{{ section.id }}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          <span>{{ section.settings.placeholder_text }}</span>
+        </div>
+      {%- endif -%}
+      {%- if section.settings.show_zoom_icon -%}
+        <div class="fi-zoom-icon-{{ section.id }}">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            <line x1="11" y1="8" x2="11" y2="14"/>
+            <line x1="8" y1="11" x2="14" y2="11"/>
+          </svg>
+        </div>
+      {%- endif -%}
+      {%- if section.settings.show_caption and section.settings.caption_text != blank -%}
+        <div class="fi-caption-{{ section.id }}">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+            </svg>
+            {{ section.settings.caption_text }}
+          </span>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+  <!-- Lightbox -->
+  <div 
+    class="fi-lightbox-{{ section.id }}" 
+    id="lightbox-{{ section.id }}"
+    onclick="closeLightbox{{ section.id | replace: '-', '' }}(event)"
+  >
+    <button 
+      class="fi-lightbox-close-{{ section.id }}"
+      onclick="closeLightbox{{ section.id | replace: '-', '' }}(event)"
+      aria-label="{{ section.settings.close_label }}"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+    {%- if section.settings.image != blank -%}
+      <img 
+        class="fi-lightbox-image"
+        src="{{ section.settings.image | image_url: width: 2000 }}"
+        alt="{{ section.settings.image.alt | default: section.settings.heading }}"
+        onclick="event.stopPropagation()"
+      >
+    {%- endif -%}
+    {%- if section.settings.show_lightbox_caption -%}
+      <div class="fi-lightbox-caption-{{ section.id }}">
+        {%- if section.settings.heading != blank -%}
+          <h3>{{ section.settings.heading }}</h3>
+        {%- endif -%}
+        {%- if section.settings.lightbox_caption != blank -%}
+          <p>{{ section.settings.lightbox_caption }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+<script>
+  (function() {
+    const sectionId = '{{ section.id }}';
+    const lightbox = document.getElementById('lightbox-' + sectionId);
+    
+    window['openLightbox' + sectionId.replace(/-/g, '')] = function() {
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+    
+    window['closeLightbox' + sectionId.replace(/-/g, '')] = function(event) {
+      if (event) {
+        event.stopPropagation();
+      }
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    };
+    
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        window['closeLightbox' + sectionId.replace(/-/g, '')]();
+      }
+    });
+    // Open on Enter/Space for accessibility
+    const wrapper = document.querySelector('.fi-image-wrapper-' + sectionId);
+    if (wrapper) {
+      wrapper.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          window['openLightbox' + sectionId.replace(/-/g, '')]();
+        }
+      });
+    }
+  })();
+</script>
+{% schema %}
+{
+  "name": "Imagen Destacada",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Encabezado"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Mostrar Encabezado",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Texto del Badge",
+      "default": "Destacado"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Título",
+      "default": "Descubre Nuestra Historia"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Descripción",
+      "default": "Una imagen vale más que mil palabras. Explora los momentos que definen quiénes somos y hacia dónde vamos."
+    },
+    {
+      "type": "select",
+      "id": "header_alignment",
+      "label": "Alineación del Encabezado",
+      "options": [
+        { "value": "left", "label": "Izquierda" },
+        { "value": "center", "label": "Centro" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Imagen"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen Principal"
+    },
+    {
+      "type": "select",
+      "id": "image_aspect_ratio",
+      "label": "Proporción de Imagen",
+      "options": [
+        { "value": "16/9", "label": "16:9 (Panorámica)" },
+        { "value": "4/3", "label": "4:3 (Estándar)" },
+        { "value": "3/2", "label": "3:2 (Fotografía)" },
+        { "value": "21/9", "label": "21:9 (Ultra Panorámica)" },
+        { "value": "1/1", "label": "1:1 (Cuadrada)" }
+      ],
+      "default": "16/9"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Radio de Bordes",
+      "default": 24
+    },
+    {
+      "type": "text",
+      "id": "placeholder_text",
+      "label": "Texto Placeholder (Sin imagen)",
+      "default": "Selecciona una imagen"
+    },
+    {
+      "type": "header",
+      "content": "Lightbox"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_zoom_icon",
+      "label": "Mostrar Icono de Zoom",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_caption",
+      "label": "Mostrar Caption al Hover",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "caption_text",
+      "label": "Texto del Caption",
+      "default": "Clic para ampliar"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_lightbox_caption",
+      "label": "Mostrar Título en Lightbox",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "lightbox_caption",
+      "label": "Descripción en Lightbox",
+      "default": "Nuestra empresa en acción"
+    },
+    {
+      "type": "text",
+      "id": "lightbox_label",
+      "label": "Etiqueta de Accesibilidad (Abrir)",
+      "default": "Clic para ver imagen en pantalla completa"
+    },
+    {
+      "type": "text",
+      "id": "close_label",
+      "label": "Etiqueta de Accesibilidad (Cerrar)",
+      "default": "Cerrar imagen"
+    },
+    {
+      "type": "header",
+      "content": "Colores"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Color de Fondo",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Color de Acento Principal",
+      "default": "#6366f1"
+    },
+    {
+      "type": "color",
+      "id": "secondary_accent",
+      "label": "Color de Acento Secundario",
+      "default": "#8b5cf6"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Color del Título",
+      "default": "#1f2937"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Color del Texto",
+      "default": "#6b7280"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_decorations",
+      "label": "Mostrar Decoraciones de Fondo",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Tipografía"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 36,
+      "max": 72,
+      "step": 2,
+      "unit": "px",
+      "label": "Tamaño del Título",
+      "default": 52
+    },
+    {
+      "type": "range",
+      "id": "description_size",
+      "min": 16,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Tamaño de Descripción",
+      "default": 18
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 900,
+      "max": 1600,
+      "step": 50,
+      "unit": "px",
+      "label": "Ancho Máximo",
+      "default": 1400
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Superior",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Inferior",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Imagen Destacada",
+      "settings": {
+        "badge_text": "Destacado",
+        "heading": "Descubre Nuestra Historia",
+        "description": "Una imagen vale más que mil palabras. Explora los momentos que definen quiénes somos y hacia dónde vamos."
+      }
+    }
+  ]
+}
+{% endschema %}

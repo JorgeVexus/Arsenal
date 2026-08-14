@@ -1,0 +1,384 @@
+{
+  "sections": {
+    "3491c987-1338-4da4-8895-3f25a9aeeac3": {
+      "type": "section-slideshow",
+      "blocks": {
+        "template--20725139243329__3491c987-1338-4da4-8895-3f25a9aeeac3-slide-1": {
+          "type": "slide",
+          "settings": {
+            "show_play_button": false,
+            "video_mute": true,
+            "layout": "background",
+            "image_width": 50,
+            "overlay_opacity": 25,
+            "color_palette": "scheme-2",
+            "background_overlay_opacity": 100,
+            "text_position": "end start",
+            "max_width": 600,
+            "title": "<h3>Speakers</h3>",
+            "title_underline_style": "none",
+            "text": "<p>The speakers are highly regarded for their craftsmanship and attention to detail, offering a premium sound experience.</p>",
+            "enable_custom_font_styling": true,
+            "font_size": "16px",
+            "show_first_link": true,
+            "first_link_text": "All speakers",
+            "first_link_url": "/",
+            "first_button_style": "primary plain",
+            "show_second_link": true,
+            "second_link_text": "Button",
+            "second_link_url": "",
+            "second_button_style": "secondary plain"
+          }
+        }
+      },
+      "block_order": [
+        "template--20725139243329__3491c987-1338-4da4-8895-3f25a9aeeac3-slide-1"
+      ],
+      "settings": {
+        "width": "wide",
+        "height": "m",
+        "enable_custom_height": false,
+        "custom_height": 300,
+        "autoplay": false,
+        "autoplay_seconds": 3,
+        "enable_controls": false,
+        "height_mobile": "s",
+        "spacing_desktop": 0,
+        "spacing_mobile": 0,
+        "fix_zindex": 0
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {
+        "hide_mobile": false,
+        "back_button": false
+      }
+    },
+    "0e356419-ee7b-40cd-af9c-c81290dfcf0d": {
+      "type": "section-featured-products",
+      "settings": {
+        "number_of_items": 5,
+        "text_alignment": "start",
+        "color_palette": "scheme-5",
+        "background_overlay_opacity": 100,
+        "background_position": "left",
+        "background_width": 100,
+        "background_height": 100,
+        "title": "<h3>Best sellers</h3>",
+        "title_underline_style": "none",
+        "text": "",
+        "enable_custom_font_styling": false,
+        "font_size": "16px",
+        "show_link": false,
+        "link_text": "",
+        "link_url": "",
+        "button_style": "primary plain",
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 30,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "cb4f13eb-1dca-4d5a-800e-8c30f3881e9e": {
+      "type": "section-static",
+      "settings": {
+        "width": "boxed",
+        "transparent": false,
+        "layout": "layout_4",
+        "custom_height": 50,
+        "color_palette": "scheme-3",
+        "background_overlay_opacity": 50,
+        "image_1_overlay_opacity": 15,
+        "image_2_overlay_opacity": 0,
+        "image_3_overlay_opacity": 15,
+        "video_1_enable_controls": false,
+        "video_1_mute": true,
+        "video_1_overlay_opacity": 60,
+        "title": "<h2>BeoLab 90 speaker of the year</h2>",
+        "recommended_heading_size": false,
+        "title_underline_style": "none",
+        "text": "<p>The state of a art Hi-Fi speaker with a beautiful design</p>",
+        "show_link": true,
+        "link_text": " Discover BeoLab 90",
+        "link_url": "/",
+        "button_style": "fill",
+        "slideshow_mobile_height": "size-s",
+        "spacing_desktop": -20,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "1f4d07ce-737a-4edf-a34e-c993d7db6874": {
+      "type": "section-banner-columns",
+      "blocks": {
+        "template--20725139243329__1f4d07ce-737a-4edf-a34e-c993d7db6874-image-1": {
+          "type": "image",
+          "settings": {
+            "overlay_opacity": 0,
+            "enable_controls": false,
+            "video_mute": true,
+            "color_palette": "scheme-2",
+            "text_position": "end start",
+            "title": "<h3>Wireless speakers</h3>",
+            "title_underline_style": "none",
+            "text": "",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_link": false,
+            "link_text": "",
+            "link_url": "/",
+            "button_style": "primary plain"
+          }
+        },
+        "a84ada9b-22fa-4f3c-9f69-33991ec9c2c4": {
+          "type": "image",
+          "settings": {
+            "overlay_opacity": 0,
+            "enable_controls": false,
+            "video_mute": true,
+            "color_palette": "scheme-2",
+            "text_position": "end start",
+            "title": "<h3>Party speakers</h3>",
+            "title_underline_style": "none",
+            "text": "",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_link": false,
+            "link_text": "",
+            "link_url": "/",
+            "button_style": "primary plain"
+          }
+        },
+        "f5a4bb29-ca29-45ce-9bc1-affc5c9702b1": {
+          "type": "image",
+          "settings": {
+            "overlay_opacity": 0,
+            "enable_controls": false,
+            "video_mute": true,
+            "color_palette": "scheme-2",
+            "text_position": "end start",
+            "title": "<h3>Soundbars</h3>",
+            "title_underline_style": "none",
+            "text": "",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_link": false,
+            "link_text": "",
+            "link_url": "/",
+            "button_style": "primary plain"
+          }
+        }
+      },
+      "block_order": [
+        "template--20725139243329__1f4d07ce-737a-4edf-a34e-c993d7db6874-image-1",
+        "a84ada9b-22fa-4f3c-9f69-33991ec9c2c4",
+        "f5a4bb29-ca29-45ce-9bc1-affc5c9702b1"
+      ],
+      "settings": {
+        "items_width": 3,
+        "width": "boxed",
+        "height": "1/1",
+        "enable_custom_height": false,
+        "custom_height": 300,
+        "space_between": 6,
+        "image_zoom": false,
+        "show_content_below": false,
+        "layout_mobile": "rows",
+        "mobile_height": "1/1",
+        "spacing_desktop": 90,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "2d2ed0e5-0d81-4856-b4d4-9081de297302": {
+      "type": "section-testimonials",
+      "blocks": {
+        "template--20725139243329__2d2ed0e5-0d81-4856-b4d4-9081de297302-testimonial-1": {
+          "type": "testimonial",
+          "settings": {
+            "initials": false,
+            "initials_color_palette": "accent",
+            "author": "Daniel Smith",
+            "place": "London",
+            "text": "I recently invested in these high-end audiophile speakers, and I'm absolutely blown away by their performance. The audio quality is nothing short of a masterpiece. The sound is incredibly detailed, with crystal-clear highs that make every instrument and vocal come alive. The midrange is warm and inviting, adding depth to every song, while the bass is deep and powerful without ever being overpowering.",
+            "score": 4
+          }
+        },
+        "template--20725139243329__2d2ed0e5-0d81-4856-b4d4-9081de297302-testimonial-2": {
+          "type": "testimonial",
+          "settings": {
+            "initials": false,
+            "initials_color_palette": "accent",
+            "author": "Hanna Steele",
+            "place": "Amsterdam",
+            "text": "What truly sets these speakers apart is their precision and accuracy. I can hear nuances in my favorite music that I've never noticed before – it's like rediscovering my entire music collection. Whether I'm listening to classical music, rock, or electronic beats, these speakers reproduce the sound faithfully and with an astonishing level of clarity.",
+            "score": 5
+          }
+        },
+        "template--20725139243329__2d2ed0e5-0d81-4856-b4d4-9081de297302-testimonial-3": {
+          "type": "testimonial",
+          "settings": {
+            "initials": false,
+            "initials_color_palette": "accent",
+            "author": "Frank Spears",
+            "place": "Canada",
+            "text": "This soundbar with a subwoofer has transformed my home entertainment experience. The soundbar provides clear dialogue and impressive virtual surround sound, making movies and TV shows come to life. What really sets it apart is the subwoofer, which adds a powerful, room-shaking bass that enhances action sequences and music. The setup was a breeze, and the remote control is intuitive. It's like having a full-fledged home theater system without the clutter, making it a fantastic addition to any living room for a cinematic experience.",
+            "score": 5
+          }
+        },
+        "66365eb3-2e59-442e-bf2a-5efa9e41bfce": {
+          "type": "testimonial",
+          "settings": {
+            "initials": false,
+            "initials_color_palette": "accent",
+            "author": "Frank Gazillo",
+            "place": "Los Angeles",
+            "text": "These bookshelf hi-fi speakers are a must-have for any serious audiophile. The sound quality is nothing short of extraordinary, delivering a wide and detailed soundstage. The midrange is warm and inviting, while the high frequencies are crisp without being harsh. They truly shine when it comes to classical and jazz music, rendering every instrument and note with precision. The elegant design makes them a statement piece in any room, and they're a perfect addition to a dedicated music listening setup.",
+            "score": 5
+          }
+        }
+      },
+      "block_order": [
+        "template--20725139243329__2d2ed0e5-0d81-4856-b4d4-9081de297302-testimonial-1",
+        "template--20725139243329__2d2ed0e5-0d81-4856-b4d4-9081de297302-testimonial-2",
+        "template--20725139243329__2d2ed0e5-0d81-4856-b4d4-9081de297302-testimonial-3",
+        "66365eb3-2e59-442e-bf2a-5efa9e41bfce"
+      ],
+      "settings": {
+        "color_palette": "scheme-7",
+        "overlay_opacity": 80,
+        "testimonials_boxed_overlay_opacity": 100,
+        "color_palette_stars": "primary",
+        "layout": "slider",
+        "items_width": 3,
+        "autoplay": false,
+        "autoplay_seconds": 3,
+        "text_alignment": "start",
+        "title": "<h3>What customers says</h3>",
+        "title_underline_style": "none",
+        "text": "The experiences of satisfied customers with their purchased speaker",
+        "enable_custom_font_styling": false,
+        "font_size": "16px",
+        "show_link": false,
+        "link_text": "",
+        "link_url": "",
+        "button_style": "primary plain",
+        "spacing_desktop": 0,
+        "spacing_mobile": 0,
+        "fix_zindex": 0
+      }
+    },
+    "965cc171-3bf5-4f7c-b5de-dcced37badd4": {
+      "type": "section-collection-list",
+      "settings": {
+        "custom_image_ratio": 100,
+        "show_in_circle": false,
+        "fill_images": true,
+        "layout": "slider",
+        "number_of_items": 4,
+        "show_below": true,
+        "show_arrow": false,
+        "color_palette": "scheme-2",
+        "image_overlay_opacity": 25,
+        "text_alignment": "start",
+        "background_color_palette": "scheme-5",
+        "background_overlay_opacity": 100,
+        "background_position": "left",
+        "background_width": 100,
+        "background_height": 100,
+        "title": "<h3>Speakers</h3>",
+        "title_underline_style": "none",
+        "show_link": true,
+        "link_text": "View all",
+        "link_url": "/",
+        "button_style": "secondary plain",
+        "collection_title_position": "start",
+        "show_collection_titles": true,
+        "collection_title_size": "h4",
+        "mobile_layout": "slider",
+        "number_of_items_mobile": "w100-mobile",
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "text_alignment": "left",
+            "title_size": "h2",
+            "title": ""
+          }
+        },
+        "sorting": {
+          "type": "sorting",
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {}
+        },
+        "423fb7f6-2c97-4420-8211-d45378349d2a": {
+          "type": "description",
+          "settings": {
+            "text_alignment": "left",
+            "enable_read_more": false,
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "sorting",
+        "product_grid",
+        "423fb7f6-2c97-4420-8211-d45378349d2a"
+      ],
+      "disabled": true,
+      "settings": {
+        "pagination_qty": 12,
+        "pagination_type": "pages",
+        "show_amount_of_products_in_collection": true,
+        "products_per_row": 2,
+        "secondary_products_per_row": 3,
+        "fill_images": false,
+        "fill_not_first": false,
+        "images_padding": 0,
+        "images_vertical_position": 0,
+        "show_collection_image": false,
+        "enable_filters": true,
+        "enable_menu": true,
+        "enable_collections": true,
+        "filters_layout": "static",
+        "enable_filters_checkboxes": true,
+        "collections_menu": [],
+        "main_menu_items_clickable": true,
+        "filter_sticky": false,
+        "filters_show_more_limit": 5,
+        "enable_custom_filters_font_size": true,
+        "filters_font_size": "14px",
+        "image_swatches_size": "xs",
+        "image_swatches_fill_images": true,
+        "image_swatches_show_in_circle": true,
+        "fix_zindex": 1
+      }
+    }
+  },
+  "order": [
+    "3491c987-1338-4da4-8895-3f25a9aeeac3",
+    "breadcrumbs",
+    "0e356419-ee7b-40cd-af9c-c81290dfcf0d",
+    "cb4f13eb-1dca-4d5a-800e-8c30f3881e9e",
+    "1f4d07ce-737a-4edf-a34e-c993d7db6874",
+    "2d2ed0e5-0d81-4856-b4d4-9081de297302",
+    "965cc171-3bf5-4f7c-b5de-dcced37badd4",
+    "main-collection"
+  ]
+}

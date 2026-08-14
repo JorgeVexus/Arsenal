@@ -1,0 +1,979 @@
+{% comment %}
+Shop the Look Interactive
+Section with a large background image and interactive hotspots to reveal product details.
+Includes connector lines and Quote functionality.
+@author: Jorge Cerna - Vexus
+{% endcomment %}
+
+{%- style -%}
+.section-{{ section.id }}-padding {
+padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+}
+
+@media screen and (min-width: 750px) {
+.section-{{ section.id }}-padding {
+padding-top: {{ section.settings.padding_top }}px;
+padding-bottom: {{ section.settings.padding_bottom }}px;
+}
+}
+
+#shopify-section-{{ section.id }} {
+position: relative;
+overflow: hidden;
+}
+
+.stl-container-{{ section.id }} {
+position: relative;
+width: 100%;
+margin: 0 auto;
+}
+
+.stl-image-wrapper {
+position: relative;
+width: 100%;
+line-height: 0;
+}
+
+.stl-main-img {
+width: 100%;
+height: auto;
+object-fit: cover;
+}
+
+/* Hotspot Styling */
+.stl-hotspot-{{ section.id }} {
+position: absolute;
+top: var(--top);
+left: var(--left);
+width: 24px;
+height: 24px;
+background: {{ section.settings.hotspot_color }};
+border-radius: 50%;
+border: 2px solid #fff;
+cursor: pointer;
+z-index: 10;
+transform: translate(-50%, -50%);
+box-shadow: 0 0 10px rgba(0,0,0,0.3);
+transition: transform 0.3s ease;
+}
+
+.stl-hotspot-{{ section.id }}:hover {
+transform: translate(-50%, -50%) scale(1.2);
+}
+
+/* Pulse Animation */
+.stl-hotspot-{{ section.id }}::after {
+content: '';
+position: absolute;
+top: 50%;
+left: 50%;
+width: 100%;
+height: 100%;
+background: inherit;
+border-radius: 50%;
+transform: translate(-50%, -50%);
+animation: stl-pulse 2s infinite;
+opacity: 0.6;
+z-index: -1;
+}
+
+@keyframes stl-pulse {
+0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+100% { transform: translate(-50%, -50%) scale(2.5); opacity: 0; }
+}
+
+/* Connector SVG Container */
+.stl-connector-{{ section.id }} {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+pointer-events: none;
+z-index: 9;
+}
+
+.stl-line-path {
+fill: none;
+stroke: {{ section.settings.hotspot_color }};
+stroke-width: {{ section.settings.line_thickness }}px;
+vector-effect: non-scaling-stroke;
+stroke-dasharray: 1000;
+stroke-dashoffset: 1000;
+transition: stroke-dashoffset 0.6s ease;
+}
+
+.is-active .stl-line-path {
+stroke-dashoffset: 0;
+}
+
+/* Tooltip Card */
+.stl-tooltip-{{ section.id }} {
+position: absolute;
+width: 320px;
+background: #fff;
+border-radius: 4px;
+padding: 20px;
+box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+display: none;
+z-index: 20;
+pointer-events: auto;
+color: #000;
+}
+
+.stl-tooltip-{{ section.id }}.is-active {
+display: block;
+animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(10px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+.stl-tooltip-inner {
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+
+.stl-tooltip-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.stl-tooltip-close {
+cursor: pointer;
+font-size: 24px;
+line-height: 1;
+color: #000;
+font-weight: 300;
+}
+
+.stl-tooltip-img {
+width: 100%;
+height: auto;
+max-height: 180px;
+object-fit: contain;
+background: #f9f9f9;
+border-radius: 4px;
+}
+
+.stl-tooltip-title {
+font-size: 20px;
+font-weight: 800;
+margin: 0;
+line-height: 1.1;
+color: #000;
+text-transform: uppercase;
+font-family: inherit;
+}
+
+.stl-tooltip-btn {
+display: block;
+padding: 15px;
+background: #000;
+color: #fff;
+text-decoration: none;
+text-align: center;
+font-weight: 900;
+font-size: 14px;
+letter-spacing: 1px;
+text-transform: uppercase;
+transition: all 0.3s;
+}
+
+.stl-tooltip-btn:hover {
+background: #333;
+transform: translateY(-2px);
+}
+
+/* Quote Form Panel - Custom modal without overlay */
+.stl-quote-panels {
+position: relative;
+}
+
+.stl-quote-panels .quote-form-panel {
+position: fixed;
+top: 0;
+right: -500px;
+width: 100%;
+max-width: 500px;
+height: 100vh;
+background: #fff;
+z-index: 9999;
+transition: right 0.3s ease;
+overflow-y: auto;
+box-shadow: -5px 0 30px rgba(0,0,0,0.3);
+}
+
+.stl-quote-panels .quote-form-panel.active {
+right: 0;
+}
+
+.stl-quote-panels .quote-form-panel .container {
+padding: 30px;
+}
+
+.stl-quote-panels .quote-form-panel h2 {
+margin-bottom: 20px;
+font-size: 24px;
+font-weight: 700;
+}
+
+/* Prevent body scroll when panel is open */
+body.has-panel {
+overflow: hidden;
+}
+
+/* Close button for panel */
+.stl-quote-panels .quote-form-panel .panel-close {
+position: absolute;
+top: 15px;
+right: 20px;
+background: none;
+border: none;
+font-size: 32px;
+line-height: 1;
+cursor: pointer;
+padding: 0;
+width: 40px;
+height: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 10;
+}
+
+.stl-quote-panels .quote-form-panel .panel-close:hover {
+opacity: 0.7;
+}
+
+/* Mobile Layout */
+@media screen and (max-width: 749px) {
+.stl-hotspots-container, .stl-connector-{{ section.id }} {
+display: none;
+}
+
+.stl-mobile-list {
+display: flex;
+flex-direction: column;
+gap: 20px;
+padding: 0 20px 20px;
+}
+
+.stl-mobile-item {
+display: flex;
+flex-direction: column;
+gap: 15px;
+padding: 20px;
+background: #fff;
+border: 1px solid #eee;
+}
+
+.stl-mobile-img {
+width: 100%;
+height: auto;
+border-radius: 0;
+}
+}
+
+@media screen and (max-width: 500px) {
+.stl-quote-panels .quote-form-panel {
+max-width: 100%;
+}
+
+.stl-quote-panels .quote-form-panel .container {
+padding: 20px;
+}
+}
+
+@media screen and (min-width: 750px) {
+.stl-mobile-list {
+display: none;
+}
+}
+
+{%- endstyle -%}
+
+<section class="section-{{ section.id }}-padding shopify-section"
+    style="margin:0 !important; max-width:100% !important;">
+    <div class="stl-container-{{ section.id }}">
+
+        {%- if section.settings.title != blank -%}
+        <div class="text-center" style="margin-bottom: 30px;">
+            <h2 class="h1 uppercase" style="font-weight: 900;">{{ section.settings.title }}</h2>
+        </div>
+        {%- endif -%}
+
+        <div class="stl-image-wrapper">
+            {%- if section.settings.image != blank -%}
+            <img src="{{ section.settings.image | image_url: width: 2500 }}" loading="lazy"
+                width="{{ section.settings.image.width }}" height="{{ section.settings.image.height }}"
+                class="stl-main-img" alt="{{ section.settings.image.alt | escape }}">
+            {%- else -%}
+            {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg stl-main-img' }}
+            {%- endif -%}
+
+            <svg class="stl-connector-{{ section.id }}" id="stl-svg-{{ section.id }}"></svg>
+
+            <div class="stl-hotspots-container">
+                {%- for block in section.blocks -%}
+                {%- assign product = block.settings.product -%}
+                {%- if product != blank -%}
+                {%- liquid
+                assign quote_text = "Hola, me interesa obtener una cotización para el producto: "
+                assign quote_text = quote_text | append: product.title
+                assign quote_text_encoded = quote_text | url_encode
+                assign quote_text_encoded = quote_text_encoded | replace: "+", "%20"
+                assign wa_link = "https://wa.me/" | append: section.settings.whatsapp_number
+                assign wa_link = wa_link | append: "?text="
+                assign wa_link = wa_link | append: quote_text_encoded
+                assign mail_subject_encoded = "Cotización - " | append: product.title
+                assign mail_subject_encoded = mail_subject_encoded | url_encode
+                assign mail_subject_encoded = mail_subject_encoded | replace: "+", "%20"
+                assign mail_link = "mailto:" | append: section.settings.quote_email
+                assign mail_link = mail_link | append: "?subject="
+                assign mail_link = mail_link | append: mail_subject_encoded
+                assign mail_link = mail_link | append: "&body="
+                assign mail_link = mail_link | append: quote_text_encoded
+
+                if section.settings.quote_method == 'whatsapp'
+                assign quote_url = wa_link
+                else
+                assign quote_url = mail_link
+                endif
+
+                assign product_info = product.title
+                if product.selected_or_first_available_variant.title != 'Default Title'
+                assign product_info = product_info | append: ' - '
+                assign product_info = product_info | append: product.selected_or_first_available_variant.title
+                endif
+                if product.selected_or_first_available_variant.sku != blank
+                assign product_info = product_info | append: ' (SKU: '
+                assign product_info = product_info | append: product.selected_or_first_available_variant.sku
+                assign product_info = product_info | append: ')'
+                endif
+                -%}
+
+                <div class="stl-hotspot-{{ section.id }}"
+                    style="--top: {{ block.settings.pos_y }}%; --left: {{ block.settings.pos_x }}%;"
+                    data-id="{{ block.id }}" data-x="{{ block.settings.pos_x }}" data-y="{{ block.settings.pos_y }}"
+                    data-dir="{{ block.settings.line_dir }}" {{ block.shopify_attributes }}>
+                </div>
+
+                <div class="stl-tooltip-{{ section.id }}" id="tooltip-{{ block.id }}">
+                    <div class="stl-tooltip-inner">
+                        <div class="stl-tooltip-header">
+                            <h3 class="stl-tooltip-title">{{ product.title }}</h3>
+                            <span class="stl-tooltip-close" onclick="closeSTLTooltip('{{ block.id }}')">&times;</span>
+                        </div>
+                        <img src="{{ product.featured_image | image_url: width: 600 }}" class="stl-tooltip-img"
+                            alt="{{ product.title }}">
+                        <p class="link-btn" style="margin: 0;">
+                            <a href="./" data-panel="quote-form-{{ section.id }}-{{ block.id }}"
+                                class="stl-tooltip-btn quote-btn-open"
+                                data-quote-method="{{ section.settings.quote_method }}"
+                                data-whatsapp-number="{{ section.settings.whatsapp_number | remove: '+' | remove: ' ' | remove: '-' | remove: '(' | remove: ')' }}"
+                                data-email-address="{{ section.settings.quote_email }}"
+                                data-quote-message="{{ section.settings.quote_message | default: 'Hola, me interesa solicitar cotización para el siguiente producto:' | escape }}"
+                                data-product-info="{{ product_info | escape }}"
+                                data-email-subject="{{ section.settings.email_subject | default: 'Solicitud de Cotización' | escape }}"
+                                onclick="return false;">
+                                COTIZAR AHORA
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                {%- endif -%}
+                {%- endfor -%}
+            </div>
+        </div>
+
+        {%- comment -%} Quote Form Panels - Outside hotspots container for mobile access {%- endcomment -%}
+        <div class="stl-quote-panels">
+            {%- for block in section.blocks -%}
+            {%- assign product = block.settings.product -%}
+            {%- if product != blank -%}
+            <aside class="quote-form-panel" id="quote-form-{{ section.id }}-{{ block.id }}" aria-hidden="true">
+                <div class="container">
+                    <button type="button" class="panel-close" onclick="closeQuotePanel('{{ section.id }}')" aria-label="Cerrar">&times;</button>
+                    <h2>{{ section.settings.form_title | default: 'Solicitar Cotización' }}</h2>
+                    <form class="quote-form f8cm f8vl w940 m30" data-quote-form data-block-id="{{ block.id }}">
+                        <fieldset>
+                            <legend>Información de contacto</legend>
+
+                            {%- comment -%} Nombre {%- endcomment -%}
+                            <p class="form-field">
+                                <label for="quote-name-{{ block.id }}">Nombre completo <span
+                                        class="overlay-theme">*</span></label>
+                                <input type="text" id="quote-name-{{ block.id }}" name="name" required
+                                    placeholder="Tu nombre">
+                            </p>
+
+                            {%- comment -%} Email {%- endcomment -%}
+                            <p class="form-field">
+                                <label for="quote-email-{{ block.id }}">Correo electrónico <span
+                                        class="overlay-theme">*</span></label>
+                                <input type="email" id="quote-email-{{ block.id }}" name="email" required
+                                    placeholder="tu@email.com">
+                            </p>
+
+                            {%- comment -%} Teléfono {%- endcomment -%}
+                            <p class="form-field">
+                                <label for="quote-phone-{{ block.id }}">Teléfono</label>
+                                <input type="tel" id="quote-phone-{{ block.id }}" name="phone"
+                                    placeholder="+52 123 456 7890">
+                            </p>
+
+                            {%- comment -%} Organización/Dependencia {%- endcomment -%}
+                            <p class="form-field">
+                                <label for="quote-org-{{ block.id }}">{{ section.settings.org_label | default:
+                                    'Dependencia / Organización' }}</label>
+                                {%- assign organization_options = section.settings.organization_options | newline_to_br
+                                | strip_newlines | replace: '<br />', ',' | split: ',' -%}
+                                {%- if organization_options.size > 0 and organization_options[0] != blank -%}
+                                <select id="quote-org-{{ block.id }}" name="organization" class="quote-org-select">
+                                    <option value="">Selecciona una opción</option>
+                                    {%- for option in organization_options -%}
+                                    {%- assign option_clean = option | strip -%}
+                                    {%- if option_clean != blank -%}
+                                    <option value="{{ option_clean }}">{{ option_clean }}</option>
+                                    {%- endif -%}
+                                    {%- endfor -%}
+                                    <option value="otro">Otro / Especificar</option>
+                                </select>
+                                <input type="text" id="quote-org-other-{{ block.id }}" name="organization_other"
+                                    class="quote-org-other" placeholder="Especifica tu organización"
+                                    style="display: none; margin-top: 10px;">
+                                {%- else -%}
+                                <input type="text" id="quote-org-{{ block.id }}" name="organization"
+                                    placeholder="Ej: Gobierno del Estado, Empresa XYZ">
+                                {%- endif -%}
+                            </p>
+
+                            {%- comment -%} Fecha de nacimiento (Mes y Año) {%- endcomment -%}
+                            <p class="form-field">
+                                <label>Fecha de nacimiento <span class="overlay-theme">*</span></label>
+                                <span class="dob-fields" style="display: flex; gap: 10px;">
+                                    <select id="quote-dob-month-{{ block.id }}" name="dob_month" required
+                                        style="flex: 1;">
+                                        <option value="">Mes</option>
+                                        <option value="01">Enero</option>
+                                        <option value="02">Febrero</option>
+                                        <option value="03">Marzo</option>
+                                        <option value="04">Abril</option>
+                                        <option value="05">Mayo</option>
+                                        <option value="06">Junio</option>
+                                        <option value="07">Julio</option>
+                                        <option value="08">Agosto</option>
+                                        <option value="09">Septiembre</option>
+                                        <option value="10">Octubre</option>
+                                        <option value="11">Noviembre</option>
+                                        <option value="12">Diciembre</option>
+                                    </select>
+                                    <select id="quote-dob-year-{{ block.id }}" name="dob_year" required
+                                        style="flex: 1;">
+                                        <option value="">Año</option>
+                                        {%- assign current_year = 'now' | date: '%Y' -%}
+                                        {%- assign start_year = current_year | minus: 100 -%}
+                                        {%- for year in (start_year..current_year) reversed -%}
+                                        <option value="{{ year }}">{{ year }}</option>
+                                        {%- endfor -%}
+                                    </select>
+                                </span>
+                                <small class="form-hint"
+                                    style="color: var(--color-text-muted); font-size: 12px; margin-top: 5px; display: block;">Necesario
+                                    para verificar mayoría de edad</small>
+                            </p>
+
+                            {%- comment -%} Mensaje adicional {%- endcomment -%}
+                            <p class="form-field">
+                                <label for="quote-message-{{ block.id }}">Mensaje adicional</label>
+                                <textarea id="quote-message-{{ block.id }}" name="message" rows="3"
+                                    placeholder="¿Algún requerimiento especial?"></textarea>
+                            </p>
+
+                            {%- comment -%} Producto (hidden) {%- endcomment -%}
+                            <input type="hidden" name="product" value="{{ product.title | escape }}">
+                            <input type="hidden" name="variant"
+                                value="{{ product.selected_or_first_available_variant.title | escape }}">
+                            <input type="hidden" name="sku"
+                                value="{{ product.selected_or_first_available_variant.sku | escape }}">
+                            <input type="hidden" name="product_url" value="{{ shop.url }}{{ product.url }}">
+                        </fieldset>
+
+                        <p class="submit m0">
+                            <button type="submit" class="overlay-buy_button solid">{{ section.settings.form_submit_text
+                                | default: 'Enviar solicitud' }}</button>
+                        </p>
+                    </form>
+                </div>
+            </aside>
+            {%- endif -%}
+            {%- endfor -%}
+        </div>
+
+
+        {%- comment -%} Mobile List (Limit 3) {%- endcomment -%}
+        <div class="stl-mobile-list">
+            {%- assign mobile_count = 0 -%}
+            {%- for block in section.blocks -%}
+            {%- if mobile_count < 3 -%}
+                {%- assign product = block.settings.product -%}
+                {%- if product != blank -%}
+                {%- assign quote_text = "Hola, me interesa obtener una cotizacion para el producto: " | append: product.title -%}
+                {%- assign quote_text_encoded = quote_text | url_encode | replace: "+", "%20" -%}
+                {%- assign wa_link = "https://wa.me/" | append: section.settings.whatsapp_number | append: "?text=" | append: quote_text_encoded -%}
+                {%- assign mail_subject_encoded = "Cotizacion - " | append: product.title | url_encode | replace: "+", "%20" -%}
+                {%- assign mail_link = "mailto:" | append: section.settings.quote_email | append: "?subject=" | append: mail_subject_encoded | append: "&body=" | append: quote_text_encoded -%}
+                {%- if section.settings.quote_method == 'whatsapp' -%}
+                    {%- assign quote_url = wa_link -%}
+                {%- else -%}
+                    {%- assign quote_url = mail_link -%}
+                {%- endif -%}
+                {%- assign product_info = product.title -%}
+                {%- if product.selected_or_first_available_variant.title != 'Default Title' -%}
+                    {%- assign product_info = product_info | append: ' - ' | append: product.selected_or_first_available_variant.title -%}
+                {%- endif -%}
+                {%- if product.selected_or_first_available_variant.sku != blank -%}
+                    {%- assign product_info = product_info | append: ' (SKU: ' | append: product.selected_or_first_available_variant.sku | append: ')' -%}
+                {%- endif -%}
+                <div class="stl-mobile-item">
+                    <h4 class="stl-tooltip-title" style="font-size: 18px;">{{ product.title }}</h4>
+                    <img src="{{ product.featured_image | image_url: width: 600 }}" class="stl-mobile-img"
+                        alt="{{ product.title }}">
+                    <p class="link-btn" style="margin: 0;">
+                        <a href="./" 
+                           data-panel="quote-form-{{ section.id }}-{{ block.id }}"
+                           class="stl-tooltip-btn quote-btn-open"
+                           data-quote-method="{{ section.settings.quote_method }}"
+                           data-whatsapp-number="{{ section.settings.whatsapp_number | remove: '+' | remove: ' ' | remove: '-' | remove: '(' | remove: ')' }}"
+                           data-email-address="{{ section.settings.quote_email }}"
+                           data-quote-message="{{ section.settings.quote_message | default: 'Hola, me interesa solicitar cotizacion para el siguiente producto:' | escape }}"
+                           data-product-info="{{ product_info | escape }}"
+                           data-email-subject="{{ section.settings.email_subject | default: 'Solicitud de Cotizacion' | escape }}"
+                           onclick="return false;">
+                            COTIZAR AHORA
+                        </a>
+                    </p>
+                </div>
+                {%- assign mobile_count = mobile_count | plus: 1 -%}
+                {%- endif -%}
+            {%- endif -%}
+            {%- endfor -%}
+        </div>
+    </div>
+
+    </div>
+</section>
+
+<script>
+    function closeSTLTooltip(id) {
+        const tooltip = document.getElementById('tooltip-' + id);
+        const svg = document.getElementById('stl-svg-{{ section.id }}');
+        if (tooltip) tooltip.classList.remove('is-active');
+        const path = document.getElementById('path-' + id);
+        if (path) path.remove();
+    }
+
+    // Global function to close quote panel
+    window.closeQuotePanel = function (sectionId) {
+        const panel = document.querySelector('.stl-quote-panels .quote-form-panel.active');
+        if (panel) {
+            panel.classList.remove('active');
+            panel.setAttribute('aria-hidden', 'true');
+        }
+        document.body.classList.remove('has-panel');
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const hotspots = document.querySelectorAll('.stl-hotspot-{{ section.id }}');
+        const svg = document.getElementById('stl-svg-{{ section.id }}');
+
+        hotspots.forEach(hotspot => {
+            hotspot.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const id = hotspot.getAttribute('data-id');
+                const tooltip = document.getElementById('tooltip-' + id);
+                const dir = hotspot.getAttribute('data-dir');
+                const x = parseFloat(hotspot.getAttribute('data-x'));
+                const y = parseFloat(hotspot.getAttribute('data-y'));
+
+                // Close others
+                document.querySelectorAll('.stl-tooltip-{{ section.id }}').forEach(el => {
+                    if (el.id !== 'tooltip-' + id) el.classList.remove('is-active');
+                });
+                svg.innerHTML = '';
+
+                if (tooltip) {
+                    const isActive = tooltip.classList.contains('is-active');
+                    if (!isActive) {
+                        tooltip.classList.add('is-active');
+                        svg.classList.add('is-active');
+
+                        // Measures for responsive offsets
+                        const rectWrapper = svg.getBoundingClientRect();
+                        const w = rectWrapper.width;
+                        const h = rectWrapper.height;
+
+                        let offsetX = 120; // px
+                        let offsetY = 80;  // px
+
+                        if (dir.includes('left')) offsetX = -120;
+                        if (dir.includes('top')) offsetY = -80;
+
+                        // Convert to % for the 100x100 coord system
+                        const offXPct = (offsetX / w) * 100;
+                        const offYPct = (offsetY / h) * 100;
+
+                        // Set tooltip position
+                        tooltip.style.left = `calc(${x}% + ${offsetX}px)`;
+                        tooltip.style.top = `calc(${y}% + ${offsetY}px)`;
+                        tooltip.style.transform = 'translate(-50%, -50%)';
+
+                        // Draw SVG Path with rounded corner (Q command)
+                        svg.setAttribute("viewBox", "0 0 100 100");
+                        svg.setAttribute("preserveAspectRatio", "none");
+
+                        // Logic for Path: Start at (x,y), draw to (x + offX, y), curve to (x + offX, y + offY)
+                        // Adjust points slightly so the tooltip doesn't cover the line end
+                        const cornerX = x + offXPct;
+                        const cornerY = y;
+                        const endX = x + offXPct;
+                        const endY = y + offYPct;
+
+                        const dProp = `M ${x} ${y} L ${cornerX} ${cornerY} L ${endX} ${endY}`;
+
+                        // Better visual: Curved corner
+                        const qX = cornerX;
+                        const qY = cornerY;
+                        const curveR = 3; // radius-like
+                        const p1X = x + (offXPct > 0 ? offXPct - curveR : offXPct + curveR);
+                        const p2Y = y + (offYPct > 0 ? curveR : -curveR);
+
+                        const smoothD = `M ${x} ${y} L ${p1X} ${y} Q ${cornerX} ${y} ${cornerX} ${p2Y} L ${endX} ${endY}`;
+
+                        svg.innerHTML = `<path class="stl-line-path" d="${smoothD}" />`;
+
+                        setTimeout(() => tooltip.classList.add('is-active'), 10);
+                    } else {
+                        closeSTLTooltip(id);
+                    }
+                }
+            });
+        });
+
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.stl-tooltip-{{ section.id }}').forEach(el => {
+                el.classList.remove('is-active');
+            });
+            svg.classList.remove('is-active');
+            svg.innerHTML = '';
+        });
+
+        // Panel System - Custom implementation (no m6pn)
+        const sectionId = '{{ section.id }}';
+        
+        // Open panel on button click
+        document.body.addEventListener('click', (e) => {
+            const quoteBtn = e.target.closest('[data-panel^="quote-form-' + sectionId + '-"]');
+            if (quoteBtn) {
+                e.preventDefault();
+                e.stopPropagation();
+                const panelId = quoteBtn.dataset.panel;
+                const panel = document.getElementById(panelId);
+                if (panel) {
+                    // Close any open panels first
+                    document.querySelectorAll('.stl-quote-panels .quote-form-panel.active').forEach(p => {
+                        p.classList.remove('active');
+                        p.setAttribute('aria-hidden', 'true');
+                    });
+                    // Open this panel
+                    panel.classList.add('active');
+                    panel.setAttribute('aria-hidden', 'false');
+                    document.body.classList.add('has-panel');
+                }
+            }
+        });
+
+        // Close panel on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const openPanel = document.querySelector('.stl-quote-panels .quote-form-panel.active');
+                if (openPanel && openPanel.id.includes(sectionId)) {
+                    openPanel.classList.remove('active');
+                    openPanel.setAttribute('aria-hidden', 'true');
+                    document.body.classList.remove('has-panel');
+                }
+            }
+        });
+
+        // Form Logic Delegation
+        document.body.addEventListener('change', (e) => {
+            if (e.target.classList.contains('quote-org-select')) {
+                const blockId = e.target.id.replace('quote-org-', '');
+                const otherInput = document.getElementById('quote-org-other-' + blockId);
+                if (otherInput) {
+                    otherInput.style.display = e.target.value === 'otro' ? 'block' : 'none';
+                    if (e.target.value !== 'otro') otherInput.value = '';
+                }
+            }
+        });
+
+        document.body.addEventListener('submit', (e) => {
+            const form = e.target.closest('.quote-form');
+            if (!form) return;
+            // Only handle forms belonging to THIS section
+            if (!form.id.includes(sectionId) && !form.dataset.blockId) {
+                // Check if it's one of ours by searching for the parent panel
+                if (!form.closest('.quote-form-panel[id*="' + sectionId + '"]')) return;
+            }
+
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+
+            // Calculate age
+            const dobMonth = parseInt(data.dob_month);
+            const dobYear = parseInt(data.dob_year);
+            const currDate = new Date();
+            const currYear = currDate.getFullYear();
+            const currMonth = currDate.getMonth() + 1;
+
+            let age = currYear - dobYear;
+            if (currMonth < dobMonth) age--;
+
+            if (age < 18) {
+                alert('Lo sentimos, debes ser mayor de edad para solicitar cotizaciones.');
+                return;
+            }
+
+            let organization = data.organization;
+            if (organization === 'otro' && data.organization_other) {
+                organization = data.organization_other;
+            }
+
+            const panel = form.closest('.quote-form-panel');
+            const panelId = panel.id;
+            const quoteBtn = document.querySelector('[data-panel="' + panelId + '"]');
+
+            if (!quoteBtn) return;
+
+            const method = quoteBtn.dataset.quoteMethod;
+            const productInfo = quoteBtn.dataset.productInfo;
+            const quoteMsg = quoteBtn.dataset.quoteMessage;
+
+            const fullMessage = quoteMsg + '\n\n' +
+                '*Nombre:* ' + data.name + '\n' +
+                '*Email:* ' + data.email + '\n' +
+                (data.phone ? '*Teléfono:* ' + data.phone + '\n' : '') +
+                '*Organizacion:* ' + (organization || 'No especificada') + '\n' +
+                '*Fecha de nacimiento:* ' + data.dob_month + '/' + data.dob_year + ' (Edad: ' + age + ' años)\n' +
+                '\n*Producto:* ' + productInfo + '\n' +
+                (data.message ? '\n*Mensaje:* ' + data.message : '');
+
+            if (method === 'whatsapp' || method === 'both') {
+                const waNum = quoteBtn.dataset.whatsappNumber;
+                window.open('https://wa.me/' + waNum + '?text=' + encodeURIComponent(fullMessage), '_blank');
+            }
+            if (method === 'email' || method === 'both') {
+                const emailAddr = quoteBtn.dataset.emailAddress;
+                const emailSub = (quoteBtn.dataset.emailSubject || 'Solicitud de Cotización') + ': ' + productInfo;
+                window.location.href = 'mailto:' + emailAddr + '?subject=' + encodeURIComponent(emailSub) + '&body=' + encodeURIComponent(fullMessage);
+            }
+
+            // Close panel using theme's system
+            if (panel) {
+                panel.classList.remove('active');
+                panel.setAttribute('aria-hidden', 'true');
+            }
+            document.body.classList.remove('has-panel');
+
+            form.reset();
+            form.querySelectorAll('.quote-org-other').forEach(input => input.style.display = 'none');
+        });
+    });
+</script>
+
+{% schema %}
+{
+"name": "Shop the Look Interactive",
+"tag": "section",
+"class": "section",
+"settings": [
+{
+"type": "image_picker",
+"id": "image",
+"label": "Background Image"
+},
+{
+"type": "text",
+"id": "title",
+"label": "Section Title",
+"default": "THE BACKCOUNTRY KIT"
+},
+{
+"type": "color",
+"id": "hotspot_color",
+"label": "Hotspot & Line Color",
+"default": "#ff00ff"
+},
+{
+"type": "range",
+"id": "line_thickness",
+"min": 1,
+"max": 10,
+"step": 1,
+"unit": "px",
+"label": "Line Thickness",
+"default": 1
+},
+{
+"type": "header",
+"content": "Quote Settings"
+},
+{
+"type": "select",
+"id": "quote_method",
+"label": "Quote Method",
+"options": [
+{ "value": "whatsapp", "label": "WhatsApp" },
+{ "value": "email", "label": "Email" },
+{ "value": "both", "label": "Both" }
+],
+"default": "whatsapp"
+},
+{
+"type": "text",
+"id": "whatsapp_number",
+"label": "WhatsApp Number (Ex: 5211234567890)",
+"info": "Include country code without +"
+},
+{
+"type": "text",
+"id": "quote_email",
+"label": "Quote Email"
+},
+{
+"type": "text",
+"id": "form_title",
+"label": "Form Title",
+"default": "Solicitar Cotización"
+},
+{
+"type": "text",
+"id": "form_submit_text",
+"label": "Submit Button Text",
+"default": "Enviar solicitud"
+},
+{
+"type": "text",
+"id": "quote_message",
+"label": "Quote Message",
+"default": "Hola, me interesa solicitar cotización para el siguiente producto:"
+},
+{
+"type": "text",
+"id": "email_subject",
+"label": "Email Subject",
+"default": "Solicitud de Cotización"
+},
+{
+"type": "text",
+"id": "org_label",
+"label": "Organization Field Label",
+"default": "Dependencia / Organización"
+},
+{
+"type": "textarea",
+"id": "organization_options",
+"label": "Organization Options",
+"info": "Enter each option on a new line. Leave empty for free text input."
+},
+{
+"type": "header",
+"content": "Spacing"
+},
+{
+"type": "range",
+"id": "padding_top",
+"min": 0,
+"max": 100,
+"step": 4,
+"unit": "px",
+"label": "Padding Top",
+"default": 36
+},
+{
+"type": "range",
+"id": "padding_bottom",
+"min": 0,
+"max": 100,
+"step": 4,
+"unit": "px",
+"label": "Padding Bottom",
+"default": 36
+}
+],
+"blocks": [
+{
+"type": "hotspot",
+"name": "Hotspot (Product)",
+"settings": [
+{
+"type": "product",
+"id": "product",
+"label": "Product"
+},
+{
+"type": "range",
+"id": "pos_x",
+"min": 0,
+"max": 100,
+"step": 1,
+"unit": "%",
+"label": "Horizontal Position (X)",
+"default": 50
+},
+{
+"type": "range",
+"id": "pos_y",
+"min": 0,
+"max": 100,
+"step": 1,
+"unit": "%",
+"label": "Vertical Position (Y)",
+"default": 50
+},
+{
+"type": "select",
+"id": "line_dir",
+"label": "Line & Tooltip Direction",
+"options": [
+{ "value": "top-left", "label": "Top Left" },
+{ "value": "top-right", "label": "Top Right" },
+{ "value": "bottom-left", "label": "Bottom Left" },
+{ "value": "bottom-right", "label": "Bottom Right" }
+],
+"default": "top-right"
+}
+]
+}
+],
+"presets": [
+{
+"name": "Shop the Look Interactive",
+"blocks": [
+{ "type": "hotspot", "settings": { "pos_x": 20, "pos_y": 30, "line_dir": "top-right" } },
+{ "type": "hotspot", "settings": { "pos_x": 40, "pos_y": 60, "line_dir": "bottom-left" } },
+{ "type": "hotspot", "settings": { "pos_x": 70, "pos_y": 40, "line_dir": "top-left" } }
+]
+}
+]
+}
+{% endschema %}

@@ -1,0 +1,314 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .arsenal-marquee-container {
+    background: {{ section.settings.background_color }};
+  }
+
+  .arsenal-marquee-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto {{ section.settings.header_margin }}px auto;
+    padding: 0 20px;
+  }
+
+  .arsenal-marquee-header h2 {
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  /* Rich text styles */
+  .arsenal-marquee-header .rich-text__text {
+    word-break: break-word;
+  }
+
+  .arsenal-marquee-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    user-select: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .arsenal-marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-{{ section.id }} {{ section.settings.speed }}s linear infinite;
+    gap: {{ section.settings.gap }}px;
+  }
+
+  {% if section.settings.pause_on_hover %}
+  .arsenal-marquee-wrapper:hover .arsenal-marquee-track {
+    animation-play-state: paused;
+  }
+  {% endif %}
+
+  .arsenal-marquee-set {
+    display: flex;
+    flex-shrink: 0;
+    gap: {{ section.settings.gap }}px;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 100%;
+  }
+
+  .arsenal-marquee-item {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .arsenal-marquee-item img, .arsenal-marquee-item svg {
+    max-height: {{ section.settings.logo_height }}px;
+    width: auto;
+    filter: {{ section.settings.logo_filter }};
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+    display: block;
+  }
+
+  .arsenal-marquee-item:hover img {
+    {% if section.settings.hover_effect %}
+    transform: scale(1.1);
+    filter: none;
+    {% endif %}
+  }
+
+  @keyframes marquee-{{ section.id }} {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      /* Move exactly the width of one set + the gap */
+      transform: translateX(calc(-50% - {{ section.settings.gap | divided_by: 2 }}px));
+    }
+  }
+
+  {% if section.settings.direction == 'right' %}
+  @keyframes marquee-{{ section.id }} {
+    0% {
+      transform: translateX(calc(-50% - {{ section.settings.gap | divided_by: 2 }}px));
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  {% endif %}
+{%- endstyle -%}
+
+<div class="arsenal-marquee-container section-{{ section.id }}-padding" id="ArsenalMarquee-{{ section.id }}">
+  {%- if section.settings.heading != blank -%}
+    <div class="arsenal-marquee-header">
+      <div class="rich-text__text rte">
+        {{ section.settings.heading }}
+      </div>
+    </div>
+  {%- endif -%}
+
+  <div class="arsenal-marquee-wrapper">
+    <div class="arsenal-marquee-track">
+      {%- for i in (1..2) -%}
+        <div class="arsenal-marquee-set" {% if i > 1 %}aria-hidden="true"{% endif %}>
+          {%- for block in section.blocks -%}
+            <div class="arsenal-marquee-item" {{ block.shopify_attributes }}>
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 400 | image_tag: 
+                  loading: 'lazy',
+                  widths: '200, 400',
+                  alt: block.settings.image.alt | escape
+                }}
+              {%- else -%}
+                <div style="width: 100px; height: 50px; background: rgba(0,0,0,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 10px;">LOGO</div>
+              {%- endif -%}
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Arsenal Marquee",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Nuestras Marcas Asociadas</p>"
+    },
+    {
+      "type": "range",
+      "id": "header_margin",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Heading Bottom Margin",
+      "default": 32
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "speed",
+      "min": 5,
+      "max": 100,
+      "step": 5,
+      "unit": "s",
+      "label": "Animation Speed (Seconds per cycle)",
+      "default": 30
+    },
+    {
+      "type": "select",
+      "id": "direction",
+      "label": "Direction",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "logo_height",
+      "min": 20,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Logo Max Height",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 20,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Gap between items",
+      "default": 100
+    },
+    {
+      "type": "select",
+      "id": "logo_filter",
+      "label": "Logo Filter",
+      "options": [
+        {
+          "value": "none",
+          "label": "None (Full Color)"
+        },
+        {
+          "value": "grayscale(100%)",
+          "label": "Grayscale"
+        },
+        {
+          "value": "brightness(0) invert(1)",
+          "label": "White (Invert)"
+        },
+        {
+          "value": "brightness(0)",
+          "label": "Black"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on hover",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "hover_effect",
+      "label": "Enable hover effect (Scale/Color)",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Arsenal Marquee",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

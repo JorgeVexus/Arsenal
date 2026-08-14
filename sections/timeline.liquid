@@ -1,0 +1,618 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .arsenal-timeline {
+    background: {{ section.settings.background_color }};
+  }
+
+  .arsenal-timeline-container {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .arsenal-timeline-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .arsenal-timeline-header h2 {
+    margin: 0 0 15px 0;
+    font-size: clamp(28px, 5vw, 48px);
+    line-height: 1.1;
+  }
+
+  .arsenal-timeline-header .rte {
+    color: rgba(0,0,0,0.7);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Timeline Line */
+  .arsenal-timeline-track {
+    position: relative;
+  }
+
+  .arsenal-timeline-track::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, 
+      {{ section.settings.line_color }} 0%, 
+      {{ section.settings.line_color | color_modify: 'alpha', 0.3 }} 100%);
+    transform: translateX(-50%);
+  }
+
+  @media screen and (max-width: 989px) {
+    .arsenal-timeline-track::before {
+      left: 30px;
+    }
+  }
+
+  /* Timeline Items */
+  .timeline-item {
+    position: relative;
+    margin-bottom: 80px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .timeline-item.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .timeline-item:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Desktop Layout - Alternating */
+  @media screen and (min-width: 990px) {
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 1fr 120px 1fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .timeline-item:nth-child(even) .timeline-content {
+      order: 3;
+      text-align: left;
+    }
+
+    .timeline-item:nth-child(even) .timeline-icon {
+      order: 2;
+    }
+
+    .timeline-item:nth-child(even) .timeline-year {
+      order: 1;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content {
+      order: 1;
+      text-align: right;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-icon {
+      order: 2;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-year {
+      order: 3;
+      text-align: left;
+    }
+  }
+
+  /* Mobile Layout */
+  @media screen and (max-width: 989px) {
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 20px;
+      padding-left: 0;
+    }
+
+    .timeline-icon {
+      grid-row: 1 / 3;
+    }
+
+    .timeline-year {
+      align-self: center;
+    }
+
+    .timeline-content {
+      grid-column: 2;
+    }
+  }
+
+  /* Timeline Icon */
+  .timeline-icon {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #fff;
+    border: 4px solid {{ section.settings.line_color }};
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    z-index: 2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  @media screen and (max-width: 989px) {
+    .timeline-icon {
+      width: 60px;
+      height: 60px;
+      border-width: 3px;
+    }
+  }
+
+  .timeline-item:hover .timeline-icon {
+    transform: scale(1.1);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.18);
+  }
+
+  .timeline-icon img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+
+  .timeline-icon svg {
+    width: 50%;
+    height: 50%;
+  }
+
+  /* Timeline Year */
+  .timeline-year {
+    font-size: 24px;
+    font-weight: 700;
+    color: {{ section.settings.line_color }};
+    padding: 12px 24px;
+    background: {{ section.settings.year_background }};
+    border-radius: 50px;
+    display: inline-block;
+    border: 2px solid {{ section.settings.line_color }};
+  }
+
+  @media screen and (max-width: 989px) {
+    .timeline-year {
+      font-size: 18px;
+      padding: 8px 16px;
+    }
+  }
+
+  /* Timeline Content */
+  .timeline-content {
+    padding: 30px;
+    background: {{ section.settings.card_background }};
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  @media screen and (max-width: 989px) {
+    .timeline-content {
+      padding: 20px;
+    }
+  }
+
+  .timeline-item:hover .timeline-content {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.15);
+  }
+
+  .timeline-content h3 {
+    margin: 0 0 12px 0;
+    font-size: 20px;
+    line-height: 1.3;
+  }
+
+  .timeline-content p {
+    margin: 0;
+    color: rgba(0,0,0,0.7);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* Timeline Link */
+  .timeline-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .timeline-link .timeline-content {
+    position: relative;
+  }
+
+  .timeline-link .timeline-content::after {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 24px;
+    height: 24px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='{{ section.settings.line_color | remove: '#' | prepend: '%23' }}' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M14 5l7 7m0 0l-7 7m7-7H3'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .timeline-link:hover .timeline-content::after {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .timeline-link .timeline-content h3 {
+    color: {{ section.settings.line_color }};
+    transition: color 0.3s ease;
+  }
+
+  .timeline-read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: {{ section.settings.line_color }};
+    text-decoration: none;
+    transition: gap 0.3s ease;
+  }
+
+  .timeline-link:hover .timeline-read-more {
+    gap: 10px;
+  }
+
+  .timeline-read-more svg {
+    width: 16px;
+    height: 16px;
+  }
+{%- endstyle -%}
+
+<section class="arsenal-timeline section-{{ section.id }}-padding">
+  <div class="arsenal-timeline-container">
+    
+    {%- if section.settings.heading != blank or section.settings.text != blank -%}
+      <div class="arsenal-timeline-header">
+        {%- if section.settings.heading != blank -%}
+          <h2>{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <div class="rte">{{ section.settings.text }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="arsenal-timeline-track">
+      {%- for block in section.blocks -%}
+        <div class="timeline-item" {{ block.shopify_attributes }} data-index="{{ forloop.index }}">
+          
+          <div class="timeline-icon">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 200 | image_tag: loading: 'lazy', alt: block.settings.year }}
+            {%- else -%}
+              <svg viewBox="0 0 24 24" fill="{{ section.settings.line_color }}" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="8"/>
+              </svg>
+            {%- endif -%}
+          </div>
+
+          <div class="timeline-year">
+            {{ block.settings.year }}
+          </div>
+
+          {%- if block.settings.link != blank -%}
+            <a href="{{ block.settings.link }}" class="timeline-link">
+              <div class="timeline-content">
+                {%- if block.settings.title != blank -%}
+                  <h3>{{ block.settings.title }}</h3>
+                {%- endif -%}
+                {%- if block.settings.description != blank -%}
+                  <p>{{ block.settings.description }}</p>
+                {%- endif -%}
+                {%- if block.settings.link_text != blank -%}
+                  <span class="timeline-read-more">
+                    {{ block.settings.link_text }}
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
+                  </span>
+                {%- endif -%}
+              </div>
+            </a>
+          {%- else -%}
+            <div class="timeline-content">
+              {%- if block.settings.title != blank -%}
+                <h3>{{ block.settings.title }}</h3>
+              {%- endif -%}
+              {%- if block.settings.description != blank -%}
+                <p>{{ block.settings.description }}</p>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+<script>
+(function() {
+  'use strict';
+  
+  // Intersection Observer for scroll animations
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: '0px 0px -100px 0px'
+  };
+
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Observe all timeline items
+  const timelineItems = document.querySelectorAll('.timeline-item');
+  timelineItems.forEach(function(item, index) {
+    // Add staggered delay
+    item.style.transitionDelay = (index * 0.1) + 's';
+    observer.observe(item);
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Arsenal Timeline",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Nuestra Historia"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Description",
+      "default": "<p>Conoce los hitos más importantes de nuestra trayectoria</p>"
+    },
+    {
+      "type": "header",
+      "content": "Design Settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card Background",
+      "default": "#f8f8f8"
+    },
+    {
+      "type": "color",
+      "id": "line_color",
+      "label": "Timeline Line & Accent Color",
+      "default": "#ff6b35"
+    },
+    {
+      "type": "color",
+      "id": "year_background",
+      "label": "Year Badge Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 800,
+      "max": 1400,
+      "step": 50,
+      "unit": "px",
+      "label": "Max Width",
+      "default": 1200
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "milestone",
+      "name": "Milestone",
+      "settings": [
+        {
+          "type": "text",
+          "id": "year",
+          "label": "Year",
+          "default": "2001"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Inicio de operaciones"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Comienza nuestra historia en Venezuela"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon/Image"
+        },
+        {
+          "type": "header",
+          "content": "Enlace / Link"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "URL del enlace / Link URL",
+          "info": "Enlaza este paso a un blog, página o URL externa / Link this step to a blog, page or external URL"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Texto del enlace / Link Text",
+          "default": "Leer más",
+          "info": "Se muestra como botón debajo de la descripción / Shown as button below description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Arsenal Timeline",
+      "blocks": [
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2001",
+            "title": "Comienza operación en Venezuela",
+            "description": "Alianza estratégica con Cavin y Armourchield LTD"
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2002",
+            "title": "Apertura de la planta propia",
+            "description": "Macaray, Venezuela"
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2007",
+            "title": "Expansión de la operación",
+            "description": "Al Caribe y Latinoamérica"
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2011",
+            "title": "Apertura de la planta",
+            "description": "En Panamá"
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2012",
+            "title": "Certificación ISO 9001",
+            "description": "2008"
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2013",
+            "title": "Certificación NIJ 0101.06",
+            "description": ""
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2015",
+            "title": "Certificación NIJ 0101.06",
+            "description": ""
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2016",
+            "title": "Apertura de planta propia",
+            "description": "En México"
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2018",
+            "title": "Certificación ISO 9001",
+            "description": "2015"
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2020",
+            "title": "Certificación NIJ 0101.06",
+            "description": ""
+          }
+        },
+        {
+          "type": "milestone",
+          "settings": {
+            "year": "2020",
+            "title": "Certificación ambiental",
+            "description": "ISO 14001 - 2015"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

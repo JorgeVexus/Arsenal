@@ -1,0 +1,168 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {
+        "hide_mobile": false,
+        "back_button": false
+      }
+    },
+    "c07946eb-d5eb-4f3a-9565-db0851d0c535": {
+      "type": "section-image-mask",
+      "settings": {
+        "width": "wide",
+        "height": "xl",
+        "enable_custom_height": false,
+        "custom_height": 630,
+        "color_palette": "scheme-1",
+        "background_overlay_opacity": 0,
+        "background_position": "left",
+        "background_width": 50,
+        "background_height": 100,
+        "text_alignment": "center",
+        "content_width": 1760,
+        "title": "<h2>A TV experience unlike any other</h2>",
+        "title_underline_style": "none",
+        "enable_custom_title_size": true,
+        "custom_title_size": 71,
+        "line_height": 110,
+        "height_mobile": "s",
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "main-collection": {
+      "type": "main-collection",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "text_alignment": "left",
+            "title_size": "h2",
+            "title": ""
+          }
+        },
+        "sorting": {
+          "type": "sorting",
+          "settings": {}
+        },
+        "product_grid": {
+          "type": "product_grid",
+          "settings": {}
+        },
+        "423fb7f6-2c97-4420-8211-d45378349d2a": {
+          "type": "description",
+          "settings": {
+            "text_alignment": "left",
+            "enable_read_more": false,
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "title",
+        "sorting",
+        "product_grid",
+        "423fb7f6-2c97-4420-8211-d45378349d2a"
+      ],
+      "settings": {
+        "pagination_qty": 12,
+        "pagination_type": "button",
+        "show_amount_of_products_in_collection": true,
+        "products_per_row": 3,
+        "secondary_products_per_row": 4,
+        "fill_images": false,
+        "fill_not_first": false,
+        "images_padding": 0,
+        "images_vertical_position": 0,
+        "show_collection_image": false,
+        "enable_filters": true,
+        "enable_menu": false,
+        "enable_collections": false,
+        "filters_layout": "drawer",
+        "enable_filters_checkboxes": true,
+        "collections_menu": [],
+        "main_menu_items_clickable": true,
+        "filter_sticky": false,
+        "filters_show_more_limit": 5,
+        "enable_custom_filters_font_size": true,
+        "filters_font_size": "14px",
+        "image_swatches_size": "xs",
+        "image_swatches_fill_images": true,
+        "image_swatches_show_in_circle": true,
+        "fix_zindex": 1
+      }
+    },
+    "71a944e1-7007-4bc3-9655-61404ed9e700": {
+      "type": "section-collage",
+      "blocks": {
+        "template--21407923077441__71a944e1-7007-4bc3-9655-61404ed9e700-image-1": {
+          "type": "image",
+          "settings": {
+            "overlay_opacity": 0,
+            "enable_controls": false,
+            "video_mute": true,
+            "color_palette": "scheme-1",
+            "text_position": "align-end text-end",
+            "title": "<h3>Beovision Harmony</h3>",
+            "title_underline_style": "none",
+            "text": "",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_link": true,
+            "link_text": "Discover",
+            "link_url": "/",
+            "button_style": "secondary link"
+          }
+        },
+        "8d5d8346-f673-481c-8091-cdf0a39e81a1": {
+          "type": "image",
+          "settings": {
+            "overlay_opacity": 0,
+            "enable_controls": false,
+            "video_mute": true,
+            "color_palette": "scheme-2",
+            "text_position": "align-end text-end",
+            "title": "<h3>Beosound Theatre</h3>",
+            "title_underline_style": "none",
+            "text": "",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_link": true,
+            "link_text": "Discover",
+            "link_url": "/",
+            "button_style": "primary link"
+          }
+        }
+      },
+      "block_order": [
+        "template--21407923077441__71a944e1-7007-4bc3-9655-61404ed9e700-image-1",
+        "8d5d8346-f673-481c-8091-cdf0a39e81a1"
+      ],
+      "settings": {
+        "mirrored": false,
+        "width": "boxed",
+        "height": "16/9",
+        "enable_custom_height": false,
+        "custom_height": 300,
+        "space_between": 16,
+        "image_zoom": true,
+        "layout_mobile": "rows",
+        "mobile_height": "16/9",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "c07946eb-d5eb-4f3a-9565-db0851d0c535",
+    "main-collection",
+    "71a944e1-7007-4bc3-9655-61404ed9e700"
+  ]
+}

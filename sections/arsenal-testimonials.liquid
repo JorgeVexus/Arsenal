@@ -1,0 +1,448 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .arsenal-testimonials {
+    background: {{ section.settings.background_color }};
+    overflow: hidden;
+  }
+
+  .arsenal-testimonials-container {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .arsenal-testimonials-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .arsenal-testimonials-header h2 {
+    margin: 0 0 15px 0;
+    font-size: clamp(28px, 5vw, 48px);
+    line-height: 1.1;
+  }
+
+  .arsenal-testimonials-header .rte {
+    color: rgba(0,0,0,0.7);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Testimonials Grid */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .testimonials-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+  }
+
+  @media screen and (min-width: 990px) {
+    .testimonials-grid {
+      grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
+    }
+  }
+
+  /* Testimonial Card */
+  .testimonial-card {
+    background: {{ section.settings.card_background }};
+    border-radius: 20px;
+    padding: 40px 30px 30px 30px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  }
+
+  /* Quote Icon */
+  .testimonial-quote {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    opacity: 0.1;
+  }
+
+  .testimonial-quote svg {
+    width: 100%;
+    height: 100%;
+    fill: {{ section.settings.accent_color }};
+  }
+
+  /* Rating Stars */
+  .testimonial-rating {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 5px;
+  }
+
+  .testimonial-rating svg {
+    width: 18px;
+    height: 18px;
+    fill: #ffc107;
+  }
+
+  /* Testimonial Text */
+  .testimonial-text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(0,0,0,0.8);
+    flex-grow: 1;
+    font-style: italic;
+  }
+
+  /* Author Section */
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(0,0,0,0.06);
+  }
+
+  .testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 3px solid {{ section.settings.accent_color }};
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .testimonial-avatar svg {
+    width: 100%;
+    height: 100%;
+    background: {{ section.settings.accent_color | color_modify: 'alpha', 0.1 }};
+    padding: 15px;
+  }
+
+  .testimonial-info {
+    flex-grow: 1;
+  }
+
+  .testimonial-name {
+    font-size: 17px;
+    font-weight: 700;
+    margin: 0 0 4px 0;
+    color: #000;
+  }
+
+  .testimonial-position {
+    font-size: 14px;
+    color: {{ section.settings.accent_color }};
+    margin: 0;
+  }
+
+  .testimonial-company {
+    font-size: 13px;
+    color: rgba(0,0,0,0.6);
+    margin: 2px 0 0 0;
+  }
+
+  /* Animations */
+  .testimonial-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+  .testimonial-card:nth-child(2) { animation-delay: 0.2s; }
+  .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
+  .testimonial-card:nth-child(4) { animation-delay: 0.4s; }
+  .testimonial-card:nth-child(5) { animation-delay: 0.5s; }
+  .testimonial-card:nth-child(6) { animation-delay: 0.6s; }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+{%- endstyle -%}
+
+<section class="arsenal-testimonials section-{{ section.id }}-padding">
+  <div class="arsenal-testimonials-container">
+    
+    {%- if section.settings.heading != blank or section.settings.text != blank -%}
+      <div class="arsenal-testimonials-header">
+        {%- if section.settings.heading != blank -%}
+          <h2>{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        {%- if section.settings.text != blank -%}
+          <div class="rte">{{ section.settings.text }}</div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="testimonials-grid">
+      {%- for block in section.blocks -%}
+        <div class="testimonial-card" {{ block.shopify_attributes }}>
+          
+          {%- comment -%} Quote Icon {%- endcomment -%}
+          <div class="testimonial-quote">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 17h3l2-4V7H5v6h3zm8 0h3l2-4V7h-6v6h3z"/>
+            </svg>
+          </div>
+
+          {%- comment -%} Rating Stars {%- endcomment -%}
+          {%- if block.settings.rating > 0 -%}
+            <div class="testimonial-rating">
+              {%- for i in (1..5) -%}
+                {%- if i <= block.settings.rating -%}
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                {%- else -%}
+                  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.3;">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+
+          {%- comment -%} Testimonial Text {%- endcomment -%}
+          {%- if block.settings.text != blank -%}
+            <div class="testimonial-text">
+              "{{ block.settings.text }}"
+            </div>
+          {%- endif -%}
+
+          {%- comment -%} Author Information {%- endcomment -%}
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 120 | image_tag: loading: 'lazy', alt: block.settings.author }}
+              {%- else -%}
+                <svg viewBox="0 0 24 24" fill="{{ section.settings.accent_color }}" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                </svg>
+              {%- endif -%}
+            </div>
+            <div class="testimonial-info">
+              {%- if block.settings.author != blank -%}
+                <p class="testimonial-name">{{ block.settings.author }}</p>
+              {%- endif -%}
+              {%- if block.settings.position != blank -%}
+                <p class="testimonial-position">{{ block.settings.position }}</p>
+              {%- endif -%}
+              {%- if block.settings.company != blank -%}
+                <p class="testimonial-company">{{ block.settings.company }}</p>
+              {%- endif -%}
+            </div>
+          </div>
+
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Arsenal Testimonials",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Lo que dicen nuestros clientes"
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Description",
+      "default": "<p>Conoce las experiencias de quienes confían en nosotros</p>"
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Columns on Desktop",
+      "default": 3
+    },
+    {
+      "type": "header",
+      "content": "Design Settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section Background",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color",
+      "default": "#ff6b35"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 800,
+      "max": 1600,
+      "step": 50,
+      "unit": "px",
+      "label": "Max Width",
+      "default": 1400
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Testimonial Text",
+          "default": "Excelente servicio y calidad. Superaron nuestras expectativas en todos los aspectos. Altamente recomendados."
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "label": "Rating (Stars)",
+          "default": 5,
+          "info": "Set to 0 to hide stars"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author Name",
+          "default": "Juan Pérez"
+        },
+        {
+          "type": "text",
+          "id": "position",
+          "label": "Position/Title",
+          "default": "Director de Operaciones"
+        },
+        {
+          "type": "text",
+          "id": "company",
+          "label": "Company",
+          "default": "Empresa XYZ"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Author Photo"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Arsenal Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "text": "Los productos de Arsenal Protection han sido fundamentales para garantizar la seguridad de nuestro personal. La calidad es excepcional y el servicio al cliente es inigualable.",
+            "rating": 5,
+            "author": "Carlos Rodríguez",
+            "position": "Jefe de Seguridad",
+            "company": "Corporación Nacional"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "text": "Llevamos más de 5 años trabajando con Arsenal y siempre cumplen con los más altos estándares. Su compromiso con la innovación es evidente en cada producto.",
+            "rating": 5,
+            "author": "María González",
+            "position": "Directora de Compras",
+            "company": "Seguridad Total S.A."
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "text": "La certificación internacional y la trayectoria de Arsenal nos dan la confianza que necesitamos. Son líderes en protección balística en América Latina.",
+            "rating": 5,
+            "author": "Roberto Martínez",
+            "position": "Gerente General",
+            "company": "Protección Industrial"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

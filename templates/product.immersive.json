@@ -1,0 +1,563 @@
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {
+        "hide_mobile": true,
+        "back_button": false
+      }
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "c7259cb9-7235-4028-b6df-3a68077fed80": {
+          "type": "title",
+          "settings": {
+            "title_size": "h3",
+            "title": "",
+            "layout_mobile": "title-bottom",
+            "mobile_title_size": "h3"
+          }
+        },
+        "8e479efb-ac22-4515-bbd9-e36042497eb4": {
+          "type": "spacer",
+          "settings": {
+            "height": 20,
+            "height_mobile": 20
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax": true,
+            "sale_label": true,
+            "font_size_price": 16
+          }
+        },
+        "short_description": {
+          "type": "short_description",
+          "settings": {
+            "show_read_more": true
+          }
+        },
+        "variant_selection": {
+          "type": "variant_selection",
+          "settings": {
+            "selection_type": "dropdown",
+            "options": true,
+            "button_options": "Color",
+            "dropdown_options": "",
+            "show_variant_label": true,
+            "show_variant_images": true,
+            "show_variant_one_available": false,
+            "show_selected_variant_images": false,
+            "show_unavailable_variants": true,
+            "enable_selling_plans": true
+          }
+        },
+        "90724a70-740a-4cc9-984c-764e1d76a5bd": {
+          "type": "codes",
+          "settings": {
+            "show_sku": true,
+            "show_barcode": true
+          }
+        },
+        "inventory": {
+          "type": "inventory",
+          "settings": {}
+        },
+        "cb013736-4487-49bc-8f03-b16e0d046329": {
+          "type": "spacer",
+          "settings": {
+            "height": 25,
+            "height_mobile": 20
+          }
+        },
+        "buy_button": {
+          "type": "buy_button",
+          "settings": {
+            "button_style": "plain",
+            "show_amount_selection": false,
+            "show_dynamic_buybutton": true,
+            "button_style_dynamic_buybutton": "inv",
+            "show_gift_card_recipient": false
+          }
+        },
+        "e9431daf-3b99-40f6-89ff-dab164cda2ff": {
+          "type": "spacer",
+          "settings": {
+            "height": 10,
+            "height_mobile": 20
+          }
+        },
+        "80e67d89-9369-4ddb-8111-2aa1c36fb500": {
+          "type": "usp",
+          "settings": {
+            "usp": "<p><strong>30 day </strong>trail* <a href=\"/pages/about-us\" title=\"About us\">Read more</a></p>"
+          }
+        },
+        "ce57c15f-9a2f-4731-8dfe-6ed8eefa9924": {
+          "type": "usp",
+          "settings": {
+            "usp": "<p>Not satisfied? <strong>Money back!</strong></p>"
+          }
+        },
+        "52df90b0-c2aa-4ae2-8f31-d18e5a33e088": {
+          "type": "usp",
+          "settings": {
+            "usp": "<p>Pay within <strong>30 days</strong> with <strong>Klarna</strong></p>"
+          }
+        },
+        "ee5e9f1c-a80a-4244-950f-03806a509775": {
+          "type": "shipping_timer",
+          "settings": {}
+        },
+        "a6bfee39-ae44-4bbf-9282-8ee0e7f8add2": {
+          "type": "product_specifications",
+          "settings": {
+            "layout": "accordion",
+            "collapse": false,
+            "title_size": "h2",
+            "specifications": ""
+          }
+        },
+        "03131031-03b1-459c-9fed-00e259e68311": {
+          "type": "product_specifications",
+          "settings": {
+            "layout": "drawer",
+            "collapse": false,
+            "title_size": "h3",
+            "specifications": "<p>Weight: 200gr, Usage: Indoor & outdoor</p>"
+          }
+        },
+        "5a8f9aff-00d0-4e17-a551-bf2a2bb94cdd": {
+          "type": "content",
+          "settings": {
+            "layout": "drawer",
+            "collapse": false,
+            "title_size": "h2",
+            "title": "Delivery",
+            "icon": "none",
+            "header_image_width": 25,
+            "text": "",
+            "page": "shipping-info",
+            "image_width": 555,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        }
+      },
+      "block_order": [
+        "c7259cb9-7235-4028-b6df-3a68077fed80",
+        "8e479efb-ac22-4515-bbd9-e36042497eb4",
+        "price",
+        "short_description",
+        "variant_selection",
+        "90724a70-740a-4cc9-984c-764e1d76a5bd",
+        "inventory",
+        "cb013736-4487-49bc-8f03-b16e0d046329",
+        "buy_button",
+        "e9431daf-3b99-40f6-89ff-dab164cda2ff",
+        "80e67d89-9369-4ddb-8111-2aa1c36fb500",
+        "ce57c15f-9a2f-4731-8dfe-6ed8eefa9924",
+        "52df90b0-c2aa-4ae2-8f31-d18e5a33e088",
+        "ee5e9f1c-a80a-4244-950f-03806a509775",
+        "a6bfee39-ae44-4bbf-9282-8ee0e7f8add2",
+        "03131031-03b1-459c-9fed-00e259e68311",
+        "5a8f9aff-00d0-4e17-a551-bf2a2bb94cdd"
+      ],
+      "settings": {
+        "width": "boxed",
+        "images_layout": "slider",
+        "images_grid_spacing": 6,
+        "custom_product_image_ratio": 115,
+        "fill_images": false,
+        "fill_not_first": false,
+        "images_padding": 0,
+        "images_vertical_position": 0,
+        "enable_custom_font_size": true,
+        "font_size": "14px",
+        "show_product_description": true,
+        "title_size": "h3",
+        "show_product_description_drawer": true,
+        "product_description_enable_read_more": true,
+        "product_description_mobile_collapse": false,
+        "images_layout_mobile": "full_width",
+        "tabs_title_size": "h5"
+      }
+    },
+    "00be73cd-175c-42e1-8b1a-13ea83e662e6": {
+      "type": "section-rich-text",
+      "blocks": {
+        "template--21407923863873__00be73cd-175c-42e1-8b1a-13ea83e662e6-title-1": {
+          "type": "title",
+          "settings": {
+            "title": "<h1>Indulge in Sonic Luxury with Beoplay Headphones.</h1>",
+            "title_underline_style": "none"
+          }
+        }
+      },
+      "block_order": [
+        "template--21407923863873__00be73cd-175c-42e1-8b1a-13ea83e662e6-title-1"
+      ],
+      "settings": {
+        "width": "boxed",
+        "height": "xs",
+        "enable_custom_height": false,
+        "custom_height": 300,
+        "color_palette": "scheme-1",
+        "background_overlay_opacity": 75,
+        "background_position": "left",
+        "background_width": 50,
+        "background_height": 100,
+        "text_position": "align-center text-center",
+        "content_width": 1060,
+        "height_mobile": "xs",
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "2a98d524-8f9b-4668-a650-8ee58f485391": {
+      "type": "section-spacer",
+      "settings": {
+        "height": 50,
+        "height_mobile": 20
+      }
+    },
+    "098b17a8-14c3-4f6f-a711-23eb99e5eacf": {
+      "type": "section-icon-text-blocks",
+      "blocks": {
+        "template--19955408765249__098b17a8-14c3-4f6f-a711-23eb99e5eacf-text-1": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "image_height": 55,
+            "image_border_radius": false,
+            "title": "Wireless connectivity",
+            "text": "<p>With the trend towards wireless technology, the BeoPlay HX could support Bluetooth connectivity, enabling users to connect seamlessly to their devices without the hassle of wires.</p>",
+            "show_link": false,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain"
+          }
+        },
+        "template--19955408765249__098b17a8-14c3-4f6f-a711-23eb99e5eacf-text-2": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "image_height": 55,
+            "image_border_radius": false,
+            "title": "Long Battery Life",
+            "text": "<p>Extended battery life is valuable, especially for wireless headphones. The BeoPlay HX could offer a long-lasting battery that ensures users can enjoy their music throughout the day without constant recharging.</p>",
+            "show_link": false,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain"
+          }
+        },
+        "template--19955408765249__098b17a8-14c3-4f6f-a711-23eb99e5eacf-text-3": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "image_height": 55,
+            "image_border_radius": false,
+            "title": "Comfort and ergonomics",
+            "text": "<p>The comfort of wearing headphones for extended periods is crucial. The BeoPlay HX might boast ergonomic designs, plush padding, and adjustable headbands to ensure a comfortable fit.</p>",
+            "show_link": false,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain"
+          }
+        }
+      },
+      "block_order": [
+        "template--19955408765249__098b17a8-14c3-4f6f-a711-23eb99e5eacf-text-1",
+        "template--19955408765249__098b17a8-14c3-4f6f-a711-23eb99e5eacf-text-2",
+        "template--19955408765249__098b17a8-14c3-4f6f-a711-23eb99e5eacf-text-3"
+      ],
+      "settings": {
+        "items_width": 3,
+        "text_alignment": "start",
+        "color_palette": "scheme-3",
+        "background_overlay_opacity": 100,
+        "background_position": "left",
+        "background_width": 50,
+        "background_height": 100,
+        "title": "",
+        "title_underline_style": "none",
+        "text": "",
+        "enable_custom_font_styling": false,
+        "font_size": "16px",
+        "show_link": false,
+        "link_text": "Button",
+        "link_url": "",
+        "button_style": "primary plain",
+        "blocks_text_alignment": "center",
+        "blocks_title_font": "primary",
+        "blocks_title_size": "h3",
+        "blocks_enable_custom_font_styling": false,
+        "blocks_font_size": "16px",
+        "layout_mobile": "slider",
+        "mobile_blocks_text_alignment": "center",
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 0,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "53099a60-2c4e-4adc-956b-584f68d87b78": {
+      "type": "section-banner-columns",
+      "blocks": {
+        "template--19955408765249__53099a60-2c4e-4adc-956b-584f68d87b78-image-1": {
+          "type": "image",
+          "settings": {
+            "overlay_opacity": 15,
+            "enable_controls": false,
+            "video_mute": true,
+            "color_palette": "scheme-2",
+            "text_position": "center start",
+            "title": "<h2>Premium design and materials</h2>",
+            "title_underline_style": "none",
+            "text": "<p>Premium materials such as leather, aluminum, and other luxurious finishes.</p>",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_link": false,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain"
+          }
+        },
+        "template--19955408765249__53099a60-2c4e-4adc-956b-584f68d87b78-image-2": {
+          "type": "image",
+          "settings": {
+            "overlay_opacity": 0,
+            "enable_controls": false,
+            "video_mute": true,
+            "color_palette": "scheme-1",
+            "text_position": "text-center",
+            "title": "",
+            "title_underline_style": "none",
+            "text": "",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_link": false,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain"
+          }
+        }
+      },
+      "block_order": [
+        "template--19955408765249__53099a60-2c4e-4adc-956b-584f68d87b78-image-1",
+        "template--19955408765249__53099a60-2c4e-4adc-956b-584f68d87b78-image-2"
+      ],
+      "settings": {
+        "items_width": 3,
+        "width": "wide",
+        "height": "16/9",
+        "enable_custom_height": false,
+        "custom_height": 600,
+        "space_between": 0,
+        "image_zoom": true,
+        "show_content_below": false,
+        "layout_mobile": "rows",
+        "mobile_height": "16/9",
+        "spacing_desktop": 0,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "7f4ac75e-0417-481c-a4d2-08f01ad2d186": {
+      "type": "section-video-banner",
+      "blocks": {
+        "template--19955408765249__7f4ac75e-0417-481c-a4d2-08f01ad2d186-title-1": {
+          "type": "title",
+          "settings": {
+            "title": "<h2>Active noise cancellation</h2>",
+            "title_underline_style": "none"
+          }
+        },
+        "template--19955408765249__7f4ac75e-0417-481c-a4d2-08f01ad2d186-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Effective noise cancellation can create an immersive listening experience by blocking out external noises and disturbances.</p>",
+            "font": "secondary",
+            "font_size": "16px"
+          }
+        }
+      },
+      "block_order": [
+        "template--19955408765249__7f4ac75e-0417-481c-a4d2-08f01ad2d186-title-1",
+        "template--19955408765249__7f4ac75e-0417-481c-a4d2-08f01ad2d186-text-1"
+      ],
+      "settings": {
+        "overlay_opacity": 0,
+        "enable_controls": false,
+        "video_mute": true,
+        "video_url": "",
+        "video_alt_text": "",
+        "width": "wide",
+        "text_position": "center",
+        "color_palette": "",
+        "background_overlay_opacity": 0,
+        "background_position": "left",
+        "background_width": 100,
+        "background_height": 100,
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": -10,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "54065e62-ae2f-4a51-bcef-ed5ff47dceef": {
+      "type": "section-rich-text",
+      "blocks": {
+        "26e09093-0f07-4f3a-9375-071476b4b3ba": {
+          "type": "image",
+          "settings": {
+            "image_width": 1000,
+            "link_url": ""
+          }
+        },
+        "81092611-01c6-458c-8bc6-f4ccc4bbeb39": {
+          "type": "spacer",
+          "settings": {
+            "height": 55,
+            "height_mobile": 20
+          }
+        },
+        "template--19955408765249__54065e62-ae2f-4a51-bcef-ed5ff47dceef-title-1": {
+          "type": "title",
+          "settings": {
+            "title": "<h3>The BeoPlay HX might boast <em><strong>ergonomic designs</strong></em>, plush padding, and <em><strong>adjustable headbands</strong></em> to ensure a comfortable fit.</h3>",
+            "title_underline_style": "none"
+          }
+        },
+        "template--19955408765249__54065e62-ae2f-4a51-bcef-ed5ff47dceef-content-1": {
+          "type": "content",
+          "settings": {
+            "page": "",
+            "text": "",
+            "font": "secondary",
+            "enable_custom_text_styling": false,
+            "font_weight": "400",
+            "font_size": "16px"
+          }
+        },
+        "3408b44d-1111-475a-a3e9-4f506c48122c": {
+          "type": "button",
+          "settings": {
+            "link_text": "All headphones",
+            "link_url": "/",
+            "button_style": "secondary solid"
+          }
+        }
+      },
+      "block_order": [
+        "26e09093-0f07-4f3a-9375-071476b4b3ba",
+        "81092611-01c6-458c-8bc6-f4ccc4bbeb39",
+        "template--19955408765249__54065e62-ae2f-4a51-bcef-ed5ff47dceef-title-1",
+        "template--19955408765249__54065e62-ae2f-4a51-bcef-ed5ff47dceef-content-1",
+        "3408b44d-1111-475a-a3e9-4f506c48122c"
+      ],
+      "settings": {
+        "width": "wide",
+        "height": "s",
+        "enable_custom_height": true,
+        "custom_height": 910,
+        "color_palette": "scheme-1",
+        "background_overlay_opacity": 100,
+        "background_position": "left",
+        "background_width": 100,
+        "background_height": 100,
+        "text_position": "align-center text-center",
+        "content_width": 940,
+        "height_mobile": "xs",
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 0,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "3e68e292-332f-427f-b903-e3e844f9cc6b": {
+      "type": "section-collection-list",
+      "settings": {
+        "custom_image_ratio": 100,
+        "show_in_circle": true,
+        "fill_images": true,
+        "layout": "slider",
+        "number_of_items": 5,
+        "show_below": true,
+        "show_arrow": false,
+        "color_palette": "scheme-2",
+        "image_overlay_opacity": 10,
+        "text_alignment": "center",
+        "background_color_palette": "scheme-5",
+        "background_overlay_opacity": 100,
+        "background_position": "left",
+        "background_width": 100,
+        "background_height": 100,
+        "title": "<h2>Is there anything else you're looking for?</h2>",
+        "title_underline_style": "none",
+        "show_link": true,
+        "link_text": "View all",
+        "link_url": "/",
+        "button_style": "primary link",
+        "collection_title_position": "center",
+        "show_collection_titles": true,
+        "collection_title_size": "h3",
+        "mobile_layout": "slider",
+        "number_of_items_mobile": "w100-mobile",
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "limit": 5,
+        "number_of_items": 5,
+        "text_alignment": "start",
+        "background_color_palette": "light",
+        "background_overlay_opacity": 0,
+        "background_position": "left",
+        "background_width": 50,
+        "background_height": 100,
+        "title": "<h2>You may also like</h2>",
+        "title_underline_style": "none",
+        "text": "",
+        "enable_custom_font_styling": false,
+        "text_color_palette": "black",
+        "font_size": "16px",
+        "mobile_collapse": false,
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 50,
+        "spacing_mobile": 0,
+        "fix_zindex": 0
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-product",
+    "00be73cd-175c-42e1-8b1a-13ea83e662e6",
+    "2a98d524-8f9b-4668-a650-8ee58f485391",
+    "098b17a8-14c3-4f6f-a711-23eb99e5eacf",
+    "53099a60-2c4e-4adc-956b-584f68d87b78",
+    "7f4ac75e-0417-481c-a4d2-08f01ad2d186",
+    "54065e62-ae2f-4a51-bcef-ed5ff47dceef",
+    "3e68e292-332f-427f-b903-e3e844f9cc6b",
+    "recommendations"
+  ]
+}

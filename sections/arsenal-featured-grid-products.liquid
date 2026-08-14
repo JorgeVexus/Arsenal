@@ -1,0 +1,740 @@
+{% comment %}
+  Modern Featured Products Grid & Slider
+  A highly customizable grid or slider of products with manual stars, badges, and hiddable prices.
+  @author: Jorge Cerna - Vexus
+{% endcomment %}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .fpg-container-{{ section.id }} {
+    max-width: {{ section.settings.page_width }}px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative;
+  }
+
+  /* Header Branding */
+  .fpg-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .fpg-title {
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 900;
+    margin: 0;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+
+  .fpg-cta {
+    display: inline-block;
+    padding: 12px 24px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: 2px solid #000;
+  }
+
+  .fpg-cta:hover {
+    background: #fff;
+    color: #000;
+  }
+
+  /* Slider / Grid Wrapper */
+  .fpg-slider-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .fpg-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    padding-bottom: 5px;
+    scroll-behavior: smooth;
+  }
+
+  .fpg-grid::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+
+  /* Product Card Widths */
+  .fpg-card {
+    position: relative;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    transition: transform 0.3s ease;
+    flex: 0 0 calc(60% - 10px); /* Slightly larger on mobile for partial view */
+    scroll-snap-align: start;
+  }
+
+  @media screen and (min-width: 750px) {
+    .fpg-card {
+      flex: 0 0 calc((100% / {{ section.settings.columns_desktop }}) - (20px * ({{ section.settings.columns_desktop }} - 1) / {{ section.settings.columns_desktop }}));
+    }
+    
+    /* If NOT slider (static grid fallback if items <= columns) */
+    {% if section.blocks.size <= section.settings.columns_desktop %}
+       .fpg-grid {
+         display: grid;
+         grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
+         overflow: visible;
+       }
+       .fpg-card {
+         flex: none;
+       }
+       .fpg-arrows {
+         display: none !important;
+       }
+       .fpg-dots-wrapper {
+         display: none !important;
+       }
+    {% endif %}
+  }
+
+  .fpg-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .fpg-media-wrapper {
+    position: relative;
+    aspect-ratio: 1/1;
+    overflow: hidden;
+    background: #f3f3f3;
+    width: 100%;
+  }
+
+  .fpg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: multiply;
+  }
+
+  /* Badge */
+  .fpg-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #000;
+    color: #fff;
+    padding: 4px 8px;
+    font-size: 10px;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    z-index: 2;
+  }
+
+  .fpg-info {
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .fpg-product-title {
+    font-size: 16px;
+    font-weight: 800;
+    margin: 0;
+    text-transform: uppercase;
+    color: #000;
+    text-decoration: none;
+    line-height: 1.2;
+  }
+
+  .fpg-product-title:hover {
+    opacity: 0.7;
+  }
+
+  .fpg-price {
+    font-size: 15px;
+    font-weight: 400;
+    color: #333;
+  }
+
+  /* Manual Stars */
+  .fpg-stars {
+    display: flex;
+    gap: 2px;
+    margin-top: auto;
+  }
+
+  .fpg-star-icon {
+    width: 14px;
+    height: 14px;
+    color: #000;
+  }
+
+  .fpg-star-icon.filled {
+    fill: #000;
+  }
+  
+  .fpg-star-icon.empty {
+    fill: none;
+    stroke: #000;
+    stroke-width: 1.5px;
+  }
+
+  /* Slider Minimalist Arrows - Simple Icon Only */
+  .fpg-arrows-{{ section.id }} {
+    display: flex !important;
+    gap: {{ section.settings.arrows_gap }}px !important;
+    align-items: center !important;
+  }
+
+  @media screen and (max-width: 749px) {
+    .fpg-arrows-{{ section.id }} {
+      display: none !important;
+    }
+  }
+
+  .fpg-arrow-{{ section.id }} {
+    width: {{ section.settings.arrow_size }}px !important;
+    height: {{ section.settings.arrow_size }}px !important;
+    background: {{ section.settings.arrow_bg_color }} !important;
+    background-color: {{ section.settings.arrow_bg_color }} !important;
+    border: {{ section.settings.arrow_border_width }}px solid {{ section.settings.arrow_border_color }} !important;
+    border-radius: {{ section.settings.arrow_radius }}% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    padding: 0 !important;
+    color: {{ section.settings.arrow_icon_color }} !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    min-width: auto !important;
+    min-height: auto !important;
+    text-indent: -9999px !important;
+    overflow: hidden !important;
+  }
+
+  .fpg-arrow-{{ section.id }}:hover,
+  .fpg-arrow-{{ section.id }}:focus,
+  .fpg-arrow-{{ section.id }}:active {
+    background: {{ section.settings.arrow_bg_hover }} !important;
+    background-color: {{ section.settings.arrow_bg_hover }} !important;
+    border-color: {{ section.settings.arrow_border_hover }} !important;
+    color: {{ section.settings.arrow_icon_hover }} !important;
+    transform: scale(1.05) !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  .fpg-arrow-{{ section.id }} svg {
+    width: {{ section.settings.arrow_icon_size }}px !important;
+    height: {{ section.settings.arrow_icon_size }}px !important;
+    fill: none !important;
+    stroke: currentColor !important;
+    stroke-width: {{ section.settings.arrow_stroke_width }}px !important;
+    display: block !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* Pagination Dots - Minimalist */
+  .fpg-dots-wrapper-{{ section.id }} {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: {{ section.settings.dots_gap }}px !important;
+    margin-top: {{ section.settings.dots_margin_top }}px !important;
+    line-height: 0 !important;
+  }
+
+  .fpg-dot-{{ section.id }} {
+    width: {{ section.settings.dot_size }}px !important;
+    height: {{ section.settings.dot_size }}px !important;
+    min-width: {{ section.settings.dot_size }}px !important;
+    min-height: {{ section.settings.dot_size }}px !important;
+    max-width: {{ section.settings.dot_size }}px !important;
+    max-height: {{ section.settings.dot_size }}px !important;
+    border-radius: 50% !important;
+    background: {{ section.settings.dot_inactive_color }} !important;
+    background-color: {{ section.settings.dot_inactive_color }} !important;
+    cursor: pointer !important;
+    border: none !important;
+    transition: all 0.25s ease !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    font-size: 0 !important;
+    line-height: 0 !important;
+    text-indent: -9999px !important;
+    overflow: hidden !important;
+  }
+
+  .fpg-dot-{{ section.id }}:hover {
+    background: {{ section.settings.dot_hover_color }} !important;
+    background-color: {{ section.settings.dot_hover_color }} !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+  .fpg-dot-{{ section.id }}.is-active {
+    background: {{ section.settings.dot_active_color }} !important;
+    background-color: {{ section.settings.dot_active_color }} !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+{%- endstyle -%}
+
+<section class="section-{{ section.id }}-padding shopify-section">
+  <div class="fpg-container-{{ section.id }}">
+    
+    <div class="fpg-header">
+      {%- if section.settings.title != blank -%}
+        <h2 class="fpg-title">{{ section.settings.title }}</h2>
+      {%- endif -%}
+
+      <div style="display: flex; align-items: center; gap: 16px;">
+        {%- if section.blocks.size > section.settings.columns_desktop -%}
+          <div class="fpg-arrows-{{ section.id }}">
+            <button class="fpg-arrow-{{ section.id }} prev-{{ section.id }}" aria-label="Previous">
+              <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            </button>
+            <button class="fpg-arrow-{{ section.id }} next-{{ section.id }}" aria-label="Next">
+              <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </button>
+          </div>
+        {%- endif -%}
+        
+        {%- if section.settings.cta_label != blank -%}
+          <a href="{{ section.settings.cta_link | default: '#' }}" class="fpg-cta">
+            {{ section.settings.cta_label }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+
+    <div class="fpg-slider-wrapper">
+      <div class="fpg-grid" id="grid-{{ section.id }}">
+        {%- for block in section.blocks -%}
+          {%- assign product = block.settings.product -%}
+          <div class="fpg-card" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+            <div class="fpg-media-wrapper">
+              {%- if block.settings.badge_text != blank -%}
+                <span class="fpg-badge">{{ block.settings.badge_text }}</span>
+              {%- endif -%}
+
+              {%- assign card_image = block.settings.image_override | default: product.featured_image -%}
+              
+              {%- if card_image != blank -%}
+                <img src="{{ card_image | image_url: width: 800 }}" 
+                     loading="lazy" 
+                     class="fpg-img" 
+                     alt="{{ card_image.alt | escape }}">
+              {%- else -%}
+                {{ 'product-1' | placeholder_svg_tag: 'fpg-img placeholder-svg' }}
+              {%- endif -%}
+            </div>
+
+            <div class="fpg-info">
+              <a href="{{ product.url }}" class="fpg-product-title">
+                {{ product.title | default: "Example Product Title" }}
+              </a>
+
+              {%- unless section.settings.hide_prices -%}
+                <div class="fpg-price">
+                  {%- if product != blank -%}
+                    {{ product.price | money }}
+                  {%- else -%}
+                    {{ 19900 | money }}
+                  {%- endif -%}
+                </div>
+              {%- endunless -%}
+
+              {%- if block.settings.stars_count > 0 -%}
+                <div class="fpg-stars">
+                  {%- for i in (1..5) -%}
+                    {%- if i <= block.settings.stars_count -%}
+                      <svg class="fpg-star-icon filled" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    {%- else -%}
+                      <svg class="fpg-star-icon empty" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                    {%- endif -%}
+                  {%- endfor -%}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+
+    {%- if section.blocks.size > section.settings.columns_desktop -%}
+      <div class="fpg-dots-wrapper-{{ section.id }}" id="dots-{{ section.id }}">
+        {%- for block in section.blocks -%}
+          <button class="fpg-dot-{{ section.id }} {% if forloop.first %}is-active{% endif %}" data-index="{{ forloop.index0 }}" aria-label="Go to slide {{ forloop.index }}"></button>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.getElementById('grid-{{ section.id }}');
+  const prevBtn = document.querySelector('.prev-{{ section.id }}');
+  const nextBtn = document.querySelector('.next-{{ section.id }}');
+  const dots = document.querySelectorAll('#dots-{{ section.id }} .fpg-dot-{{ section.id }}');
+  const cards = grid.querySelectorAll('.fpg-card');
+
+  if (grid) {
+    const scrollAmount = () => cards[0].offsetWidth + 20; // card width + gap
+
+    // Arrow clicks
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        grid.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        grid.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+      });
+    }
+
+    // Dot clicks
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const index = dot.getAttribute('data-index');
+        const targetCard = cards[index];
+        if (targetCard) {
+          grid.scrollTo({
+            left: targetCard.offsetLeft - grid.offsetLeft,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Update dots on scroll
+    grid.addEventListener('scroll', () => {
+      let activeIndex = 0;
+      let minDistance = Infinity;
+
+      cards.forEach((card, index) => {
+        const distance = Math.abs(card.getBoundingClientRect().left - grid.getBoundingClientRect().left);
+        if (distance < minDistance) {
+          minDistance = distance;
+          activeIndex = index;
+        }
+      });
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('is-active', index === activeIndex);
+      });
+    });
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Featured Products Grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "BACKCOUNTRY ESSENTIALS"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button Label",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_prices",
+      "label": "Hide All Prices",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "label": "Columns on Desktop",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "page_width",
+      "min": 800,
+      "max": 1600,
+      "step": 40,
+      "unit": "px",
+      "label": "Page Width",
+      "default": 1200
+    },
+    {
+      "type": "header",
+      "content": "Navigation Arrows"
+    },
+    {
+      "type": "range",
+      "id": "arrow_size",
+      "min": 24,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Arrow Button Size",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "arrow_icon_size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Arrow Icon Size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "arrow_stroke_width",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "unit": "px",
+      "label": "Arrow Stroke Width",
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "arrow_border_width",
+      "min": 0,
+      "max": 3,
+      "step": 1,
+      "unit": "px",
+      "label": "Arrow Border Width",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "arrow_radius",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "unit": "%",
+      "label": "Arrow Border Radius",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "arrows_gap",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Arrows Gap",
+      "default": 8
+    },
+    {
+      "type": "color",
+      "id": "arrow_bg_color",
+      "label": "Arrow Background",
+      "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "arrow_bg_hover",
+      "label": "Arrow Background Hover",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "arrow_border_color",
+      "label": "Arrow Border Color",
+      "default": "#e5e5e5"
+    },
+    {
+      "type": "color",
+      "id": "arrow_border_hover",
+      "label": "Arrow Border Hover",
+      "default": "#cccccc"
+    },
+    {
+      "type": "color",
+      "id": "arrow_icon_color",
+      "label": "Arrow Icon Color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "arrow_icon_hover",
+      "label": "Arrow Icon Hover",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Pagination Dots"
+    },
+    {
+      "type": "range",
+      "id": "dot_size",
+      "min": 4,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "label": "Dot Size",
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "dots_gap",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Dots Gap",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "dots_margin_top",
+      "min": 0,
+      "max": 40,
+      "step": 4,
+      "unit": "px",
+      "label": "Dots Margin Top",
+      "default": 24
+    },
+    {
+      "type": "color",
+      "id": "dot_inactive_color",
+      "label": "Dot Inactive Color",
+      "default": "#cccccc"
+    },
+    {
+      "type": "color",
+      "id": "dot_hover_color",
+      "label": "Dot Hover Color",
+      "default": "#999999"
+    },
+    {
+      "type": "color",
+      "id": "dot_active_color",
+      "label": "Dot Active Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product Card",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_override",
+          "label": "Custom Image (Optional)"
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge Text",
+          "info": "Ex: ATHLETE PICK"
+        },
+        {
+          "type": "range",
+          "id": "stars_count",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "label": "Manual Rating (Stars)",
+          "default": 5
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Products Slider",
+      "blocks": [
+        { "type": "product", "settings": { "badge_text": "" } },
+        { "type": "product", "settings": { "badge_text": "" } },
+        { "type": "product", "settings": { "badge_text": "ATHLETE PICK" } },
+        { "type": "product", "settings": { "badge_text": "NEW" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,510 @@
+<aside class="m6pn" id="cart" aria-hidden="true" data-section-id="{{ section.id }}" data-checkout="{{ section.settings.cart_drawer_checkout_button }}">
+  {%- liquid
+    assign custom_height_ratio = settings.custom_product_image_ratio | divided_by: 100.0
+    assign image_width = 430
+    assign image_height = image_width | times: custom_height_ratio
+
+    assign has_free_shipping_amount = false
+    if settings.enable_free_shipping
+      assign has_free_shipping_amount = true
+      assign free_shipping_amount = settings.free_shipping_amount | times: 1 | times: 100
+    endif
+  -%}
+  <div class="side-cart-wrapper">
+    <header data-totalqty="{{ cart.item_count }}">
+      <{{ settings.drawers_font_size_heading }}>
+        {{- 'cart.title' | t }}
+        <span class="s1bx rounded cart-count{% if cart.item_count == 0 %} hidden{% endif %}">
+          {{- cart.item_count -}}
+        </span></{{ settings.drawers_font_size_heading }}
+      >
+    </header>
+    {%- if cart.item_count == 0 -%}
+      <p class="margin-0">
+        <span class="empty">{{ section.settings.empty_cart_text | remove: '</p>' | remove: '<p>' }}</span>
+      </p>
+    {% endif %}
+    {%- if has_free_shipping_amount and cart.requires_shipping -%}
+      {%- if free_shipping_amount > cart.total_price -%}
+        <p
+          class="s1ld"
+          data-val="{{ cart.total_price | at_most: free_shipping_amount }}"
+          data-of="{{ free_shipping_amount }}"
+          style="--theme_bg_gradient:var(--{{ settings.free_shipping_progress_color }}_bg);"
+        >
+          {%- assign amount = free_shipping_amount | minus: cart.total_price | money -%}
+          {{ 'cart.amount_to_free_shipping_long_html' | t: amount: amount }}
+        </p>
+      {%- else -%}
+        <ul class="l4al dont-close">
+          <li class="inline overlay-valid">
+            <span>{{ 'cart.free_shipping_long_html' | t }}</span>
+          </li>
+        </ul>
+      {%- endif -%}
+    {%- endif -%}
+    <ul
+      class="l4ca compact"
+      {% if section.settings.enable_cart_drawer_undo_remove and section.settings.enable_cart_drawer_undo_remove_delay %}
+        data-delay="{{ section.settings.cart_drawer_undo_remove_delay | times: 1000 }}"
+      {% endif %}
+    >
+      {%- for line_item in cart.items -%}
+        <li class="{% if line_item.original_line_price > line_item.final_line_price %} has-discount{% endif %}">
+          {%- if line_item.image -%}
+            <header>
+              <figure class="{% if settings.fill_product_images %}img-cover{% endif %}{% if settings.multiply_product_images == 'multiply-bg' %} img-multiply-bg{% elsif settings.multiply_product_images == 'multiply' %} img-multiply{% endif %}">
+                <picture class="orientation">
+                  <img
+                    src="
+                      {%- liquid
+                        if settings.fill_product_images
+                          echo line_item | image_url: width: image_width, height: image_height, crop: 'center'
+                        else
+                          echo line_item | image_url: width: image_width
+                        endif
+                      -%}
+                    "
+                    width="{{ image_width }}"
+                    height="{{ image_height }}"
+                    alt="{{ line_item.image.alt | default: line_item.title | escape }}"
+                    loading="lazy"
+                  >
+                </picture>
+              </figure>
+            </header>
+          {%- endif -%}
+          <section>
+            <header>
+              <h2 class="ff-{{ settings.productcard_title_font }} fw-{{ settings.productcard_title_weight }}">
+                <a href="{{ line_item.url }}">{{ line_item.product.title }} </a>
+              </h2>
+              {%- liquid
+                if line_item.options_with_values or line_item.selling_plan_allocation
+                  unless line_item.product.has_only_default_variant
+                    assign show_options = true
+                  endunless
+                elsif line_item.selling_plan_allocation
+                  assign show_options = true
+                elsif line_item.properties
+                  assign show_options = true
+                endif
+              %}
+              {%- if show_options -%}<p class="small margin-half">{% endif -%}
+              {%- unless line_item.product.has_only_default_variant -%}
+                {%- for option in line_item.options_with_values -%}
+                  {{ option.value -}}
+                  {%- unless forloop.last %} | {% endunless %}
+                {%- endfor -%}
+              {% endunless -%}
+              {%- if line_item.selling_plan_allocation -%}
+                {% if line_item.product.has_only_default_variant %} / {% endif -%}
+                {{- line_item.selling_plan_allocation.selling_plan.name }}
+              {%- endif -%}
+              {%- for property in line_item.properties -%}
+                {%- if property.first.first == '_' or property.last == blank -%}{%- continue -%}{%- endif -%}
+                {{ property.first }}:&nbsp;
+                {%- if property.last contains '/uploads/' -%}
+                  <a href="{{ property.last }}">{{ property.last | split: '/' | last }}</a>
+                {%- else -%}
+                  {{- property.last -}}
+                {%- endif %}
+                {%- unless forloop.last %} | {% endunless %}
+              {%- endfor -%}
+              {%- if show_options -%}</p>{% endif -%}
+              {% if line_item.unit_price_measurement %}
+                <p>{{ 'product.unit_price_label' | t }}&nbsp;{{ line_item.unit_price | unit_price_with_measurement: line_item.unit_price_measurement }}</p>
+              {% endif %}
+              {%- for discount_allocation in line_item.line_level_discount_allocations -%}
+                <p class="overlay-gray">
+                  <i aria-hidden="true" class="icon-label"></i>
+                  <span class="text-uppercase">
+                    {{- discount_allocation.discount_application.title }}&nbsp;(-
+                    {{- discount_allocation.amount | money -}}
+                    )</span
+                  >
+                </p>
+              {%- endfor -%}
+              {%- render 'product-deliverytime',
+                product: line_item.product,
+                current_variant: line_item.variant,
+                container: 'p',
+                origin: 'sidecart',
+                no_margin: true
+              -%}
+            </header>
+          </section>
+          <footer>
+            <p class="input-amount">
+              <label for="qty-{{ line_item.index | plus: 1 }}" class="hidden">
+                {{- 'cart.product.qty' | t -}}
+              </label>
+              <input
+                type="number"
+                name="updates[]"
+                id="qty-{{ line_item.index | plus: 1 }}"
+                class="disable-on-change"
+                value="{{ line_item.quantity }}"
+                data-line="{{ forloop.index }}"
+                aria-label="quantity"
+                autocomplete="off"
+                data-key="{{ line_item.key }}"
+                min="{{ line_item.variant.quantity_rule.min }}"
+                {% if line_item.variant.inventory_management == 'shopify'
+                  and line_item.variant.inventory_policy == 'deny'
+                -%}
+                  max="{{ line_item.variant.inventory_quantity }}"
+                {% elsif line_item.variant.quantity_rule.max %}
+                  max="{{ line_item.variant.quantity_rule.max }}"
+                {% endif %}
+                {% if line_item.variant.quantity_rule.increment %}
+                  step="{{ line_item.variant.quantity_rule.increment }}"
+                {% endif %}
+              >
+            </p>
+            <p class="s1pr">
+              <span>{{ line_item.final_line_price | money }}</span>
+              {%- if line_item.variant.compare_at_price > line_item.variant.price -%}
+                <span class="old">
+                  {{- line_item.variant.compare_at_price | times: line_item.quantity | money -}}
+                </span>
+              {%- endif -%}
+            </p>
+            <p>
+              <a
+                class="remove remove-from-cart-link"
+                role="button"
+                href="{{ line_item.url_to_remove }}"
+                data-line="{{ forloop.index }}"
+                data-key="{{ line_item.key }}"
+                ><i aria-hidden="true" class="icon-x-circle"></i>
+                <span class="hidden">{{ 'cart.product.remove' | t }}</span></a
+              >
+            </p>
+          </footer>
+          {%- if section.settings.enable_cart_drawer_undo_remove -%}
+            <p class="removed">
+              {{ 'cart.product.product_removed_html' | t: product_title: line_item.product.title }}&nbsp;
+              <a
+                data-id="{{ line_item.id }}"
+                data-qty="{{ line_item.quantity }}"
+                data-key="{{ line_item.key }}"
+                {% if line_item.selling_plan_allocation %}
+                  data-selling_plan="{{ line_item.selling_plan_allocation.selling_plan.id }}"
+                {% endif %}
+                {% for property in line_item.properties %}
+                  {%- unless property.last == blank -%}
+                    data-property-{{ forloop.index }}="{{ property | json }}"
+                  {%- endunless -%}
+                {% endfor %}
+              >
+                {{- 'cart.product.product_removed_undo' | t }}
+              </a>
+            </p>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+    {%- if cart.item_count > 0 -%}
+      <footer class="sticky-in-panel">
+        <ul class="l4tt">
+          {% comment %}<li><span>{{ 'cart.total_products' | t }} ({{ cart.item_count }})</span> {{ cart.items_subtotal_price | money }}</li>{% endcomment %}
+          {%- for discount in cart.cart_level_discount_applications -%}
+            <li class="overlay-gray">
+              <span class="text-uppercase"
+                ><i aria-hidden="true" class="icon-label"></i>
+                {{ discount.title -}}
+                {% if discount.type == 'discount_code' %}<a class="remove-discount inline" data-discount-code="{{ discount.title }}">&nbsp;<i aria-hidden="true" class="icon-x-circle overlay-gray"></i><span class="hidden">{{ 'cart.product.remove' | t }}</span></a>{% endif %}
+              </span>
+              (-{{ discount.total_allocated_amount | money }})
+            </li>
+          {%- endfor -%}
+          <li class="strong">
+            <span>{{ 'cart.total' | t }}</span>
+            {{ cart.total_price | money }}
+          </li>
+          <li>
+            <span>{{ 'cart.total_details' | t }}</span>
+          </li>
+        </ul>
+        {%- if section.settings.enable_discount_tab or section.settings.cart_order_notes -%}
+          <div class="accordion-a compact2 base-font">
+            {% if section.settings.enable_discount_tab %}
+              <details open>
+                <summary><span class="label">{{ 'cart.discount_code.title' | t }}</span></summary>
+                <div>
+                  <form id="discount-form-2" class="discount-form input-inline">
+                    <input type="text" id="discount" name="discount" placeholder="{{ 'cart.discount_code.placeholder' | t }}">
+                    <button type="submit" form="discount-form-2" {% if settings.button_style == 'inv' %} class="inv"{% endif %}>{{ 'cart.discount_code.submit' | t }}</button>
+                    <span class="not-applicable-error-message hidden">{{ 'cart.discount_code.not_applicable' | t }}</span>
+                    <span class="already-applied-error-message hidden">{{ 'cart.discount_code.already_applied' | t }}</span>
+                  </form>
+                </div>
+              </details>
+            {% endif %}
+            {% if section.settings.cart_order_notes %}
+              <details class="mobile-hide">
+                <summary><span class="label">{{ 'cart.add_note' | t }}</span></summary>
+                <div>
+                  <textarea name="note" id="note_side" placeholder="{{ 'cart.add_note_placeholder' | t }}">{{ cart.note }}</textarea>
+                </div>
+              </details>
+            {% endif %}
+          </div>
+        {% endif %}
+        <form class="f8vl" action="{{ routes.cart_url }}" method="post" data-hold="0">
+          <p class="link-btn text-justify" style="--dist_ba: 20px">
+            {%- liquid
+              assign show_checkout = section.settings.cart_drawer_checkout_button
+              assign show_quote = section.settings.enable_quote_button
+              assign quote_method = section.settings.quote_method
+              assign whatsapp_number = section.settings.whatsapp_number | remove: '+' | remove: ' ' | remove: '-' | remove: '(' | remove: ')'
+              assign email_address = section.settings.email_address
+              assign quote_button_text = section.settings.quote_button_text | default: 'Solicitar Cotización'
+              
+              assign cart_items_list = ''
+              for item in cart.items
+                assign item_info = item.product.title
+                if item.variant.title != 'Default Title'
+                  assign item_info = item_info | append: ' (' | append: item.variant.title | append: ')'
+                endif
+                assign item_info = item_info | append: ' x' | append: item.quantity
+                if cart_items_list == ''
+                  assign cart_items_list = item_info
+                else
+                  assign cart_items_list = cart_items_list | append: ', ' | append: item_info
+                endif
+              endfor
+              
+              assign quote_message = section.settings.quote_message | default: 'Hola, me interesa solicitar cotización para los siguientes productos:'
+              assign full_message = quote_message | append: ' ' | append: cart_items_list
+              assign encoded_message = full_message | url_encode
+              
+              assign email_subject = section.settings.email_subject | default: 'Solicitud de Cotización'
+              assign encoded_subject = email_subject | url_encode
+              assign encoded_body = full_message | url_encode
+            -%}
+            
+            {%- if show_checkout -%}
+              {%- liquid
+                assign checkout_button_color = settings.checkout_button_style | split: ' ' | first
+                assign checkout_button_style = settings.checkout_button_style | split: ' ' | last
+              -%}
+              <input type="hidden" name="attributes[collection_grid_view]" value="">
+              <input type="hidden" name="attributes[collection_grid_view_mobile]" value="">
+              <input type="hidden" name="attributes[collection_img_view]" value="">
+              <input type="hidden" name="checkout" value="Checkout">
+              <button
+                class="overlay-{{ checkout_button_color }} {{ checkout_button_style }}"
+                type="submit"
+                name="checkout"
+              >
+                <span class="processing">{{ 'cart.button_processing' | t }}</span>
+                <span class="processed">{{ 'cart.button_proceed' | t }}</span>
+                <span>{{ 'cart.checkout' | t }}</span>
+              </button>
+            {%- endif -%}
+            
+            {%- if show_quote -%}
+              {%- if quote_method == 'whatsapp' or quote_method == 'both' -%}
+                <a href="https://wa.me/{{ whatsapp_number }}?text={{ encoded_message }}" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="overlay-{{ section.settings.quote_button_color }} {{ section.settings.quote_button_style }} quote-btn-whatsapp"
+                   style="display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    {%- if quote_method == 'both' -%}WhatsApp{%- else -%}{{ quote_button_text }}{%- endif -%}
+                </a>
+              {%- endif -%}
+              {%- if quote_method == 'email' or quote_method == 'both' -%}
+                <a href="mailto:{{ email_address }}?subject={{ encoded_subject }}&body={{ encoded_body }}" 
+                   class="overlay-{{ section.settings.quote_button_color }} {{ section.settings.quote_button_style }} quote-btn-email"
+                   style="display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                    <i aria-hidden="true" class="icon-mail"></i>
+                    {%- if quote_method == 'both' -%}Email{%- else -%}{{ quote_button_text }}{%- endif -%}
+                </a>
+              {%- endif -%}
+            {%- endif -%}
+            
+            <a
+              class="overlay-buy_button{% if show_checkout or show_quote %} inv{% else %} {{ settings.buy_button_style }}{% endif %}"
+              href="{{ routes.cart_url }}"
+            >
+              {{- 'cart.to_cart' | t -}}
+            </a>
+          </p>
+        </form>
+        <ul class="l4pm text-center">
+          {%- for payment_method in shop.enabled_payment_types -%}
+            <li>{{ payment_method | payment_type_svg_tag }}</li>
+          {%- endfor -%}
+        </ul>
+      </footer>
+    {%- endif -%}
+  </div>
+</aside>
+{% schema %}
+{
+  "name": "t:settings_schema.cart.name",
+  "settings": [
+    {
+      "id": "empty_cart_text",
+      "type": "richtext",
+      "label": "t:settings_schema.cart.settings.empty_cart_text.label",
+      "default": "<p>Your cart is empty..</p>"
+    },
+    {
+      "type": "header",
+      "content": "t:settings_schema.cart.settings.cart_drawer_undo.header"
+    },
+    {
+      "id": "enable_cart_drawer_undo_remove",
+      "type": "checkbox",
+      "label": "t:settings_schema.cart.settings.cart_drawer_undo.enable_cart_drawer_undo_remove.label",
+      "info": "t:settings_schema.cart.settings.cart_drawer_undo.enable_cart_drawer_undo_remove.info"
+    },
+    {
+      "id": "enable_cart_drawer_undo_remove_delay",
+      "type": "checkbox",
+      "label": "t:settings_schema.cart.settings.cart_drawer_undo.enable_cart_drawer_undo_remove_delay.label",
+      "info": "t:settings_schema.cart.settings.cart_drawer_undo.enable_cart_drawer_undo_remove_delay.info",
+      "visible_if": "{{ section.settings.enable_cart_drawer_undo_remove }}"
+    },
+    {
+      "id": "cart_drawer_undo_remove_delay",
+      "type": "range",
+      "label": "t:settings_schema.cart.settings.cart_drawer_undo.cart_drawer_undo_remove_delay.label",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "default": 5,
+      "unit": "sec",
+      "visible_if": "{{ section.settings.enable_cart_drawer_undo_remove }}"
+    },
+    {
+      "id": "cart_drawer_checkout_button",
+      "type": "checkbox",
+      "label": "t:settings_schema.cart.settings.cart_drawer_checkout_button.label"
+    },
+    {
+      "type": "header",
+      "content": "Botón de Cotizar / Quote Button"
+    },
+    {
+      "id": "enable_quote_button",
+      "type": "checkbox",
+      "label": "Habilitar botón de cotizar / Enable quote button",
+      "info": "Muestra un botón para solicitar cotización por WhatsApp o Email / Shows a button to request quote via WhatsApp or Email",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "quote_method",
+      "label": "Método de cotización / Quote Method",
+      "options": [
+        {
+          "value": "whatsapp",
+          "label": "WhatsApp"
+        },
+        {
+          "value": "email",
+          "label": "Email"
+        },
+        {
+          "value": "both",
+          "label": "Ambos / Both"
+        }
+      ],
+      "default": "whatsapp"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_number",
+      "label": "Número de WhatsApp / WhatsApp Number",
+      "info": "Incluye código de país. Ej: +521234567890 / Include country code",
+      "placeholder": "+521234567890"
+    },
+    {
+      "type": "text",
+      "id": "email_address",
+      "label": "Correo electrónico / Email Address",
+      "placeholder": "ventas@ejemplo.com"
+    },
+    {
+      "type": "text",
+      "id": "quote_button_text",
+      "label": "Texto del botón / Button Text",
+      "default": "Solicitar Cotización"
+    },
+    {
+      "type": "select",
+      "id": "quote_button_style",
+      "label": "Estilo del botón / Button Style",
+      "options": [
+        {
+          "value": "solid",
+          "label": "Sólido / Solid"
+        },
+        {
+          "value": "plain",
+          "label": "Simple / Plain"
+        },
+        {
+          "value": "inv",
+          "label": "Invertido / Inverted"
+        }
+      ],
+      "default": "solid"
+    },
+    {
+      "type": "select",
+      "id": "quote_button_color",
+      "label": "Color del botón / Button Color",
+      "options": [
+        {
+          "value": "buy_button",
+          "label": "Color principal / Primary"
+        },
+        {
+          "value": "theme",
+          "label": "Color del tema / Theme Color"
+        },
+        {
+          "value": "content",
+          "label": "Color de contenido / Content Color"
+        }
+      ],
+      "default": "theme"
+    },
+    {
+      "type": "text",
+      "id": "quote_message",
+      "label": "Mensaje de cotización / Quote Message",
+      "default": "Hola, me interesa solicitar cotización para los siguientes productos:",
+      "info": "Los productos del carrito se agregarán automáticamente / Cart products will be added automatically"
+    },
+    {
+      "type": "text",
+      "id": "email_subject",
+      "label": "Asunto del correo / Email Subject",
+      "default": "Solicitud de Cotización"
+    },
+    {
+      "type": "header",
+      "content": "Opciones adicionales / Additional Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_discount_tab",
+      "label": "t:main.cart.settings.enable_discount_tab.label"
+    },
+    {
+      "id": "cart_order_notes",
+      "type": "checkbox",
+      "label": "t:settings_schema.cart.settings.cart_order_notes.label"
+    }
+  ]
+}
+{% endschema %}

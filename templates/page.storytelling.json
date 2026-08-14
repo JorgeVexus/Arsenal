@@ -1,0 +1,664 @@
+{
+  "sections": {
+    "074d9773-cd5d-4481-b36c-c34a79719891": {
+      "type": "section-slideshow",
+      "blocks": {
+        "template--19855802794305__074d9773-cd5d-4481-b36c-c34a79719891-16896823795d196d1d-0": {
+          "type": "slide",
+          "settings": {
+            "show_play_button": false,
+            "video_mute": true,
+            "layout": "background",
+            "image_width": 50,
+            "overlay_opacity": 45,
+            "color_palette": "scheme-2",
+            "background_overlay_opacity": 100,
+            "text_position": "center",
+            "max_width": 740,
+            "title": "<h4>Sustainability program</h4><h1>Designed to built last</h1>",
+            "title_underline_style": "none",
+            "text": "<p>A Danish company renowned for its high-end audio products and luxury consumer electronics, has been committed to integrating sustainability into its operations and products.</p>",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_first_link": true,
+            "first_link_text": "Read more",
+            "first_link_url": "/",
+            "first_button_style": "primary plain",
+            "show_second_link": true,
+            "second_link_text": "Contact us",
+            "second_link_url": "/",
+            "second_button_style": "primary inv"
+          }
+        }
+      },
+      "block_order": [
+        "template--19855802794305__074d9773-cd5d-4481-b36c-c34a79719891-16896823795d196d1d-0"
+      ],
+      "settings": {
+        "width": "wide",
+        "height": "l",
+        "enable_custom_height": false,
+        "custom_height": 300,
+        "autoplay": false,
+        "autoplay_seconds": 3,
+        "enable_controls": false,
+        "height_mobile": "l",
+        "spacing_desktop": 30,
+        "spacing_mobile": 10,
+        "fix_zindex": 0
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {
+        "hide_mobile": false,
+        "back_button": false
+      }
+    },
+    "701dd9d6-92b2-4929-bf09-2b4fb1fb269c": {
+      "type": "section-usp-bar",
+      "blocks": {
+        "template--19855802794305__701dd9d6-92b2-4929-bf09-2b4fb1fb269c-usp-1": {
+          "type": "usp",
+          "settings": {
+            "icon": "check",
+            "image_width": 40,
+            "usp": "Free climate<strong> neutral delivery.</strong> <a href=\"/pages/shipping-info\" title=\"Shipping info\">More info</a>",
+            "link_styling": "underline"
+          }
+        },
+        "template--19855802794305__701dd9d6-92b2-4929-bf09-2b4fb1fb269c-usp-2": {
+          "type": "usp",
+          "settings": {
+            "icon": "check",
+            "image_width": 40,
+            "usp": "Product design and lifecycle",
+            "link_styling": "underline"
+          }
+        },
+        "template--19855802794305__701dd9d6-92b2-4929-bf09-2b4fb1fb269c-usp-3": {
+          "type": "usp",
+          "settings": {
+            "icon": "check",
+            "image_width": 40,
+            "usp": "Energy efficiency",
+            "link_styling": "underline"
+          }
+        },
+        "aaa0be73-5545-48b9-bf5c-129fdf326c49": {
+          "type": "usp",
+          "settings": {
+            "icon": "check",
+            "image_width": 40,
+            "usp": "Supply chain management",
+            "link_styling": "underline"
+          }
+        },
+        "3ea04424-23aa-47b3-98da-d556895a1e93": {
+          "type": "usp",
+          "settings": {
+            "icon": "check",
+            "image_width": 60,
+            "usp": "Waste reduction and recycling",
+            "link_styling": "underline"
+          }
+        }
+      },
+      "block_order": [
+        "template--19855802794305__701dd9d6-92b2-4929-bf09-2b4fb1fb269c-usp-1",
+        "template--19855802794305__701dd9d6-92b2-4929-bf09-2b4fb1fb269c-usp-2",
+        "template--19855802794305__701dd9d6-92b2-4929-bf09-2b4fb1fb269c-usp-3",
+        "aaa0be73-5545-48b9-bf5c-129fdf326c49",
+        "3ea04424-23aa-47b3-98da-d556895a1e93"
+      ],
+      "settings": {
+        "color_palette": "scheme-1",
+        "overlay_opacity": 100,
+        "height": "65px",
+        "font_size": "16px",
+        "layout": "rows",
+        "autoplay": false,
+        "autoplay_seconds": 3,
+        "show_arrows": true,
+        "spacing_desktop": 30,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "5cadb596-0d62-4c0a-a111-5c67fa13e5d9": {
+      "type": "section-image-with-text",
+      "blocks": {
+        "template--19595896848705__5cadb596-0d62-4c0a-a111-5c67fa13e5d9-16885432826f09df4d-0": {
+          "type": "title",
+          "settings": {
+            "title": "<h2>Advanced Features and Connectivity</h2>",
+            "title_underline_style": "none"
+          }
+        },
+        "template--19595896848705__5cadb596-0d62-4c0a-a111-5c67fa13e5d9-16885432826f09df4d-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We focuse on creating durable products with a long lifespan, reducing the need for frequent replacements. They strive to incorporate sustainable materials and consider energy efficiency in their design process. The company also aims to make their products repairable and recyclable to minimize waste generation.</p>",
+            "font": "primary",
+            "enable_custom_text_styling": false,
+            "font_size": "16px"
+          }
+        }
+      },
+      "block_order": [
+        "template--19595896848705__5cadb596-0d62-4c0a-a111-5c67fa13e5d9-16885432826f09df4d-0",
+        "template--19595896848705__5cadb596-0d62-4c0a-a111-5c67fa13e5d9-16885432826f09df4d-1"
+      ],
+      "settings": {
+        "fill_image": true,
+        "overlay_opacity_img": 0,
+        "enable_controls": false,
+        "video_mute": true,
+        "width": "boxed",
+        "height": "size-m",
+        "enable_custom_height": false,
+        "custom_height": 580,
+        "color_palette": "scheme-1",
+        "overlay_opacity": 0,
+        "layout": "image-left",
+        "text_position": "text-start",
+        "background_color_palette": "scheme-3",
+        "background_overlay_opacity": 100,
+        "background_position": "right",
+        "background_width": 100,
+        "background_height": 100,
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 0,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "173e65d6-9959-4fcb-acb5-0b9d5f4a2714": {
+      "type": "section-rich-text",
+      "blocks": {
+        "template--19855802794305__173e65d6-9959-4fcb-acb5-0b9d5f4a2714-title-1": {
+          "type": "title",
+          "settings": {
+            "title": "<h3>‘’Our sustainability program aims to minimize its environmental impact, promote responsible business practices, and contribute to a more sustainable future.’’</h3>",
+            "title_underline_style": "none"
+          }
+        },
+        "template--19855802794305__173e65d6-9959-4fcb-acb5-0b9d5f4a2714-content-1": {
+          "type": "content",
+          "settings": {
+            "page": "",
+            "font": "secondary",
+            "enable_custom_text_styling": false,
+            "font_weight": "400",
+            "font_size": "16px"
+          }
+        }
+      },
+      "block_order": [
+        "template--19855802794305__173e65d6-9959-4fcb-acb5-0b9d5f4a2714-title-1",
+        "template--19855802794305__173e65d6-9959-4fcb-acb5-0b9d5f4a2714-content-1"
+      ],
+      "settings": {
+        "width": "wide",
+        "height": "xs",
+        "enable_custom_height": false,
+        "custom_height": 300,
+        "color_palette": "scheme-3",
+        "background_overlay_opacity": 96,
+        "background_position": "left",
+        "background_width": 100,
+        "background_height": 100,
+        "text_position": "align-start text-center",
+        "content_width": 1120,
+        "height_mobile": "xs",
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 90,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "dc5bb72e-a19f-49c3-80d5-59db55a44461": {
+      "type": "section-collage",
+      "blocks": {
+        "template--19855802794305__dc5bb72e-a19f-49c3-80d5-59db55a44461-image-1": {
+          "type": "image",
+          "settings": {
+            "overlay_opacity": 15,
+            "enable_controls": false,
+            "video_mute": true,
+            "color_palette": "scheme-2",
+            "text_position": "end start",
+            "title": "<h3>New collection</h3>",
+            "title_underline_style": "none",
+            "text": "",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_link": true,
+            "link_text": "Discover collections",
+            "link_url": "/",
+            "button_style": "primary link"
+          }
+        },
+        "template--19855802794305__dc5bb72e-a19f-49c3-80d5-59db55a44461-image-2": {
+          "type": "image",
+          "settings": {
+            "overlay_opacity": 0,
+            "enable_controls": false,
+            "video_mute": true,
+            "color_palette": "scheme-2",
+            "text_position": "end start",
+            "title": "<h3>Repair service</h3>",
+            "title_underline_style": "none",
+            "text": "",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_link": true,
+            "link_text": "Read more",
+            "link_url": "/",
+            "button_style": "primary link"
+          }
+        }
+      },
+      "block_order": [
+        "template--19855802794305__dc5bb72e-a19f-49c3-80d5-59db55a44461-image-1",
+        "template--19855802794305__dc5bb72e-a19f-49c3-80d5-59db55a44461-image-2"
+      ],
+      "settings": {
+        "mirrored": false,
+        "width": "boxed",
+        "height": "size-l",
+        "enable_custom_height": true,
+        "custom_height": 670,
+        "space_between": 0,
+        "image_zoom": true,
+        "layout_mobile": "rows",
+        "mobile_height": "16/9",
+        "spacing_desktop": 80,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "1c646601-9bcc-4547-9e5f-ffae4a4701c3": {
+      "type": "section-icon-text-blocks",
+      "blocks": {
+        "template--19855802794305__1c646601-9bcc-4547-9e5f-ffae4a4701c3-1688638484e10fb99f-0": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "image_height": 135,
+            "image_border_radius": false,
+            "title": "",
+            "text": "",
+            "show_link": false,
+            "link_text": "",
+            "link_url": "",
+            "button_style": "primary plain"
+          }
+        },
+        "template--19855802794305__1c646601-9bcc-4547-9e5f-ffae4a4701c3-1688638484e10fb99f-1": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "image_height": 135,
+            "image_border_radius": false,
+            "title": "",
+            "text": "",
+            "show_link": false,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain"
+          }
+        },
+        "template--19855802794305__1c646601-9bcc-4547-9e5f-ffae4a4701c3-1688638484e10fb99f-2": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "image_height": 135,
+            "image_border_radius": false,
+            "title": "",
+            "text": "",
+            "show_link": false,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain"
+          }
+        },
+        "template--19855802794305__1c646601-9bcc-4547-9e5f-ffae4a4701c3-1688638484e10fb99f-3": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "image_height": 135,
+            "image_border_radius": false,
+            "title": "",
+            "text": "",
+            "show_link": false,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain"
+          }
+        },
+        "f2bc7704-35a9-4ee5-98b8-11aa87fe5463": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "image_height": 135,
+            "image_border_radius": false,
+            "title": "",
+            "text": "",
+            "show_link": false,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain"
+          }
+        },
+        "0125c532-70c8-4339-8b4c-6e019d6b32e1": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "image_height": 135,
+            "image_border_radius": false,
+            "title": "",
+            "text": "",
+            "show_link": false,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain"
+          }
+        }
+      },
+      "block_order": [
+        "template--19855802794305__1c646601-9bcc-4547-9e5f-ffae4a4701c3-1688638484e10fb99f-0",
+        "template--19855802794305__1c646601-9bcc-4547-9e5f-ffae4a4701c3-1688638484e10fb99f-1",
+        "template--19855802794305__1c646601-9bcc-4547-9e5f-ffae4a4701c3-1688638484e10fb99f-2",
+        "template--19855802794305__1c646601-9bcc-4547-9e5f-ffae4a4701c3-1688638484e10fb99f-3",
+        "f2bc7704-35a9-4ee5-98b8-11aa87fe5463",
+        "0125c532-70c8-4339-8b4c-6e019d6b32e1"
+      ],
+      "settings": {
+        "items_width": 3,
+        "text_alignment": "next",
+        "color_palette": "scheme-5",
+        "background_overlay_opacity": 75,
+        "background_position": "left",
+        "background_width": 0,
+        "background_height": 100,
+        "title": "<h2>A selection of our sustainable brands.</h2>",
+        "title_underline_style": "none",
+        "text": "<p>These brands invest in our planet’s future.Are you? Become eco-friendly & make a real difference.</p>",
+        "enable_custom_font_styling": false,
+        "font_size": "16px",
+        "show_link": false,
+        "link_text": "Button",
+        "link_url": "",
+        "button_style": "primary plain",
+        "blocks_text_alignment": "center",
+        "blocks_title_font": "primary",
+        "blocks_title_size": "h4",
+        "blocks_enable_custom_font_styling": false,
+        "blocks_font_size": "16px",
+        "layout_mobile": "slider",
+        "mobile_blocks_text_alignment": "center",
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 130,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "88c98477-6cb6-4930-a677-566cc7bdfb5d": {
+      "type": "section-promo-gallery",
+      "blocks": {
+        "eb6c51d9-71aa-4888-9854-6d257027eb4e": {
+          "type": "image",
+          "settings": {
+            "overlay_opacity_img": 0,
+            "enable_controls": false,
+            "video_mute": true,
+            "color_palette": "scheme-1",
+            "overlay_opacity": 100,
+            "text_position": "text-center",
+            "title": "<h3>Green & certified</h3>",
+            "title_underline_style": "none",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_link": false,
+            "link_text": "",
+            "link_url": "",
+            "button_style": "primary plain"
+          }
+        },
+        "template--19855802794305__88c98477-6cb6-4930-a677-566cc7bdfb5d-image-1": {
+          "type": "image",
+          "settings": {
+            "overlay_opacity_img": 0,
+            "enable_controls": false,
+            "video_mute": true,
+            "color_palette": "scheme-1",
+            "overlay_opacity": 100,
+            "text_position": "text-center",
+            "title": "<h3>Only one earth</h3>",
+            "title_underline_style": "none",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_link": false,
+            "link_text": "",
+            "link_url": "",
+            "button_style": "primary plain"
+          }
+        },
+        "template--19855802794305__88c98477-6cb6-4930-a677-566cc7bdfb5d-image-2": {
+          "type": "image",
+          "settings": {
+            "overlay_opacity_img": 0,
+            "enable_controls": false,
+            "video_mute": true,
+            "color_palette": "scheme-1",
+            "overlay_opacity": 100,
+            "text_position": "text-center",
+            "title": "<h3>Less plastic</h3>",
+            "title_underline_style": "none",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_link": false,
+            "link_text": "",
+            "link_url": "",
+            "button_style": "primary plain"
+          }
+        }
+      },
+      "block_order": [
+        "eb6c51d9-71aa-4888-9854-6d257027eb4e",
+        "template--19855802794305__88c98477-6cb6-4930-a677-566cc7bdfb5d-image-1",
+        "template--19855802794305__88c98477-6cb6-4930-a677-566cc7bdfb5d-image-2"
+      ],
+      "settings": {
+        "items_width": 3,
+        "width": "boxed",
+        "height": "size-l",
+        "enable_custom_height": false,
+        "custom_height": 300,
+        "space_between": 30,
+        "image_zoom": true,
+        "layout_mobile": "rows",
+        "mobile_height": "size-m",
+        "spacing_desktop": 80,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "fe42691e-b987-4157-88c0-a55ba91f4dc8": {
+      "type": "section-image-with-text",
+      "blocks": {
+        "3b505d13-6510-46c4-b766-bff98909ac47": {
+          "type": "title",
+          "settings": {
+            "title": "<h2>Waste reduction and recycling</h2>",
+            "title_underline_style": "none"
+          }
+        },
+        "0c5bc5ad-2f7d-4980-af35-c49e92b8f93b": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We promotes waste reduction by implementing measures such as recycling programs for packaging materials and electronic waste. They actively work to reduce waste generation in their manufacturing processes and encourage customers to recycle their products responsibly.</p>",
+            "font": "primary",
+            "enable_custom_text_styling": false,
+            "font_size": "16px"
+          }
+        }
+      },
+      "block_order": [
+        "3b505d13-6510-46c4-b766-bff98909ac47",
+        "0c5bc5ad-2f7d-4980-af35-c49e92b8f93b"
+      ],
+      "settings": {
+        "fill_image": true,
+        "overlay_opacity_img": 0,
+        "enable_controls": false,
+        "video_mute": true,
+        "width": "boxed",
+        "height": "size-m",
+        "enable_custom_height": false,
+        "custom_height": 580,
+        "color_palette": "scheme-1",
+        "overlay_opacity": 0,
+        "layout": "image-right",
+        "text_position": "align-start text-start",
+        "background_color_palette": "scheme-5",
+        "background_overlay_opacity": 100,
+        "background_position": "left",
+        "background_width": 100,
+        "background_height": 80,
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 40,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "main-page": {
+      "type": "main-page",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "h2"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "content"
+      ],
+      "disabled": true,
+      "settings": {
+        "max_width": 980,
+        "content_alignment": "center",
+        "text_alignment": "start",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30
+      }
+    },
+    "69004205-e7a6-4b16-8ef7-0364226a75a2": {
+      "type": "section-icon-text-blocks",
+      "blocks": {
+        "template--19595896848705__69004205-e7a6-4b16-8ef7-0364226a75a2-1688560250a8117994-0": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "image_height": 55,
+            "image_border_radius": false,
+            "title": "Exceptional Sound Quality",
+            "text": "<p>The speakers are renowned for their exceptional sound reproduction. The company's commitment to engineering excellence ensures that their speakers deliver an immersive and detailed audio experience.</p>",
+            "show_link": true,
+            "link_text": "",
+            "link_url": "",
+            "button_style": "primary plain"
+          }
+        },
+        "template--19595896848705__69004205-e7a6-4b16-8ef7-0364226a75a2-1688560250a8117994-1": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "image_height": 55,
+            "image_border_radius": false,
+            "title": "Innovative Design and Aesthetics",
+            "text": "<p>known for its striking and visually appealing speaker designs. Their products blend seamlessly into any living space, combining sleek lines, premium materials, and a minimalist aesthetic.</p>",
+            "show_link": false,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain"
+          }
+        },
+        "template--19595896848705__69004205-e7a6-4b16-8ef7-0364226a75a2-1688560250a8117994-2": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "image_height": 55,
+            "image_border_radius": false,
+            "title": "Advanced Features and Connectivity",
+            "text": "<p>Speakers come equipped with a range of advanced features and connectivity options. Many models offer wireless connectivity, allowing you to stream music seamlessly from your smartphone, tablet, or computer.</p>",
+            "show_link": false,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain"
+          }
+        }
+      },
+      "block_order": [
+        "template--19595896848705__69004205-e7a6-4b16-8ef7-0364226a75a2-1688560250a8117994-0",
+        "template--19595896848705__69004205-e7a6-4b16-8ef7-0364226a75a2-1688560250a8117994-1",
+        "template--19595896848705__69004205-e7a6-4b16-8ef7-0364226a75a2-1688560250a8117994-2"
+      ],
+      "settings": {
+        "items_width": 4,
+        "text_alignment": "start",
+        "color_palette": "",
+        "background_overlay_opacity": 0,
+        "background_position": "left",
+        "background_width": 50,
+        "background_height": 100,
+        "title": "",
+        "title_underline_style": "none",
+        "text": "",
+        "enable_custom_font_styling": false,
+        "font_size": "16px",
+        "show_link": false,
+        "link_text": "Button",
+        "link_url": "",
+        "button_style": "primary plain",
+        "blocks_text_alignment": "center",
+        "blocks_title_font": "primary",
+        "blocks_title_size": "h3",
+        "blocks_enable_custom_font_styling": false,
+        "blocks_font_size": "16px",
+        "layout_mobile": "slider",
+        "mobile_blocks_text_alignment": "center",
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    }
+  },
+  "order": [
+    "074d9773-cd5d-4481-b36c-c34a79719891",
+    "breadcrumbs",
+    "701dd9d6-92b2-4929-bf09-2b4fb1fb269c",
+    "5cadb596-0d62-4c0a-a111-5c67fa13e5d9",
+    "173e65d6-9959-4fcb-acb5-0b9d5f4a2714",
+    "dc5bb72e-a19f-49c3-80d5-59db55a44461",
+    "1c646601-9bcc-4547-9e5f-ffae4a4701c3",
+    "88c98477-6cb6-4930-a677-566cc7bdfb5d",
+    "fe42691e-b987-4157-88c0-a55ba91f4dc8",
+    "main-page",
+    "69004205-e7a6-4b16-8ef7-0364226a75a2"
+  ]
+}

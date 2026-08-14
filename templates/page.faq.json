@@ -1,0 +1,319 @@
+{
+  "sections": {
+    "dcafb841-f194-4e42-843e-d1a4ce3a6b9f": {
+      "type": "section-slideshow",
+      "blocks": {
+        "template--19595896914241__dcafb841-f194-4e42-843e-d1a4ce3a6b9f-168968088857634052-0": {
+          "type": "slide",
+          "settings": {
+            "show_play_button": false,
+            "video_mute": true,
+            "layout": "background",
+            "image_width": 40,
+            "overlay_opacity": 5,
+            "color_palette": "scheme-2",
+            "background_overlay_opacity": 100,
+            "text_position": "center start",
+            "max_width": 900,
+            "title": "<h1>How can we help?</h1>",
+            "title_underline_style": "none",
+            "text": "",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_first_link": true,
+            "first_link_text": "Contact us",
+            "first_link_url": "/",
+            "first_button_style": "primary plain",
+            "show_second_link": true,
+            "second_link_text": "Mail us",
+            "second_link_url": "/",
+            "second_button_style": "primary inv"
+          }
+        }
+      },
+      "block_order": [
+        "template--19595896914241__dcafb841-f194-4e42-843e-d1a4ce3a6b9f-168968088857634052-0"
+      ],
+      "settings": {
+        "width": "wide",
+        "height": "l",
+        "enable_custom_height": false,
+        "custom_height": 300,
+        "autoplay": false,
+        "autoplay_seconds": 3,
+        "enable_controls": false,
+        "height_mobile": "l",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "0ef1da2f-d307-4857-8bab-460ee9a40d5a": {
+      "type": "section-spacer",
+      "settings": {
+        "height": -20,
+        "height_mobile": 20
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "settings": {
+        "hide_mobile": false,
+        "back_button": false
+      }
+    },
+    "d27ae55c-7517-4498-be98-fc7a4429469d": {
+      "type": "section-faq",
+      "blocks": {
+        "template--19595896914241__d27ae55c-7517-4498-be98-fc7a4429469d-1688025346f4ef4f44-0": {
+          "type": "text",
+          "settings": {
+            "collapse": true,
+            "title": "Can I connect speakers to my TV?",
+            "icon": "none",
+            "header_image_width": 25,
+            "faq_answer": "<p>Yes, you can connect speakers to your TV. Most TVs have audio output options, such as HDMI, optical audio, or analog RCA connectors, which can be used to connect external speakers or audio systems. Do you want more information? Please contact us.</p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": true
+          }
+        },
+        "template--19595896914241__d27ae55c-7517-4498-be98-fc7a4429469d-1688025346f4ef4f44-1": {
+          "type": "text",
+          "settings": {
+            "collapse": true,
+            "title": "What is the difference between bookshelf and floor-standing speakers?",
+            "icon": "none",
+            "header_image_width": 25,
+            "faq_answer": "<p>Bookshelf speakers are typically smaller and designed to be placed on shelves, stands, or mounted on walls. They are more suitable for smaller rooms or as part of a surround sound setup. Floor-standing speakers, also known as tower speakers, are larger and are designed to stand on the floor. They often provide a fuller and more powerful sound, making them ideal for larger rooms or as standalone stereo speakers.</p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "template--19595896914241__d27ae55c-7517-4498-be98-fc7a4429469d-1688025346f4ef4f44-2": {
+          "type": "text",
+          "settings": {
+            "collapse": true,
+            "title": "Can I use Bluetooth to connect my devices to speakers?",
+            "icon": "none",
+            "header_image_width": 25,
+            "faq_answer": "<p>Yes, many modern speakers come with Bluetooth connectivity, allowing you to wirelessly connect your devices such as smartphones, tablets, or laptops to the speakers and play audio without the need for physical cables.</p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "c5d5b4cd-aed7-4cb1-a4e5-64387aea7754": {
+          "type": "text",
+          "settings": {
+            "collapse": true,
+            "title": "Can I use Bluetooth to connect my devices to speakers?",
+            "icon": "none",
+            "header_image_width": 25,
+            "faq_answer": "<p>Yes, many modern speakers come with Bluetooth connectivity, allowing you to wirelessly connect your devices such as smartphones, tablets, or laptops to the speakers and play audio without the need for physical cables.</p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "aa6b0b0d-bfc5-4017-a803-7a92c480d770": {
+          "type": "text",
+          "settings": {
+            "collapse": true,
+            "title": "How can I improve the sound quality of my speakers?",
+            "icon": "info-old",
+            "header_image_width": 35,
+            "faq_answer": "<p>To enhance the sound quality of your speakers, you can consider factors such as speaker placement, room acoustics, using high-quality audio sources, adjusting equalizer settings, and investing in additional sound-enhancing equipment like subwoofers or sound processors.</p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "7e689375-0301-4760-9ed6-631decb675a8": {
+          "type": "text",
+          "settings": {
+            "collapse": true,
+            "title": "We are certified by Nasdaq as a ‘2021 Nasdaq ESG Transparency Partner’.",
+            "icon": "none",
+            "header_image_width": 75,
+            "page": "",
+            "image_width": 295,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "dafa41f9-03f9-4a28-98eb-73180c1587db": {
+          "type": "text",
+          "settings": {
+            "collapse": true,
+            "title": "When will my order be delivered?",
+            "icon": "none",
+            "header_image_width": 25,
+            "faq_answer": "<p>We ship worldwide. Your order will be packaged really carefully and delivered wherever you want. Delivery takes between 2-4 business days. You will receive an e-mail after ordering with more information about the delivery.</p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "b4d2bf1b-6ce2-4825-a434-f8c0b3723ea2": {
+          "type": "text",
+          "settings": {
+            "collapse": true,
+            "title": "What are the different TV sizes?",
+            "icon": "none",
+            "header_image_width": 25,
+            "faq_answer": "<p>Televisions come in various sizes to suit different preferences and viewing environments. The size of a TV is typically measured diagonally from one corner of the screen to the opposite corner. Here are some common TV sizes and their characteristics:</p>",
+            "page": "size-chart",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19595896914241__d27ae55c-7517-4498-be98-fc7a4429469d-1688025346f4ef4f44-0",
+        "template--19595896914241__d27ae55c-7517-4498-be98-fc7a4429469d-1688025346f4ef4f44-1",
+        "template--19595896914241__d27ae55c-7517-4498-be98-fc7a4429469d-1688025346f4ef4f44-2",
+        "c5d5b4cd-aed7-4cb1-a4e5-64387aea7754",
+        "aa6b0b0d-bfc5-4017-a803-7a92c480d770",
+        "7e689375-0301-4760-9ed6-631decb675a8",
+        "dafa41f9-03f9-4a28-98eb-73180c1587db",
+        "b4d2bf1b-6ce2-4825-a434-f8c0b3723ea2"
+      ],
+      "settings": {
+        "text_alignment": "start",
+        "alignment": "next",
+        "content_width": 2000,
+        "media_position": "bottom",
+        "image_width": 460,
+        "enable_controls": true,
+        "video_mute": true,
+        "title": "<h2>Frequently asked questions.</h2>",
+        "title_underline_style": "none",
+        "text": "Have you not yet received an answer to your questions through these answers? Contact us.",
+        "enable_custom_font_styling": false,
+        "font_size": "16px",
+        "blocks_title_font": "primary",
+        "blocks_title_size": "h4",
+        "blocks_enable_custom_font_styling": false,
+        "blocks_font_size": "16px",
+        "spacing_desktop": 60,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "main-page": {
+      "type": "main-page",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "h2"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "content"
+      ],
+      "disabled": true,
+      "settings": {
+        "max_width": 980,
+        "content_alignment": "start",
+        "text_alignment": "start",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30
+      }
+    },
+    "71321ab0-4168-4179-9fa2-0abb05064d06": {
+      "type": "section-contact-form",
+      "blocks": {
+        "template--19595896914241__71321ab0-4168-4179-9fa2-0abb05064d06-text-1": {
+          "type": "text",
+          "settings": {
+            "title": "Name",
+            "placeholder": "Name",
+            "required": true
+          }
+        },
+        "template--19595896914241__71321ab0-4168-4179-9fa2-0abb05064d06-text-2": {
+          "type": "text",
+          "settings": {
+            "title": "Company name",
+            "placeholder": "Text",
+            "required": false
+          }
+        },
+        "template--19595896914241__71321ab0-4168-4179-9fa2-0abb05064d06-email-1": {
+          "type": "email",
+          "settings": {
+            "title": "Email",
+            "placeholder": "Email"
+          }
+        },
+        "template--19595896914241__71321ab0-4168-4179-9fa2-0abb05064d06-tel-1": {
+          "type": "tel",
+          "settings": {
+            "title": "Phone number",
+            "placeholder": "Phone number",
+            "required": false
+          }
+        },
+        "template--19595896914241__71321ab0-4168-4179-9fa2-0abb05064d06-textarea-1": {
+          "type": "textarea",
+          "settings": {
+            "title": "Message",
+            "placeholder": "Message",
+            "required": true
+          }
+        }
+      },
+      "block_order": [
+        "template--19595896914241__71321ab0-4168-4179-9fa2-0abb05064d06-text-1",
+        "template--19595896914241__71321ab0-4168-4179-9fa2-0abb05064d06-text-2",
+        "template--19595896914241__71321ab0-4168-4179-9fa2-0abb05064d06-email-1",
+        "template--19595896914241__71321ab0-4168-4179-9fa2-0abb05064d06-tel-1",
+        "template--19595896914241__71321ab0-4168-4179-9fa2-0abb05064d06-textarea-1"
+      ],
+      "settings": {
+        "text_alignment": "start",
+        "content_position": "center",
+        "title": "<h3>Contact form</h3>",
+        "title_underline_style": "none",
+        "button_style": "secondary plain",
+        "show_placeholder": true,
+        "compact": true,
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    }
+  },
+  "order": [
+    "dcafb841-f194-4e42-843e-d1a4ce3a6b9f",
+    "0ef1da2f-d307-4857-8bab-460ee9a40d5a",
+    "breadcrumbs",
+    "d27ae55c-7517-4498-be98-fc7a4429469d",
+    "main-page",
+    "71321ab0-4168-4179-9fa2-0abb05064d06"
+  ]
+}

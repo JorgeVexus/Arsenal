@@ -1,0 +1,404 @@
+{% doc %}
+  @prompt
+    seccion de texto con 1 imagenes destacadas, texto a la izaquierda, las 1 imagenes a la derecha, responsive con efecto de animación de entrada y hover efect sobre la imagen
+    
+    
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-text-image-section-{{ ai_gen_id }} {
+    display: block;
+    width: {{ block.settings.desktop_width_percent }}%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .ai-text-image-container-{{ ai_gen_id }} {
+    display: flex;
+    align-items: center;
+    gap: {{ block.settings.gap }}px;
+    padding: {{ block.settings.padding }}px;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-text-image-text-{{ ai_gen_id }} {
+    flex: 1;
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  .ai-text-image-text-{{ ai_gen_id }}.ai-animate-in {
+    animation: ai-slide-in-left-{{ ai_gen_id }} 0.8s ease-out forwards;
+  }
+
+  .ai-text-image-heading-{{ ai_gen_id }} {
+    font-size: {{ block.settings.heading_size }}px;
+    color: {{ block.settings.heading_color }};
+    margin: 0 0 {{ block.settings.heading_spacing }}px 0;
+    font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }};
+    font-weight: {{ block.settings.heading_font.weight }};
+  }
+
+  .ai-text-image-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.text_size }}px;
+    color: {{ block.settings.text_color }};
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .ai-text-image-image-wrapper-{{ ai_gen_id }} {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: {{ block.settings.image_border_radius }}px;
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  .ai-text-image-image-wrapper-{{ ai_gen_id }}.ai-animate-in {
+    animation: ai-slide-in-right-{{ ai_gen_id }} 0.8s ease-out forwards;
+  }
+
+  .ai-text-image-image-{{ ai_gen_id }} {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+
+  .ai-text-image-image-wrapper-{{ ai_gen_id }}:hover .ai-text-image-image-{{ ai_gen_id }} {
+    transform: scale({{ block.settings.hover_scale }});
+  }
+
+  .ai-text-image-placeholder-{{ ai_gen_id }} {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .ai-text-image-placeholder-{{ ai_gen_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-width: 400px;
+    max-height: 400px;
+  }
+
+  .ai-text-image-empty-state-{{ ai_gen_id }} {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 20px;
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  @keyframes ai-slide-in-left-{{ ai_gen_id }} {
+    0% {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes ai-slide-in-right-{{ ai_gen_id }} {
+    0% {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-text-image-container-{{ ai_gen_id }} {
+      flex-direction: column;
+      gap: {{ block.settings.gap_mobile }}px;
+    }
+
+    .ai-text-image-heading-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size_mobile }}px;
+    }
+
+    .ai-text-image-description-{{ ai_gen_id }} {
+      font-size: {{ block.settings.text_size_mobile }}px;
+    }
+  }
+{% endstyle %}
+
+<text-image-section-{{ ai_gen_id }}
+  class="ai-text-image-section-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <div class="ai-text-image-container-{{ ai_gen_id }}">
+    <div class="ai-text-image-text-{{ ai_gen_id }}" data-animate>
+      {% if block.settings.heading != blank %}
+        <h2 class="ai-text-image-heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+      {% endif %}
+      {% if block.settings.description != blank %}
+        <div class="ai-text-image-description-{{ ai_gen_id }}">{{ block.settings.description }}</div>
+      {% endif %}
+    </div>
+
+    <div class="ai-text-image-image-wrapper-{{ ai_gen_id }}" data-animate>
+      {% if block.settings.image %}
+        <img
+          src="{{ block.settings.image | image_url: width: 1200 }}"
+          alt="{{ block.settings.image.alt | escape }}"
+          loading="lazy"
+          width="{{ block.settings.image.width }}"
+          height="{{ block.settings.image.height }}"
+          class="ai-text-image-image-{{ ai_gen_id }}"
+        >
+      {% else %}
+        <div class="ai-text-image-placeholder-{{ ai_gen_id }}">
+          {{ 'image' | placeholder_svg_tag }}
+          <div class="ai-text-image-empty-state-{{ ai_gen_id }}">
+            Siguiente, agrega una imagen
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</text-image-section-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class TextImageSection{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.observer = null;
+      }
+
+      connectedCallback() {
+        this.setupIntersectionObserver();
+      }
+
+      setupIntersectionObserver() {
+        const options = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.2
+        };
+
+        this.observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('ai-animate-in');
+              this.observer.unobserve(entry.target);
+            }
+          });
+        }, options);
+
+        const animateElements = this.querySelectorAll('[data-animate]');
+        animateElements.forEach((el) => {
+          this.observer.observe(el);
+        });
+      }
+
+      disconnectedCallback() {
+        if (this.observer) {
+          this.observer.disconnect();
+        }
+      }
+    }
+
+    customElements.define('text-image-section-{{ ai_gen_id }}', TextImageSection{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Texto con imagen",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contenido"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Título",
+      "default": "<p>Nuestro compromiso</p>"
+    },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Fuente del título",
+      "default": "inter_n7"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Descripción",
+      "default": "<p>Ofrecemos productos de la más alta calidad con un servicio excepcional. Nuestra misión es superar tus expectativas en cada compra.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Imagen"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "label": "Radio de borde",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "hover_scale",
+      "label": "Escala al pasar el cursor",
+      "min": 1,
+      "max": 1.5,
+      "step": 0.1,
+      "default": 1.1
+    },
+    {
+      "type": "header",
+      "content": "Diseño"
+    },
+    {
+      "type": "range",
+      "id": "desktop_width_percent",
+      "label": "Ancho en escritorio",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Espacio entre elementos",
+      "min": 20,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "gap_mobile",
+      "label": "Espacio en móvil",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "label": "Relleno",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Colores"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Fondo",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Color del título",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Color del texto",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "Tipografía"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "label": "Tamaño del título",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mobile",
+      "label": "Tamaño del título móvil",
+      "min": 16,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "label": "Espacio debajo del título",
+      "min": 10,
+      "max": 50,
+      "step": 5,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "label": "Tamaño del texto",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "text_size_mobile",
+      "label": "Tamaño del texto móvil",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    }
+  ],
+  "presets": [
+    {
+      "name": "Texto con imagen"
+    }
+  ]
+}
+{% endschema %}

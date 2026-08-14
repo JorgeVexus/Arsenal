@@ -1,0 +1,641 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .ethics-section {
+    background: {{ section.settings.background_color }};
+  }
+
+  .ethics-container {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .ethics-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    background: {{ section.settings.card_background }};
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  }
+
+  @media screen and (min-width: 990px) {
+    .ethics-grid {
+      grid-template-columns: 1fr 1.5fr;
+      padding: 60px;
+      gap: 80px;
+    }
+  }
+
+  .ethics-info h2 {
+    margin-top: 0;
+    font-size: clamp(24px, 5vw, 40px);
+    line-height: 1.1;
+    color: {{ section.settings.heading_color }};
+  }
+
+  .ethics-info .description {
+    margin-top: 15px;
+    color: {{ section.settings.text_color }};
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .ethics-image {
+    margin-top: 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  }
+
+  .ethics-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .ethics-features {
+    margin-top: 30px;
+    padding: 20px;
+    background: {{ section.settings.features_background }};
+    border-radius: 12px;
+    border-left: 4px solid {{ section.settings.accent_color }};
+  }
+
+  .ethics-features p {
+    margin: 0;
+    font-size: 14px;
+    color: {{ section.settings.text_color }};
+    line-height: 1.6;
+  }
+
+  /* Form Styles */
+  .ethics-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .form-row {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-field label {
+    font-size: 14px;
+    font-weight: 600;
+    color: {{ section.settings.label_color }};
+  }
+
+  .form-field label .required {
+    color: {{ section.settings.accent_color }};
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    padding: 14px 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #fff;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    outline: none;
+  }
+
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus {
+    border-color: {{ section.settings.accent_color }};
+    box-shadow: 0 0 0 4px {{ section.settings.accent_color | color_modify: 'alpha', 0.1 }};
+  }
+
+  .form-field textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  /* Radio Group Styles */
+  .radio-group {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .radio-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  }
+
+  .radio-option input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    cursor: pointer;
+    accent-color: {{ section.settings.accent_color }};
+  }
+
+  .radio-option label {
+    margin: 0;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 15px;
+  }
+
+  .form-note {
+    font-size: 13px;
+    color: {{ section.settings.text_color | color_modify: 'alpha', 0.7 }};
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  .form-submit-btn {
+    background: {{ section.settings.button_background }};
+    color: {{ section.settings.button_text_color }};
+    padding: 16px 32px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    width: max-content;
+    margin-top: 10px;
+  }
+
+  .form-submit-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
+
+  .form-submit-btn:active {
+    transform: translateY(0);
+  }
+
+  .form-status {
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .form-status--success {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+  }
+
+  .form-status--error {
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+  }
+
+  .form-disclaimer {
+    padding: 20px;
+    background: {{ section.settings.features_background }};
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+
+  .form-disclaimer p {
+    margin: 0;
+    font-size: 13px;
+    color: {{ section.settings.text_color | color_modify: 'alpha', 0.8 }};
+    line-height: 1.6;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ethics-grid {
+      padding: 24px;
+    }
+  }
+{%- endstyle -%}
+
+<section class="ethics-section section-{{ section.id }}-padding">
+  <div class="ethics-container">
+    <div class="ethics-grid">
+      
+      <div class="ethics-info">
+        {%- if section.settings.heading != blank -%}
+          <h2>{{ section.settings.heading }}</h2>
+        {%- endif -%}
+        
+        {%- if section.settings.description != blank -%}
+          <div class="description">{{ section.settings.description }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.image != blank -%}
+          <div class="ethics-image">
+            {{ section.settings.image | image_url: width: 800 | image_tag:
+              loading: 'lazy',
+              widths: '400, 600, 800',
+              sizes: '(min-width: 990px) 400px, 100vw',
+              alt: section.settings.image.alt | default: section.settings.heading
+            }}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.features_text != blank -%}
+          <div class="ethics-features">
+            {{ section.settings.features_text }}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <div class="ethics-form-wrapper">
+        {%- form 'contact', id: 'EthicsForm' -%}
+          {%- if form.posted_successfully? -%}
+            <div class="form-status form-status--success" tabindex="-1" autofocus>
+              {{ section.settings.success_message }}
+            </div>
+          {%- elsif form.errors -%}
+            <div class="form-status form-status--error">
+              {{ form.errors | default_errors }}
+            </div>
+          {%- endif -%}
+
+          <div class="ethics-form">
+            {%- comment -%} Nombre {%- endcomment -%}
+            <div class="form-field">
+              <label for="EthicsForm-name">{{ section.settings.label_name }} <span class="required">*</span></label>
+              <input
+                type="text"
+                id="EthicsForm-name"
+                name="contact[Nombre]"
+                value="{% if form.name %}{{ form.name }}{% endif %}"
+                placeholder="{{ section.settings.placeholder_name }}"
+                required
+              >
+            </div>
+
+            {%- comment -%} Correo electrónico {%- endcomment -%}
+            <div class="form-field">
+              <label for="EthicsForm-email">{{ section.settings.label_email }} <span class="required">*</span></label>
+              <input
+                type="email"
+                id="EthicsForm-email"
+                name="contact[Correo electrónico]"
+                spellcheck="false"
+                autocapitalize="off"
+                value="{% if form.email %}{{ form.email }}{% endif %}"
+                aria-required="true"
+                placeholder="{{ section.settings.placeholder_email }}"
+                required
+              >
+            </div>
+
+            {%- comment -%} Teléfono y Fecha {%- endcomment -%}
+            <div class="form-row">
+              <div class="form-field">
+                <label for="EthicsForm-phone">{{ section.settings.label_phone }}</label>
+                <input
+                  type="tel"
+                  id="EthicsForm-phone"
+                  name="contact[Teléfono]"
+                  value="{% if form.phone %}{{ form.phone }}{% endif %}"
+                  placeholder="{{ section.settings.placeholder_phone }}"
+                >
+              </div>
+              <div class="form-field">
+                <label for="EthicsForm-date">{{ section.settings.label_date }} <span class="required">*</span></label>
+                <input
+                  type="date"
+                  id="EthicsForm-date"
+                  name="contact[Fecha]"
+                  required
+                >
+              </div>
+            </div>
+
+            {%- comment -%} ¿Anónimo? {%- endcomment -%}
+            <div class="form-field">
+              <label>{{ section.settings.label_anonymous }} <span class="required">*</span></label>
+              <div class="radio-group">
+                <div class="radio-option">
+                  <input type="radio" id="EthicsForm-anonymous-yes" name="contact[¿Desea ser anónimo?]" value="Sí" required>
+                  <label for="EthicsForm-anonymous-yes">Sí</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="EthicsForm-anonymous-no" name="contact[¿Desea ser anónimo?]" value="No" required>
+                  <label for="EthicsForm-anonymous-no">No</label>
+                </div>
+              </div>
+            </div>
+
+            {%- comment -%} ¿Dispuesto a ser contactado? {%- endcomment -%}
+            <div class="form-field">
+              <label>{{ section.settings.label_contact }} <span class="required">*</span></label>
+              <div class="radio-group">
+                <div class="radio-option">
+                  <input type="radio" id="EthicsForm-contact-yes" name="contact[¿Dispuesto a ser contactado?]" value="Sí" required>
+                  <label for="EthicsForm-contact-yes">Sí</label>
+                </div>
+                <div class="radio-option">
+                  <input type="radio" id="EthicsForm-contact-no" name="contact[¿Dispuesto a ser contactado?]" value="No" required>
+                  <label for="EthicsForm-contact-no">No</label>
+                </div>
+              </div>
+            </div>
+
+            {%- comment -%} Comentarios {%- endcomment -%}
+            <div class="form-field">
+              <label for="EthicsForm-body">{{ section.settings.label_comments }} <span class="required">*</span></label>
+              <textarea
+                id="EthicsForm-body"
+                name="contact[Comentarios]"
+                rows="5"
+                placeholder="{{ section.settings.placeholder_comments }}"
+                required
+              >{{- form.body -}}</textarea>
+            </div>
+
+            {%- comment -%} Sugerencias ambientales {%- endcomment -%}
+            <div class="form-field">
+              <label for="EthicsForm-environmental">{{ section.settings.label_environmental }}</label>
+              <textarea
+                id="EthicsForm-environmental"
+                name="contact[Sugerencias ambientales]"
+                rows="3"
+                placeholder="{{ section.settings.placeholder_environmental }}"
+              ></textarea>
+            </div>
+
+            {%- comment -%} Disclaimer {%- endcomment -%}
+            {%- if section.settings.disclaimer_text != blank -%}
+              <div class="form-disclaimer">
+                <p>{{ section.settings.disclaimer_text }}</p>
+              </div>
+            {%- endif -%}
+
+            <button type="submit" class="form-submit-btn">
+              {{ section.settings.button_text }}
+            </button>
+          </div>
+        {%- endform -%}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Form Ética / Quejas",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contenido Principal"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Título",
+      "default": "Canal de Denuncias y Ética"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Descripción",
+      "default": "<p>Bienvenido a nuestro canal de denuncias y ética. Aquí puedes reportar cualquier comportamiento inapropiado, violación de políticas o preocupaciones éticas de manera confidencial.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen lateral"
+    },
+    {
+      "type": "richtext",
+      "id": "features_text",
+      "label": "Texto de características/confidencialidad",
+      "default": "<p><strong>Todas las quejas y sugerencias serán tratadas de manera confidencial y se investigarán adecuadamente.</strong></p><p>Gracias por su colaboración para mejorar nuestras políticas y prácticas. Su aportación es valiosa para nosotros.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Labels del Formulario"
+    },
+    {
+      "type": "text",
+      "id": "label_name",
+      "label": "Label - Nombre",
+      "default": "Nombre"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_name",
+      "label": "Placeholder - Nombre",
+      "default": "Escribe tu nombre"
+    },
+    {
+      "type": "text",
+      "id": "label_email",
+      "label": "Label - Correo",
+      "default": "Correo electrónico"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_email",
+      "label": "Placeholder - Correo",
+      "default": "ejemplo@miempresa.com.mx"
+    },
+    {
+      "type": "text",
+      "id": "label_phone",
+      "label": "Label - Teléfono",
+      "default": "Teléfono"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_phone",
+      "label": "Placeholder - Teléfono",
+      "default": "Escribe tu teléfono"
+    },
+    {
+      "type": "text",
+      "id": "label_date",
+      "label": "Label - Fecha",
+      "default": "Fecha"
+    },
+    {
+      "type": "text",
+      "id": "label_anonymous",
+      "label": "Label - Anónimo",
+      "default": "¿Desea que su presentación sea anónima? (Seleccione una opción)"
+    },
+    {
+      "type": "text",
+      "id": "label_contact",
+      "label": "Label - Contacto",
+      "default": "¿Está dispuesto(a) a ser contactado(a) para proporcionar más información o para discutir su queja o sugerencia? (Seleccione una opción)"
+    },
+    {
+      "type": "text",
+      "id": "label_comments",
+      "label": "Label - Comentarios",
+      "default": "Comentarios"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_comments",
+      "label": "Placeholder - Comentarios",
+      "default": "Por favor, proporcione una descripción detallada. Incluya fechas, nombres y cualquier otra información relevante"
+    },
+    {
+      "type": "text",
+      "id": "label_environmental",
+      "label": "Label - Sugerencias ambientales",
+      "default": "¿Tienes alguna sugerencia que hacerle a Arsenal para su mejora de cuestión ambiental?"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_environmental",
+      "label": "Placeholder - Sugerencias ambientales",
+      "default": "Por favor, proporcione una descripción detallada"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Texto del botón",
+      "default": "Enviar Reporte"
+    },
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Mensaje de éxito",
+      "default": "Gracias por tu reporte. Hemos recibido tu información y será tratada de manera confidencial."
+    },
+    {
+      "type": "textarea",
+      "id": "disclaimer_text",
+      "label": "Texto de disclaimer",
+      "default": "Todas las quejas y sugerencias serán tratadas de manera confidencial y se investigarán adecuadamente."
+    },
+    {
+      "type": "header",
+      "content": "Diseño"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Fondo de sección",
+      "default": "#f9f9f9"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Fondo del card",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Color del título",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Color del texto",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Color de labels",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Color de acento (campos requeridos, focus)",
+      "default": "#c62828"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Color del botón",
+      "default": "#1a1a1a"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Color texto del botón",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "features_background",
+      "label": "Fondo de caja de características",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 800,
+      "max": 1400,
+      "step": 50,
+      "unit": "px",
+      "label": "Ancho máximo",
+      "default": 1100
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding superior",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding inferior",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Form Ética / Quejas"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,666 @@
+{
+  "sections": {
+    "c20ea34c-4ac2-462a-b03d-411acd8fd05e": {
+      "type": "section-slideshow",
+      "blocks": {
+        "template--21407923765569__c20ea34c-4ac2-462a-b03d-411acd8fd05e-slide-1": {
+          "type": "slide",
+          "settings": {
+            "show_play_button": false,
+            "video_mute": true,
+            "layout": "background",
+            "image_width": 50,
+            "overlay_opacity": 25,
+            "color_palette": "scheme-2",
+            "background_overlay_opacity": 100,
+            "text_position": "center",
+            "max_width": 890,
+            "title": "<h1>BeoSound A9 MK5</h1><h4>The refined sounds of my Bang & Olufsen headphones envelop my senses like a mellifluous symphony as I lose myself in the immersive realm of music</h4>",
+            "title_underline_style": "none",
+            "text": "",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_first_link": true,
+            "first_link_text": "",
+            "first_link_url": "/",
+            "first_button_style": "primary plain",
+            "show_second_link": true,
+            "second_link_text": "",
+            "second_link_url": "/",
+            "second_button_style": "secondary plain"
+          }
+        }
+      },
+      "block_order": [
+        "template--21407923765569__c20ea34c-4ac2-462a-b03d-411acd8fd05e-slide-1"
+      ],
+      "settings": {
+        "width": "wide",
+        "height": "m",
+        "enable_custom_height": true,
+        "custom_height": 1000,
+        "autoplay": false,
+        "autoplay_seconds": 3,
+        "enable_controls": false,
+        "height_mobile": "m",
+        "spacing_desktop": 0,
+        "spacing_mobile": 0,
+        "fix_zindex": 0
+      }
+    },
+    "098b17a8-14c3-4f6f-a711-23eb99e5eacf": {
+      "type": "section-icon-text-blocks",
+      "blocks": {
+        "template--19955408765249__098b17a8-14c3-4f6f-a711-23eb99e5eacf-text-1": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "image_height": 55,
+            "image_border_radius": false,
+            "title": "The new one",
+            "text": "<p>The BeoSound A9 is a completely new version of the well-known BeoPlay A9 mk4.</p>",
+            "show_link": false,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain"
+          }
+        },
+        "template--19955408765249__098b17a8-14c3-4f6f-a711-23eb99e5eacf-text-2": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "image_height": 55,
+            "image_border_radius": false,
+            "title": "In Stereo",
+            "text": "<p>In terms of sound, the BeoSound A9 is identical to its predecessor, the BeoPlay A9, but is built on a completely new technological platform, which makes it possible to wirelessly connect 2 speakers into a stereo pair.</p>",
+            "show_link": false,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain"
+          }
+        },
+        "bf26d02e-c471-417a-b97d-9155ef03624d": {
+          "type": "text",
+          "settings": {
+            "icon": "none",
+            "image_height": 55,
+            "image_border_radius": false,
+            "title": "Stunning design",
+            "text": "<p>Indulge your senses with the mesmerizing visual appeal of the B&O A9's stunning design. Experience the irresistible visual charm of the B&O A9's striking design.</p>",
+            "show_link": false,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain"
+          }
+        }
+      },
+      "block_order": [
+        "template--19955408765249__098b17a8-14c3-4f6f-a711-23eb99e5eacf-text-1",
+        "template--19955408765249__098b17a8-14c3-4f6f-a711-23eb99e5eacf-text-2",
+        "bf26d02e-c471-417a-b97d-9155ef03624d"
+      ],
+      "settings": {
+        "items_width": 3,
+        "text_alignment": "next",
+        "color_palette": "scheme-5",
+        "background_overlay_opacity": 75,
+        "background_position": "left",
+        "background_width": 100,
+        "background_height": 100,
+        "title": "<h2>Adaptive sound technology.</h2>",
+        "title_underline_style": "none",
+        "text": "",
+        "enable_custom_font_styling": false,
+        "font_size": "16px",
+        "show_link": false,
+        "link_text": "Button",
+        "link_url": "",
+        "button_style": "primary plain",
+        "blocks_text_alignment": "start",
+        "blocks_title_font": "primary",
+        "blocks_title_size": "h3",
+        "blocks_enable_custom_font_styling": false,
+        "blocks_font_size": "16px",
+        "layout_mobile": "slider",
+        "mobile_blocks_text_alignment": "center",
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {
+        "hide_mobile": true,
+        "back_button": false
+      }
+    },
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "c7259cb9-7235-4028-b6df-3a68077fed80": {
+          "type": "title",
+          "settings": {
+            "title_size": "h3",
+            "title": "",
+            "layout_mobile": "title-top",
+            "mobile_title_size": "h3"
+          }
+        },
+        "8e479efb-ac22-4515-bbd9-e36042497eb4": {
+          "type": "spacer",
+          "settings": {
+            "height": 20,
+            "height_mobile": 20
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax": true,
+            "sale_label": true,
+            "font_size_price": 16
+          }
+        },
+        "short_description": {
+          "type": "short_description",
+          "settings": {
+            "show_read_more": true
+          }
+        },
+        "variant_selection": {
+          "type": "variant_selection",
+          "settings": {
+            "selection_type": "dropdown",
+            "options": true,
+            "button_options": "Color",
+            "dropdown_options": "",
+            "show_variant_label": true,
+            "show_variant_images": true,
+            "show_variant_one_available": false,
+            "show_selected_variant_images": false,
+            "show_unavailable_variants": true,
+            "enable_selling_plans": true
+          }
+        },
+        "90724a70-740a-4cc9-984c-764e1d76a5bd": {
+          "type": "codes",
+          "settings": {
+            "show_sku": true,
+            "show_barcode": true
+          }
+        },
+        "inventory": {
+          "type": "inventory",
+          "settings": {}
+        },
+        "cb013736-4487-49bc-8f03-b16e0d046329": {
+          "type": "spacer",
+          "settings": {
+            "height": 25,
+            "height_mobile": 20
+          }
+        },
+        "buy_button": {
+          "type": "buy_button",
+          "settings": {
+            "button_style": "plain",
+            "show_amount_selection": false,
+            "show_dynamic_buybutton": false,
+            "button_style_dynamic_buybutton": "inv",
+            "show_gift_card_recipient": false
+          }
+        },
+        "e9431daf-3b99-40f6-89ff-dab164cda2ff": {
+          "type": "spacer",
+          "settings": {
+            "height": 10,
+            "height_mobile": 20
+          }
+        },
+        "80e67d89-9369-4ddb-8111-2aa1c36fb500": {
+          "type": "usp",
+          "settings": {
+            "usp": "<p><strong>30 day </strong>trail* <a href=\"/pages/about-us\" title=\"About us\">Read more</a></p>"
+          }
+        },
+        "ce57c15f-9a2f-4731-8dfe-6ed8eefa9924": {
+          "type": "usp",
+          "settings": {
+            "usp": "<p>Not satisfied? <strong>Money back!</strong></p>"
+          }
+        },
+        "52df90b0-c2aa-4ae2-8f31-d18e5a33e088": {
+          "type": "usp",
+          "settings": {
+            "usp": "<p>Pay within <strong>30 days</strong> with <strong>Klarna</strong></p>"
+          }
+        },
+        "ee5e9f1c-a80a-4244-950f-03806a509775": {
+          "type": "shipping_timer",
+          "settings": {}
+        },
+        "03131031-03b1-459c-9fed-00e259e68311": {
+          "type": "product_specifications",
+          "settings": {
+            "layout": "drawer",
+            "collapse": true,
+            "title_size": "h3",
+            "specifications": "<p>Weight: 200gr, Usage: Indoor & outdoor</p>"
+          }
+        },
+        "5a8f9aff-00d0-4e17-a551-bf2a2bb94cdd": {
+          "type": "content",
+          "settings": {
+            "layout": "drawer",
+            "collapse": true,
+            "title_size": "h2",
+            "title": "Delivery",
+            "icon": "none",
+            "header_image_width": 25,
+            "text": "",
+            "page": "shipping-info",
+            "image_width": 555,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "2931a2d9-9ac7-4e61-b638-cf48fb28c7d1": {
+          "type": "ratings",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "c7259cb9-7235-4028-b6df-3a68077fed80",
+        "8e479efb-ac22-4515-bbd9-e36042497eb4",
+        "price",
+        "short_description",
+        "variant_selection",
+        "90724a70-740a-4cc9-984c-764e1d76a5bd",
+        "inventory",
+        "cb013736-4487-49bc-8f03-b16e0d046329",
+        "buy_button",
+        "e9431daf-3b99-40f6-89ff-dab164cda2ff",
+        "80e67d89-9369-4ddb-8111-2aa1c36fb500",
+        "ce57c15f-9a2f-4731-8dfe-6ed8eefa9924",
+        "52df90b0-c2aa-4ae2-8f31-d18e5a33e088",
+        "ee5e9f1c-a80a-4244-950f-03806a509775",
+        "03131031-03b1-459c-9fed-00e259e68311",
+        "5a8f9aff-00d0-4e17-a551-bf2a2bb94cdd",
+        "2931a2d9-9ac7-4e61-b638-cf48fb28c7d1"
+      ],
+      "settings": {
+        "width": "boxed",
+        "images_layout": "collage",
+        "images_grid_spacing": 6,
+        "custom_product_image_ratio": 115,
+        "fill_images": true,
+        "fill_not_first": false,
+        "images_padding": 0,
+        "images_vertical_position": 0,
+        "enable_custom_font_size": true,
+        "font_size": "14px",
+        "show_product_description": true,
+        "title_size": "h3",
+        "show_product_description_drawer": true,
+        "product_description_enable_read_more": true,
+        "product_description_mobile_collapse": false,
+        "images_layout_mobile": "full_width",
+        "tabs_title_size": "h5"
+      }
+    },
+    "2a98d524-8f9b-4668-a650-8ee58f485391": {
+      "type": "section-spacer",
+      "settings": {
+        "height": 50,
+        "height_mobile": 20
+      }
+    },
+    "53099a60-2c4e-4adc-956b-584f68d87b78": {
+      "type": "section-banner-columns",
+      "blocks": {
+        "template--19955408765249__53099a60-2c4e-4adc-956b-584f68d87b78-image-1": {
+          "type": "image",
+          "settings": {
+            "overlay_opacity": 15,
+            "enable_controls": false,
+            "video_mute": true,
+            "color_palette": "scheme-2",
+            "text_position": "center",
+            "title": "<h2>360° living room filling speaker</h2>",
+            "title_underline_style": "none",
+            "text": "<p>With internet radio, Airplay 2 and Google cast.</p>",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_link": false,
+            "link_text": "Button",
+            "link_url": "",
+            "button_style": "primary plain"
+          }
+        }
+      },
+      "block_order": [
+        "template--19955408765249__53099a60-2c4e-4adc-956b-584f68d87b78-image-1"
+      ],
+      "settings": {
+        "items_width": 3,
+        "width": "boxed",
+        "height": "16/9",
+        "enable_custom_height": true,
+        "custom_height": 600,
+        "space_between": 0,
+        "image_zoom": true,
+        "show_content_below": false,
+        "layout_mobile": "rows",
+        "mobile_height": "1/1",
+        "spacing_desktop": 90,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "d523b35e-7ed0-4f91-9d14-254b191a2fd9": {
+      "type": "section-image-with-text",
+      "blocks": {
+        "template--19955408765249__d523b35e-7ed0-4f91-9d14-254b191a2fd9-title-1": {
+          "type": "title",
+          "settings": {
+            "title": "<h2>Emphasis on craftsmanship</h2>",
+            "title_underline_style": "none"
+          }
+        },
+        "template--19955408765249__d523b35e-7ed0-4f91-9d14-254b191a2fd9-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Bang & Olufsen takes pride in its craftsmanship. Each speaker is meticulously designed and assembled, often involving a combination of manual and automated processes to ensure the highest quality.</p>",
+            "font": "secondary",
+            "enable_custom_text_styling": false,
+            "font_size": "18px"
+          }
+        }
+      },
+      "block_order": [
+        "template--19955408765249__d523b35e-7ed0-4f91-9d14-254b191a2fd9-title-1",
+        "template--19955408765249__d523b35e-7ed0-4f91-9d14-254b191a2fd9-text-1"
+      ],
+      "settings": {
+        "fill_image": true,
+        "overlay_opacity_img": 0,
+        "enable_controls": false,
+        "video_mute": true,
+        "width": "boxed",
+        "height": "size-m",
+        "enable_custom_height": false,
+        "custom_height": 300,
+        "color_palette": "scheme-1",
+        "overlay_opacity": 0,
+        "layout": "image-left",
+        "text_position": "text-start",
+        "background_color_palette": "scheme-5",
+        "background_overlay_opacity": 0,
+        "background_position": "left",
+        "background_width": 50,
+        "background_height": 100,
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 4
+      }
+    },
+    "b49a6cc1-6fdd-4026-8722-96088a785d19": {
+      "type": "section-faq",
+      "blocks": {
+        "template--21407923765569__b49a6cc1-6fdd-4026-8722-96088a785d19-text-1": {
+          "type": "text",
+          "settings": {
+            "collapse": true,
+            "title": "Sound",
+            "icon": "none",
+            "header_image_width": 50,
+            "faq_answer": "<p>Recommended Room Size<br/>15-100 m²<br/>150-1000 ft²<br/><br/>Speaker Configuration<br/>2 x ¾\" tweeter<br/>2 x 3\" mid-range <br/>2 x 1 ½\" full-range <br/>1 x 8\" woofer <br/><br/>Amplifier<br/>2 x 150 watt class D for treble<br/>2 x 200 watt class D for midrange<br/>2 x 200 watt class D for fullrange<br/>1 x 400 watt class D for bass<br/><br/>Frequency Range<br/>33- 23.000 Hz<br/><br/>Maximum Sound Pressure Level @1m<br/>100 dB SPL<br/><br/>Bass Capability<br/>95 dB SPL<br/><br/>Stereo Pairing<br/>Pair two Beosound A9 5th Gen to enjoy a stereo listening experience.<br/><br/>Advanced Sound Features<br/>Active Room Compensation<br/>Thermal Protection<br/>Adaptive Bass Linearization<br/><br/>Customizable Sound EQ<br/>Presets available and fully customisable through the Bang & Olufsen App</p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "template--21407923765569__b49a6cc1-6fdd-4026-8722-96088a785d19-text-2": {
+          "type": "text",
+          "settings": {
+            "collapse": true,
+            "title": "Design",
+            "icon": "none",
+            "header_image_width": 50,
+            "faq_answer": "<h4><strong>Designer</strong></h4><p>Øivind Alexander Slaatto</p><h4>Materials</h4><p>Aluminium<br/>Fabric / Wool<br/>Wood<br/>Polymer</p><h4>Dimensions (Width x Height x Depth)</h4><p>70.1 W x 90.8 H x 41.5 D cm</p><h4>Weight</h4><p>14.7 kg</p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "template--21407923765569__b49a6cc1-6fdd-4026-8722-96088a785d19-text-3": {
+          "type": "text",
+          "settings": {
+            "collapse": true,
+            "title": "Power",
+            "icon": "none",
+            "header_image_width": 50,
+            "faq_answer": "<h4>Power consumption</h4><p>Typical: 23 W<br/>Standby: 3.3 W</p><h4>Power Supply</h4><p>Power supply built-in<br/>Power Cable</p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        },
+        "a63f3d17-994b-440b-9450-b36f7c4d52dd": {
+          "type": "text",
+          "settings": {
+            "collapse": true,
+            "title": "Connectivity",
+            "icon": "none",
+            "header_image_width": 50,
+            "faq_answer": "<h4>Bluetooth Version</h4><p>Bluetooth 5.3</p><h4>Bluetooth Codecs</h4><p>AAC<br/>SBC</p><h4>Wi-Fi</h4><p>Dual-Band Wi-Fi (2.4 & 5 GHz)<br/>IEEE 802.11 b/g/a/n/ac/ax </p><h4>Streaming services</h4><p>Apple AirPlay 2<br/>Spotify Connect <br/>Chromecast built-in <br/>TIDAL Connect<br/>B&O Radio<br/>Deezer<br/>QPlay 2.0</p><h4>Beolink Multiroom</h4><p>Yes</p><h4>Physical Connections</h4><p>1 x Ethernet<br/>1 x Line-in via USB-C<br/>1 x Power</p><h4>Remote controls</h4><p>Bang & Olufsen App<br/>Beoremote One BT<br/>Beoremote Halo</p><h4>On-Device Controls</h4><p>Yes</p>",
+            "page": "",
+            "image_width": 465,
+            "liquid": "",
+            "html": "",
+            "show_contact_form": false
+          }
+        }
+      },
+      "block_order": [
+        "template--21407923765569__b49a6cc1-6fdd-4026-8722-96088a785d19-text-1",
+        "template--21407923765569__b49a6cc1-6fdd-4026-8722-96088a785d19-text-2",
+        "template--21407923765569__b49a6cc1-6fdd-4026-8722-96088a785d19-text-3",
+        "a63f3d17-994b-440b-9450-b36f7c4d52dd"
+      ],
+      "settings": {
+        "text_alignment": "start",
+        "alignment": "next",
+        "content_width": 2000,
+        "media_position": "bottom",
+        "image_width": 460,
+        "enable_controls": false,
+        "video_mute": true,
+        "title": "<h2>Technical specs</h2>",
+        "title_underline_style": "none",
+        "text": "What's in it in terms of quality and design?",
+        "enable_custom_font_styling": false,
+        "font_size": "16px",
+        "blocks_title_font": "primary",
+        "blocks_title_size": "h4",
+        "blocks_enable_custom_font_styling": false,
+        "blocks_font_size": "16px",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "0bbb87ff-8751-43ef-a1db-72f842f7b7fc": {
+      "type": "section-static",
+      "settings": {
+        "width": "wide",
+        "transparent": false,
+        "layout": "layout_4",
+        "custom_height": 67,
+        "color_palette": "scheme-3",
+        "background_overlay_opacity": 50,
+        "image_1_overlay_opacity": 15,
+        "image_2_overlay_opacity": 0,
+        "image_3_overlay_opacity": 15,
+        "video_1_enable_controls": false,
+        "video_1_mute": true,
+        "video_1_overlay_opacity": 60,
+        "title": "<h2>Combining beauty, elegance and comfort in the most epic speaker on the planet.</h2>",
+        "recommended_heading_size": false,
+        "title_underline_style": "none",
+        "text": "",
+        "show_link": false,
+        "link_text": "",
+        "link_url": "/",
+        "button_style": "fill",
+        "slideshow_mobile_height": "size-s",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "54065e62-ae2f-4a51-bcef-ed5ff47dceef": {
+      "type": "section-rich-text",
+      "blocks": {
+        "template--19955408765249__54065e62-ae2f-4a51-bcef-ed5ff47dceef-title-1": {
+          "type": "title",
+          "settings": {
+            "title": "<h4>Bang & Olufsen speakers offer <em><strong>customizable sound profiles</strong></em>. This means users can adjust the sound characteristics, such as <em><strong>bass</strong></em>, <em><strong>treble</strong></em>, and<em><strong>balance</strong></em>, to suit their personal preferences and the acoustics of their environment.</h4>",
+            "title_underline_style": "none"
+          }
+        },
+        "template--19955408765249__54065e62-ae2f-4a51-bcef-ed5ff47dceef-content-1": {
+          "type": "content",
+          "settings": {
+            "page": "",
+            "text": "",
+            "font": "secondary",
+            "enable_custom_text_styling": false,
+            "font_weight": "400",
+            "font_size": "16px"
+          }
+        },
+        "3408b44d-1111-475a-a3e9-4f506c48122c": {
+          "type": "button",
+          "settings": {
+            "link_text": "All speakers",
+            "link_url": "/",
+            "button_style": "fill"
+          }
+        }
+      },
+      "block_order": [
+        "template--19955408765249__54065e62-ae2f-4a51-bcef-ed5ff47dceef-title-1",
+        "template--19955408765249__54065e62-ae2f-4a51-bcef-ed5ff47dceef-content-1",
+        "3408b44d-1111-475a-a3e9-4f506c48122c"
+      ],
+      "settings": {
+        "width": "wide",
+        "height": "s",
+        "enable_custom_height": true,
+        "custom_height": 450,
+        "color_palette": "scheme-5",
+        "background_overlay_opacity": 100,
+        "background_position": "left",
+        "background_width": 100,
+        "background_height": 100,
+        "text_position": "align-center text-center",
+        "content_width": 940,
+        "height_mobile": "xs",
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": -50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "3e68e292-332f-427f-b903-e3e844f9cc6b": {
+      "type": "section-collection-list",
+      "settings": {
+        "custom_image_ratio": 100,
+        "show_in_circle": false,
+        "fill_images": true,
+        "layout": "slider",
+        "number_of_items": 3,
+        "show_below": false,
+        "show_arrow": false,
+        "color_palette": "scheme-2",
+        "image_overlay_opacity": 10,
+        "text_alignment": "start",
+        "background_color_palette": "scheme-5",
+        "background_overlay_opacity": 100,
+        "background_position": "left",
+        "background_width": 100,
+        "background_height": 100,
+        "title": "<h3>Other speaker categories</h3>",
+        "title_underline_style": "none",
+        "show_link": true,
+        "link_text": "View all",
+        "link_url": "/",
+        "button_style": "secondary link",
+        "collection_title_position": "center",
+        "show_collection_titles": true,
+        "collection_title_size": "h3",
+        "mobile_layout": "slider",
+        "number_of_items_mobile": "w100-mobile",
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "limit": 5,
+        "number_of_items": 5,
+        "text_alignment": "center",
+        "background_color_palette": "light",
+        "background_overlay_opacity": 0,
+        "background_position": "left",
+        "background_width": 50,
+        "background_height": 100,
+        "title": "<h3>You may also like</h3>",
+        "title_underline_style": "none",
+        "text": "",
+        "enable_custom_font_styling": false,
+        "text_color_palette": "black",
+        "font_size": "14px",
+        "mobile_collapse": false,
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 50,
+        "spacing_mobile": 0,
+        "fix_zindex": 0
+      }
+    }
+  },
+  "order": [
+    "c20ea34c-4ac2-462a-b03d-411acd8fd05e",
+    "breadcrumbs",
+    "098b17a8-14c3-4f6f-a711-23eb99e5eacf",
+    "main-product",
+    "2a98d524-8f9b-4668-a650-8ee58f485391",
+    "53099a60-2c4e-4adc-956b-584f68d87b78",
+    "d523b35e-7ed0-4f91-9d14-254b191a2fd9",
+    "b49a6cc1-6fdd-4026-8722-96088a785d19",
+    "0bbb87ff-8751-43ef-a1db-72f842f7b7fc",
+    "54065e62-ae2f-4a51-bcef-ed5ff47dceef",
+    "3e68e292-332f-427f-b903-e3e844f9cc6b",
+    "recommendations"
+  ]
+}

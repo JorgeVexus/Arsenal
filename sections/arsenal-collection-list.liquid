@@ -1,0 +1,923 @@
+{%- style -%}
+  /* Base Section Styles */
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  /* Collections Section */
+  .collections-section-{{ section.id }} {
+    position: relative;
+    background: {{ section.settings.background_color }};
+    overflow: hidden;
+  }
+  /* Decorative Elements */
+  .collections-section-{{ section.id }} .cl-decoration {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.25;
+    pointer-events: none;
+  }
+  .collections-section-{{ section.id }} .cl-decoration-1 {
+    width: 600px;
+    height: 600px;
+    background: {{ section.settings.accent_color }};
+    top: -200px;
+    right: -200px;
+  }
+  .collections-section-{{ section.id }} .cl-decoration-2 {
+    width: 500px;
+    height: 500px;
+    background: {{ section.settings.secondary_accent }};
+    bottom: -200px;
+    left: -150px;
+  }
+  /* Container */
+  .collections-container-{{ section.id }} {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+  }
+  /* Header */
+  .cl-header-{{ section.id }} {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 60px;
+  }
+  @media screen and (min-width: 990px) {
+    .cl-header-{{ section.id }}.layout-split {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+  }
+  .cl-header-{{ section.id }}.layout-center {
+    text-align: center;
+    align-items: center;
+  }
+  .cl-header-content-{{ section.id }} {
+    max-width: 600px;
+  }
+  .cl-header-{{ section.id }} .cl-badge {
+    display: inline-block;
+    padding: 8px 20px;
+    background: {{ section.settings.accent_color | color_modify: 'alpha', 0.1 }};
+    color: {{ section.settings.accent_color }};
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
+  .cl-header-{{ section.id }} h2 {
+    font-size: clamp(28px, 5vw, {{ section.settings.heading_size }}px);
+    font-weight: 800;
+    color: {{ section.settings.heading_color }};
+    margin: 0 0 12px 0;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+  .cl-header-{{ section.id }} .cl-subtitle {
+    font-size: clamp(15px, 2vw, 18px);
+    color: {{ section.settings.text_color }};
+    line-height: 1.6;
+    margin: 0;
+    opacity: 0.8;
+  }
+  /* View All Button */
+  .cl-view-all-{{ section.id }} {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: {{ section.settings.button_background }};
+    color: {{ section.settings.button_text }};
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+  .cl-view-all-{{ section.id }}:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px {{ section.settings.button_background | color_modify: 'alpha', 0.3 }};
+  }
+  .cl-view-all-{{ section.id }} svg {
+    width: 18px;
+    height: 18px;
+    transition: transform 0.3s ease;
+  }
+  .cl-view-all-{{ section.id }}:hover svg {
+    transform: translateX(4px);
+  }
+  /* ============================================
+     GRID LAYOUTS
+     ============================================ */
+  /* Standard Grid */
+  .cl-grid-{{ section.id }}.layout-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: {{ section.settings.grid_gap }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .cl-grid-{{ section.id }}.layout-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media screen and (min-width: 990px) {
+    .cl-grid-{{ section.id }}.layout-grid {
+      grid-template-columns: repeat({{ section.settings.columns }}, 1fr);
+    }
+  }
+  /* Masonry Layout */
+  .cl-grid-{{ section.id }}.layout-masonry {
+    columns: 2;
+    column-gap: {{ section.settings.grid_gap }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .cl-grid-{{ section.id }}.layout-masonry {
+      columns: 3;
+    }
+  }
+  @media screen and (min-width: 990px) {
+    .cl-grid-{{ section.id }}.layout-masonry {
+      columns: {{ section.settings.columns }};
+    }
+  }
+  .cl-grid-{{ section.id }}.layout-masonry .cl-card-{{ section.id }} {
+    break-inside: avoid;
+    margin-bottom: {{ section.settings.grid_gap }}px;
+  }
+  /* Editorial Layout */
+  .cl-grid-{{ section.id }}.layout-editorial {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: {{ section.settings.grid_gap }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .cl-grid-{{ section.id }}.layout-editorial {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .cl-grid-{{ section.id }}.layout-editorial .cl-card-{{ section.id }}:nth-child(3n+1) {
+      grid-column: span 2;
+    }
+    .cl-grid-{{ section.id }}.layout-editorial .cl-card-{{ section.id }}:nth-child(3n+1) .cl-card-image-{{ section.id }} {
+      aspect-ratio: 21/9;
+    }
+  }
+  @media screen and (min-width: 990px) {
+    .cl-grid-{{ section.id }}.layout-editorial {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .cl-grid-{{ section.id }}.layout-editorial .cl-card-{{ section.id }}:nth-child(5n+1) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    .cl-grid-{{ section.id }}.layout-editorial .cl-card-{{ section.id }}:nth-child(5n+1) .cl-card-image-{{ section.id }} {
+      aspect-ratio: 1/1;
+      height: 100%;
+    }
+    .cl-grid-{{ section.id }}.layout-editorial .cl-card-{{ section.id }}:nth-child(5n+2),
+    .cl-grid-{{ section.id }}.layout-editorial .cl-card-{{ section.id }}:nth-child(5n+3) {
+      grid-column: span 1;
+    }
+  }
+  /* Bento Layout */
+  .cl-grid-{{ section.id }}.layout-bento {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: {{ section.settings.grid_gap }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .cl-grid-{{ section.id }}.layout-bento {
+      grid-template-columns: repeat(4, 1fr);
+      grid-auto-rows: 200px;
+    }
+    .cl-grid-{{ section.id }}.layout-bento .cl-card-{{ section.id }}:nth-child(6n+1) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    .cl-grid-{{ section.id }}.layout-bento .cl-card-{{ section.id }}:nth-child(6n+2),
+    .cl-grid-{{ section.id }}.layout-bento .cl-card-{{ section.id }}:nth-child(6n+3) {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+    .cl-grid-{{ section.id }}.layout-bento .cl-card-{{ section.id }}:nth-child(6n+4) {
+      grid-column: span 2;
+      grid-row: span 1;
+    }
+    .cl-grid-{{ section.id }}.layout-bento .cl-card-{{ section.id }}:nth-child(6n+5),
+    .cl-grid-{{ section.id }}.layout-bento .cl-card-{{ section.id }}:nth-child(6n+6) {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+    .cl-grid-{{ section.id }}.layout-bento .cl-card-image-{{ section.id }} {
+      height: 100%;
+      aspect-ratio: auto;
+    }
+  }
+  /* ============================================
+     COLLECTION CARDS
+     ============================================ */
+  .cl-card-{{ section.id }} {
+    position: relative;
+    border-radius: {{ section.settings.card_radius }}px;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  /* Card Styles */
+  .cl-card-{{ section.id }}.style-overlay {
+    background: {{ section.settings.card_background }};
+  }
+  .cl-card-{{ section.id }}.style-minimal {
+    background: transparent;
+  }
+  .cl-card-{{ section.id }}.style-bordered {
+    background: {{ section.settings.card_background }};
+    border: 1px solid {{ section.settings.border_color }};
+  }
+  .cl-card-{{ section.id }}.style-elevated {
+    background: {{ section.settings.card_background }};
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  /* Card Hover */
+  .cl-card-{{ section.id }}:hover {
+    transform: translateY(-8px);
+  }
+  .cl-card-{{ section.id }}.style-elevated:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  }
+  .cl-card-{{ section.id }}.style-bordered:hover {
+    border-color: {{ section.settings.accent_color }};
+  }
+  /* Card Image */
+  .cl-card-image-{{ section.id }} {
+    position: relative;
+    aspect-ratio: {{ section.settings.image_ratio }};
+    overflow: hidden;
+  }
+  .cl-card-image-{{ section.id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .cl-card-{{ section.id }}:hover .cl-card-image-{{ section.id }} img {
+    transform: scale(1.1);
+  }
+  /* Image Overlay Gradient */
+  .cl-card-image-{{ section.id }}::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      0deg,
+      {{ section.settings.overlay_color }} 0%,
+      {{ section.settings.overlay_color | color_modify: 'alpha', 0.3 }} 40%,
+      transparent 100%
+    );
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    transition: opacity 0.4s ease;
+  }
+  .cl-card-{{ section.id }}:hover .cl-card-image-{{ section.id }}::after {
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 | plus: 0.2 }};
+  }
+  /* Card Content - Overlay Style */
+  .cl-card-content-{{ section.id }} {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px;
+    z-index: 2;
+    transform: translateY(10px);
+    transition: transform 0.4s ease;
+  }
+  .cl-card-{{ section.id }}:hover .cl-card-content-{{ section.id }} {
+    transform: translateY(0);
+  }
+  /* Card Content - Below Image Style */
+  .cl-card-{{ section.id }}.style-minimal .cl-card-content-{{ section.id }},
+  .cl-card-{{ section.id }}.style-bordered .cl-card-content-{{ section.id }},
+  .cl-card-{{ section.id }}.style-elevated .cl-card-content-{{ section.id }} {
+    position: relative;
+    padding: 20px 0 0 0;
+    transform: none;
+  }
+  .cl-card-{{ section.id }}.style-bordered .cl-card-content-{{ section.id }},
+  .cl-card-{{ section.id }}.style-elevated .cl-card-content-{{ section.id }} {
+    padding: 20px;
+  }
+  /* Collection Title */
+  .cl-card-title-{{ section.id }} {
+    font-size: clamp(18px, 2.5vw, {{ section.settings.title_size }}px);
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    line-height: 1.2;
+    transition: color 0.3s ease;
+  }
+  .cl-card-{{ section.id }}.style-overlay .cl-card-title-{{ section.id }} {
+    color: #ffffff;
+  }
+  .cl-card-{{ section.id }}.style-minimal .cl-card-title-{{ section.id }},
+  .cl-card-{{ section.id }}.style-bordered .cl-card-title-{{ section.id }},
+  .cl-card-{{ section.id }}.style-elevated .cl-card-title-{{ section.id }} {
+    color: {{ section.settings.heading_color }};
+  }
+  .cl-card-{{ section.id }}:hover .cl-card-title-{{ section.id }} {
+    color: {{ section.settings.accent_color }};
+  }
+  .cl-card-{{ section.id }}.style-overlay:hover .cl-card-title-{{ section.id }} {
+    color: #ffffff;
+  }
+  /* Product Count */
+  .cl-card-count-{{ section.id }} {
+    font-size: 13px;
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .cl-card-{{ section.id }}.style-overlay .cl-card-count-{{ section.id }} {
+    color: #ffffff;
+  }
+  .cl-card-{{ section.id }}.style-minimal .cl-card-count-{{ section.id }},
+  .cl-card-{{ section.id }}.style-bordered .cl-card-count-{{ section.id }},
+  .cl-card-{{ section.id }}.style-elevated .cl-card-count-{{ section.id }} {
+    color: {{ section.settings.text_color }};
+  }
+  /* View Arrow */
+  .cl-card-arrow-{{ section.id }} {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: {{ section.settings.accent_color }};
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translate(10px, -10px) scale(0.8);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 3;
+  }
+  .cl-card-{{ section.id }}:hover .cl-card-arrow-{{ section.id }} {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  .cl-card-arrow-{{ section.id }} svg {
+    width: 18px;
+    height: 18px;
+    color: #ffffff;
+    stroke: #ffffff;
+  }
+  /* Accent Line */
+  .cl-card-accent-{{ section.id }} {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, {{ section.settings.accent_color }}, {{ section.settings.secondary_accent }});
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+  .cl-card-{{ section.id }}:hover .cl-card-accent-{{ section.id }} {
+    transform: scaleX(1);
+  }
+  /* Placeholder */
+  .cl-placeholder-{{ section.id }} {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    background: linear-gradient(135deg, #e5e7eb 0%, #f3f4f6 50%, #e5e7eb 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cl-placeholder-{{ section.id }} svg {
+    width: 48px;
+    height: 48px;
+    opacity: 0.3;
+  }
+  /* Masonry Height Variations */
+  .cl-grid-{{ section.id }}.layout-masonry .cl-card-{{ section.id }}:nth-child(3n+1) .cl-card-image-{{ section.id }} {
+    aspect-ratio: 3/4;
+  }
+  .cl-grid-{{ section.id }}.layout-masonry .cl-card-{{ section.id }}:nth-child(3n+2) .cl-card-image-{{ section.id }} {
+    aspect-ratio: 1/1;
+  }
+  .cl-grid-{{ section.id }}.layout-masonry .cl-card-{{ section.id }}:nth-child(3n+3) .cl-card-image-{{ section.id }} {
+    aspect-ratio: 4/5;
+  }
+  /* Animation */
+  .cl-card-{{ section.id }} {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: clFadeIn 0.6s ease forwards;
+  }
+  .cl-card-{{ section.id }}:nth-child(1) { animation-delay: 0.05s; }
+  .cl-card-{{ section.id }}:nth-child(2) { animation-delay: 0.1s; }
+  .cl-card-{{ section.id }}:nth-child(3) { animation-delay: 0.15s; }
+  .cl-card-{{ section.id }}:nth-child(4) { animation-delay: 0.2s; }
+  .cl-card-{{ section.id }}:nth-child(5) { animation-delay: 0.25s; }
+  .cl-card-{{ section.id }}:nth-child(6) { animation-delay: 0.3s; }
+  .cl-card-{{ section.id }}:nth-child(7) { animation-delay: 0.35s; }
+  .cl-card-{{ section.id }}:nth-child(8) { animation-delay: 0.4s; }
+  @keyframes clFadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  /* Responsive */
+  @media screen and (max-width: 749px) {
+    .cl-header-{{ section.id }} {
+      margin-bottom: 40px;
+    }
+    .cl-card-content-{{ section.id }} {
+      padding: 20px;
+    }
+    .cl-decoration {
+      display: none;
+    }
+    .cl-grid-{{ section.id }}.layout-bento {
+      grid-template-columns: 1fr;
+    }
+    .cl-grid-{{ section.id }}.layout-bento .cl-card-{{ section.id }} {
+      grid-column: span 1 !important;
+      grid-row: span 1 !important;
+    }
+    .cl-grid-{{ section.id }}.layout-bento .cl-card-image-{{ section.id }} {
+      aspect-ratio: 16/9;
+    }
+  }
+{%- endstyle -%}
+<section class="collections-section-{{ section.id }} section-{{ section.id }}-padding">
+  
+  {%- if section.settings.show_decorations -%}
+    <div class="cl-decoration cl-decoration-1"></div>
+    <div class="cl-decoration cl-decoration-2"></div>
+  {%- endif -%}
+  <div class="collections-container-{{ section.id }}">
+    
+    {%- if section.settings.show_header -%}
+      <div class="cl-header-{{ section.id }} layout-{{ section.settings.header_layout }}">
+        <div class="cl-header-content-{{ section.id }}">
+          {%- if section.settings.badge_text != blank -%}
+            <span class="cl-badge">{{ section.settings.badge_text }}</span>
+          {%- endif -%}
+          
+          {%- if section.settings.heading != blank -%}
+            <h2>{{ section.settings.heading }}</h2>
+          {%- endif -%}
+          
+          {%- if section.settings.subtitle != blank -%}
+            <p class="cl-subtitle">{{ section.settings.subtitle }}</p>
+          {%- endif -%}
+        </div>
+        {%- if section.settings.show_view_all and section.settings.view_all_link != blank -%}
+          <a href="{{ section.settings.view_all_link }}" class="cl-view-all-{{ section.id }}">
+            {{ section.settings.view_all_text }}
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+    <div class="cl-grid-{{ section.id }} layout-{{ section.settings.layout }}">
+      
+      {%- assign collections_to_show = section.settings.collections_list -%}
+      {%- if collections_to_show == blank or collections_to_show.size == 0 -%}
+        {%- assign collections_to_show = collections -%}
+      {%- endif -%}
+      {%- assign collection_limit = section.settings.collections_limit -%}
+      {%- assign collection_count = 0 -%}
+      {%- for collection in collections_to_show -%}
+        {%- if collection_count < collection_limit -%}
+          {%- assign collection_count = collection_count | plus: 1 -%}
+          
+          <a href="{{ collection.url }}" class="cl-card-{{ section.id }} style-{{ section.settings.card_style }}">
+            
+            <div class="cl-card-image-{{ section.id }}">
+              {%- if collection.image != blank or collection.featured_image != blank -%}
+                {%- assign collection_image = collection.image | default: collection.featured_image -%}
+                <img 
+                  src="{{ collection_image | image_url: width: 800 }}"
+                  srcset="
+                    {{ collection_image | image_url: width: 400 }} 400w,
+                    {{ collection_image | image_url: width: 600 }} 600w,
+                    {{ collection_image | image_url: width: 800 }} 800w,
+                    {{ collection_image | image_url: width: 1000 }} 1000w
+                  "
+                  sizes="(min-width: 990px) 33vw, (min-width: 750px) 50vw, 100vw"
+                  alt="{{ collection.title }}"
+                  loading="lazy"
+                >
+              {%- else -%}
+                <div class="cl-placeholder-{{ section.id }}">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                  </svg>
+                </div>
+              {%- endif -%}
+            </div>
+            {%- if section.settings.show_arrow -%}
+              <div class="cl-card-arrow-{{ section.id }}">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="7" y1="17" x2="17" y2="7"/>
+                  <polyline points="7 7 17 7 17 17"/>
+                </svg>
+              </div>
+            {%- endif -%}
+            <div class="cl-card-content-{{ section.id }}">
+              <h3 class="cl-card-title-{{ section.id }}">{{ collection.title }}</h3>
+              
+              {%- if section.settings.show_product_count -%}
+                <span class="cl-card-count-{{ section.id }}">
+                  {{ collection.products_count }} 
+                  {%- if collection.products_count == 1 -%}
+                    {{ section.settings.product_singular }}
+                  {%- else -%}
+                    {{ section.settings.product_plural }}
+                  {%- endif -%}
+                </span>
+              {%- endif -%}
+            </div>
+            {%- if section.settings.show_accent_line -%}
+              <div class="cl-card-accent-{{ section.id }}"></div>
+            {%- endif -%}
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Lista de Colecciones",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colecciones"
+    },
+    {
+      "type": "collection_list",
+      "id": "collections_list",
+      "label": "Seleccionar Colecciones",
+      "info": "Deja vacío para mostrar todas las colecciones automáticamente"
+    },
+    {
+      "type": "range",
+      "id": "collections_limit",
+      "min": 2,
+      "max": 24,
+      "step": 1,
+      "label": "Límite de Colecciones",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Encabezado"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Mostrar Encabezado",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Texto del Badge",
+      "default": "Explora"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Título",
+      "default": "Nuestras Colecciones"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "Descubre nuestra selección cuidadosamente curada de productos premium."
+    },
+    {
+      "type": "select",
+      "id": "header_layout",
+      "label": "Layout del Encabezado",
+      "options": [
+        { "value": "center", "label": "Centrado" },
+        { "value": "split", "label": "Título izquierda, botón derecha" }
+      ],
+      "default": "split"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Mostrar Botón Ver Todo",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "view_all_link",
+      "label": "Enlace Ver Todo"
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "Texto Ver Todo",
+      "default": "Ver todas"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Tipo de Layout",
+      "options": [
+        { "value": "grid", "label": "Grid Uniforme" },
+        { "value": "masonry", "label": "Masonry (Alturas Variables)" },
+        { "value": "editorial", "label": "Editorial (Asimétrico)" },
+        { "value": "bento", "label": "Bento Box (Moderno)" }
+      ],
+      "default": "editorial"
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "label": "Columnas (Desktop)",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "min": 10,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Espacio entre Tarjetas",
+      "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Estilo de Tarjetas"
+    },
+    {
+      "type": "select",
+      "id": "card_style",
+      "label": "Estilo de Tarjeta",
+      "options": [
+        { "value": "overlay", "label": "Overlay (Texto sobre imagen)" },
+        { "value": "minimal", "label": "Minimal (Texto debajo)" },
+        { "value": "bordered", "label": "Con Borde" },
+        { "value": "elevated", "label": "Elevado (Sombra)" }
+      ],
+      "default": "overlay"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Proporción de Imagen",
+      "options": [
+        { "value": "1/1", "label": "1:1 Cuadrado" },
+        { "value": "4/5", "label": "4:5 Retrato" },
+        { "value": "3/4", "label": "3:4 Retrato Vertical" },
+        { "value": "16/9", "label": "16:9 Paisaje" },
+        { "value": "4/3", "label": "4:3 Paisaje" }
+      ],
+      "default": "4/5"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Radio de Bordes",
+      "default": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_count",
+      "label": "Mostrar Conteo de Productos",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "product_singular",
+      "label": "Texto Producto (Singular)",
+      "default": "producto"
+    },
+    {
+      "type": "text",
+      "id": "product_plural",
+      "label": "Texto Productos (Plural)",
+      "default": "productos"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_arrow",
+      "label": "Mostrar Flecha al Hover",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_accent_line",
+      "label": "Mostrar Línea de Acento",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Colores"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Color de Fondo",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Color de Acento",
+      "default": "#6366f1"
+    },
+    {
+      "type": "color",
+      "id": "secondary_accent",
+      "label": "Color Secundario",
+      "default": "#8b5cf6"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Color de Títulos",
+      "default": "#1f2937"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Color de Texto",
+      "default": "#6b7280"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Fondo de Tarjeta",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Color de Borde",
+      "default": "#e5e7eb"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Color del Overlay",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Opacidad del Overlay",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Botón Ver Todo"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Color del Botón",
+      "default": "#1f2937"
+    },
+    {
+      "type": "color",
+      "id": "button_text",
+      "label": "Color del Texto del Botón",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Tipografía"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 28,
+      "max": 56,
+      "step": 2,
+      "unit": "px",
+      "label": "Tamaño del Título de Sección",
+      "default": 42
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 16,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "label": "Tamaño del Título de Tarjeta",
+      "default": 22
+    },
+    {
+      "type": "header",
+      "content": "Decoraciones"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_decorations",
+      "label": "Mostrar Decoraciones de Fondo",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 1600,
+      "step": 50,
+      "unit": "px",
+      "label": "Ancho Máximo",
+      "default": 1400
+    },
+    {
+      "type": "header",
+      "content": "Espaciado"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Superior",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Inferior",
+      "default": 100
+    }
+  ],
+  "presets": [
+    {
+      "name": "Lista de Colecciones",
+      "settings": {
+        "layout": "editorial",
+        "card_style": "overlay",
+        "heading": "Nuestras Colecciones",
+        "subtitle": "Descubre nuestra selección cuidadosamente curada de productos premium."
+      }
+    }
+  ]
+}
+{% endschema %}

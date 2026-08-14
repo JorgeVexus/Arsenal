@@ -1,0 +1,359 @@
+{% comment %}
+  Hero Text Reveal (Auto-Play)
+  Hero section with an automatic zoom animation on load where text acts as a mask scaling up to reveal a background image.
+  @author: Jorge Cerna - Vexus
+{% endcomment %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    position: relative;
+    width: 100%;
+    {% if section.settings.full_width %}
+      max-width: none !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    {% endif %}
+    height: {{ section.settings.height_desktop }}vh;
+    z-index: {{ section.settings.z_index }};
+    background-color: {{ section.settings.bg_fallback }};
+    margin: 0 !important;
+  }
+
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} {
+      height: {{ section.settings.height_mobile }}vh;
+    }
+  }
+
+  /* Robust Full Width Breakout */
+  {% if section.settings.full_width %}
+    #shopify-section-{{ section.id }}.shopify-section {
+       width: 100vw !important;
+       position: relative !important;
+       left: 50% !important;
+       transform: translateX(-50%) !important;
+       margin-left: 0 !important;
+       margin-right: 0 !important;
+       padding: 0 !important;
+       max-width: none !important;
+    }
+  {% endif %}
+
+  .hero-wrapper-{{ section.id }} {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 !important; /* Ensure no border radius */
+  }
+
+  /* Layer 1: The Background Image (Revealed) */
+  .bg-image-{{ section.id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    border-radius: 0 !important;
+  }
+  
+  .bg-image-{{ section.id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  /* Layer 2: The Mask (Overlay + Text) */
+  .mask-overlay-{{ section.id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: {{ section.settings.mask_color }};
+    mix-blend-mode: {{ section.settings.mask_mode }};
+    
+    /* Animation Properties */
+    opacity: 1;
+    transform-origin: center center;
+    will-change: opacity;
+  }
+
+  .text-wrapper-{{ section.id }} {
+    text-align: center;
+    width: 100%;
+    will-change: transform;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Force text color for mask logic */
+    color: {% if section.settings.mask_mode == 'screen' %}#000000{% else %}#ffffff{% endif %};
+  }
+  
+  .reveal-text-{{ section.id }} {
+    font-family: var(--font-heading-family);
+    font-weight: 900; /* Extra bold for better masking */
+    line-height: 1;
+    margin: 0;
+    white-space: nowrap;
+    
+    /* Start scale */
+    transform: scale(1);
+    will-change: transform;
+    
+    /* Responsive sizing */
+    font-size: {{ section.settings.font_size_mobile }}px;
+  }
+  
+  @media screen and (max-width: 749px) {
+    .reveal-text-{{ section.id }} {
+      font-size: {{ section.settings.font_size_mobile }}px;
+      /* Dynamic fluid adjustment if needed */
+      font-size: clamp(40px, 12vw, {{ section.settings.font_size_mobile }}px);
+    }
+    
+    .animate-active .reveal-text-{{ section.id }} {
+      transform: scale(80); /* Slightly smaller scale for mobile to improve perf while still clearing view */
+    }
+  }
+
+  /* Animation Classes (Added by JS) */
+  .animate-active .reveal-text-{{ section.id }} {
+    transition: transform {{ section.settings.anim_duration }}s {{ section.settings.anim_easing }};
+    transform: scale(150); /* Massive scale to clear screen */
+  }
+
+  .animate-active .mask-overlay-{{ section.id }} {
+    transition: opacity {{ section.settings.anim_duration | divided_by: 2.0 }}s {{ section.settings.anim_easing }};
+    /* Delay opacity fade to start halfway through zoom so it's not premature */
+    transition-delay: {{ section.settings.anim_duration | divided_by: 2.0 }}s; 
+    opacity: 0;
+    pointer-events: none; /* Make click-through after animation */
+  }
+  
+  /* Fallback for no-js: show image? or keep mask? User wants animation on load. */
+  .no-js .mask-overlay-{{ section.id }} {
+    display: none; 
+  }
+
+{%- endstyle -%}
+
+<div class="hero-wrapper-{{ section.id }}" id="hero-{{ section.id }}">
+  
+  {%- comment -%} Layer 1: Background Image {%- endcomment -%}
+  <div class="bg-image-{{ section.id }}">
+    {%- if section.settings.image != blank -%}
+      <picture>
+        {%- if section.settings.mobile_image != blank -%}
+          <source media="(max-width: 749px)" srcset="{{ section.settings.mobile_image | image_url: width: 1200 }}">
+        {%- endif -%}
+        <source media="(min-width: 750px)" srcset="{{ section.settings.image | image_url: width: 3000 }}">
+        {{ section.settings.image | image_url: width: 1500 | image_tag: 
+          loading: 'eager', 
+          widths: '550, 750, 1100, 1500, 2000, 3000', 
+          sizes: '100vw',
+          class: 'hero-img'
+        }}
+      </picture>
+    {%- else -%}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+  </div>
+
+  {%- comment -%} Layer 2: Mask {%- endcomment -%}
+  <div class="mask-overlay-{{ section.id }}">
+    <div class="text-wrapper-{{ section.id }}">
+      <h2 class="reveal-text-{{ section.id }}">
+        {%- if section.settings.text != blank -%}
+          {{ section.settings.text }}
+        {%- else -%}
+          ARSENAL
+        {%- endif -%}
+      </h2>
+    </div>
+  </div>
+  
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const heroSection = document.getElementById('hero-{{ section.id }}');
+  if (!heroSection) return;
+
+  // Small delay to ensure render before animating
+  setTimeout(() => {
+    heroSection.classList.add('animate-active');
+  }, {{ section.settings.anim_delay | times: 1000 }});
+});
+</script>
+
+{% schema %}
+{
+  "name": "Hero Text Reveal",
+  "class": "section",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full Width (Edge-to-Edge)",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image (Desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Background Image (Mobile)"
+    },
+    {
+      "type": "text",
+      "id": "text",
+      "default": "REVEAL",
+      "label": "Heading Text"
+    },
+    {
+      "type": "header",
+      "content": "Mask Settings"
+    },
+    {
+      "type": "select",
+      "id": "mask_mode",
+      "label": "Mask Mode",
+      "options": [
+        { "value": "screen", "label": "Light Overlay (Black Text)" },
+        { "value": "multiply", "label": "Dark Overlay (White Text)" }
+      ],
+      "default": "screen"
+    },
+    {
+      "type": "color",
+      "id": "mask_color",
+      "label": "Overlay Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "bg_fallback",
+      "label": "Section Background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Animation Settings"
+    },
+    {
+      "type": "range",
+      "id": "anim_duration",
+      "min": 1,
+      "max": 10,
+      "step": 0.5,
+      "unit": "s",
+      "label": "Duration",
+      "default": 2.5
+    },
+    {
+      "type": "range",
+      "id": "anim_delay",
+      "min": 0,
+      "max": 5,
+      "step": 0.5,
+      "unit": "s",
+      "label": "Start Delay",
+      "default": 0.5
+    },
+    {
+      "type": "select",
+      "id": "anim_easing",
+      "label": "Easing",
+      "options": [
+        { "value": "ease", "label": "Ease" },
+        { "value": "linear", "label": "Linear" },
+        { "value": "ease-in", "label": "Ease In" },
+        { "value": "ease-out", "label": "Ease Out" },
+        { "value": "ease-in-out", "label": "Ease In Out" },
+        { "value": "cubic-bezier(0.85, 0, 0.15, 1)", "label": "Smooth Exponential" }
+      ],
+      "default": "cubic-bezier(0.85, 0, 0.15, 1)"
+    },
+    {
+      "type": "header",
+      "content": "Dimensions"
+    },
+    {
+      "type": "range",
+      "id": "height_desktop",
+      "label": "Desktop Height",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "default": 90
+    },
+    {
+      "type": "range",
+      "id": "height_mobile",
+      "label": "Mobile Height",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "default": 90
+    },
+    {
+      "type": "range",
+      "id": "z_index",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "label": "Z-Index",
+      "default": 1
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "font_size_desktop",
+      "min": 40,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Desktop Font Size",
+      "default": 150
+    },
+    {
+      "type": "range",
+      "id": "font_size_mobile",
+      "min": 20,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Mobile Font Size",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Text Reveal"
+    }
+  ]
+}
+{% endschema %}
