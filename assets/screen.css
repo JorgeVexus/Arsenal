@@ -3660,9 +3660,55 @@ figure .icon-play, figure .icon-cube { --size: 60px; }
   margin-bottom: 16px !important;
 }
 
-.collection-wrapper .l4cl {
+.collection-wrapper .l4cl,
+#collection.l4cl {
+  display: flex !important;
+  flex-wrap: wrap !important;
   gap: 24px !important;
   margin-top: 12px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Precise Column Width Math for Grid Selections (Vista 2, 3, 4, 5) */
+@media screen and (min-width: 768px) {
+  .l4cl.width-50 > li,
+  .l4cl[class*="width-50"] > li,
+  .l4cl.width-50 > .product-card,
+  #collection.l4cl.width-50 > li {
+    width: calc((100% - 24px) / 2) !important;
+    max-width: calc((100% - 24px) / 2) !important;
+    flex: 0 0 calc((100% - 24px) / 2) !important;
+  }
+
+  .l4cl.width-33 > li,
+  .l4cl[class*="width-33"] > li,
+  .l4cl.width-33 > .product-card,
+  #collection.l4cl.width-33 > li {
+    width: calc((100% - 48px) / 3) !important;
+    max-width: calc((100% - 48px) / 3) !important;
+    flex: 0 0 calc((100% - 48px) / 3) !important;
+  }
+
+  .l4cl.width-25 > li,
+  .l4cl[class*="width-25"] > li,
+  .l4cl.width-25 > .product-card,
+  #collection.l4cl.width-25 > li {
+    width: calc((100% - 72px) / 4) !important;
+    max-width: calc((100% - 72px) / 4) !important;
+    flex: 0 0 calc((100% - 72px) / 4) !important;
+  }
+
+  .l4cl.width-20 > li,
+  .l4cl[class*="width-20"] > li,
+  .l4cl.width-20 > .product-card,
+  #collection.l4cl.width-20 > li {
+    width: calc((100% - 96px) / 5) !important;
+    max-width: calc((100% - 96px) / 5) !important;
+    flex: 0 0 calc((100% - 96px) / 5) !important;
+  }
 }
 
 /* 3. Apple Design Elevated Product Cards */
@@ -3700,7 +3746,7 @@ figure .icon-play, figure .icon-cube { --size: 60px; }
   transition: transform 0.1s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-/* 4. Product Image 100% Width Cover & Reduced Empty Gap */
+/* 4. Product Image 100% Width Cover & Uniform Aspect Ratio */
 .l4cl > li.product-card figure,
 .product-card figure,
 #collection.l4cl > li figure {
@@ -3709,12 +3755,14 @@ figure .icon-play, figure .icon-cube { --size: 60px; }
   overflow: hidden !important;
   position: relative !important;
   margin: 0 !important;
-  padding: 0 !important; /* Full width image - cover edge to edge */
+  padding: 0 !important;
   width: 100% !important;
   max-width: 100% !important;
+  aspect-ratio: 1 / 1 !important;
   height: auto !important;
-  min-height: auto !important;
-  display: block !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .l4cl > li.product-card figure picture,
@@ -3725,7 +3773,8 @@ figure .icon-play, figure .icon-cube { --size: 60px; }
 #collection.l4cl > li figure img {
   width: 100% !important;
   max-width: 100% !important;
-  height: auto !important;
+  height: 100% !important;
+  max-height: 100% !important;
   display: block !important;
   object-fit: cover !important;
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
