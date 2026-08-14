@@ -3628,10 +3628,11 @@ figure .icon-play, figure .icon-cube { --size: 60px; }
    APPLE DESIGN PRODUCT CARDS & COLLECTION PADDING
    ========================================== */
 
-/* 1. Collection Layout Horizontal Side Padding */
+/* 1. Collection Layout Top & Side Padding */
 #shopify-section-main-collection,
 .collection-wrapper,
 #shopify-section-main-search {
+  padding-top: max(36px, var(--rpp)) !important;
   padding-left: max(28px, var(--rpp)) !important;
   padding-right: max(28px, var(--rpp)) !important;
   box-sizing: border-box !important;
@@ -3644,6 +3645,7 @@ figure .icon-play, figure .icon-cube { --size: 60px; }
   #shopify-section-main-collection,
   .collection-wrapper,
   #shopify-section-main-search {
+    padding-top: 24px !important;
     padding-left: 18px !important;
     padding-right: 18px !important;
   }
@@ -3654,13 +3656,13 @@ figure .icon-play, figure .icon-cube { --size: 60px; }
 .collection-wrapper .n6as,
 .collection-wrapper .f8fl,
 .collection-wrapper .l4vw {
-  padding: 8px 0;
-  margin-bottom: 24px;
+  padding: 4px 0 !important;
+  margin-bottom: 16px !important;
 }
 
 .collection-wrapper .l4cl {
-  gap: 24px;
-  margin-top: 16px;
+  gap: 24px !important;
+  margin-top: 12px !important;
 }
 
 /* 3. Apple Design Elevated Product Cards */
@@ -3677,8 +3679,9 @@ figure .icon-play, figure .icon-cube { --size: 60px; }
               border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
   display: flex !important;
   flex-direction: column !important;
-  justify-content: space-between !important;
+  justify-content: flex-start !important;
   position: relative !important;
+  height: auto !important;
 }
 
 /* Apple Rule #1: Response on Press (Touch-down) & Hover Lift */
@@ -3687,7 +3690,7 @@ figure .icon-play, figure .icon-cube { --size: 60px; }
 #collection.l4cl > li:hover {
   transform: translateY(-6px) !important;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.09), 0 4px 12px rgba(0, 0, 0, 0.04) !important;
-  border-color: rgba(234, 92, 16, 0.3) !important;
+  border-color: rgba(234, 92, 16, 0.35) !important;
 }
 
 .l4cl > li.product-card:active,
@@ -3697,46 +3700,90 @@ figure .icon-play, figure .icon-cube { --size: 60px; }
   transition: transform 0.1s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-/* 4. Product Image Container & Smooth Zoom */
+/* 4. Product Image 100% Width Cover & Reduced Empty Gap */
 .l4cl > li.product-card figure,
 .product-card figure,
 #collection.l4cl > li figure {
   background: #fcfcfd !important;
-  border-radius: 16px 16px 0 0 !important;
+  border-radius: 20px 20px 0 0 !important;
   overflow: hidden !important;
   position: relative !important;
   margin: 0 !important;
-  padding: 16px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
+  padding: 0 !important; /* Full width image - cover edge to edge */
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: auto !important;
+  display: block !important;
 }
 
+.l4cl > li.product-card figure picture,
+.product-card figure picture,
+#collection.l4cl > li figure picture,
 .l4cl > li.product-card figure img,
 .product-card figure img,
 #collection.l4cl > li figure img {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  object-fit: cover !important;
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  object-fit: contain !important;
-  max-height: 280px !important;
+  border-radius: 20px 20px 0 0 !important;
 }
 
 .l4cl > li.product-card:hover figure img,
 .product-card:hover figure img,
 #collection.l4cl > li:hover figure img {
-  transform: scale(1.07) !important;
+  transform: scale(1.06) !important;
 }
 
-/* 5. Glassmorphism Quick Buy / Quickshop Button (Apple Rule #12) */
+/* 5. Orange Slider Navigation Arrows */
+.l4cl figure [class*="swiper-button"],
+.product-card figure [class*="swiper-button"],
+.l4cl figure a.swiper-button-prev,
+.l4cl figure a.swiper-button-next,
+.l4cl figure .swiper-button-prev:before,
+.l4cl figure .swiper-button-next:before,
+.l4cl figure .swiper-button-prev:after,
+.l4cl figure .swiper-button-next:after,
+#collection.l4cl figure [class*="swiper-button"],
+.l4cl figure a[class*="swiper-button"]:before,
+.l4cl figure a[class*="swiper-button"]:after {
+  color: #ea5c10 !important;
+  --ar_fg: #ea5c10 !important;
+  --ar_fg_h: #ea5c10 !important;
+  --primary_text: #ea5c10 !important;
+  fill: #ea5c10 !important;
+  stroke: #ea5c10 !important;
+}
+
+/* 6. Quick Add Button & Crisp White Icon on Hover */
 .product-card .quickshop a,
 .product-card .link-btn a,
 #collection.l4cl > li .link-btn a {
-  background: rgba(255, 255, 255, 0.82) !important;
-  backdrop-filter: blur(16px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-  color: #1d1d1f !important;
+  background: #1d1d1f !important;
+  color: #ffffff !important;
   border: 1px solid rgba(255, 255, 255, 0.6) !important;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.product-card:hover .quickshop a,
+.product-card:hover .link-btn a,
+#collection.l4cl > li:hover .link-btn a,
+.product-card:hover .quickshop a i,
+.product-card:hover .link-btn a i,
+#collection.l4cl > li:hover .link-btn a i,
+.product-card .quickshop a i,
+.product-card .link-btn a i,
+#collection.l4cl > li .link-btn a i,
+.product-card .quickshop a i:before,
+.product-card .link-btn a i:before,
+#collection.l4cl > li .link-btn a i:before {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
 }
 
 .product-card .quickshop a:hover,
@@ -3754,20 +3801,21 @@ figure .icon-play, figure .icon-cube { --size: 60px; }
   transform: scale(0.92) !important;
 }
 
-/* 6. Typography & Details Box Padding */
+/* 7. Typography & Compact Content Box Padding */
 .product-card > div:not(figure),
 #collection.l4cl > li > div:not(figure) {
-  padding: 18px 20px 22px !important;
+  padding: 14px 18px 18px !important;
   display: flex !important;
   flex-direction: column !important;
-  gap: 8px !important;
+  gap: 6px !important;
   background: #ffffff !important;
+  margin-top: 0 !important;
 }
 
 .product-card h3,
 #collection.l4cl > li h3 {
   margin: 0 !important;
-  font-size: 1.08rem !important;
+  font-size: 1.05rem !important;
   font-weight: 600 !important;
   line-height: 1.35 !important;
   letter-spacing: -0.015em !important;
@@ -3787,8 +3835,8 @@ figure .icon-play, figure .icon-cube { --size: 60px; }
 
 .product-card .s1pr,
 #collection.l4cl > li .s1pr {
-  margin-top: 4px !important;
-  font-size: 1.15rem !important;
+  margin-top: 2px !important;
+  font-size: 1.12rem !important;
   font-weight: 700 !important;
   color: #1d1d1f !important;
   letter-spacing: -0.02em !important;
@@ -3801,6 +3849,7 @@ figure .icon-play, figure .icon-cube { --size: 60px; }
   color: #86868b !important;
   text-decoration: line-through !important;
 }
+
 
 
 
