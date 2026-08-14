@@ -336,7 +336,7 @@ body { overflow-x: hidden; /*overflow-y: visible !important;*/ padding: 0 !impor
 	--lor0: -3000em;
 	--l0ro: 0px;
 	
-	--content_padding_top: 	calc(var(--rpp) * 1.5);
+	--content_padding_top: 	0px;
 	--footer_padding_top: 	68px;
 	--footer_payments_mih:  0px;
 	
@@ -584,7 +584,7 @@ ul, ol, dd { padding-left: var(--li_dist); }
 			#nav-top .overlay-theme, #nav-top .l4us a { color: var(--top_up_fg_hover); }
 				#nav-top .l4us a.swiper-button-prev, #nav-top .l4us a.swiper-button-next { color: var(--top_up_fg); }
 	#content, .shopify-section-footer, .shopify-section-content { position: relative; z-index: 4; width: 100%; max-width: var(--glw); margin-left: auto; margin-right: auto; }
-		#content { padding-top: var(--content_padding_top); }
+		#content { padding-top: 0; }
 			#content > *:last-child { margin-bottom: var(--main_mr_double); }
 			#content > .shopify-section-footer:last-child { margin-top: var(--main_mr_double); margin-bottom: 0; }
 		.shopify-section-footer { z-index: 3; margin-top: auto; padding: var(--footer_padding_top) var(--rpp) 0; color: var(--footer_fg); --primary_text_h: var(--footer_fg); /*--cols_spacing: 14px;*/ }
@@ -3579,3 +3579,19 @@ figure .icon-play, figure .icon-cube { --size: 60px; }
 @media only screen and (max-width: 360px) {
 .search-compact-cont:not(.active) ~ #logo.text-center-mobile { --maw_logo: 22vw; }
 }
+
+/* Arsenal Protection Mexico - Disable Rating Stars & Score Reviews */
+.r6rt, .fpg-stars, .testimonial-rating, .spr-badge, .spr-starrating, [data-panel="product-reviews"], [data-panel="featured-product-reviews"] {
+  display: none !important;
+}
+
+/* Arsenal Protection Mexico - Remove Top Margin & Padding between Header Menu and Content Sections */
+#content {
+  padding-top: 0 !important;
+}
+#content > .shopify-section:first-child,
+#content > *:first-child {
+  margin-top: 0 !important;
+}
+
+

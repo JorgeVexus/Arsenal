@@ -380,6 +380,7 @@
                 </div>
               {%- endunless -%}
 
+              {%- comment -%}
               {%- if block.settings.stars_count > 0 -%}
                 <div class="fpg-stars">
                   {%- for i in (1..5) -%}
@@ -391,6 +392,7 @@
                   {%- endfor -%}
                 </div>
               {%- endif -%}
+              {%- endcomment -%}
             </div>
           </div>
         {%- endfor -%}

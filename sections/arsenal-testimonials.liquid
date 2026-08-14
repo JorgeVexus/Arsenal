@@ -217,7 +217,7 @@
             </svg>
           </div>
 
-          {%- comment -%} Rating Stars {%- endcomment -%}
+          {%- comment -%}
           {%- if block.settings.rating > 0 -%}
             <div class="testimonial-rating">
               {%- for i in (1..5) -%}
@@ -233,6 +233,7 @@
               {%- endfor -%}
             </div>
           {%- endif -%}
+          {%- endcomment -%}
 
           {%- comment -%} Testimonial Text {%- endcomment -%}
           {%- if block.settings.text != blank -%}
