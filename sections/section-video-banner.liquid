@@ -116,130 +116,132 @@
     {% endif %}
     {% if controls_video_url %}</a>{% endif %}
   </figure>
-  {%- for block in section.blocks -%}
-    {%- case block.type -%}
-      {%- when '@app' -%}
-        {% render block %}
-      {%- when 'spacer' -%}
-        <style>
-          @media only screen and (min-width: 47.5em) {
-            #shopify-section-{{ section.id }} #block-{{ block.id }} { margin-bottom:{{ block.settings.height }}px; }
-          }
-          @media only screen and (max-width: 47.5em) {
-            #shopify-section-{{ section.id }} #block-{{ block.id }} { margin-bottom:{{ block.settings.height_mobile }}px; }
-          }
-        </style>
-        <div class="module-spacer" id="block-{{ block.id }}" {{ block.shopify_attributes }}></div>
-      {% when 'title' -%}
-        {%- if block.settings.title -%}
-          <div
-            class="
-              heading
-              {% if block.settings.title_underline_style != 'none' %}
-                title-underline-none
-                {% if block.settings.title_underline_style contains 'accent' %}
-                  title-underline-accent
-                {% elsif block.settings.title_underline_style contains 'gradient' %}
-                  title-underline-gradient
+  <div class="video-banner-content-container" style="padding-left: max(24px, var(--rpp)); padding-right: max(24px, var(--rpp)); box-sizing: border-box; width: 100%;">
+    {%- for block in section.blocks -%}
+      {%- case block.type -%}
+        {%- when '@app' -%}
+          {% render block %}
+        {%- when 'spacer' -%}
+          <style>
+            @media only screen and (min-width: 47.5em) {
+              #shopify-section-{{ section.id }} #block-{{ block.id }} { margin-bottom:{{ block.settings.height }}px; }
+            }
+            @media only screen and (max-width: 47.5em) {
+              #shopify-section-{{ section.id }} #block-{{ block.id }} { margin-bottom:{{ block.settings.height_mobile }}px; }
+            }
+          </style>
+          <div class="module-spacer" id="block-{{ block.id }}" {{ block.shopify_attributes }}></div>
+        {% when 'title' -%}
+          {%- if block.settings.title -%}
+            <div
+              class="
+                heading
+                {% if block.settings.title_underline_style != 'none' %}
+                  title-underline-none
+                  {% if block.settings.title_underline_style contains 'accent' %}
+                    title-underline-accent
+                  {% elsif block.settings.title_underline_style contains 'gradient' %}
+                    title-underline-gradient
+                  {% endif %}
+                  {% if block.settings.title_underline_style contains 'secondary_font' %}
+                    title-underline-secondary-font
+                  {% endif %}
                 {% endif %}
-                {% if block.settings.title_underline_style contains 'secondary_font' %}
-                  title-underline-secondary-font
-                {% endif %}
-              {% endif %}
-            "
-          >
-            {{ block.settings.title }}
-          </div>
-        {%- endif -%}
-      {% when 'text' -%}
-        {% if block.settings.text != empty %}
-          <div
-            class="ff-{{ block.settings.font }} margin-0"
-            style="font-size:{{ block.settings.font_size }};"
-            {{ block.shopify_attributes }}
-          >
-            {{ block.settings.text }}
-          </div>
-        {% endif %}
-      {% when 'buttons' -%}
-        {%- liquid
-          assign first_link = false
-          assign first_show_link = false
-          assign second_link = false
-          assign second_show_link = false
+              "
+            >
+              {{ block.settings.title }}
+            </div>
+          {%- endif -%}
+        {% when 'text' -%}
+          {% if block.settings.text != empty %}
+            <div
+              class="ff-{{ block.settings.font }} margin-0"
+              style="font-size:{{ block.settings.font_size }};"
+              {{ block.shopify_attributes }}
+            >
+              {{ block.settings.text }}
+            </div>
+          {% endif %}
+        {% when 'buttons' -%}
+          {%- liquid
+            assign first_link = false
+            assign first_show_link = false
+            assign second_link = false
+            assign second_show_link = false
 
-          if block.settings.show_first_link and block.settings.first_link_text != empty and block.settings.first_link_url != blank
-            assign first_link = true
-            assign first_button_color = block.settings.first_button_style | split: ' ' | first
-            assign first_button_style = block.settings.first_button_style | split: ' ' | last
-            if first_button_style == 'link'
-              assign first_show_link = true
+            if block.settings.show_first_link and block.settings.first_link_text != empty and block.settings.first_link_url != blank
+              assign first_link = true
+              assign first_button_color = block.settings.first_button_style | split: ' ' | first
+              assign first_button_style = block.settings.first_button_style | split: ' ' | last
+              if first_button_style == 'link'
+                assign first_show_link = true
+              endif
             endif
-          endif
-          if block.settings.show_second_link and block.settings.second_link_text != empty and block.settings.second_link_url != blank
-            assign second_link = true
-            assign second_button_color = block.settings.second_button_style | split: ' ' | first
-            assign second_button_style = block.settings.second_button_style | split: ' ' | last
-            if second_button_style == 'link'
-              assign second_show_link = true
+            if block.settings.show_second_link and block.settings.second_link_text != empty and block.settings.second_link_url != blank
+              assign second_link = true
+              assign second_button_color = block.settings.second_button_style | split: ' ' | first
+              assign second_button_style = block.settings.second_button_style | split: ' ' | last
+              if second_button_style == 'link'
+                assign second_show_link = true
+              endif
             endif
-          endif
-        -%}
-        {%- if first_link or second_link -%}
-          <p
-            class="link-btn"
-            style="--dist_ba: 20px;"
-          >
-            {% if first_link %}
-              <a
-                href="{{ block.settings.first_link_url }}"
-                class="overlay-{{ first_button_color }} {% if first_show_link %} strong inline{% else %} {{ first_button_style }}{% endif %}"
-              >
-                {% if block.settings.icon_1 -%}
-                  {{-
-                    block.settings.icon_1
-                    | image_url: width: block.settings.icon_width_1
-                    | image_tag: width: block.settings.icon_width_1
-                  -}}
-                {%- endif %}
-                <span
-                  {% if first_show_link %}
-                    class="link-underline"
-                  {% endif %}
+          -%}
+          {%- if first_link or second_link -%}
+            <p
+              class="link-btn"
+              style="--dist_ba: 20px;"
+            >
+              {% if first_link %}
+                <a
+                  href="{{ block.settings.first_link_url }}"
+                  class="overlay-{{ first_button_color }} {% if first_show_link %} strong inline{% else %} {{ first_button_style }}{% endif %}"
                 >
-                  {{- block.settings.first_link_text -}}
-                  {% if first_show_link %}&nbsp;<i aria-hidden="true" class="icon-arrow-right"></i>{% endif %}
-                </span>
-              </a>
-            {% endif %}
-            {%- if second_link -%}
-              <a
-                href="{{ block.settings.second_link_url }}"
-                class="overlay-{{ second_button_color }} {% if second_show_link %} strong inline{% else %} {{ second_button_style }}{% endif %}"
-              >
-                {% if block.settings.icon_2 -%}
-                  {{-
-                    block.settings.icon_2
-                    | image_url: width: block.settings.icon_width_2
-                    | image_tag: width: block.settings.icon_width_2
-                  -}}
-                {%- endif %}
-                <span
-                  {% if second_show_link %}
-                    class="link-underline"
-                  {% endif %}
-                >
-                  {{- block.settings.second_link_text -}}
-                  {% if second_show_link -%}
-                    &nbsp;<i aria-hidden="true" class="icon-arrow-right"></i>
+                  {% if block.settings.icon_1 -%}
+                    {{-
+                      block.settings.icon_1
+                      | image_url: width: block.settings.icon_width_1
+                      | image_tag: width: block.settings.icon_width_1
+                    -}}
                   {%- endif %}
-                </span>
-              </a>
-            {%- endif -%}
-          </p>
-        {%- endif -%}
-    {%- endcase -%}
-  {%- endfor -%}
+                  <span
+                    {% if first_show_link %}
+                      class="link-underline"
+                    {% endif %}
+                  >
+                    {{- block.settings.first_link_text -}}
+                    {% if first_show_link %}&nbsp;<i aria-hidden="true" class="icon-arrow-right"></i>{% endif %}
+                  </span>
+                </a>
+              {% endif %}
+              {%- if second_link -%}
+                <a
+                  href="{{ block.settings.second_link_url }}"
+                  class="overlay-{{ second_button_color }} {% if second_show_link %} strong inline{% else %} {{ second_button_style }}{% endif %}"
+                >
+                  {% if block.settings.icon_2 -%}
+                    {{-
+                      block.settings.icon_2
+                      | image_url: width: block.settings.icon_width_2
+                      | image_tag: width: block.settings.icon_width_2
+                    -}}
+                  {%- endif %}
+                  <span
+                    {% if second_show_link %}
+                      class="link-underline"
+                    {% endif %}
+                  >
+                    {{- block.settings.second_link_text -}}
+                    {% if second_show_link -%}
+                      &nbsp;<i aria-hidden="true" class="icon-arrow-right"></i>
+                    {%- endif %}
+                  </span>
+                </a>
+              {%- endif -%}
+            </p>
+          {%- endif -%}
+      {%- endcase -%}
+    {%- endfor -%}
+  </div>
 </article>
 
 <style>
