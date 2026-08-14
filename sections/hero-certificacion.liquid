@@ -530,6 +530,77 @@
 
   /* Ajustes Mobile */
   @media screen and (max-width: 749px) {
+    .hero-nij-container-{{ section.id }} {
+      padding-left: 18px !important;
+      padding-right: 18px !important;
+      box-sizing: border-box !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      overflow: hidden !important;
+    }
+
+    .hero-nij-content-{{ section.id }} {
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      align-items: flex-start !important;
+    }
+
+    .hero-nij-tagline-{{ section.id }} {
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      font-size: 11px !important;
+      padding: 6px 14px !important;
+      letter-spacing: 1px !important;
+    }
+
+    .hero-nij-highlight-box-{{ section.id }} {
+      display: flex !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      border-radius: 20px !important;
+      padding: 10px 14px !important;
+      margin-top: 14px !important;
+      margin-bottom: 20px !important;
+    }
+
+    .hero-nij-highlight-box-{{ section.id }} span {
+      font-size: 12.5px !important;
+      line-height: 1.35 !important;
+    }
+
+    .hero-nij-description-{{ section.id }} {
+      font-size: 14px !important;
+      line-height: 1.5 !important;
+      margin-bottom: 24px !important;
+      max-width: 100% !important;
+    }
+
+    .hero-nij-actions-{{ section.id }} {
+      width: 100% !important;
+      flex-direction: column !important;
+      gap: 12px !important;
+      margin-bottom: 24px !important;
+    }
+
+    .hero-nij-btn-primary-{{ section.id }},
+    .hero-nij-btn-secondary-{{ section.id }} {
+      width: 100% !important;
+      box-sizing: border-box !important;
+      padding: 13px 20px !important;
+      font-size: 13.5px !important;
+      letter-spacing: 0.5px !important;
+      border-radius: 50px !important;
+      white-space: nowrap !important;
+    }
+
+    .hero-nij-btn-primary-{{ section.id }} svg,
+    .hero-nij-btn-secondary-{{ section.id }} svg {
+      width: 16px !important;
+      height: 16px !important;
+    }
+
     .hero-nij-seal-badge-{{ section.id }} {
       position: relative;
       bottom: 0;
@@ -541,16 +612,6 @@
 
     .hero-nij-pillars-grid-{{ section.id }} {
       grid-template-columns: 1fr;
-    }
-
-    .hero-nij-actions-{{ section.id }} {
-      width: 100%;
-      flex-direction: column;
-    }
-
-    .hero-nij-btn-primary-{{ section.id }},
-    .hero-nij-btn-secondary-{{ section.id }} {
-      width: 100%;
     }
   }
 {%- endstyle -%}
