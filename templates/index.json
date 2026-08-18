@@ -164,7 +164,7 @@
             "mobile_image_height": 320,
             "content_padding": 60,
             "mobile_padding": 30,
-            "border_radius": 4,
+            "border_radius": 0,
             "button_radius": 24,
             "text_alignment": "left",
             "content_alignment": "flex-start",
