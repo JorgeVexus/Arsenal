@@ -145,6 +145,70 @@
         "fix_zindex": 0
       }
     },
+    "1787093803d5a83e30": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_d1fbf14_YqcVJg": {
+          "type": "ai_gen_block_d1fbf14",
+          "settings": {
+            "image": "shopify://shop_images/Empresa_Mexicana.jpg",
+            "eyebrow": "Protección confiable",
+            "title": "",
+            "description": "<p>En el diseño, fabricación y distribución de la más alta calidad en tecnología balística personal; con la cual, custodiamos la integridad física de los distintos cuerpos de seguridad nacional e internacional, que brindan protección pública y privada.</p>",
+            "button_1_label": "Comprar ahora",
+            "button_1_link": "",
+            "button_2_label": "Conoce más",
+            "button_2_link": "",
+            "desktop_width_percent": 100,
+            "min_height": 500,
+            "mobile_image_height": 280,
+            "content_padding": 60,
+            "mobile_padding": 30,
+            "border_radius": 4,
+            "button_radius": 4,
+            "text_alignment": "left",
+            "content_alignment": "flex-start",
+            "heading_font": "inter_n7",
+            "heading_size": 48,
+            "mobile_heading_size": 32,
+            "body_size": 16,
+            "background_color": "#FFFFFF",
+            "heading_color": "#000000",
+            "text_color": "#333333",
+            "accent_color": "#B34700",
+            "image_placeholder_color": "#F1F1F1",
+            "primary_button_color": "#FF6602",
+            "primary_button_text_color": "#FFFFFF",
+            "secondary_button_color": "#333333",
+            "secondary_button_text_color": "#FFFFFF"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_d1fbf14_YqcVJg"
+      ],
+      "settings": {
+        "width": "wide",
+        "color_palette": "",
+        "background_overlay_opacity": 100,
+        "background_position": "left",
+        "background_width": 0,
+        "background_height": 100,
+        "background_color_section": false,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "padding_left": 0,
+        "padding_right": 0,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "padding_left_mobile": 0,
+        "padding_right_mobile": 0,
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
+    },
     "fead47b1-756e-4aec-9652-9f507860d707": {
       "type": "section-image-with-text",
       "blocks": {
@@ -190,7 +254,7 @@
         "enable_controls": false,
         "video_mute": false,
         "width": "wide",
-        "height": "size-l",
+        "height": "size-m",
         "enable_custom_height": false,
         "custom_height": 630,
         "color_palette": "scheme-2",
@@ -1274,6 +1338,7 @@
     "hero_certificacion_YE6FgU",
     "scroll_text_mask_reveal_aaECGH",
     "14417d0b-5a73-41a7-b78e-b301455bcc51",
+    "1787093803d5a83e30",
     "fead47b1-756e-4aec-9652-9f507860d707",
     "arsenal_collection_list_FdEbW9",
     "section_collection_list_68grPz",
