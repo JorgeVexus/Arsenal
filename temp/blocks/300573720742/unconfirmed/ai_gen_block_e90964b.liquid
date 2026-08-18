@@ -1,6 +1,88 @@
+{% doc %}
+  @prompt
+    seccion de imagen a la izquierda que ocupe la mitad de la secci[on, texto a la derecha con titulo descripci[on y 2 botones erditable , el titulo que sea rich text 
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-image-text-{{ ai_gen_id }} { width: {{ block.settings.desktop_width_percent }}%; max-width: 100%; display: block; background: {{ block.settings.background_color }}; color: {{ block.settings.text_color }}; border-radius: {{ block.settings.border_radius }}px; overflow: hidden; }
+  .ai-image-text__layout-{{ ai_gen_id }} { display: grid; grid-template-columns: 1fr 1fr; min-height: {{ block.settings.min_height }}px; }
+  .ai-image-text__media-{{ ai_gen_id }} { min-height: 100%; background: {{ block.settings.image_placeholder_color }}; }
+  .ai-image-text__media-{{ ai_gen_id }} img, .ai-image-text__media-{{ ai_gen_id }} svg { display: block; width: 100%; height: 100%; min-height: {{ block.settings.min_height }}px; object-fit: cover; }
+  .ai-image-text__media-{{ ai_gen_id }} svg { color: #666666; background: {{ block.settings.image_placeholder_color }}; }
+  .ai-image-text__content-{{ ai_gen_id }} { display: flex; flex-direction: column; justify-content: center; align-items: {{ block.settings.content_alignment }}; padding: {{ block.settings.content_padding }}px; text-align: {{ block.settings.text_alignment }}; }
+  .ai-image-text__eyebrow-{{ ai_gen_id }} { margin: 0 0 12px; color: {{ block.settings.accent_color }}; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+  .ai-image-text__title-{{ ai_gen_id }} { max-width: 620px; margin: 0 0 16px; color: {{ block.settings.heading_color }}; font-family: {{ block.settings.heading_font.family }}; font-size: {{ block.settings.heading_size }}px; line-height: 1.15; }
+  .ai-image-text__title-{{ ai_gen_id }} p { margin: 0; }
+  .ai-image-text__description-{{ ai_gen_id }} { max-width: 620px; margin: 0; color: {{ block.settings.text_color }}; font-size: {{ block.settings.body_size }}px; line-height: 1.6; }
+  .ai-image-text__buttons-{{ ai_gen_id }} { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .ai-image-text__button-{{ ai_gen_id }} { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 12px 24px; border: 1px solid {{ block.settings.primary_button_color }}; border-radius: {{ block.settings.button_radius }}px; background: {{ block.settings.primary_button_color }}; color: {{ block.settings.primary_button_text_color }}; font-size: 14px; font-weight: 700; text-decoration: none; }
+  .ai-image-text__button-{{ ai_gen_id }}:hover { opacity: .82; }
+  .ai-image-text__button--secondary-{{ ai_gen_id }} { border-color: {{ block.settings.secondary_button_color }}; background: {{ block.settings.secondary_button_color }}; color: {{ block.settings.secondary_button_text_color }}; }
+  .ai-image-text__button-{{ ai_gen_id }}:focus-visible { outline: 3px solid {{ block.settings.accent_color }}; outline-offset: 3px; }
+  @media screen and (max-width: 749px) { .ai-image-text-{{ ai_gen_id }} { width: 100%; } .ai-image-text__layout-{{ ai_gen_id }} { grid-template-columns: 1fr; } .ai-image-text__media-{{ ai_gen_id }}, .ai-image-text__media-{{ ai_gen_id }} img, .ai-image-text__media-{{ ai_gen_id }} svg { min-height: {{ block.settings.mobile_image_height }}px; } .ai-image-text__content-{{ ai_gen_id }} { padding: {{ block.settings.mobile_padding }}px; } .ai-image-text__title-{{ ai_gen_id }} { font-size: {{ block.settings.mobile_heading_size }}px; } .ai-image-text__buttons-{{ ai_gen_id }} { width: 100%; } .ai-image-text__button-{{ ai_gen_id }} { flex: 1 1 100%; } }
+{% endstyle %}
+
+<div class="ai-image-text-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="ai-image-text__layout-{{ ai_gen_id }}">
+    <div class="ai-image-text__media-{{ ai_gen_id }}">
+      {% if block.settings.image %}
+        <img src="{{ block.settings.image | image_url: width: 1400 }}" alt="{{ block.settings.image.alt | escape }}" loading="lazy" width="{{ block.settings.image.width }}" height="{{ block.settings.image.height }}">
+      {% else %}
+        {{ 'image' | placeholder_svg_tag }}
+      {% endif %}
+    </div>
+    <div class="ai-image-text__content-{{ ai_gen_id }}">
+      {% if block.settings.eyebrow != blank %}<p class="ai-image-text__eyebrow-{{ ai_gen_id }}">{{ block.settings.eyebrow | escape }}</p>{% endif %}
+      {% if block.settings.title != blank %}<div class="ai-image-text__title-{{ ai_gen_id }}">{{ block.settings.title }}</div>{% endif %}
+      {% if block.settings.description != blank %}<div class="ai-image-text__description-{{ ai_gen_id }}">{{ block.settings.description }}</div>{% endif %}
+      <div class="ai-image-text__buttons-{{ ai_gen_id }}">
+        {% if block.settings.button_1_label != blank and block.settings.button_1_link != blank %}<a class="ai-image-text__button-{{ ai_gen_id }}" href="{{ block.settings.button_1_link }}">{{ block.settings.button_1_label | escape }}</a>{% endif %}
+        {% if block.settings.button_2_label != blank and block.settings.button_2_link != blank %}<a class="ai-image-text__button-{{ ai_gen_id }} ai-image-text__button--secondary-{{ ai_gen_id }}" href="{{ block.settings.button_2_link }}">{{ block.settings.button_2_label | escape }}</a>{% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Imagen y texto",
+  "settings": [
+    { "type": "header", "content": "Contenido" },
+    { "type": "image_picker", "id": "image", "label": "Imagen" },
+    { "type": "text", "id": "eyebrow", "label": "Texto superior", "default": "Protección confiable" },
+    { "type": "richtext", "id": "title", "label": "Título", "default": "<h2>Protege lo que más importa</h2>" },
+    { "type": "richtext", "id": "description", "label": "Descripción", "default": "<p>Descubre soluciones profesionales de protección diseñadas para acompañarte todos los días.</p>" },
+    { "type": "text", "id": "button_1_label", "label": "Botón 1", "default": "Comprar ahora" },
+    { "type": "url", "id": "button_1_link", "label": "Enlace del botón 1" },
+    { "type": "text", "id": "button_2_label", "label": "Botón 2", "default": "Conoce más" },
+    { "type": "url", "id": "button_2_link", "label": "Enlace del botón 2" },
+    { "type": "header", "content": "Diseño" },
+    { "type": "range", "id": "desktop_width_percent", "label": "Ancho en escritorio", "min": 50, "max": 100, "step": 5, "unit": "%", "default": 100 },
+    { "type": "range", "id": "min_height", "label": "Altura mínima", "min": 300, "max": 800, "step": 50, "unit": "px", "default": 500 },
+    { "type": "range", "id": "mobile_image_height", "label": "Imagen en móvil", "min": 180, "max": 500, "step": 20, "unit": "px", "default": 280 },
+    { "type": "range", "id": "content_padding", "label": "Espaciado del contenido", "min": 20, "max": 100, "step": 5, "unit": "px", "default": 60 },
+    { "type": "range", "id": "mobile_padding", "label": "Espaciado en móvil", "min": 20, "max": 60, "step": 5, "unit": "px", "default": 30 },
+    { "type": "range", "id": "border_radius", "label": "Radio de esquinas", "min": 0, "max": 32, "step": 2, "unit": "px", "default": 4 },
+    { "type": "range", "id": "button_radius", "label": "Radio de botones", "min": 0, "max": 24, "step": 2, "unit": "px", "default": 4 },
+    { "type": "select", "id": "text_alignment", "label": "Alineación", "options": [{ "value": "left", "label": "Izquierda" }, { "value": "center", "label": "Centro" }], "default": "left" },
+    { "type": "select", "id": "content_alignment", "label": "Alineación vertical", "options": [{ "value": "flex-start", "label": "Izquierda" }, { "value": "center", "label": "Centro" }], "default": "flex-start" },
+    { "type": "font_picker", "id": "heading_font", "label": "Fuente del título", "default": "inter_n7" },
+    { "type": "range", "id": "heading_size", "label": "Tamaño del título", "min": 28, "max": 72, "step": 4, "unit": "px", "default": 48 },
+    { "type": "range", "id": "mobile_heading_size", "label": "Título en móvil", "min": 24, "max": 48, "step": 4, "unit": "px", "default": 32 },
+    { "type": "range", "id": "body_size", "label": "Tamaño del texto", "min": 14, "max": 24, "step": 2, "unit": "px", "default": 16 },
+    { "type": "color", "id": "background_color", "label": "Fondo", "default": "#FFFFFF" },
+    { "type": "color", "id": "heading_color", "label": "Título", "default": "#000000" },
+    { "type": "color", "id": "text_color", "label": "Texto", "default": "#333333" },
+    { "type": "color", "id": "accent_color", "label": "Acento", "default": "#B34700" },
+    { "type": "color", "id": "image_placeholder_color", "label": "Fondo de imagen", "default": "#F1F1F1" },
+    { "type": "color", "id": "primary_button_color", "label": "Botón principal", "default": "#FF6602" },
+    { "type": "color", "id": "primary_button_text_color", "label": "Texto principal", "default": "#FFFFFF" },
+    { "type": "color", "id": "secondary_button_color", "label": "Botón secundario", "default": "#333333" },
+    { "type": "color", "id": "secondary_button_text_color", "label": "Texto secundario", "default": "#FFFFFF" }
+  ],
+  "presets": [{ "name": "Imagen y texto" }],
+  "tag": null,
+  "class": "image-text-block"
+}
 {% endschema %}
