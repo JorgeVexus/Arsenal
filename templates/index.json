@@ -161,7 +161,7 @@
             "button_2_link": "shopify://pages/nosotros",
             "desktop_width_percent": 100,
             "min_height": 500,
-            "mobile_image_height": 280,
+            "mobile_image_height": 320,
             "content_padding": 60,
             "mobile_padding": 30,
             "border_radius": 4,
