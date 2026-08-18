@@ -122,9 +122,9 @@
         "custom_height": 50,
         "color_palette": "scheme-2",
         "background_overlay_opacity": 100,
-        "image_1": "shopify://shop_images/chaleco-antibalas.webp",
+        "image_1": "shopify://shop_images/WhatsApp_Image_2026-08-18_at_8.16.46_AM.webp",
         "image_1_overlay_opacity": 20,
-        "image_2": "shopify://shop_images/equipo-tactico.webp",
+        "image_2": "shopify://shop_images/WhatsApp_Image_2026-08-18_at_8.16.46_AM_1.webp",
         "image_2_overlay_opacity": 20,
         "image_3_overlay_opacity": 0,
         "video_1": "shopify://files/videos/13884574-hd_1920_1080_60fps.mp4",
@@ -405,8 +405,8 @@
       ],
       "name": "Shop the Look Interactive",
       "settings": {
-        "image": "shopify://shop_images/imagen-de-soldados-policias-con-accesorios-como-googles-o-bastones-retractiles.png",
-        "title": "Kit Táctico",
+        "image": "shopify://shop_images/WhatsApp_Image_2026-08-18_at_8.18.49_AM.webp",
+        "title": "Nuestros Kits",
         "hotspot_color": "#ea5c10",
         "line_thickness": 1,
         "quote_method": "email",
@@ -755,6 +755,7 @@
         "background_height_mobile": 100,
         "spacing_desktop": 0,
         "spacing_mobile": 0,
+        "padding_top_mobile": 30,
         "fix_zindex": 0
       }
     },
@@ -1234,6 +1235,7 @@
         "background_height_mobile": 100,
         "spacing_desktop": 90,
         "spacing_mobile": 40,
+        "padding_top_mobile": 30,
         "fix_zindex": 0
       }
     },
