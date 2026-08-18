@@ -151,6 +151,7 @@
         "ai_gen_block_e90964b_PD8rCP": {
           "type": "ai_gen_block_e90964b",
           "settings": {
+            "image": "shopify://shop_images/Empresa_Mexicana.jpg",
             "eyebrow": "",
             "title": "<h3>Somos una empresa mexicana con más de 25 años de experiencia...</h3>",
             "description": "<p>En el diseño, fabricación y distribución de la más alta calidad en tecnología balística personal; con la cual, custodiamos la integridad física de los distintos cuerpos de seguridad nacional e internacional, que brindan protección pública y privada.</p>",
@@ -171,9 +172,9 @@
             "heading_size": 48,
             "mobile_heading_size": 32,
             "body_size": 16,
-            "background_color": "#FFFFFF",
-            "heading_color": "#000000",
-            "text_color": "#333333",
+            "background_color": "#000000",
+            "heading_color": "#FFFFFF",
+            "text_color": "#FFFFFF",
             "accent_color": "#B34700",
             "image_placeholder_color": "#F1F1F1",
             "primary_button_color": "#FF6602",
@@ -186,6 +187,9 @@
       },
       "block_order": [
         "ai_gen_block_e90964b_PD8rCP"
+      ],
+      "custom_css": [
+        "h3 {color: white}"
       ],
       "settings": {
         "width": "wide",
