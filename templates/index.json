@@ -189,7 +189,7 @@
         "ai_gen_block_e90964b_PD8rCP"
       ],
       "custom_css": [
-        "h3 {color: white}"
+        "h3 {color: white;}"
       ],
       "settings": {
         "width": "wide",
@@ -209,75 +209,6 @@
         "padding_right_mobile": 0,
         "spacing_desktop": 50,
         "spacing_mobile": 30,
-        "fix_zindex": 0
-      }
-    },
-    "fead47b1-756e-4aec-9652-9f507860d707": {
-      "type": "section-image-with-text",
-      "blocks": {
-        "45bf4798-4990-42d2-9188-83549a0bd195": {
-          "type": "title",
-          "settings": {
-            "title": "<h2>Somos una empresa mexicana con más de 25 años de experiencia...</h2>",
-            "title_underline_style": "none"
-          }
-        },
-        "0ce552bc-b4ca-4149-9d93-cdbcbda4e6aa": {
-          "type": "text",
-          "settings": {
-            "text": "<p>En el diseño, fabricación y distribución de la más alta calidad en tecnología balística personal; con la cual, custodiamos la integridad física de los distintos cuerpos de seguridad nacional e internacional, que brindan protección pública y privada.</p>",
-            "font": "secondary",
-            "enable_custom_text_styling": false,
-            "font_size": "18px"
-          }
-        },
-        "c3f303c5-bc6a-4b46-a7c4-3c60d07e7c32": {
-          "type": "buttons",
-          "settings": {
-            "show_first_link": true,
-            "first_link_text": "Contáctanos",
-            "first_link_url": "shopify://pages/contacto",
-            "first_button_style": "secondary solid",
-            "show_second_link": true,
-            "second_link_text": "Saber más",
-            "second_link_url": "shopify://pages/nosotros",
-            "second_button_style": "tertiary solid"
-          }
-        }
-      },
-      "block_order": [
-        "45bf4798-4990-42d2-9188-83549a0bd195",
-        "0ce552bc-b4ca-4149-9d93-cdbcbda4e6aa",
-        "c3f303c5-bc6a-4b46-a7c4-3c60d07e7c32"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/Empresa_Mexicana.jpg",
-        "fill_image": true,
-        "overlay_opacity_img": 0,
-        "enable_controls": false,
-        "video_mute": false,
-        "width": "wide",
-        "height": "size-m",
-        "enable_custom_height": false,
-        "custom_height": 630,
-        "color_palette": "scheme-2",
-        "overlay_opacity": 100,
-        "layout": "image-left",
-        "align_image_flush": true,
-        "image_content_gap": 12,
-        "image_content_gap_mobile": 20,
-        "content_padding_outer": 40,
-        "content_padding_outer_mobile": 20,
-        "text_position": "text-start",
-        "background_color_palette": "scheme-5",
-        "background_overlay_opacity": 100,
-        "background_position": "right",
-        "background_width": 0,
-        "background_height": 100,
-        "background_width_mobile": 100,
-        "background_height_mobile": 100,
-        "spacing_desktop": 0,
-        "spacing_mobile": 50,
         "fix_zindex": 0
       }
     },
@@ -1342,7 +1273,6 @@
     "scroll_text_mask_reveal_aaECGH",
     "14417d0b-5a73-41a7-b78e-b301455bcc51",
     "1787093803d5a83e30",
-    "fead47b1-756e-4aec-9652-9f507860d707",
     "arsenal_collection_list_FdEbW9",
     "section_collection_list_68grPz",
     "arsenal_featured_grid_products_8DHCMB",
