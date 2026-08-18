@@ -148,24 +148,23 @@
     "1787093803d5a83e30": {
       "type": "_blocks",
       "blocks": {
-        "ai_gen_block_d1fbf14_YqcVJg": {
-          "type": "ai_gen_block_d1fbf14",
+        "ai_gen_block_e90964b_PD8rCP": {
+          "type": "ai_gen_block_e90964b",
           "settings": {
-            "image": "shopify://shop_images/Empresa_Mexicana.jpg",
-            "eyebrow": "Protección confiable",
-            "title": "",
+            "eyebrow": "",
+            "title": "<h3>Somos una empresa mexicana con más de 25 años de experiencia...</h3>",
             "description": "<p>En el diseño, fabricación y distribución de la más alta calidad en tecnología balística personal; con la cual, custodiamos la integridad física de los distintos cuerpos de seguridad nacional e internacional, que brindan protección pública y privada.</p>",
-            "button_1_label": "Comprar ahora",
-            "button_1_link": "",
-            "button_2_label": "Conoce más",
-            "button_2_link": "",
+            "button_1_label": "Contáctanos",
+            "button_1_link": "shopify://pages/contacto",
+            "button_2_label": "Saber más",
+            "button_2_link": "shopify://pages/nosotros",
             "desktop_width_percent": 100,
             "min_height": 500,
             "mobile_image_height": 280,
             "content_padding": 60,
             "mobile_padding": 30,
             "border_radius": 4,
-            "button_radius": 4,
+            "button_radius": 24,
             "text_alignment": "left",
             "content_alignment": "flex-start",
             "heading_font": "inter_n7",
@@ -186,7 +185,7 @@
         }
       },
       "block_order": [
-        "ai_gen_block_d1fbf14_YqcVJg"
+        "ai_gen_block_e90964b_PD8rCP"
       ],
       "settings": {
         "width": "wide",
