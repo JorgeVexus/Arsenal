@@ -281,10 +281,29 @@
   #shopify-section-{{ section.id }} { z-index: {{ section.settings.fix_zindex }}!important; }
   @media only screen and (min-width: 47.5em) {
     #shopify-section-{{ section.id }} .m6bx { margin-bottom: {{ section.settings.spacing_desktop }}px; }
-
+    {%- if section.settings.align_image_flush -%}
+      #shopify-section-{{ section.id }} .m6fr.wide article:not(.inv) figure { left: calc(50% - 50vw) !important; width: 50vw !important; max-width: none !important; }
+      #shopify-section-{{ section.id }} .m6fr.wide article.inv figure { right: calc(50% - 50vw) !important; width: 50vw !important; max-width: none !important; }
+      #shopify-section-{{ section.id }} .m6fr:not(.wide) article:not(.inv) figure { left: 0 !important; }
+      #shopify-section-{{ section.id }} .m6fr:not(.wide) article.inv figure { right: 0 !important; }
+    {%- endif -%}
+    {%- if section.settings.image_content_gap != blank -%}
+      #shopify-section-{{ section.id }} .m6fr article:not(.inv) { padding-left: calc(50% + {{ section.settings.image_content_gap }}px) !important; }
+      #shopify-section-{{ section.id }} .m6fr article.inv { padding-right: calc(50% + {{ section.settings.image_content_gap }}px) !important; }
+    {%- endif -%}
+    {%- if section.settings.content_padding_outer != blank -%}
+      #shopify-section-{{ section.id }} .m6fr article:not(.inv) { padding-right: {{ section.settings.content_padding_outer }}px !important; }
+      #shopify-section-{{ section.id }} .m6fr article.inv { padding-left: {{ section.settings.content_padding_outer }}px !important; }
+    {%- endif -%}
   }
   @media only screen and (max-width: 47.5em) {
     #shopify-section-{{ section.id }} .m6bx { margin-bottom: {{ section.settings.spacing_mobile }}px; }
+    {%- if section.settings.image_content_gap_mobile != blank -%}
+      #shopify-section-{{ section.id }} .m6fr article.mobile-static figure { margin-bottom: {{ section.settings.image_content_gap_mobile }}px !important; }
+    {%- endif -%}
+    {%- if section.settings.content_padding_outer_mobile != blank -%}
+      #shopify-section-{{ section.id }} .m6fr article { padding-left: {{ section.settings.content_padding_outer_mobile }}px !important; padding-right: {{ section.settings.content_padding_outer_mobile }}px !important; }
+    {%- endif -%}
   }
 </style>
 
@@ -421,6 +440,52 @@
         }
       ],
       "default": "image-left"
+    },
+    {
+      "type": "checkbox",
+      "id": "align_image_flush",
+      "label": "t:sections.image_with_text.settings.align_image_flush.label",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "image_content_gap",
+      "label": "t:sections.image_with_text.settings.image_content_gap.label",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "image_content_gap_mobile",
+      "label": "t:sections.image_with_text.settings.image_content_gap_mobile.label",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "content_padding_outer",
+      "label": "t:sections.image_with_text.settings.content_padding_outer.label",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "content_padding_outer_mobile",
+      "label": "t:sections.image_with_text.settings.content_padding_outer_mobile.label",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 20
     },
     {
       "id": "text_position",

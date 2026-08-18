@@ -2728,6 +2728,21 @@
             "label": "Image right, content left"
           }
         },
+        "align_image_flush": {
+          "label": "Align image flush to screen edge"
+        },
+        "image_content_gap": {
+          "label": "Space between image and content (Desktop)"
+        },
+        "image_content_gap_mobile": {
+          "label": "Space between image and content (Mobile)"
+        },
+        "content_padding_outer": {
+          "label": "Content outer side padding (Desktop)"
+        },
+        "content_padding_outer_mobile": {
+          "label": "Content outer side padding (Mobile)"
+        },
         "mobile": {
           "header": "Mobile layout",
           "image_mobile": {
