@@ -422,7 +422,15 @@
 {% endif %}
 
 <style>
-  #shopify-section-{{ section.id }} { z-index: {{ section.settings.fix_zindex }}!important; }
+  #shopify-section-{{ section.id }} {
+    z-index: {{ section.settings.fix_zindex }}!important;
+    padding-top: {{ section.settings.padding_top_desktop | default: 40 }}px;
+  }
+  @media only screen and (max-width: 47.5em) {
+    #shopify-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top_mobile | default: 20 }}px;
+    }
+  }
   {% if section.settings.enable_custom_filters_font_size %}
       #filters .f8fl, #filters .f8sr, #filters .n6as, #shopify-section-{{ section.id }} .f8fl, #shopify-section-{{ section.id }} .f8sr, #shopify-section-{{ section.id }} .n6as {
           --main_fz: {{ section.settings.filters_font_size }}; font-size: {{ section.settings.filters_font_size }};
@@ -747,6 +755,30 @@
         }
       ],
       "default": "2"
+    },
+    {
+      "type": "header",
+      "content": "t:global.spacing.header"
+    },
+    {
+      "id": "padding_top_desktop",
+      "type": "range",
+      "label": "Padding superior / Top padding (Desktop)",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "id": "padding_top_mobile",
+      "type": "range",
+      "label": "Padding superior / Top padding (Mobile)",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "default": 20
     },
     {
       "type": "header",

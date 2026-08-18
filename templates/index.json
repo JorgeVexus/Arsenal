@@ -185,7 +185,7 @@
       ],
       "settings": {
         "image": "shopify://shop_images/Empresa_Mexicana.jpg",
-        "fill_image": false,
+        "fill_image": true,
         "overlay_opacity_img": 0,
         "enable_controls": false,
         "video_mute": false,

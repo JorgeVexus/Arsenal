@@ -279,31 +279,45 @@
 <style>
   #shopify-section-{{ section.id }} .module-color-palette article:before { opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }}; }
   #shopify-section-{{ section.id }} { z-index: {{ section.settings.fix_zindex }}!important; }
+
+  {%- if section.settings.fill_image or section.settings.align_image_flush -%}
+    #shopify-section-{{ section.id }} .m6fr article figure,
+    #shopify-section-{{ section.id }} .m6fr article figure picture,
+    #shopify-section-{{ section.id }} .m6fr article figure img,
+    #shopify-section-{{ section.id }} .m6fr article figure video {
+      width: 100% !important;
+      height: 100% !important;
+      max-width: none !important;
+      min-width: 100% !important;
+      object-fit: cover !important;
+      object-position: center center !important;
+    }
+  {%- endif -%}
+
   @media only screen and (min-width: 47.5em) {
     #shopify-section-{{ section.id }} .m6bx { margin-bottom: {{ section.settings.spacing_desktop }}px; }
     {%- if section.settings.align_image_flush -%}
       #shopify-section-{{ section.id }} .m6fr.wide article:not(.inv) figure { left: calc(50% - 50vw) !important; width: 50vw !important; max-width: none !important; }
       #shopify-section-{{ section.id }} .m6fr.wide article.inv figure { right: calc(50% - 50vw) !important; width: 50vw !important; max-width: none !important; }
-      #shopify-section-{{ section.id }} .m6fr:not(.wide) article:not(.inv) figure { left: 0 !important; }
-      #shopify-section-{{ section.id }} .m6fr:not(.wide) article.inv figure { right: 0 !important; }
+      #shopify-section-{{ section.id }} .m6fr:not(.wide) article:not(.inv) figure { left: 0 !important; width: 50% !important; }
+      #shopify-section-{{ section.id }} .m6fr:not(.wide) article.inv figure { right: 0 !important; width: 50% !important; }
     {%- endif -%}
-    {%- if section.settings.image_content_gap != blank -%}
-      #shopify-section-{{ section.id }} .m6fr article:not(.inv) { padding-left: calc(50% + {{ section.settings.image_content_gap }}px) !important; }
-      #shopify-section-{{ section.id }} .m6fr article.inv { padding-right: calc(50% + {{ section.settings.image_content_gap }}px) !important; }
-    {%- endif -%}
-    {%- if section.settings.content_padding_outer != blank -%}
-      #shopify-section-{{ section.id }} .m6fr article:not(.inv) { padding-right: {{ section.settings.content_padding_outer }}px !important; }
-      #shopify-section-{{ section.id }} .m6fr article.inv { padding-left: {{ section.settings.content_padding_outer }}px !important; }
-    {%- endif -%}
+    #shopify-section-{{ section.id }} .m6fr article:not(.inv) {
+      padding-left: calc(50% + {{ section.settings.image_content_gap | default: 40 }}px) !important;
+      padding-right: {{ section.settings.content_padding_outer | default: 40 }}px !important;
+    }
+    #shopify-section-{{ section.id }} .m6fr article.inv {
+      padding-right: calc(50% + {{ section.settings.image_content_gap | default: 40 }}px) !important;
+      padding-left: {{ section.settings.content_padding_outer | default: 40 }}px !important;
+    }
   }
   @media only screen and (max-width: 47.5em) {
     #shopify-section-{{ section.id }} .m6bx { margin-bottom: {{ section.settings.spacing_mobile }}px; }
-    {%- if section.settings.image_content_gap_mobile != blank -%}
-      #shopify-section-{{ section.id }} .m6fr article.mobile-static figure { margin-bottom: {{ section.settings.image_content_gap_mobile }}px !important; }
-    {%- endif -%}
-    {%- if section.settings.content_padding_outer_mobile != blank -%}
-      #shopify-section-{{ section.id }} .m6fr article { padding-left: {{ section.settings.content_padding_outer_mobile }}px !important; padding-right: {{ section.settings.content_padding_outer_mobile }}px !important; }
-    {%- endif -%}
+    #shopify-section-{{ section.id }} .m6fr article.mobile-static figure { margin-bottom: {{ section.settings.image_content_gap_mobile | default: 20 }}px !important; margin-left: 0 !important; margin-right: 0 !important; }
+    #shopify-section-{{ section.id }} .m6fr article {
+      padding-left: {{ section.settings.content_padding_outer_mobile | default: 20 }}px !important;
+      padding-right: {{ section.settings.content_padding_outer_mobile | default: 20 }}px !important;
+    }
   }
 </style>
 
