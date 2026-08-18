@@ -1,1 +1,165 @@
-{"sections":{"breadcrumbs":{"type":"breadcrumbs","disabled":true,"settings":{"hide_mobile":false,"back_button":false}},"bf0b384d-202b-4f4e-8587-41b332a2635b":{"type":"section-spacer","settings":{"height":30,"height_mobile":10}},"112ec1f3-bac2-49b0-9c62-650432a289fb":{"type":"section-image-with-text","blocks":{"template--19595896881473__112ec1f3-bac2-49b0-9c62-650432a289fb-1688560435ea8dab3d-0":{"type":"title","settings":{"title":"<h3><strong>Arsenal Protection Mexico: <\/strong><\/h3><h3><strong>Líderes en Tecnología Balística Personal<\/strong><\/h3>","title_underline_style":"none"}},"template--19595896881473__112ec1f3-bac2-49b0-9c62-650432a289fb-1688560435ea8dab3d-1":{"type":"text","settings":{"text":"<p>Arsenal Protection Mexico se dedica a ofrecer tecnología balística personal de la más alta calidad, y estamos aquí para ayudarte con cualquier consulta o necesidad que puedas tener. Con más de 25 años de experiencia en el sector, entendemos la importancia de la protección y la seguridad.<\/p>","font":"primary","enable_custom_text_styling":false,"font_size":"18px"}},"template--19595896881473__112ec1f3-bac2-49b0-9c62-650432a289fb-1688560435ea8dab3d-5":{"type":"buttons","settings":{"show_first_link":false,"first_link_text":"Button","first_link_url":"\/","first_button_style":"primary plain","show_second_link":false,"second_link_text":"Button","second_link_url":"\/","second_button_style":"secondary plain"}}},"block_order":["template--19595896881473__112ec1f3-bac2-49b0-9c62-650432a289fb-1688560435ea8dab3d-0","template--19595896881473__112ec1f3-bac2-49b0-9c62-650432a289fb-1688560435ea8dab3d-1","template--19595896881473__112ec1f3-bac2-49b0-9c62-650432a289fb-1688560435ea8dab3d-5"],"custom_css":["h3,p {color: white;}"],"settings":{"image":"shopify:\/\/shop_images\/equipo-tactico.webp","fill_image":true,"overlay_opacity_img":0,"enable_controls":true,"video_mute":true,"width":"boxed","height":"size-s","enable_custom_height":false,"custom_height":250,"color_palette":"scheme-1","overlay_opacity":0,"layout":"image-right","text_position":"text-start","background_color_palette":"scheme-2","background_overlay_opacity":100,"background_position":"right","background_width":100,"background_height":79,"background_width_mobile":100,"background_height_mobile":100,"spacing_desktop":20,"spacing_mobile":0,"fix_zindex":0}},"section-google-maps":{"type":"section-google-maps","disabled":true,"settings":{"google_maps_iframe":"<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m18!1m12!1m3!1d2800.4613648351315!2d-75.69569834823506!3d45.420200278997804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce0502f07d210b%3A0xa1502f7f1d25c118!2sShopify!5e0!3m2!1snl!2snl!4v1653470436404!5m2!1snl!2snl\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"><\/iframe>","spacing_desktop":50,"spacing_mobile":30}},"arsenal_contact_form_hYiiYq":{"type":"arsenal-contact-form","blocks":{"contact_info_eH6crr":{"type":"contact_info","settings":{"icon":"location","content":"Gob. Vicente Villada 6, Ahuizotla, 53378 Naucalpan de Juárez, Méx."}},"contact_info_NAhNLg":{"type":"contact_info","settings":{"icon":"phone","content":"55 7851 5300"}}},"block_order":["contact_info_eH6crr","contact_info_NAhNLg"],"name":"Arsenal Contact Form","settings":{"heading":"Contacto","text":"<p>Escríbenos y nos pondremos en contacto contigo lo antes posible.<\/p>","map_url":"<iframe src=\"https:\/\/www.google.com\/maps\/embed?pb=!1m14!1m8!1m3!1d7523.355397734888!2d-99.211942!3d19.469458000000003!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d2039713c171f9%3A0x509a5c8ad2652f2!2sARSENAL%20PROTECTION%20MEXICO!5e0!3m2!1ses-419!2smx!4v1768934866632!5m2!1ses-419!2smx\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"><\/iframe>","map_height":250,"label_name":"Nombre","placeholder_name":"Tu nombre completo","label_email":"Email","placeholder_email":"correo@ejemplo.com","label_phone":"Teléfono","placeholder_phone":"+1 (555) 000-0000","label_country":"País","placeholder_country":"Selecciona tu país","label_message":"Mensaje","placeholder_message":"¿Cómo podemos ayudarte?","button_text":"Enviar Mensaje","success_message":"¡Gracias! Tu mensaje ha sido enviado con éxito.","background_color":"#f9f9f9","card_background":"#ffffff","button_background":"#ffffff","button_text_color":"#ffffff","max_width":1100,"padding_top":80,"padding_bottom":80}}},"order":["breadcrumbs","bf0b384d-202b-4f4e-8587-41b332a2635b","112ec1f3-bac2-49b0-9c62-650432a289fb","section-google-maps","arsenal_contact_form_hYiiYq"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {
+        "hide_mobile": false,
+        "back_button": false
+      }
+    },
+    "bf0b384d-202b-4f4e-8587-41b332a2635b": {
+      "type": "section-spacer",
+      "settings": {
+        "height": 30,
+        "height_mobile": 10
+      }
+    },
+    "112ec1f3-bac2-49b0-9c62-650432a289fb": {
+      "type": "section-image-with-text",
+      "blocks": {
+        "template--19595896881473__112ec1f3-bac2-49b0-9c62-650432a289fb-1688560435ea8dab3d-0": {
+          "type": "title",
+          "settings": {
+            "title": "<h3><strong>Arsenal Protection Mexico: </strong></h3><h3><strong>Líderes en Tecnología Balística Personal</strong></h3>",
+            "title_underline_style": "none"
+          }
+        },
+        "template--19595896881473__112ec1f3-bac2-49b0-9c62-650432a289fb-1688560435ea8dab3d-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Arsenal Protection Mexico se dedica a ofrecer tecnología balística personal de la más alta calidad, y estamos aquí para ayudarte con cualquier consulta o necesidad que puedas tener. Con más de 25 años de experiencia en el sector, entendemos la importancia de la protección y la seguridad.</p>",
+            "font": "primary",
+            "enable_custom_text_styling": false,
+            "font_size": "18px"
+          }
+        },
+        "template--19595896881473__112ec1f3-bac2-49b0-9c62-650432a289fb-1688560435ea8dab3d-5": {
+          "type": "buttons",
+          "settings": {
+            "show_first_link": false,
+            "first_link_text": "Button",
+            "first_link_url": "/",
+            "first_button_style": "primary plain",
+            "show_second_link": false,
+            "second_link_text": "Button",
+            "second_link_url": "/",
+            "second_button_style": "secondary plain"
+          }
+        }
+      },
+      "block_order": [
+        "template--19595896881473__112ec1f3-bac2-49b0-9c62-650432a289fb-1688560435ea8dab3d-0",
+        "template--19595896881473__112ec1f3-bac2-49b0-9c62-650432a289fb-1688560435ea8dab3d-1",
+        "template--19595896881473__112ec1f3-bac2-49b0-9c62-650432a289fb-1688560435ea8dab3d-5"
+      ],
+      "custom_css": [
+        "h3,p {color: white;}"
+      ],
+      "settings": {
+        "image": "shopify://shop_images/equipo-tactico.webp",
+        "fill_image": true,
+        "overlay_opacity_img": 0,
+        "enable_controls": true,
+        "video_mute": true,
+        "width": "boxed",
+        "height": "size-s",
+        "enable_custom_height": false,
+        "custom_height": 250,
+        "color_palette": "scheme-1",
+        "overlay_opacity": 0,
+        "layout": "image-right",
+        "align_image_flush": true,
+        "image_content_gap": 40,
+        "image_content_gap_mobile": 20,
+        "content_padding_outer": 40,
+        "content_padding_outer_mobile": 20,
+        "text_position": "text-start",
+        "background_color_palette": "scheme-2",
+        "background_overlay_opacity": 100,
+        "background_position": "right",
+        "background_width": 100,
+        "background_height": 89,
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 0,
+        "spacing_mobile": 0,
+        "fix_zindex": 0
+      }
+    },
+    "section-google-maps": {
+      "type": "section-google-maps",
+      "disabled": true,
+      "settings": {
+        "google_maps_iframe": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2800.4613648351315!2d-75.69569834823506!3d45.420200278997804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cce0502f07d210b%3A0xa1502f7f1d25c118!2sShopify!5e0!3m2!1snl!2snl!4v1653470436404!5m2!1snl!2snl\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30
+      }
+    },
+    "arsenal_contact_form_hYiiYq": {
+      "type": "arsenal-contact-form",
+      "blocks": {
+        "contact_info_eH6crr": {
+          "type": "contact_info",
+          "settings": {
+            "icon": "location",
+            "content": "Gob. Vicente Villada 6, Ahuizotla, 53378 Naucalpan de Juárez, Méx."
+          }
+        },
+        "contact_info_NAhNLg": {
+          "type": "contact_info",
+          "settings": {
+            "icon": "phone",
+            "content": "55 7851 5300"
+          }
+        }
+      },
+      "block_order": [
+        "contact_info_eH6crr",
+        "contact_info_NAhNLg"
+      ],
+      "name": "Arsenal Contact Form",
+      "settings": {
+        "heading": "Contacto",
+        "text": "<p>Escríbenos y nos pondremos en contacto contigo lo antes posible.</p>",
+        "map_url": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7523.355397734888!2d-99.211942!3d19.469458000000003!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d2039713c171f9%3A0x509a5c8ad2652f2!2sARSENAL%20PROTECTION%20MEXICO!5e0!3m2!1ses-419!2smx!4v1768934866632!5m2!1ses-419!2smx\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>",
+        "map_height": 250,
+        "label_name": "Nombre",
+        "placeholder_name": "Tu nombre completo",
+        "label_email": "Email",
+        "placeholder_email": "correo@ejemplo.com",
+        "label_phone": "Teléfono",
+        "placeholder_phone": "+1 (555) 000-0000",
+        "label_country": "País",
+        "placeholder_country": "Selecciona tu país",
+        "label_message": "Mensaje",
+        "placeholder_message": "¿Cómo podemos ayudarte?",
+        "button_text": "Enviar Mensaje",
+        "success_message": "¡Gracias! Tu mensaje ha sido enviado con éxito.",
+        "background_color": "#f9f9f9",
+        "card_background": "#ffffff",
+        "button_background": "#ffffff",
+        "button_text_color": "#ffffff",
+        "max_width": 1100,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "bf0b384d-202b-4f4e-8587-41b332a2635b",
+    "112ec1f3-bac2-49b0-9c62-650432a289fb",
+    "section-google-maps",
+    "arsenal_contact_form_hYiiYq"
+  ]
+}
