@@ -147,6 +147,7 @@
     },
     "1787093803d5a83e30": {
       "type": "_blocks",
+      "disabled": true,
       "custom_css": [
         "h3 {color: white;}"
       ],
@@ -199,7 +200,7 @@
         "accent_glow_color": "#e8701a",
         "tagline": "",
         "tagline_color": "#e8701a",
-        "tagline_bg": "rgba(232, 112, 26, 0.12)",
+        "tagline_bg": "#e8701a1f",
         "title": "<p>Somos una empresa mexicana con más de 25 años de experiencia...</p>",
         "heading_tag": "h2",
         "title_color": "#ffffff",
@@ -226,7 +227,7 @@
         "button_1_text_color": "#ffffff",
         "button_1_hover_bg": "#cf5c0c",
         "button_1_hover_text": "#ffffff",
-        "button_1_border_color": "transparent",
+        "button_1_border_color": "rgba(0,0,0,0)",
         "button_1_border_width": 0,
         "button_1_border_radius": 24,
         "button_1_shadow": false,
@@ -238,9 +239,11 @@
         "button_2_text_color": "#ffffff",
         "button_2_hover_bg": "#4e4e4e",
         "button_2_hover_text": "#ffffff",
-        "button_2_border_color": "transparent",
+        "button_2_border_color": "rgba(0,0,0,0)",
         "button_2_border_width": 0,
         "button_2_border_radius": 24,
+        "margin_top": 0,
+        "margin_bottom": 0,
         "buttons_margin_top": 48,
         "mobile_full_width_buttons": false,
         "content_padding_desktop": 60,
