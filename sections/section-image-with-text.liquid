@@ -278,7 +278,14 @@
 
 <style>
   #shopify-section-{{ section.id }} .module-color-palette article:before { opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }}; }
-  #shopify-section-{{ section.id }} { z-index: {{ section.settings.fix_zindex }}!important; }
+  #shopify-section-{{ section.id }} {
+    z-index: {{ section.settings.fix_zindex }}!important;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  #shopify-section-{{ section.id }} .m6bx {
+    margin-top: 0 !important;
+  }
 
   {%- if section.settings.fill_image or section.settings.align_image_flush -%}
     #shopify-section-{{ section.id }} .m6fr article figure,
