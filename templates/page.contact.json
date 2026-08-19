@@ -11,16 +11,10 @@
   "sections": {
     "breadcrumbs": {
       "type": "breadcrumbs",
+      "disabled": true,
       "settings": {
         "hide_mobile": false,
         "back_button": false
-      }
-    },
-    "bf0b384d-202b-4f4e-8587-41b332a2635b": {
-      "type": "section-spacer",
-      "settings": {
-        "height": 30,
-        "height_mobile": 10
       }
     },
     "arsenal_image_with_text_KYpi6R": {
@@ -164,7 +158,6 @@
   },
   "order": [
     "breadcrumbs",
-    "bf0b384d-202b-4f4e-8587-41b332a2635b",
     "arsenal_image_with_text_KYpi6R",
     "section-google-maps",
     "arsenal_contact_form_hYiiYq"
