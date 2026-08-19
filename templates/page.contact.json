@@ -24,78 +24,6 @@
         "height_mobile": 10
       }
     },
-    "112ec1f3-bac2-49b0-9c62-650432a289fb": {
-      "type": "section-image-with-text",
-      "blocks": {
-        "template--19595896881473__112ec1f3-bac2-49b0-9c62-650432a289fb-1688560435ea8dab3d-0": {
-          "type": "title",
-          "settings": {
-            "title": "<h3><strong>Arsenal Protection Mexico: </strong></h3><h3><strong>Líderes en Tecnología Balística Personal</strong></h3>",
-            "title_underline_style": "none"
-          }
-        },
-        "template--19595896881473__112ec1f3-bac2-49b0-9c62-650432a289fb-1688560435ea8dab3d-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Arsenal Protection Mexico se dedica a ofrecer tecnología balística personal de la más alta calidad, y estamos aquí para ayudarte con cualquier consulta o necesidad que puedas tener. Con más de 25 años de experiencia en el sector, entendemos la importancia de la protección y la seguridad.</p>",
-            "font": "primary",
-            "enable_custom_text_styling": false,
-            "font_size": "18px"
-          }
-        },
-        "template--19595896881473__112ec1f3-bac2-49b0-9c62-650432a289fb-1688560435ea8dab3d-5": {
-          "type": "buttons",
-          "settings": {
-            "show_first_link": false,
-            "first_link_text": "Button",
-            "first_link_url": "/",
-            "first_button_style": "primary plain",
-            "show_second_link": false,
-            "second_link_text": "Button",
-            "second_link_url": "/",
-            "second_button_style": "secondary plain"
-          }
-        }
-      },
-      "block_order": [
-        "template--19595896881473__112ec1f3-bac2-49b0-9c62-650432a289fb-1688560435ea8dab3d-0",
-        "template--19595896881473__112ec1f3-bac2-49b0-9c62-650432a289fb-1688560435ea8dab3d-1",
-        "template--19595896881473__112ec1f3-bac2-49b0-9c62-650432a289fb-1688560435ea8dab3d-5"
-      ],
-      "custom_css": [
-        "h3,p {color: white;}"
-      ],
-      "settings": {
-        "image": "shopify://shop_images/equipo-tactico.webp",
-        "fill_image": true,
-        "overlay_opacity_img": 0,
-        "enable_controls": true,
-        "video_mute": true,
-        "width": "boxed",
-        "height": "size-s",
-        "enable_custom_height": false,
-        "custom_height": 250,
-        "color_palette": "scheme-1",
-        "overlay_opacity": 0,
-        "layout": "image-right",
-        "align_image_flush": true,
-        "image_content_gap": 40,
-        "image_content_gap_mobile": 20,
-        "content_padding_outer": 40,
-        "content_padding_outer_mobile": 20,
-        "text_position": "text-start",
-        "background_color_palette": "scheme-2",
-        "background_overlay_opacity": 100,
-        "background_position": "right",
-        "background_width": 100,
-        "background_height": 89,
-        "background_width_mobile": 100,
-        "background_height_mobile": 100,
-        "spacing_desktop": 0,
-        "spacing_mobile": 0,
-        "fix_zindex": 0
-      }
-    },
     "arsenal_image_with_text_KYpi6R": {
       "type": "arsenal-image-with-text",
       "name": "Arsenal imagen con texto",
@@ -105,10 +33,11 @@
         "image_position": "right",
         "mobile_layout": "image_first",
         "section_height": "auto",
-        "custom_height_desktop": 650,
+        "custom_height_desktop": 800,
         "custom_height_mobile": 450,
+        "image": "shopify://shop_images/equipo-tactico.webp",
         "image_height_mode": "fill",
-        "image_custom_height_desktop": 600,
+        "image_custom_height_desktop": 580,
         "image_custom_height_mobile": 350,
         "mobile_aspect_ratio": "4 / 3",
         "image_fit": "cover",
@@ -124,8 +53,8 @@
         "tagline": "",
         "tagline_color": "#e8701a",
         "tagline_bg": "rgba(232, 112, 26, 0.12)",
-        "title": "<h3><strong>Arsenal Protection Mexico: </strong></h3><h3><strong>Líderes en Tecnología Balística Personal </strong></h3>",
-        "heading_tag": "h3",
+        "title": "<p>Arsenal Protection Mexico: </p><p>Líderes en Tecnología Balística Personal</p>",
+        "heading_tag": "h2",
         "title_color": "#ffffff",
         "title_highlight_color": "#ffffff",
         "title_font_size_desktop": 33,
@@ -142,7 +71,7 @@
         "vertical_alignment": "center",
         "content_max_width": 580,
         "elements_gap": 28,
-        "button_1_text": "Contáctanos",
+        "button_1_text": "",
         "button_1_link": "",
         "button_1_target_blank": false,
         "button_1_show_arrow": false,
@@ -154,7 +83,7 @@
         "button_1_border_width": 0,
         "button_1_border_radius": 24,
         "button_1_shadow": false,
-        "button_2_text": "Saber más",
+        "button_2_text": "",
         "button_2_link": "",
         "button_2_target_blank": false,
         "button_2_show_arrow": false,
@@ -237,7 +166,6 @@
   "order": [
     "breadcrumbs",
     "bf0b384d-202b-4f4e-8587-41b332a2635b",
-    "112ec1f3-bac2-49b0-9c62-650432a289fb",
     "arsenal_image_with_text_KYpi6R",
     "section-google-maps",
     "arsenal_contact_form_hYiiYq"
