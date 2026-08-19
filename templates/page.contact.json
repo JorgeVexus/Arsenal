@@ -9,6 +9,21 @@
  */
 {
   "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {
+        "hide_mobile": false,
+        "back_button": false
+      }
+    },
+    "bf0b384d-202b-4f4e-8587-41b332a2635b": {
+      "type": "section-spacer",
+      "settings": {
+        "height": 30,
+        "height_mobile": 10
+      }
+    },
     "arsenal_image_with_text_KYpi6R": {
       "type": "arsenal-image-with-text",
       "name": "Arsenal imagen con texto",
@@ -37,7 +52,7 @@
         "accent_glow_color": "#e8701a",
         "tagline": "",
         "tagline_color": "#e8701a",
-        "tagline_bg": "rgba(232, 112, 26, 0.12)",
+        "tagline_bg": "#e8701a1f",
         "title": "<p>Arsenal Protection Mexico: </p><p>Líderes en Tecnología Balística Personal</p>",
         "heading_tag": "h2",
         "title_color": "#ffffff",
@@ -64,7 +79,7 @@
         "button_1_text_color": "#ffffff",
         "button_1_hover_bg": "#cf5c0c",
         "button_1_hover_text": "#ffffff",
-        "button_1_border_color": "transparent",
+        "button_1_border_color": "rgba(0,0,0,0)",
         "button_1_border_width": 0,
         "button_1_border_radius": 24,
         "button_1_shadow": false,
@@ -76,7 +91,7 @@
         "button_2_text_color": "#ffffff",
         "button_2_hover_bg": "#4e4e4e",
         "button_2_hover_text": "#ffffff",
-        "button_2_border_color": "transparent",
+        "button_2_border_color": "rgba(0,0,0,0)",
         "button_2_border_width": 0,
         "button_2_border_radius": 24,
         "margin_top": 0,
@@ -149,6 +164,8 @@
     }
   },
   "order": [
+    "breadcrumbs",
+    "bf0b384d-202b-4f4e-8587-41b332a2635b",
     "arsenal_image_with_text_KYpi6R",
     "section-google-maps",
     "arsenal_contact_form_hYiiYq"
