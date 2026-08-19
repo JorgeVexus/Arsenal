@@ -1,0 +1,1238 @@
+{% comment %}
+  Arsenal Imagen con Texto (50/50 Split)
+  Sección moderna y configurable con imagen a la izquierda/derecha al 50%,
+  título rich text, descripción rich text, 2 botones editables y control total de altura y colores.
+  Inspirado en el diseño Figma de Arsenal / Llamarada.
+  @author: Jorge Cerna - Vexus
+{% endcomment %}
+
+{%- liquid
+  assign section_id = section.id
+  assign img_pos = section.settings.image_position
+  assign mobile_layout = section.settings.mobile_layout
+-%}
+
+{%- style -%}
+  /* Control de Ancho Completo */
+  #shopify-section-{{ section_id }} {
+    width: 100%;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  {% if section.settings.full_width %}
+    #shopify-section-{{ section_id }},
+    #shopify-section-{{ section_id }}.shopify-section {
+      width: 100vw !important;
+      max-width: 100vw !important;
+      position: relative !important;
+      left: 50% !important;
+      right: 50% !important;
+      margin-left: -50vw !important;
+      margin-right: -50vw !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      box-sizing: border-box !important;
+    }
+  {% endif %}
+
+  .arsenal-iwt-wrapper-{{ section_id }} {
+    background-color: {{ section.settings.background_color }};
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  @media screen and (min-width: 990px) {
+    .arsenal-iwt-wrapper-{{ section_id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .arsenal-iwt-container-{{ section_id }} {
+    {% if section.settings.full_width %}
+      max-width: 100%;
+      padding: 0;
+      margin: 0 auto;
+    {% else %}
+      max-width: {{ section.settings.max_width }}px;
+      margin: 0 auto;
+      padding: 0 20px;
+    {% endif %}
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Grid 50/50 */
+  .arsenal-iwt-grid-{{ section_id }} {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+    {% if section.settings.section_height == 'small' %}
+      min-height: 450px;
+    {% elsif section.settings.section_height == 'medium' %}
+      min-height: 600px;
+    {% elsif section.settings.section_height == 'large' %}
+      min-height: 750px;
+    {% elsif section.settings.section_height == 'fullscreen' %}
+      min-height: 100vh;
+    {% elsif section.settings.section_height == 'custom' %}
+      min-height: {{ section.settings.custom_height_mobile }}px;
+    {% endif %}
+  }
+
+  @media screen and (min-width: 990px) {
+    .arsenal-iwt-grid-{{ section_id }} {
+      grid-template-columns: {% if img_pos == 'left' %}50% 50%{% else %}50% 50%{% endif %};
+      align-items: stretch;
+      {% if section.settings.section_height == 'custom' %}
+        min-height: {{ section.settings.custom_height_desktop }}px;
+      {% endif %}
+    }
+  }
+
+  /* Posición / Orden visual */
+  .arsenal-iwt-media-{{ section_id }} {
+    order: {% if mobile_layout == 'image_first' %}1{% else %}2{% endif %};
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: {{ section.settings.image_border_radius }}px;
+    {% if section.settings.image_height_mode == 'custom' %}
+      min-height: {{ section.settings.image_custom_height_mobile }}px;
+      height: {{ section.settings.image_custom_height_mobile }}px;
+    {% elsif section.settings.image_height_mode == 'aspect_ratio' %}
+      aspect-ratio: {{ section.settings.mobile_aspect_ratio }};
+    {% else %}
+      min-height: 320px;
+    {% endif %}
+  }
+
+  .arsenal-iwt-content-{{ section_id }} {
+    order: {% if mobile_layout == 'image_first' %}2{% else %}1{% endif %};
+    background-color: {{ section.settings.text_container_bg }};
+    display: flex;
+    flex-direction: column;
+    justify-content: {{ section.settings.vertical_alignment }};
+    align-items: {% if section.settings.content_alignment == 'center' %}center{% elsif section.settings.content_alignment == 'right' %}flex-end{% else %}flex-start{% endif %};
+    text-align: {{ section.settings.content_alignment }};
+    padding: {{ section.settings.content_padding_mobile }}px 20px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+  }
+
+  @media screen and (min-width: 990px) {
+    .arsenal-iwt-media-{{ section_id }} {
+      order: {% if img_pos == 'left' %}1{% else %}2{% endif %};
+      height: 100%;
+      {% if section.settings.image_height_mode == 'custom' %}
+        min-height: {{ section.settings.image_custom_height_desktop }}px;
+        height: {{ section.settings.image_custom_height_desktop }}px;
+      {% elsif section.settings.image_height_mode == 'aspect_ratio' %}
+        aspect-ratio: auto;
+        min-height: 100%;
+      {% else %}
+        min-height: 100%;
+      {% endif %}
+    }
+
+    .arsenal-iwt-content-{{ section_id }} {
+      order: {% if img_pos == 'left' %}2{% else %}1{% endif %};
+      padding: {{ section.settings.content_padding_desktop }}px clamp(30px, 4.5vw, 70px);
+    }
+  }
+
+  /* Imagen y Overlay */
+  .arsenal-iwt-media-{{ section_id }} picture,
+  .arsenal-iwt-media-{{ section_id }} .arsenal-iwt-img-holder {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+  }
+
+  .arsenal-iwt-media-{{ section_id }} img {
+    width: 100%;
+    height: 100%;
+    object-fit: {{ section.settings.image_fit }};
+    object-position: {{ section.settings.image_focus }};
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  {% if section.settings.enable_image_zoom %}
+    .arsenal-iwt-wrapper-{{ section_id }}:hover .arsenal-iwt-media-{{ section_id }} img {
+      transform: scale(1.03);
+    }
+  {% endif %}
+
+  .arsenal-iwt-overlay-{{ section_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: {{ section.settings.image_overlay_color }};
+    opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Placeholder cuando no hay imagen */
+  .arsenal-iwt-placeholder-{{ section_id }} {
+    width: 100%;
+    height: 100%;
+    min-height: 380px;
+    background: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666666;
+  }
+
+  .arsenal-iwt-placeholder-{{ section_id }} svg {
+    width: 100%;
+    height: 100%;
+    max-height: 400px;
+    opacity: 0.3;
+  }
+
+  /* Contenido Interno */
+  .arsenal-iwt-inner-{{ section_id }} {
+    max-width: {{ section.settings.content_max_width }}px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: {{ section.settings.elements_gap }}px;
+  }
+
+  /* Tagline / Badge */
+  .arsenal-iwt-badge-{{ section_id }} {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: {{ section.settings.tagline_bg }};
+    color: {{ section.settings.tagline_color }};
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    margin-bottom: 4px;
+    width: fit-content;
+  }
+
+  /* Título Rich Text */
+  .arsenal-iwt-title-{{ section_id }} {
+    color: {{ section.settings.title_color }};
+    font-size: clamp({{ section.settings.title_font_size_mobile }}px, 3.2vw, {{ section.settings.title_font_size_desktop }}px);
+    line-height: {{ section.settings.title_line_height }};
+    letter-spacing: {{ section.settings.title_letter_spacing }}px;
+    font-weight: {{ section.settings.title_font_weight }};
+    margin: 0;
+  }
+
+  .arsenal-iwt-title-{{ section_id }} p {
+    margin: 0 0 8px 0;
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+  }
+
+  .arsenal-iwt-title-{{ section_id }} p:last-child {
+    margin-bottom: 0;
+  }
+
+  .arsenal-iwt-title-{{ section_id }} strong,
+  .arsenal-iwt-title-{{ section_id }} b {
+    color: {{ section.settings.title_highlight_color | default: '#ffffff' }};
+    font-weight: 800;
+  }
+
+  .arsenal-iwt-title-{{ section_id }} em,
+  .arsenal-iwt-title-{{ section_id }} i {
+    color: {{ section.settings.accent_glow_color }};
+    font-style: normal;
+  }
+
+  .arsenal-iwt-title-{{ section_id }} a {
+    color: {{ section.settings.accent_glow_color }};
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  /* Descripción Rich Text */
+  .arsenal-iwt-desc-{{ section_id }} {
+    color: {{ section.settings.description_color }};
+    font-size: clamp({{ section.settings.desc_font_size_mobile }}px, 1.4vw, {{ section.settings.description_font_size }}px);
+    line-height: {{ section.settings.description_line_height }};
+    margin: 0;
+    opacity: 0.92;
+  }
+
+  .arsenal-iwt-desc-{{ section_id }} p {
+    margin: 0 0 12px 0;
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  .arsenal-iwt-desc-{{ section_id }} p:last-child {
+    margin-bottom: 0;
+  }
+
+  .arsenal-iwt-desc-{{ section_id }} strong {
+    color: #ffffff;
+    font-weight: 600;
+  }
+
+  .arsenal-iwt-desc-{{ section_id }} a {
+    color: {{ section.settings.button_1_bg_color }};
+    text-decoration: underline;
+    transition: opacity 0.2s;
+  }
+
+  .arsenal-iwt-desc-{{ section_id }} a:hover {
+    opacity: 0.8;
+  }
+
+  /* Botones Container */
+  .arsenal-iwt-buttons-{{ section_id }} {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin-top: {{ section.settings.buttons_margin_top }}px;
+    {% if section.settings.content_alignment == 'center' %}
+      justify-content: center;
+    {% elsif section.settings.content_alignment == 'right' %}
+      justify-content: flex-end;
+    {% else %}
+      justify-content: flex-start;
+    {% endif %}
+  }
+
+  /* Botón Base */
+  .arsenal-iwt-btn-{{ section_id }} {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 13px 28px;
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+    white-space: nowrap;
+  }
+
+  .arsenal-iwt-btn-{{ section_id }}:hover {
+    transform: translateY(-2px);
+  }
+
+  .arsenal-iwt-btn-{{ section_id }} svg {
+    width: 15px;
+    height: 15px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+  }
+
+  .arsenal-iwt-btn-{{ section_id }}:hover svg {
+    transform: translateX(3px);
+  }
+
+  /* Botón 1 */
+  .arsenal-iwt-btn1-{{ section_id }} {
+    background-color: {{ section.settings.button_1_bg_color }};
+    color: {{ section.settings.button_1_text_color }};
+    border: {{ section.settings.button_1_border_width }}px solid {{ section.settings.button_1_border_color }};
+    border-radius: {{ section.settings.button_1_border_radius }}px;
+    {% if section.settings.button_1_shadow %}
+      box-shadow: 0 4px 18px {{ section.settings.button_1_bg_color | color_modify: 'alpha', 0.35 }};
+    {% endif %}
+  }
+
+  .arsenal-iwt-btn1-{{ section_id }}:hover {
+    background-color: {{ section.settings.button_1_hover_bg }};
+    color: {{ section.settings.button_1_hover_text }};
+    {% if section.settings.button_1_shadow %}
+      box-shadow: 0 6px 24px {{ section.settings.button_1_bg_color | color_modify: 'alpha', 0.5 }};
+    {% endif %}
+  }
+
+  /* Botón 2 */
+  .arsenal-iwt-btn2-{{ section_id }} {
+    background-color: {{ section.settings.button_2_bg_color }};
+    color: {{ section.settings.button_2_text_color }};
+    border: {{ section.settings.button_2_border_width }}px solid {{ section.settings.button_2_border_color }};
+    border-radius: {{ section.settings.button_2_border_radius }}px;
+  }
+
+  .arsenal-iwt-btn2-{{ section_id }}:hover {
+    background-color: {{ section.settings.button_2_hover_bg }};
+    color: {{ section.settings.button_2_hover_text }};
+  }
+
+  /* Efecto Destello / Glow táctico opcional */
+  {% if section.settings.enable_subtle_glow %}
+    .arsenal-iwt-glow-{{ section_id }} {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.18;
+      background: radial-gradient(circle, {{ section.settings.accent_glow_color }} 0%, transparent 70%);
+      {% if img_pos == 'left' %}
+        right: -100px;
+        bottom: -100px;
+      {% else %}
+        left: -100px;
+        bottom: -100px;
+      {% endif %}
+    }
+  {% endif %}
+
+  /* Responsivo Mobile */
+  @media screen and (max-width: 749px) {
+    .arsenal-iwt-buttons-{{ section_id }} {
+      {% if section.settings.mobile_full_width_buttons %}
+        flex-direction: column;
+        width: 100%;
+      {% endif %}
+      gap: 10px;
+    }
+
+    {% if section.settings.mobile_full_width_buttons %}
+      .arsenal-iwt-btn-{{ section_id }} {
+        width: 100%;
+        text-align: center;
+      }
+    {% endif %}
+  }
+{%- endstyle -%}
+
+<div class="arsenal-iwt-wrapper-{{ section_id }}">
+  {% if section.settings.enable_subtle_glow %}
+    <div class="arsenal-iwt-glow-{{ section_id }}" aria-hidden="true"></div>
+  {% endif %}
+
+  <div class="arsenal-iwt-container-{{ section_id }}">
+    <div class="arsenal-iwt-grid-{{ section_id }}">
+      
+      <!-- Columna Imagen / Multimedia -->
+      <div class="arsenal-iwt-media-{{ section_id }}">
+        <span class="arsenal-iwt-overlay-{{ section_id }}" aria-hidden="true"></span>
+        
+        {%- if section.settings.image != blank -%}
+          <picture class="arsenal-iwt-img-holder">
+            {%- if section.settings.image_mobile != blank -%}
+              <source
+                media="(max-width: 749px)"
+                srcset="{{ section.settings.image_mobile | image_url: width: 800 }}"
+              >
+            {%- endif -%}
+            
+            {{
+              section.settings.image
+              | image_url: width: 1400
+              | image_tag:
+                loading: 'lazy',
+                widths: '375, 550, 750, 990, 1200, 1400',
+                sizes: '(min-width: 990px) 50vw, 100vw',
+                alt: section.settings.image.alt | default: section.settings.title | strip_html | escape
+            }}
+          </picture>
+        {%- else -%}
+          <div class="arsenal-iwt-placeholder-{{ section_id }}">
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <!-- Columna Texto y Botones -->
+      <div class="arsenal-iwt-content-{{ section_id }}">
+        <div class="arsenal-iwt-inner-{{ section_id }}">
+          
+          {%- if section.settings.tagline != blank -%}
+            <div class="arsenal-iwt-badge-{{ section_id }}">
+              {{ section.settings.tagline }}
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.title != blank -%}
+            <{{ section.settings.heading_tag }} class="arsenal-iwt-title-{{ section_id }}">
+              {{ section.settings.title }}
+            </{{ section.settings.heading_tag }}>
+          {%- endif -%}
+
+          {%- if section.settings.description != blank -%}
+            <div class="arsenal-iwt-desc-{{ section_id }}">
+              {{ section.settings.description }}
+            </div>
+          {%- endif -%}
+
+          {%- if section.settings.button_1_text != blank or section.settings.button_2_text != blank -%}
+            <div class="arsenal-iwt-buttons-{{ section_id }}">
+              {%- if section.settings.button_1_text != blank -%}
+                <a
+                  href="{{ section.settings.button_1_link | default: '#' }}"
+                  class="arsenal-iwt-btn-{{ section_id }} arsenal-iwt-btn1-{{ section_id }}"
+                  {% if section.settings.button_1_target_blank %}target="_blank" rel="noopener noreferrer"{% endif %}
+                >
+                  <span>{{ section.settings.button_1_text }}</span>
+                  {%- if section.settings.button_1_show_arrow -%}
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4.16666 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  {%- endif -%}
+                </a>
+              {%- endif -%}
+
+              {%- if section.settings.button_2_text != blank -%}
+                <a
+                  href="{{ section.settings.button_2_link | default: '#' }}"
+                  class="arsenal-iwt-btn-{{ section_id }} arsenal-iwt-btn2-{{ section_id }}"
+                  {% if section.settings.button_2_target_blank %}target="_blank" rel="noopener noreferrer"{% endif %}
+                >
+                  <span>{{ section.settings.button_2_text }}</span>
+                  {%- if section.settings.button_2_show_arrow -%}
+                    <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M4.16666 10H15.8333M15.8333 10L10.8333 5M15.8333 10L10.8333 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  {%- endif -%}
+                </a>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Arsenal imagen con texto",
+  "tag": "section",
+  "class": "section-arsenal-image-with-text",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Diseño y Estructura"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Ancho completo de pantalla (100vw)",
+      "default": true,
+      "info": "Si está activo, la imagen y el bloque abarcarán de borde a borde como en el diseño de Figma."
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 1000,
+      "max": 1800,
+      "step": 50,
+      "unit": "px",
+      "label": "Ancho Máximo del Contenedor (si no es ancho completo)",
+      "default": 1400
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Posición de la Imagen (Desktop)",
+      "options": [
+        {
+          "value": "left",
+          "label": "Izquierda (Texto a la derecha)"
+        },
+        {
+          "value": "right",
+          "label": "Derecha (Texto a la izquierda)"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "mobile_layout",
+      "label": "Orden en Móvil",
+      "options": [
+        {
+          "value": "image_first",
+          "label": "Imagen primero (arriba)"
+        },
+        {
+          "value": "text_first",
+          "label": "Texto primero (arriba)"
+        }
+      ],
+      "default": "image_first"
+    },
+    {
+      "type": "select",
+      "id": "section_height",
+      "label": "Altura de la Sección",
+      "options": [
+        {
+          "value": "auto",
+          "label": "Automática (según contenido)"
+        },
+        {
+          "value": "small",
+          "label": "Pequeña (450px)"
+        },
+        {
+          "value": "medium",
+          "label": "Mediana (600px)"
+        },
+        {
+          "value": "large",
+          "label": "Grande (750px)"
+        },
+        {
+          "value": "fullscreen",
+          "label": "Pantalla Completa (100vh)"
+        },
+        {
+          "value": "custom",
+          "label": "Personalizada (Sliders abajo)"
+        }
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "range",
+      "id": "custom_height_desktop",
+      "min": 300,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "label": "Altura Personalizada Desktop",
+      "default": 650
+    },
+    {
+      "type": "range",
+      "id": "custom_height_mobile",
+      "min": 250,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "label": "Altura Personalizada Móvil",
+      "default": 450
+    },
+    {
+      "type": "header",
+      "content": "Imagen"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen Principal"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Imagen Móvil (Opcional)",
+      "info": "Si se deja vacía, se usará la imagen principal."
+    },
+    {
+      "type": "select",
+      "id": "image_height_mode",
+      "label": "Modo de Altura de la Imagen",
+      "options": [
+        {
+          "value": "fill",
+          "label": "Llenar altura de la sección (100%)"
+        },
+        {
+          "value": "custom",
+          "label": "Altura específica en px"
+        },
+        {
+          "value": "aspect_ratio",
+          "label": "Mantener proporción en móvil"
+        }
+      ],
+      "default": "fill"
+    },
+    {
+      "type": "range",
+      "id": "image_custom_height_desktop",
+      "min": 250,
+      "max": 900,
+      "step": 10,
+      "unit": "px",
+      "label": "Altura de Imagen Desktop (Modo Específico)",
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "image_custom_height_mobile",
+      "min": 200,
+      "max": 600,
+      "step": 10,
+      "unit": "px",
+      "label": "Altura de Imagen Móvil (Modo Específico)",
+      "default": 350
+    },
+    {
+      "type": "select",
+      "id": "mobile_aspect_ratio",
+      "label": "Proporción en Móvil (si aplica)",
+      "options": [
+        { "value": "1 / 1", "label": "Cuadrada (1:1)" },
+        { "value": "4 / 3", "label": "Horizontal (4:3)" },
+        { "value": "16 / 9", "label": "Panorámica (16:9)" },
+        { "value": "3 / 4", "label": "Vertical (3:4)" }
+      ],
+      "default": "4 / 3"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Ajuste de Imagen (Object Fit)",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Cubrir contenedor (Cover)"
+        },
+        {
+          "value": "contain",
+          "label": "Contener completa (Contain)"
+        }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "select",
+      "id": "image_focus",
+      "label": "Enfoque / Posición de la Imagen",
+      "options": [
+        { "value": "center center", "label": "Centro" },
+        { "value": "top center", "label": "Arriba Centro" },
+        { "value": "bottom center", "label": "Abajo Centro" },
+        { "value": "center left", "label": "Centro Izquierda" },
+        { "value": "center right", "label": "Centro Derecha" }
+      ],
+      "default": "center center"
+    },
+    {
+      "type": "range",
+      "id": "image_border_radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Bordes Redondeados de la Imagen",
+      "default": 0
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_image_zoom",
+      "label": "Efecto Zoom Suave en Hover",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "image_overlay_color",
+      "label": "Color de Overlay sobre la Imagen",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "image_overlay_opacity",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "label": "Opacidad del Overlay",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Colores y Fondo"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Color de Fondo de la Sección",
+      "default": "#0d0d0d"
+    },
+    {
+      "type": "color",
+      "id": "text_container_bg",
+      "label": "Color de Fondo del Área de Texto",
+      "default": "#0d0d0d"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_subtle_glow",
+      "label": "Activar destello ambiental de fondo",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "accent_glow_color",
+      "label": "Color de Acento / Destello",
+      "default": "#e8701a"
+    },
+    {
+      "type": "header",
+      "content": "Contenido y Tipografía"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Insignia / Tagline Superior",
+      "info": "Ejemplo: TECNOLOGÍA DE PROTECCIÓN"
+    },
+    {
+      "type": "color",
+      "id": "tagline_color",
+      "label": "Color del Texto de la Insignia",
+      "default": "#e8701a"
+    },
+    {
+      "type": "color",
+      "id": "tagline_bg",
+      "label": "Fondo de la Insignia",
+      "default": "rgba(232, 112, 26, 0.12)"
+    },
+    {
+      "type": "richtext",
+      "id": "title",
+      "label": "Título (Rich Text)",
+      "default": "<p>Somos una empresa mexicana con más de 25 años de experiencia...</p>",
+      "info": "Permite negritas, cursivas o saltos de línea personalizados."
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Etiqueta HTML del Título",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" },
+        { "value": "div", "label": "DIV" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Color del Título",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "title_highlight_color",
+      "label": "Color para Texto en Negrita del Título",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_desktop",
+      "min": 22,
+      "max": 64,
+      "step": 1,
+      "unit": "px",
+      "label": "Tamaño de Título Desktop",
+      "default": 33
+    },
+    {
+      "type": "range",
+      "id": "title_font_size_mobile",
+      "min": 18,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Tamaño de Título Móvil",
+      "default": 24
+    },
+    {
+      "type": "select",
+      "id": "title_font_weight",
+      "label": "Grosor del Título",
+      "options": [
+        { "value": "400", "label": "Normal (400)" },
+        { "value": "500", "label": "Medio (500)" },
+        { "value": "600", "label": "Seminegrita (600)" },
+        { "value": "700", "label": "Negrita (700)" },
+        { "value": "800", "label": "Extra Negrita (800)" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "range",
+      "id": "title_line_height",
+      "min": 1.0,
+      "max": 1.6,
+      "step": 0.05,
+      "label": "Interlineado del Título (Line Height)",
+      "default": 1.25
+    },
+    {
+      "type": "range",
+      "id": "title_letter_spacing",
+      "min": -2.0,
+      "max": 4.0,
+      "step": 0.5,
+      "unit": "px",
+      "label": "Espaciado de Letras (Tracking)",
+      "default": -0.5
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Descripción (Rich Text)",
+      "default": "<p>En el diseño, fabricación y distribución de la más alta calidad en tecnología balística personal; con la cual, custodiamos la integridad física de los distintos cuerpos de seguridad nacional e internacional, que brindan protección pública y privada.</p>"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Color de la Descripción",
+      "default": "#e6e6e6"
+    },
+    {
+      "type": "range",
+      "id": "description_font_size",
+      "min": 13,
+      "max": 22,
+      "step": 0.5,
+      "unit": "px",
+      "label": "Tamaño de Descripción Desktop",
+      "default": 14.5
+    },
+    {
+      "type": "range",
+      "id": "desc_font_size_mobile",
+      "min": 12,
+      "max": 18,
+      "step": 0.5,
+      "unit": "px",
+      "label": "Tamaño de Descripción Móvil",
+      "default": 13.5
+    },
+    {
+      "type": "range",
+      "id": "description_line_height",
+      "min": 1.3,
+      "max": 2.0,
+      "step": 0.05,
+      "label": "Interlineado de la Descripción",
+      "default": 1.7
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Alineación del Texto",
+      "options": [
+        { "value": "left", "label": "Izquierda" },
+        { "value": "center", "label": "Centro" },
+        { "value": "right", "label": "Derecha" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment",
+      "label": "Alineación Vertical del Contenido",
+      "options": [
+        { "value": "flex-start", "label": "Arriba" },
+        { "value": "center", "label": "Centrado" },
+        { "value": "flex-end", "label": "Abajo" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "min": 400,
+      "max": 800,
+      "step": 10,
+      "unit": "px",
+      "label": "Ancho Máximo del Bloque de Texto",
+      "default": 580
+    },
+    {
+      "type": "range",
+      "id": "elements_gap",
+      "min": 12,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Espacio entre Título y Descripción",
+      "default": 28
+    },
+    {
+      "type": "header",
+      "content": "Botón 1 (Principal)"
+    },
+    {
+      "type": "text",
+      "id": "button_1_text",
+      "label": "Texto del Botón 1",
+      "default": "Contáctanos"
+    },
+    {
+      "type": "url",
+      "id": "button_1_link",
+      "label": "Enlace del Botón 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_1_target_blank",
+      "label": "Abrir en nueva pestaña",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "button_1_show_arrow",
+      "label": "Mostrar icono de flecha",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "button_1_bg_color",
+      "label": "Color de Fondo",
+      "default": "#e8701a"
+    },
+    {
+      "type": "color",
+      "id": "button_1_text_color",
+      "label": "Color de Texto",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_1_hover_bg",
+      "label": "Color de Fondo en Hover",
+      "default": "#cf5c0c"
+    },
+    {
+      "type": "color",
+      "id": "button_1_hover_text",
+      "label": "Color de Texto en Hover",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_1_border_color",
+      "label": "Color de Borde",
+      "default": "transparent"
+    },
+    {
+      "type": "range",
+      "id": "button_1_border_width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "label": "Grosor del Borde",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "button_1_border_radius",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Redondeo de Bordes (24-50px = Píldora)",
+      "default": 24
+    },
+    {
+      "type": "checkbox",
+      "id": "button_1_shadow",
+      "label": "Activar Sombra Brillante (Glow)",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Botón 2 (Secundario)"
+    },
+    {
+      "type": "text",
+      "id": "button_2_text",
+      "label": "Texto del Botón 2",
+      "default": "Saber más"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Enlace del Botón 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_2_target_blank",
+      "label": "Abrir en nueva pestaña",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "button_2_show_arrow",
+      "label": "Mostrar icono de flecha",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "button_2_bg_color",
+      "label": "Color de Fondo",
+      "default": "#3a3a3a"
+    },
+    {
+      "type": "color",
+      "id": "button_2_text_color",
+      "label": "Color de Texto",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_2_hover_bg",
+      "label": "Color de Fondo en Hover",
+      "default": "#4e4e4e"
+    },
+    {
+      "type": "color",
+      "id": "button_2_hover_text",
+      "label": "Color de Texto en Hover",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_2_border_color",
+      "label": "Color de Borde",
+      "default": "transparent"
+    },
+    {
+      "type": "range",
+      "id": "button_2_border_width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "label": "Grosor del Borde",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "button_2_border_radius",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Redondeo de Bordes",
+      "default": 24
+    },
+    {
+      "type": "header",
+      "content": "Espaciado y Ajustes"
+    },
+    {
+      "type": "range",
+      "id": "buttons_margin_top",
+      "min": 16,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "label": "Separación Superior de los Botones",
+      "default": 48
+    },
+    {
+      "type": "checkbox",
+      "id": "mobile_full_width_buttons",
+      "label": "Botones a ancho completo en móvil",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "content_padding_desktop",
+      "min": 20,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Vertical de Contenido (Desktop)",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "content_padding_mobile",
+      "min": 16,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Vertical de Contenido (Móvil)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Superior de Sección",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 5,
+      "unit": "px",
+      "label": "Padding Inferior de Sección",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Arsenal imagen con texto",
+      "settings": {
+        "full_width": true,
+        "image_position": "left",
+        "mobile_layout": "image_first",
+        "section_height": "auto",
+        "background_color": "#0d0d0d",
+        "text_container_bg": "#0d0d0d",
+        "title": "<p>Somos una empresa mexicana con más de 25 años de experiencia...</p>",
+        "title_font_size_desktop": 33,
+        "title_font_size_mobile": 24,
+        "title_color": "#ffffff",
+        "description": "<p>En el diseño, fabricación y distribución de la más alta calidad en tecnología balística personal; con la cual, custodiamos la integridad física de los distintos cuerpos de seguridad nacional e internacional, que brindan protección pública y privada.</p>",
+        "description_color": "#e6e6e6",
+        "description_font_size": 14.5,
+        "button_1_text": "Contáctanos",
+        "button_1_bg_color": "#e8701a",
+        "button_1_text_color": "#ffffff",
+        "button_1_border_radius": 24,
+        "button_2_text": "Saber más",
+        "button_2_bg_color": "#3a3a3a",
+        "button_2_text_color": "#ffffff",
+        "button_2_border_radius": 24
+      }
+    }
+  ]
+}
+{% endschema %}
