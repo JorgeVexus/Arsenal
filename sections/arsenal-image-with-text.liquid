@@ -13,11 +13,17 @@
 -%}
 
 {%- style -%}
-  /* Control de Ancho Completo */
-  #shopify-section-{{ section_id }} {
+  /* Control de Ancho y Reset de Márgenes del Tema */
+  #shopify-section-{{ section_id }},
+  #shopify-section-{{ section_id }}.shopify-section {
     width: 100%;
+    margin: 0 !important;
+    margin-top: {{ section.settings.margin_top | default: 0 }}px !important;
+    margin-bottom: {{ section.settings.margin_bottom | default: 0 }}px !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
+    padding: 0 !important;
+    display: block !important;
   }
 
   {% if section.settings.full_width %}
@@ -44,6 +50,7 @@
     overflow: hidden;
     width: 100%;
     box-sizing: border-box;
+    margin: 0;
   }
 
   @media screen and (min-width: 990px) {
@@ -91,7 +98,7 @@
 
   @media screen and (min-width: 990px) {
     .arsenal-iwt-grid-{{ section_id }} {
-      grid-template-columns: {% if img_pos == 'left' %}50% 50%{% else %}50% 50%{% endif %};
+      grid-template-columns: 50% 50%;
       align-items: stretch;
       {% if section.settings.section_height == 'custom' %}
         min-height: {{ section.settings.custom_height_desktop }}px;
@@ -99,22 +106,21 @@
     }
   }
 
-  /* Posición / Orden visual */
+  /* Columna Multimedia / Imagen */
   .arsenal-iwt-media-{{ section_id }} {
     order: {% if mobile_layout == 'image_first' %}1{% else %}2{% endif %};
     position: relative;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    min-height: 380px;
     border-radius: {{ section.settings.image_border_radius }}px;
+    background-color: #141414;
     {% if section.settings.image_height_mode == 'custom' %}
       min-height: {{ section.settings.image_custom_height_mobile }}px;
       height: {{ section.settings.image_custom_height_mobile }}px;
     {% elsif section.settings.image_height_mode == 'aspect_ratio' %}
       aspect-ratio: {{ section.settings.mobile_aspect_ratio }};
-    {% else %}
-      min-height: 320px;
+      min-height: auto;
     {% endif %}
   }
 
@@ -136,14 +142,10 @@
     .arsenal-iwt-media-{{ section_id }} {
       order: {% if img_pos == 'left' %}1{% else %}2{% endif %};
       height: 100%;
+      min-height: 100%;
       {% if section.settings.image_height_mode == 'custom' %}
         min-height: {{ section.settings.image_custom_height_desktop }}px;
         height: {{ section.settings.image_custom_height_desktop }}px;
-      {% elsif section.settings.image_height_mode == 'aspect_ratio' %}
-        aspect-ratio: auto;
-        min-height: 100%;
-      {% else %}
-        min-height: 100%;
       {% endif %}
     }
 
@@ -153,44 +155,53 @@
     }
   }
 
-  /* Imagen y Overlay */
-  .arsenal-iwt-media-{{ section_id }} picture,
-  .arsenal-iwt-media-{{ section_id }} .arsenal-iwt-img-holder {
+  /* Imagen y Posicionamiento Absoluto */
+  .arsenal-iwt-picture-{{ section_id }} {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     display: block;
-    position: relative;
   }
 
-  .arsenal-iwt-media-{{ section_id }} img {
-    width: 100%;
-    height: 100%;
-    object-fit: {{ section.settings.image_fit }};
-    object-position: {{ section.settings.image_focus }};
-    display: block;
+  .arsenal-iwt-img-{{ section_id }},
+  .arsenal-iwt-picture-{{ section_id }} img {
+    position: absolute !important;
+    inset: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: {{ section.settings.image_fit }} !important;
+    object-position: {{ section.settings.image_focus }} !important;
+    display: block !important;
     transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   {% if section.settings.enable_image_zoom %}
-    .arsenal-iwt-wrapper-{{ section_id }}:hover .arsenal-iwt-media-{{ section_id }} img {
+    .arsenal-iwt-wrapper-{{ section_id }}:hover .arsenal-iwt-img-{{ section_id }},
+    .arsenal-iwt-wrapper-{{ section_id }}:hover .arsenal-iwt-picture-{{ section_id }} img {
       transform: scale(1.03);
     }
   {% endif %}
 
   .arsenal-iwt-overlay-{{ section_id }} {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     width: 100%;
     height: 100%;
     background: {{ section.settings.image_overlay_color }};
     opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
     pointer-events: none;
-    z-index: 1;
+    z-index: 2;
   }
 
   /* Placeholder cuando no hay imagen */
   .arsenal-iwt-placeholder-{{ section_id }} {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     min-height: 380px;
@@ -442,24 +453,29 @@
         <span class="arsenal-iwt-overlay-{{ section_id }}" aria-hidden="true"></span>
         
         {%- if section.settings.image != blank -%}
-          <picture class="arsenal-iwt-img-holder">
-            {%- if section.settings.image_mobile != blank -%}
+          {%- if section.settings.image_mobile != blank -%}
+            <picture class="arsenal-iwt-picture-{{ section_id }}">
               <source
                 media="(max-width: 749px)"
                 srcset="{{ section.settings.image_mobile | image_url: width: 800 }}"
               >
-            {%- endif -%}
-            
-            {{
-              section.settings.image
-              | image_url: width: 1400
-              | image_tag:
-                loading: 'lazy',
-                widths: '375, 550, 750, 990, 1200, 1400',
-                sizes: '(min-width: 990px) 50vw, 100vw',
-                alt: section.settings.image.alt | default: section.settings.title | strip_html | escape
-            }}
-          </picture>
+              <img
+                src="{{ section.settings.image | image_url: width: 1400 }}"
+                alt="{{ section.settings.image.alt | default: section.settings.title | strip_html | escape }}"
+                class="arsenal-iwt-img-{{ section_id }}"
+                loading="eager"
+                decoding="async"
+              >
+            </picture>
+          {%- else -%}
+            <img
+              src="{{ section.settings.image | image_url: width: 1400 }}"
+              alt="{{ section.settings.image.alt | default: section.settings.title | strip_html | escape }}"
+              class="arsenal-iwt-img-{{ section_id }}"
+              loading="eager"
+              decoding="async"
+            >
+          {%- endif -%}
         {%- else -%}
           <div class="arsenal-iwt-placeholder-{{ section_id }}">
             {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
@@ -1147,7 +1163,27 @@
     },
     {
       "type": "header",
-      "content": "Espaciado y Ajustes"
+      "content": "Espaciado y Ajustes de Margen"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Margen Superior Externo",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Margen Inferior Externo",
+      "default": 0
     },
     {
       "type": "range",
@@ -1192,7 +1228,7 @@
       "max": 160,
       "step": 5,
       "unit": "px",
-      "label": "Padding Superior de Sección",
+      "label": "Padding Superior Interno",
       "default": 0
     },
     {
@@ -1202,7 +1238,7 @@
       "max": 160,
       "step": 5,
       "unit": "px",
-      "label": "Padding Inferior de Sección",
+      "label": "Padding Inferior Interno",
       "default": 0
     }
   ],
@@ -1216,6 +1252,10 @@
         "section_height": "auto",
         "background_color": "#0d0d0d",
         "text_container_bg": "#0d0d0d",
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "padding_top": 0,
+        "padding_bottom": 0,
         "title": "<p>Somos una empresa mexicana con más de 25 años de experiencia...</p>",
         "title_font_size_desktop": 33,
         "title_font_size_mobile": 24,
