@@ -1,1 +1,151 @@
-{"sections":{"breadcrumbs":{"type":"breadcrumbs","disabled":true,"settings":{"hide_mobile":false,"back_button":false}},"main-page":{"type":"main-page","blocks":{"title":{"type":"title","settings":{"title_size":"h2"}},"content":{"type":"content","settings":{}}},"block_order":["title","content"],"disabled":true,"settings":{"max_width":980,"content_alignment":"start","text_alignment":"start","spacing_desktop":50,"spacing_mobile":30}},"section_image_with_text_PGbiQp":{"type":"section-image-with-text","blocks":{"title_qByfz3":{"type":"title","settings":{"title":"<h3><strong>Política-antisoborno<\/strong><\/h3>","title_underline_style":"none"}},"text_xhCQF6":{"type":"text","settings":{"text":"<h4><strong>A todos nuestros socios de negocio...<\/strong><\/h4>","font":"secondary","enable_custom_text_styling":false,"font_size":"16px"}},"text_cFC7PX":{"type":"text","settings":{"text":"<p>ARSENAL PROTECTION MEXICO, es una organización que prohíbe cualquier situación de soborno relacionadas con las actividades del negocio, apegándonos a los requisitos del SGAS y legales aplicables, en cumplimiento de los objetivos y la mejora continua, asegurando no existir ninguna represalia al reportar actos de soborno por cualquier parte interesada y en su caso aplicar las sanciones y reportar con las autoridades competentes por parte de la función de cumplimientos y con la debida diligencia.<\/p>","font":"secondary","enable_custom_text_styling":false,"font_size":"16px"}},"text_chAHEM":{"type":"text","settings":{"text":"<h4><strong>Estamos para escucharte<\/strong><\/h4>","font":"secondary","enable_custom_text_styling":false,"font_size":"16px"}},"text_CBWgTN":{"type":"text","settings":{"text":"<p>Si tienes conocimiento de alguna irregularidad que esté dañando el patrimonio de ARSENAL, o a ti como empleado, proveedor, consumidor, o relacionado con la empresa; repórtalo de forma anónima y se investigará.<\/p>","font":"secondary","enable_custom_text_styling":false,"font_size":"16px"}},"buttons_kDMpeG":{"type":"buttons","settings":{"show_first_link":true,"first_link_text":"Quejas, sugerencias y denuncias","first_link_url":"shopify:\/\/pages\/formulario-de-quejas","first_button_style":"primary plain","show_second_link":false,"second_link_text":"Button","second_link_url":"\/","second_button_style":"secondary plain"}}},"block_order":["title_qByfz3","text_xhCQF6","text_cFC7PX","text_chAHEM","text_CBWgTN","buttons_kDMpeG"],"custom_css":["h4 {color: #ea5c10;}"],"name":"t:sections.image_with_text.presets.name","settings":{"image":"shopify:\/\/shop_images\/politica_antisoborno.jpg","fill_image":true,"overlay_opacity_img":0,"enable_controls":true,"video_mute":true,"width":"boxed","height":"size-m","enable_custom_height":false,"custom_height":300,"color_palette":"","overlay_opacity":100,"layout":"image-left","text_position":"text-start","background_color_palette":"scheme-2","background_overlay_opacity":75,"background_position":"left","background_width":50,"background_height":100,"background_width_mobile":100,"background_height_mobile":100,"spacing_desktop":50,"spacing_mobile":30,"fix_zindex":0}}},"order":["breadcrumbs","main-page","section_image_with_text_PGbiQp"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {
+        "hide_mobile": false,
+        "back_button": false
+      }
+    },
+    "main-page": {
+      "type": "main-page",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "h2"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "content"
+      ],
+      "disabled": true,
+      "settings": {
+        "max_width": 980,
+        "content_alignment": "start",
+        "text_alignment": "start",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30
+      }
+    },
+    "section_image_with_text_PGbiQp": {
+      "type": "section-image-with-text",
+      "blocks": {
+        "title_qByfz3": {
+          "type": "title",
+          "settings": {
+            "title": "<h3><strong>Política-antisoborno</strong></h3>",
+            "title_underline_style": "none"
+          }
+        },
+        "text_xhCQF6": {
+          "type": "text",
+          "settings": {
+            "text": "<h4><strong>A todos nuestros socios de negocio...</strong></h4>",
+            "font": "secondary",
+            "enable_custom_text_styling": false,
+            "font_size": "16px"
+          }
+        },
+        "text_cFC7PX": {
+          "type": "text",
+          "settings": {
+            "text": "<p>ARSENAL PROTECTION MEXICO, es una organización que prohíbe cualquier situación de soborno relacionadas con las actividades del negocio, apegándonos a los requisitos del SGAS y legales aplicables, en cumplimiento de los objetivos y la mejora continua, asegurando no existir ninguna represalia al reportar actos de soborno por cualquier parte interesada y en su caso aplicar las sanciones y reportar con las autoridades competentes por parte de la función de cumplimientos y con la debida diligencia.</p>",
+            "font": "secondary",
+            "enable_custom_text_styling": false,
+            "font_size": "16px"
+          }
+        },
+        "text_chAHEM": {
+          "type": "text",
+          "settings": {
+            "text": "<h4><strong>Estamos para escucharte</strong></h4>",
+            "font": "secondary",
+            "enable_custom_text_styling": false,
+            "font_size": "16px"
+          }
+        },
+        "text_CBWgTN": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Si tienes conocimiento de alguna irregularidad que esté dañando el patrimonio de ARSENAL, o a ti como empleado, proveedor, consumidor, o relacionado con la empresa; repórtalo de forma anónima y se investigará.</p>",
+            "font": "secondary",
+            "enable_custom_text_styling": false,
+            "font_size": "16px"
+          }
+        },
+        "buttons_kDMpeG": {
+          "type": "buttons",
+          "settings": {
+            "show_first_link": true,
+            "first_link_text": "Quejas, sugerencias y denuncias",
+            "first_link_url": "shopify://pages/formulario-de-quejas",
+            "first_button_style": "primary plain",
+            "show_second_link": false,
+            "second_link_text": "Button",
+            "second_link_url": "/",
+            "second_button_style": "secondary plain"
+          }
+        }
+      },
+      "block_order": [
+        "title_qByfz3",
+        "text_xhCQF6",
+        "text_cFC7PX",
+        "text_chAHEM",
+        "text_CBWgTN",
+        "buttons_kDMpeG"
+      ],
+      "custom_css": [
+        "h4 {color: #ea5c10;}"
+      ],
+      "name": "t:sections.image_with_text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/politica_antisoborno.jpg",
+        "fill_image": true,
+        "overlay_opacity_img": 0,
+        "enable_controls": true,
+        "video_mute": true,
+        "width": "boxed",
+        "height": "size-m",
+        "enable_custom_height": false,
+        "custom_height": 300,
+        "color_palette": "",
+        "overlay_opacity": 100,
+        "layout": "image-left",
+        "text_position": "text-start",
+        "background_color_palette": "scheme-2",
+        "background_overlay_opacity": 75,
+        "background_position": "left",
+        "background_width": 50,
+        "background_height": 100,
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": 0,
+        "spacing_mobile": 0,
+        "fix_zindex": 0
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-page",
+    "section_image_with_text_PGbiQp"
+  ]
+}
