@@ -32,7 +32,7 @@
         "show_below": true,
         "show_arrow": false,
         "pagination_qty": 12,
-        "number_of_items": 4
+        "number_of_items": 3
       }
     },
     "arsenal_collection_list_4VPTTe": {
@@ -50,7 +50,7 @@
         "view_all_link": "shopify://collections/all",
         "view_all_text": "Ver todos los productos",
         "layout": "grid",
-        "columns": 4,
+        "columns": 3,
         "grid_gap": 20,
         "card_style": "bordered",
         "image_ratio": "1/1",
