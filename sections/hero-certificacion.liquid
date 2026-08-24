@@ -166,6 +166,16 @@
     letter-spacing: 3px;
     text-transform: uppercase;
     color: {{ section.settings.text_color | color_modify: 'alpha', 0.75 }};
+    margin-bottom: 6px;
+  }
+
+  .hero-nij-cert-badge-2-{{ section.id }} {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: {{ section.settings.text_color | color_modify: 'alpha', 0.65 }};
+    margin-top: 0;
     margin-bottom: 8px;
   }
 
@@ -640,6 +650,12 @@
           </div>
         {%- endif -%}
 
+        {%- if section.settings.cert_badge_2 != blank -%}
+          <div class="hero-nij-cert-badge-2-{{ section.id }}">
+            {{ section.settings.cert_badge_2 }}
+          </div>
+        {%- endif -%}
+
         {%- if section.settings.title != blank -%}
           <h1 class="hero-nij-title-{{ section.id }}">
             <span class="gradient-text">{{ section.settings.title }}</span>
@@ -851,6 +867,12 @@
       "id": "cert_badge",
       "label": "Etiqueta Certificación",
       "default": "CERTIFICACIÓN"
+    },
+    {
+      "type": "text",
+      "id": "cert_badge_2",
+      "label": "Segunda Etiqueta Certificación",
+      "default": "OFICIAL Y BALÍSTICA"
     },
     {
       "type": "text",
