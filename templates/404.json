@@ -1,1 +1,26 @@
-{"sections":{"main-404":{"type":"main-404","settings":{"overlay_opacity":100,"color_palette":"scheme-8","show_link":true,"link_text":"Continue shopping","link_url":"\/"}}},"order":["main-404"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-404": {
+      "type": "main-404",
+      "settings": {
+        "overlay_opacity": 100,
+        "color_palette": "scheme-8",
+        "show_link": true,
+        "link_text": "Continue shopping",
+        "link_url": "/"
+      }
+    }
+  },
+  "order": [
+    "main-404"
+  ]
+}

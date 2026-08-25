@@ -1,1 +1,91 @@
-{"sections":{"breadcrumbs":{"type":"breadcrumbs","disabled":true,"settings":{"hide_mobile":false,"back_button":false}},"main-page":{"type":"main-page","blocks":{"title":{"type":"title","settings":{"title_size":"h2"}},"content":{"type":"content","settings":{}}},"block_order":["title","content"],"disabled":true,"settings":{"max_width":980,"content_alignment":"start","text_alignment":"start","spacing_desktop":50,"spacing_mobile":30}},"arsenal_anti_bribery_form_d6wUGA":{"type":"arsenal-anti-bribery-form","name":"Form Ética \/ Quejas","settings":{"heading":"Canal de Denuncias y Ética","description":"<p>Bienvenido a nuestro canal de denuncias y ética. Aquí puedes reportar cualquier comportamiento inapropiado, violación de políticas o preocupaciones éticas de manera confidencial.<\/p>","image":"shopify:\/\/shop_images\/img-3.jpg","features_text":"<p><strong>Todas las quejas y sugerencias serán tratadas de manera confidencial y se investigarán adecuadamente.<\/strong><\/p><p>Gracias por su colaboración para mejorar nuestras políticas y prácticas. Su aportación es valiosa para nosotros.<\/p>","label_name":"Nombre","placeholder_name":"Escribe tu nombre","label_email":"Correo electrónico","placeholder_email":"ejemplo@miempresa.com.mx","label_phone":"Teléfono","placeholder_phone":"Escribe tu teléfono","label_date":"Fecha","label_anonymous":"¿Desea que su presentación sea anónima? (Seleccione una opción)","label_contact":"¿Está dispuesto(a) a ser contactado(a) para proporcionar más información o para discutir su queja o sugerencia? (Seleccione una opción)","label_comments":"Comentarios","placeholder_comments":"Por favor, proporcione una descripción detallada. Incluya fechas, nombres y cualquier otra información relevante","label_environmental":"¿Tienes alguna sugerencia que hacerle a Arsenal para su mejora de cuestión ambiental?","placeholder_environmental":"Por favor, proporcione una descripción detallada","button_text":"Enviar Reporte","success_message":"Gracias por tu reporte. Hemos recibido tu información y será tratada de manera confidencial.","disclaimer_text":"Todas las quejas y sugerencias serán tratadas de manera confidencial y se investigarán adecuadamente.","background_color":"#f9f9f9","card_background":"#ffffff","heading_color":"#ea5c10","text_color":"#333333","label_color":"#1a1a1a","accent_color":"#c62828","button_background":"#ea5c10","button_text_color":"#ffffff","features_background":"#f5f5f5","max_width":1100,"padding_top":80,"padding_bottom":80}}},"order":["breadcrumbs","main-page","arsenal_anti_bribery_form_d6wUGA"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {
+        "hide_mobile": false,
+        "back_button": false
+      }
+    },
+    "main-page": {
+      "type": "main-page",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "h2"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "content"
+      ],
+      "disabled": true,
+      "settings": {
+        "max_width": 980,
+        "content_alignment": "start",
+        "text_alignment": "start",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30
+      }
+    },
+    "arsenal_anti_bribery_form_d6wUGA": {
+      "type": "arsenal-anti-bribery-form",
+      "name": "Form Ética / Quejas",
+      "settings": {
+        "heading": "Canal de Denuncias y Ética",
+        "description": "<p>Bienvenido a nuestro canal de denuncias y ética. Aquí puedes reportar cualquier comportamiento inapropiado, violación de políticas o preocupaciones éticas de manera confidencial.</p>",
+        "image": "shopify://shop_images/img-3.jpg",
+        "features_text": "<p><strong>Todas las quejas y sugerencias serán tratadas de manera confidencial y se investigarán adecuadamente.</strong></p><p>Gracias por su colaboración para mejorar nuestras políticas y prácticas. Su aportación es valiosa para nosotros.</p>",
+        "label_name": "Nombre",
+        "placeholder_name": "Escribe tu nombre",
+        "label_email": "Correo electrónico",
+        "placeholder_email": "ejemplo@miempresa.com.mx",
+        "label_phone": "Teléfono",
+        "placeholder_phone": "Escribe tu teléfono",
+        "label_date": "Fecha",
+        "label_anonymous": "¿Desea que su presentación sea anónima? (Seleccione una opción)",
+        "label_contact": "¿Está dispuesto(a) a ser contactado(a) para proporcionar más información o para discutir su queja o sugerencia? (Seleccione una opción)",
+        "label_comments": "Comentarios",
+        "placeholder_comments": "Por favor, proporcione una descripción detallada. Incluya fechas, nombres y cualquier otra información relevante",
+        "label_environmental": "¿Tienes alguna sugerencia que hacerle a Arsenal para su mejora de cuestión ambiental?",
+        "placeholder_environmental": "Por favor, proporcione una descripción detallada",
+        "button_text": "Enviar Reporte",
+        "success_message": "Gracias por tu reporte. Hemos recibido tu información y será tratada de manera confidencial.",
+        "disclaimer_text": "Todas las quejas y sugerencias serán tratadas de manera confidencial y se investigarán adecuadamente.",
+        "background_color": "#f9f9f9",
+        "card_background": "#ffffff",
+        "heading_color": "#ea5c10",
+        "text_color": "#333333",
+        "label_color": "#1a1a1a",
+        "accent_color": "#c62828",
+        "button_background": "#ea5c10",
+        "button_text_color": "#ffffff",
+        "features_background": "#f5f5f5",
+        "max_width": 1100,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    }
+  },
+  "order": [
+    "breadcrumbs",
+    "main-page",
+    "arsenal_anti_bribery_form_d6wUGA"
+  ]
+}

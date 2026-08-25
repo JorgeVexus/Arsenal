@@ -192,9 +192,16 @@
         #root .block-shopify-attributes { height: 100%; left: 0; position: absolute; top: 0; width: 100%; z-index: 99999; }
         html:not(.inspect-mode-enabled) #root .block-shopify-attributes { pointer-events: none; }
       {% endif %}
+
+      #content > .shopify-section-footer,
+      #content > .shopify-section-group-footer-group,
+      .shopify-section-group-footer-group,
+      .shopify-section-footer {
+        margin-top: 0 !important;
+      }
     </style>
   </head>
-  <body class="template-{{ template.name | handle }}">
+  <body class="template-{{ template.name | handle }}{% if template.suffix %} template-{{ template.name | handle }}-{{ template.suffix | handle }} template-{{ template.suffix | handle }}{% endif %}">
     <div id="root">
       {%- render 'accessibility-menu' %}
       {%- sections 'header-group' -%}
