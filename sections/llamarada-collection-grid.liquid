@@ -1,4 +1,78 @@
 {%- paginate collection.products by section.settings.products_per_page -%}
+
+<style>
+  .ll-cat-card__body {
+    padding: 12px 10px !important;
+    gap: 8px !important;
+  }
+  .ll-cat-card__title {
+    font-size: 13.5px !important;
+    line-height: 1.25 !important;
+    min-height: 34px !important;
+    margin-bottom: 2px !important;
+  }
+  .ll-cat-card__package-info {
+    font-size: 11px !important;
+    margin-bottom: 4px !important;
+  }
+  .ll-cat-card__price-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    justify-content: space-between !important;
+    gap: 2px !important;
+    width: 100% !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+  }
+  .ll-cat-card__unit-price-wrap {
+    display: inline-flex !important;
+    flex-direction: row !important;
+    align-items: baseline !important;
+    gap: 2px !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+  .ll-cat-card__unit-price {
+    font-family: var(--ll-font-heading, 'Montserrat', sans-serif) !important;
+    font-weight: 700 !important;
+    font-size: 15px !important;
+    color: var(--ll-purple, #9424a4) !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    display: inline-block !important;
+  }
+  .ll-cat-card__unit-price * {
+    white-space: nowrap !important;
+    display: inline !important;
+    font-size: 15px !important;
+  }
+  .ll-cat-card__unit-compare {
+    font-size: 10.5px !important;
+    white-space: nowrap !important;
+    text-decoration: line-through !important;
+    color: var(--ll-text-muted, #777) !important;
+    margin-left: 1px !important;
+  }
+  .ll-cat-card__unit-label {
+    font-size: 10.5px !important;
+    color: var(--ll-text-muted, #777) !important;
+    white-space: nowrap !important;
+  }
+  .ll-cat-card__box-total {
+    font-size: 10.5px !important;
+    color: var(--ll-text-muted, #777) !important;
+    text-align: right !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+  }
+  .ll-cat-card__box-total * {
+    white-space: nowrap !important;
+    display: inline !important;
+  }
+</style>
+
 <section class="ll-products-grid" aria-label="Productos de la categoría">
   {%- if collection.products.size > 0 -%}
     {%- for product in collection.products -%}
@@ -50,21 +124,21 @@
           </div>
 
           <div>
-            <div class="ll-cat-card__price-row">
-              <div class="ll-cat-card__unit-price-wrap">
-                <span class="ll-cat-card__unit-price{% if product.compare_at_price > product.price %} ll-cat-card__unit-price--discount{% endif %}">
+            <div class="ll-cat-card__price-row" style="display: flex; align-items: baseline; justify-content: space-between; gap: 2px; width: 100%; white-space: nowrap;">
+              <div class="ll-cat-card__unit-price-wrap" style="display: inline-flex; align-items: baseline; gap: 2px; white-space: nowrap; flex-shrink: 0;">
+                <span class="ll-cat-card__unit-price{% if product.compare_at_price > product.price %} ll-cat-card__unit-price--discount{% endif %}" style="font-size: 15px !important; white-space: nowrap !important; display: inline-block !important;">
                   {{ product.price | money }}
                 </span>
                 {%- if product.compare_at_price > product.price -%}
-                  <span class="ll-cat-card__unit-compare">
+                  <span class="ll-cat-card__unit-compare" style="font-size: 10.5px !important; white-space: nowrap !important;">
                     {{ product.compare_at_price | money }}
                   </span>
                 {%- endif -%}
-                <span class="ll-cat-card__unit-label">/pza</span>
+                <span class="ll-cat-card__unit-label" style="font-size: 10.5px !important; white-space: nowrap !important;">/pza</span>
               </div>
 
-              <div class="ll-cat-card__box-total">
-                <span>Caja: {{ product.price | times: 12 | money_without_trailing_zeros }}</span>
+              <div class="ll-cat-card__box-total" style="font-size: 10.5px !important; white-space: nowrap !important; text-align: right !important; flex-shrink: 0;">
+                <span style="white-space: nowrap !important;">Caja: {{ product.price | times: 12 | money_without_trailing_zeros }}</span>
               </div>
             </div>
 
@@ -102,14 +176,13 @@
           <p class="ll-cat-card__package-info">Caja con 24 pzas</p>
         </div>
         <div>
-          <div class="ll-cat-card__price-row">
-            <div class="ll-cat-card__unit-price-wrap">
-              <span class="ll-cat-card__unit-price">$45.00</span>
-              <span class="ll-cat-card__unit-label">/pza</span>
+          <div class="ll-cat-card__price-row" style="display: flex; align-items: baseline; justify-content: space-between; gap: 2px; width: 100%; white-space: nowrap;">
+            <div class="ll-cat-card__unit-price-wrap" style="display: inline-flex; align-items: baseline; gap: 2px; white-space: nowrap; flex-shrink: 0;">
+              <span class="ll-cat-card__unit-price" style="font-size: 15px !important; white-space: nowrap !important;">$45.00</span>
+              <span class="ll-cat-card__unit-label" style="font-size: 10.5px !important; white-space: nowrap !important;">/pza</span>
             </div>
-            <div class="ll-cat-card__box-total">
-              <div>Caja:</div>
-              <div>$1,080</div>
+            <div class="ll-cat-card__box-total" style="font-size: 10.5px !important; white-space: nowrap !important; text-align: right !important; flex-shrink: 0;">
+              <span style="white-space: nowrap !important;">Caja: $1,080</span>
             </div>
           </div>
           <a href="/products/set-cepillos-limpieza" class="ll-cat-card__btn">
@@ -134,14 +207,13 @@
           <p class="ll-cat-card__package-info">Caja con 12 pzas</p>
         </div>
         <div>
-          <div class="ll-cat-card__price-row">
-            <div class="ll-cat-card__unit-price-wrap">
-              <span class="ll-cat-card__unit-price ll-cat-card__unit-price--discount">$85.00</span>
-              <span class="ll-cat-card__unit-compare">$95.00</span>
+          <div class="ll-cat-card__price-row" style="display: flex; align-items: baseline; justify-content: space-between; gap: 2px; width: 100%; white-space: nowrap;">
+            <div class="ll-cat-card__unit-price-wrap" style="display: inline-flex; align-items: baseline; gap: 2px; white-space: nowrap; flex-shrink: 0;">
+              <span class="ll-cat-card__unit-price ll-cat-card__unit-price--discount" style="font-size: 15px !important; white-space: nowrap !important;">$85.00</span>
+              <span class="ll-cat-card__unit-compare" style="font-size: 10.5px !important; white-space: nowrap !important;">$95.00</span>
             </div>
-            <div class="ll-cat-card__box-total">
-              <div>Caja:</div>
-              <div>$1,020</div>
+            <div class="ll-cat-card__box-total" style="font-size: 10.5px !important; white-space: nowrap !important; text-align: right !important; flex-shrink: 0;">
+              <span style="white-space: nowrap !important;">Caja: $1,020</span>
             </div>
           </div>
           <a href="/products/cepillo-premium-rosa" class="ll-cat-card__btn">
@@ -163,14 +235,13 @@
           <p class="ll-cat-card__package-info">Fardo con 50 paq</p>
         </div>
         <div>
-          <div class="ll-cat-card__price-row">
-            <div class="ll-cat-card__unit-price-wrap">
-              <span class="ll-cat-card__unit-price">$22.50</span>
-              <span class="ll-cat-card__unit-label">/paq</span>
+          <div class="ll-cat-card__price-row" style="display: flex; align-items: baseline; justify-content: space-between; gap: 2px; width: 100%; white-space: nowrap;">
+            <div class="ll-cat-card__unit-price-wrap" style="display: inline-flex; align-items: baseline; gap: 2px; white-space: nowrap; flex-shrink: 0;">
+              <span class="ll-cat-card__unit-price" style="font-size: 15px !important; white-space: nowrap !important;">$22.50</span>
+              <span class="ll-cat-card__unit-label" style="font-size: 10.5px !important; white-space: nowrap !important;">/paq</span>
             </div>
-            <div class="ll-cat-card__box-total">
-              <div>Fardo:</div>
-              <div>$1,125</div>
+            <div class="ll-cat-card__box-total" style="font-size: 10.5px !important; white-space: nowrap !important; text-align: right !important; flex-shrink: 0;">
+              <span style="white-space: nowrap !important;">Fardo: $1,125</span>
             </div>
           </div>
           <a href="/products/panos-microfibra" class="ll-cat-card__btn">
@@ -192,13 +263,13 @@
           <p class="ll-cat-card__package-info">Caja con 36 pzas</p>
         </div>
         <div>
-          <div class="ll-cat-card__price-row">
-            <div class="ll-cat-card__unit-price-wrap">
-              <span class="ll-cat-card__unit-price">$18.00</span>
-              <span class="ll-cat-card__unit-label">/pza</span>
+          <div class="ll-cat-card__price-row" style="display: flex; align-items: baseline; justify-content: space-between; gap: 2px; width: 100%; white-space: nowrap;">
+            <div class="ll-cat-card__unit-price-wrap" style="display: inline-flex; align-items: baseline; gap: 2px; white-space: nowrap; flex-shrink: 0;">
+              <span class="ll-cat-card__unit-price" style="font-size: 15px !important; white-space: nowrap !important;">$18.00</span>
+              <span class="ll-cat-card__unit-label" style="font-size: 10.5px !important; white-space: nowrap !important;">/pza</span>
             </div>
-            <div class="ll-cat-card__box-total">
-              <span>Caja: $648</span>
+            <div class="ll-cat-card__box-total" style="font-size: 10.5px !important; white-space: nowrap !important; text-align: right !important; flex-shrink: 0;">
+              <span style="white-space: nowrap !important;">Caja: $648</span>
             </div>
           </div>
           <a href="/products/atomizador-industrial" class="ll-cat-card__btn">

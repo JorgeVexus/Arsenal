@@ -90,6 +90,15 @@
           width="1400"
           height="256"
         >
+      {%- elsif section.settings.banner_image != blank -%}
+        <img
+          src="{{ section.settings.banner_image | image_url: width: 1400 }}"
+          alt="{{ collection.title | escape }}"
+          class="ll-category-hero__bg"
+          loading="eager"
+          width="1400"
+          height="256"
+        >
       {%- else -%}
         <img
           src="{{ 'cat-banner-limpieza.png' | asset_url }}"
@@ -103,13 +112,13 @@
 
       <div class="ll-category-hero__overlay">
         <h1 class="ll-category-hero__title">
-          {{ collection.title | default: 'Limpieza' }}
+          {{ collection.title | default: section.settings.fallback_title | default: 'Limpieza' }}
         </h1>
         <p class="ll-category-hero__subtitle">
           {%- if collection.description != blank -%}
             {{ collection.description | strip_html }}
           {%- else -%}
-            Soluciones efectivas para un entorno impecable. Calidad industrial a tu alcance.
+            {{ section.settings.fallback_description | default: 'Soluciones efectivas para un entorno impecable. Calidad industrial a tu alcance.' }}
           {%- endif -%}
         </p>
       </div>
@@ -157,6 +166,7 @@
                   </a>
                 </h3>
 
+                <!-- Packaging info (from metafield, tag or default) -->
                 <p class="ll-cat-card__package-info">
                   {%- if product.metafields.custom.empaque != blank -%}
                     {{ product.metafields.custom.empaque }}
@@ -190,7 +200,7 @@
                   <form method="post" action="/cart/add">
                     <input type="hidden" name="id" value="{{ product.variants.first.id }}">
                     <button type="submit" class="ll-cat-card__btn">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="#9424A4"/></svg>
+                      <img src="{{ 'icon-cart-add.svg' | asset_url }}" alt="" width="14" height="14">
                       <span>Agregar</span>
                     </button>
                   </form>
@@ -236,7 +246,7 @@
               </div>
 
               <a href="/products/set-cepillos-limpieza" class="ll-cat-card__btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="#9424A4"/></svg>
+                <img src="{{ 'icon-cart-add.svg' | asset_url }}" alt="" width="14" height="14">
                 <span>Agregar</span>
               </a>
             </div>
@@ -274,7 +284,7 @@
               </div>
 
               <a href="/products/cepillo-premium-rosa" class="ll-cat-card__btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="#9424A4"/></svg>
+                <img src="{{ 'icon-cart-add.svg' | asset_url }}" alt="" width="14" height="14">
                 <span>Agregar</span>
               </a>
             </div>
@@ -308,7 +318,7 @@
               </div>
 
               <a href="/products/panos-microfibra" class="ll-cat-card__btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="#9424A4"/></svg>
+                <img src="{{ 'icon-cart-add.svg' | asset_url }}" alt="" width="14" height="14">
                 <span>Agregar</span>
               </a>
             </div>
@@ -341,7 +351,7 @@
               </div>
 
               <a href="/products/atomizador-industrial" class="ll-cat-card__btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="#9424A4"/></svg>
+                <img src="{{ 'icon-cart-add.svg' | asset_url }}" alt="" width="14" height="14">
                 <span>Agregar</span>
               </a>
             </div>
@@ -349,14 +359,20 @@
         </article>
       {%- endif -%}
     </section>
+
+    {%- if paginate.pages > 1 -%}
+      <div class="ll-pagination" style="display: flex; justify-content: center; margin-top: 32px;">
+        {{ paginate | default_pagination }}
+      </div>
+    {%- endif -%}
   </main>
 </div>
 {%- endpaginate -%}
 
 {% schema %}
 {
-  "name": "Product grid",
-  "class": "section-collection-product-grid",
+  "name": "Llamarada Collection",
+  "class": "section-llamarada-collection",
   "settings": [
     {
       "type": "range",
@@ -366,6 +382,28 @@
       "step": 4,
       "default": 16,
       "label": "Productos por página"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Imagen de banner alternativa"
+    },
+    {
+      "type": "text",
+      "id": "fallback_title",
+      "label": "Título por defecto",
+      "default": "Limpieza"
+    },
+    {
+      "type": "textarea",
+      "id": "fallback_description",
+      "label": "Descripción por defecto",
+      "default": "Soluciones efectivas para un entorno impecable. Calidad industrial a tu alcance."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Llamarada Collection"
     }
   ]
 }
