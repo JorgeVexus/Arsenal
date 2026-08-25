@@ -57,7 +57,7 @@
         "text_cFC7PX": {
           "type": "text",
           "settings": {
-            "text": "<p>En Arsenal Protection México S, de R.L. de C.V. fabricamos y comercializamos la más alta calidad de los chalecos y placas balísticas, así como equipos de protección con los cuales custodiamos la integridad física de los distintos cuerpos de seguridad que brindan protección pública y privada a la sociedad, protegiendo el medio ambiente y previniendo la contaminación en nuestros procesos asegurándonos del cumplimiento de la normatividad aplicable, la satisfacción de nuestros clientes e impulsando la mejora continua en nuestros procesos.</p>",
+            "text": "<p>En Arsenal Protection México S, de R.L. de C.V. fabricamos y comercializamos la más alta calidad de los chalecos y placas balísticas, así como equipos de protección con los cuales custodiamos la integridad física de los distintos cuerpos de seguridad que brindan protección pública y privada a la sociedad, protegiendo el medio ambiente y previniendo la contaminación en nuestros procesos asegurándonos del cumplimiento de la normatividad aplicable, la satisfacción de nuestros clientes e impulsando la mejora continua en nuestros procesos.</p><p></p><p></p><p></p>",
             "font": "secondary",
             "enable_custom_text_styling": false,
             "font_size": "16px"
@@ -100,6 +100,11 @@
         "color_palette": "",
         "overlay_opacity": 100,
         "layout": "image-left",
+        "align_image_flush": true,
+        "image_content_gap": 40,
+        "image_content_gap_mobile": 20,
+        "content_padding_outer": 40,
+        "content_padding_outer_mobile": 20,
         "text_position": "text-start",
         "background_color_palette": "scheme-2",
         "background_overlay_opacity": 75,
