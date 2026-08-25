@@ -9,15 +9,39 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
+    "breadcrumbs": {
+      "type": "breadcrumbs",
       "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
+        "hide_mobile": false
+      }
+    },
+    "main-page": {
+      "type": "main-page",
+      "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {
+            "title_size": "h2"
+          }
+        },
+        "content": {
+          "type": "content",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "title",
+        "content"
+      ],
+      "settings": {
+        "text_alignment": "start",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30
       }
     }
   },
   "order": [
-    "main"
+    "breadcrumbs",
+    "main-page"
   ]
 }

@@ -8,12 +8,120 @@
  * ------------------------------------------------------------
  */
 {
-  "name": "t:sections.footer.name",
   "type": "footer",
+  "name": "t:static_sections.footer.name",
   "sections": {
     "footer": {
       "type": "footer",
-      "settings": {}
+      "blocks": {
+        "7daca3af-bb39-4413-b954-ec9094bca0f7": {
+          "type": "customer_support",
+          "settings": {
+            "title": "<span style=\"text-decoration:underline\">Comprometidos con la Protección y la Innovación</span>",
+            "title_underline_style": "accent",
+            "customer_support_img": "shopify://shop_images/arsenal_logo_svg.svg",
+            "customer_support_img_width": 250,
+            "customer_support_img_rounded": false,
+            "text": "<h4><strong>Contacto</strong></h4><p><a href=\"tel:5515537039\" title=\"tel:5515537039\"><strong>55 155 370 39</strong></a></p><p><a href=\"mailto:dircom@arsenalprotect.com\" title=\"mailto:dircom@arsenalprotect.com\"><strong>dircom@arsenalprotect.com</strong></a></p><p><a href=\"mailto:marketing@arsenalprotect.com\" title=\"mailto:marketing@arsenalprotect.com\"><strong>marketing@arsenalprotect.com</strong></a></p>",
+            "show_phone_link": false,
+            "show_mail_link": false,
+            "show_whatsapp_link": false,
+            "button_label": "Quejas, sugerencias y denuncias",
+            "button_link": "shopify://pages/formulario-de-quejas",
+            "button_style": "secondary solid",
+            "enable_follow_on_shop": false
+          }
+        },
+        "3f7dd57f-176b-4bd4-b40e-1783f4c2cbbf": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "title": "Footer information",
+            "title_underline_style": "none",
+            "text": "<p>Give your customers details about your online store.</p>"
+          }
+        },
+        "29fd4919-250d-4101-b146-11305de34929": {
+          "type": "menu",
+          "settings": {
+            "menu_title": "Páginas",
+            "menu": "main",
+            "split_menu": false
+          }
+        },
+        "menu_4ybpnH": {
+          "type": "menu",
+          "settings": {
+            "menu_title": "Políticas",
+            "menu": "pol-ticas",
+            "split_menu": false
+          }
+        },
+        "7915bb99-5182-4122-a51d-9f54abb6b6d3": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "title": "Footer information",
+            "title_underline_style": "none",
+            "text": "<p>Give your customers details about your online store.</p>"
+          }
+        },
+        "a20428a5-be6d-4a4a-b280-c9cde96c4853": {
+          "type": "newsletter",
+          "disabled": true,
+          "settings": {
+            "title": "Subscribe to our emails",
+            "title_underline_style": "none",
+            "newsletter_text": "<p>Never miss any news and be the first to know about sale and offers</p>",
+            "footer_button_color": "accent",
+            "enable_newsletter_terms_checkbox": true,
+            "newsletter_terms_text": "<p>I accept the <a href=\"/policies/privacy-policy\" title=\"Privacy Policy\">privacy policy</a></p>"
+          }
+        },
+        "e27deae7-960a-4fbf-9b77-9236a312455e": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "title": "Footer information",
+            "title_underline_style": "none",
+            "text": "<p>Give your customers details about your online store.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "7daca3af-bb39-4413-b954-ec9094bca0f7",
+        "3f7dd57f-176b-4bd4-b40e-1783f4c2cbbf",
+        "29fd4919-250d-4101-b146-11305de34929",
+        "menu_4ybpnH",
+        "7915bb99-5182-4122-a51d-9f54abb6b6d3",
+        "a20428a5-be6d-4a4a-b280-c9cde96c4853",
+        "e27deae7-960a-4fbf-9b77-9236a312455e"
+      ],
+      "settings": {
+        "footer_color": "scheme-2",
+        "column_text_alignment": "left",
+        "content_position": "left",
+        "title_size_blocks": "h4",
+        "title_font": "primary",
+        "enable_custom_text_styling": true,
+        "font_size": "14px",
+        "enable_language_selector": true,
+        "enable_country_selector": true,
+        "copyright_img_width": 80,
+        "copyright_img_width_mobile": 100,
+        "copyright_img_link": "",
+        "show_socials": true,
+        "bottom_color": "scheme-2",
+        "bottom_height": "85px",
+        "bottom_img_width": 100,
+        "bottom_img_width_mobile": 100,
+        "bottom_img_link": "",
+        "show_payment_methods": true,
+        "enable_follow_on_shop": true,
+        "footer_bg_offset": 30,
+        "spacing_desktop": 0,
+        "spacing_mobile": 0
+      }
     }
   },
   "order": [

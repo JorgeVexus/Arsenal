@@ -9,20 +9,113 @@
  */
 {
   "sections": {
-    "main": {
+    "9e162ed7-7ff0-4e1b-864d-a9aed38f7553": {
+      "type": "section-slideshow",
+      "blocks": {
+        "template--19595896422721__9e162ed7-7ff0-4e1b-864d-a9aed38f7553-slide-1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/banner.jpg",
+            "show_play_button": false,
+            "video_mute": true,
+            "layout": "background",
+            "image_width": 40,
+            "overlay_opacity": 55,
+            "color_palette": "scheme-2",
+            "background_overlay_opacity": 100,
+            "text_position": "text-center",
+            "max_width": 600,
+            "title": "",
+            "title_underline_style": "none",
+            "text": "",
+            "enable_custom_font_styling": false,
+            "font_size": "16px",
+            "show_first_link": true,
+            "first_link_text": "",
+            "first_link_url": "",
+            "first_button_style": "primary plain",
+            "show_second_link": true,
+            "second_link_text": "",
+            "second_link_url": "",
+            "second_button_style": "secondary plain"
+          }
+        }
+      },
+      "block_order": [
+        "template--19595896422721__9e162ed7-7ff0-4e1b-864d-a9aed38f7553-slide-1"
+      ],
+      "settings": {
+        "width": "wide",
+        "height": "s",
+        "enable_custom_height": false,
+        "custom_height": 300,
+        "autoplay": false,
+        "autoplay_seconds": 3,
+        "enable_controls": false,
+        "height_mobile": "s",
+        "spacing_desktop": 0,
+        "spacing_mobile": 0,
+        "fix_zindex": 0
+      }
+    },
+    "d5a21998-bfbb-4dbf-bfee-1e214e93df06": {
+      "type": "section-image-mask",
+      "settings": {
+        "width": "wide",
+        "height": "m",
+        "enable_custom_height": false,
+        "custom_height": 300,
+        "color_palette": "scheme-1",
+        "background_overlay_opacity": 0,
+        "background_position": "left",
+        "background_width": 50,
+        "background_height": 100,
+        "background_color_section": true,
+        "text_alignment": "center",
+        "content_width": 2000,
+        "title": "<h2><strong>Arsenal Blog</strong></h2>",
+        "title_underline_style": "none",
+        "enable_custom_title_size": true,
+        "custom_title_size": 57,
+        "line_height": 150,
+        "height_mobile": "xs",
+        "background_width_mobile": 100,
+        "background_height_mobile": 100,
+        "spacing_desktop": -70,
+        "spacing_mobile": -20,
+        "fix_zindex": 0
+      }
+    },
+    "breadcrumbs": {
+      "type": "breadcrumbs",
+      "disabled": true,
+      "settings": {
+        "hide_mobile": false,
+        "back_button": false
+      }
+    },
+    "main-blog": {
       "type": "main-blog",
       "settings": {
-        "layout": "collage",
+        "title_size": "h3",
+        "title": "Conoce nuestro blog",
+        "text_alignment": "center",
+        "show_blog_tags": false,
+        "pagination_qty": 6,
         "show_image": true,
-        "image_height": "medium",
+        "custom_image_ratio": 75,
+        "show_tags": true,
         "show_date": true,
-        "show_author": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "show_author": true,
+        "show_excerpt": false,
+        "button_style_post": "primary link"
       }
     }
   },
   "order": [
-    "main"
+    "9e162ed7-7ff0-4e1b-864d-a9aed38f7553",
+    "d5a21998-bfbb-4dbf-bfee-1e214e93df06",
+    "breadcrumbs",
+    "main-blog"
   ]
 }
