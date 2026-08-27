@@ -424,44 +424,53 @@
     "arsenal_shop_the_look_iGCYaK": {
       "type": "arsenal-shop-the-look",
       "blocks": {
-        "hotspot_JzxjDT": {
+        "hotspot_policia": {
           "type": "hotspot",
           "settings": {
-            "product": "botas-tacticas-modelo-ar-black-04",
-            "pos_x": 46,
-            "pos_y": 96,
-            "line_dir": "top-right"
+            "pos_x": 28,
+            "pos_y": 65
           }
         },
-        "hotspot_RzH9AJ": {
+        "hotspot_sedena": {
           "type": "hotspot",
           "settings": {
-            "product": "casco-balistico-fast",
-            "pos_x": 60,
-            "pos_y": 14,
-            "line_dir": "top-right"
+            "pos_x": 26,
+            "pos_y": 12
+          }
+        },
+        "hotspot_penitenciaria": {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 49,
+            "pos_y": 7
+          }
+        },
+        "hotspot_ejecutiva": {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 70,
+            "pos_y": 12
+          }
+        },
+        "hotspot_tactico": {
+          "type": "hotspot",
+          "settings": {
+            "pos_x": 77,
+            "pos_y": 45
           }
         }
       },
       "block_order": [
-        "hotspot_JzxjDT",
-        "hotspot_RzH9AJ"
+        "hotspot_policia",
+        "hotspot_sedena",
+        "hotspot_penitenciaria",
+        "hotspot_ejecutiva",
+        "hotspot_tactico"
       ],
       "name": "Shop the Look Interactive",
       "settings": {
         "image": "shopify://shop_images/WhatsApp_Image_2026-08-18_at_8.18.49_AM.webp",
-        "title": "Nuestros Kits",
-        "hotspot_color": "#ea5c10",
-        "line_thickness": 1,
-        "quote_method": "email",
-        "whatsapp_number": "",
-        "quote_email": "jorge@vexusagency.com",
-        "form_title": "Solicitar Cotización",
-        "form_submit_text": "Enviar solicitud",
-        "quote_message": "Hola, me interesa solicitar cotización para el siguiente producto:",
-        "email_subject": "Solicitud de Cotización",
-        "org_label": "Dependencia / Organización",
-        "organization_options": "",
+        "title": "Equipamiento Táctico por Perfil",
         "padding_top": 36,
         "padding_bottom": 36
       }
