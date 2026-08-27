@@ -30,13 +30,13 @@ Designed with Apple Design principles and fluid micro-animations.
 
 .stl-section-{{ section.id }} {
   --stl-accent: {{ accent_color }};
-  --stl-card-bg: rgba(12, 12, 14, 0.92);
+  --stl-card-bg: rgba(11, 11, 14, 0.94);
   --stl-card-border: {{ accent_color }};
   --stl-text-main: #ffffff;
   --stl-text-muted: #a1a1aa;
   --stl-radius: 16px;
   --stl-ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
-  --stl-duration: 320ms;
+  --stl-duration: 300ms;
   position: relative;
   width: 100%;
   margin: 0 auto;
@@ -89,7 +89,7 @@ Designed with Apple Design principles and fluid micro-animations.
 
 @media screen and (max-width: 749px) {
   .stl-main-img-{{ section.id }} {
-    min-height: 520px;
+    min-height: 500px;
     object-position: center 20%;
   }
 }
@@ -105,94 +105,94 @@ Designed with Apple Design principles and fluid micro-animations.
   z-index: 10;
 }
 
-/* Hotspot Trigger Button (Touch-optimized 44x44 target) */
-.stl-hotspot-btn-{{ section.id }} {
-  position: absolute;
-  top: var(--top);
-  left: var(--left);
-  width: 44px;
-  height: 44px;
-  margin-top: -22px;
-  margin-left: -22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  pointer-events: auto;
-  z-index: 12;
-  outline: none;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform 0.25s var(--stl-ease-spring);
+/* Hotspot Trigger Item (div-based, completely isolated from global button styles) */
+#shopify-section-{{ section.id }} .stl-hotspot-item-{{ section.id }} {
+  all: unset !important;
+  box-sizing: border-box !important;
+  position: absolute !important;
+  top: var(--top) !important;
+  left: var(--left) !important;
+  width: 44px !important;
+  height: 44px !important;
+  margin-top: -22px !important;
+  margin-left: -22px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  margin-right: 0 !important;
+  margin-bottom: 0 !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-width: 44px !important;
+  max-height: 44px !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  z-index: 12 !important;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  transition: transform 0.25s var(--stl-ease-spring) !important;
 }
 
-.stl-hotspot-btn-{{ section.id }}:focus-visible {
-  outline: 2px solid var(--stl-accent);
-  outline-offset: 4px;
-  border-radius: 50%;
+#shopify-section-{{ section.id }} .stl-hotspot-item-{{ section.id }}:focus-visible {
+  outline: 2px solid var(--stl-accent) !important;
+  outline-offset: 4px !important;
 }
 
-.stl-hotspot-btn-{{ section.id }}:active {
-  transform: scale(0.92);
+#shopify-section-{{ section.id }} .stl-hotspot-item-{{ section.id }}:hover {
+  transform: scale(1.15) !important;
+}
+
+#shopify-section-{{ section.id }} .stl-hotspot-item-{{ section.id }}:active {
+  transform: scale(0.92) !important;
 }
 
 /* Hotspot Visual Marker */
-.stl-hotspot-marker {
-  position: relative;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--stl-accent);
-  border: 2.5px solid #ffffff;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5), 0 0 16px var(--stl-accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s var(--stl-ease-spring);
+#shopify-section-{{ section.id }} .stl-hotspot-marker {
+  box-sizing: border-box !important;
+  position: relative !important;
+  width: 20px !important;
+  height: 20px !important;
+  border-radius: 50% !important;
+  background: var(--stl-accent) !important;
+  border: 2px solid #ffffff !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6), 0 0 12px var(--stl-accent) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s var(--stl-ease-spring) !important;
 }
 
 /* Marker Inner Dot */
-.stl-hotspot-dot {
-  width: 6px;
-  height: 6px;
-  background: #ffffff;
-  border-radius: 50%;
-  opacity: 0;
-  transform: scale(0.5);
-  transition: all 0.25s var(--stl-ease-spring);
+#shopify-section-{{ section.id }} .stl-hotspot-dot {
+  box-sizing: border-box !important;
+  width: 8px !important;
+  height: 8px !important;
+  background: #ffffff !important;
+  border-radius: 50% !important;
+  opacity: 0 !important;
+  transform: scale(0.5) !important;
+  transition: all 0.25s var(--stl-ease-spring) !important;
 }
 
-/* Marker Pulsing Rings */
-.stl-hotspot-marker::before {
-  content: '';
-  position: absolute;
-  top: -6px;
-  left: -6px;
-  right: -6px;
-  bottom: -6px;
-  border-radius: 50%;
-  border: 1.5px solid var(--stl-accent);
-  opacity: 0.75;
-  animation: stlPulse 2.4s cubic-bezier(0.25, 1, 0.5, 1) infinite;
-  pointer-events: none;
-}
-
-.stl-hotspot-marker::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  background: var(--stl-accent);
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  animation: stlAura 2.4s cubic-bezier(0.25, 1, 0.5, 1) infinite 0.6s;
-  opacity: 0;
-  z-index: -1;
-  pointer-events: none;
+/* Marker Pulsing Ring (Inactive state) */
+#shopify-section-{{ section.id }} .stl-hotspot-marker::before {
+  content: '' !important;
+  position: absolute !important;
+  top: -5px !important;
+  left: -5px !important;
+  right: -5px !important;
+  bottom: -5px !important;
+  border-radius: 50% !important;
+  border: 1.5px solid var(--stl-accent) !important;
+  opacity: 0.75 !important;
+  animation: stlPulse 2.4s cubic-bezier(0.25, 1, 0.5, 1) infinite !important;
+  pointer-events: none !important;
 }
 
 @keyframes stlPulse {
@@ -201,267 +201,198 @@ Designed with Apple Design principles and fluid micro-animations.
   100% { transform: scale(2.0); opacity: 0; }
 }
 
-@keyframes stlAura {
-  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
-  70% { transform: translate(-50%, -50%) scale(2.8); opacity: 0; }
-  100% { transform: translate(-50%, -50%) scale(2.8); opacity: 0; }
+/* Active Hotspot State (Prominent Dual Ring & Solid White Center) */
+#shopify-section-{{ section.id }} .stl-hotspot-item-{{ section.id }}.is-active .stl-hotspot-marker {
+  width: 32px !important;
+  height: 32px !important;
+  background: var(--stl-accent) !important;
+  border: 3px solid #ffffff !important;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 25px var(--stl-accent) !important;
 }
 
-/* Active Hotspot State (Dual Ring / Solid Center as in Reference Image) */
-.stl-hotspot-btn-{{ section.id }}.is-active .stl-hotspot-marker {
-  width: 34px;
-  height: 34px;
-  background: var(--stl-accent);
-  border: 3.5px solid #ffffff;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 25px var(--stl-accent);
+#shopify-section-{{ section.id }} .stl-hotspot-item-{{ section.id }}.is-active .stl-hotspot-dot {
+  opacity: 1 !important;
+  transform: scale(1) !important;
 }
 
-.stl-hotspot-btn-{{ section.id }}.is-active .stl-hotspot-dot {
-  width: 10px;
-  height: 10px;
-  opacity: 1;
-  transform: scale(1);
-  background: #ffffff;
+#shopify-section-{{ section.id }} .stl-hotspot-item-{{ section.id }}.is-active .stl-hotspot-marker::before {
+  display: none !important;
 }
 
-.stl-hotspot-btn-{{ section.id }}.is-active .stl-hotspot-marker::before {
-  animation: none;
-  opacity: 0;
-}
-
-.stl-hotspot-btn-{{ section.id }}.is-active .stl-hotspot-marker::after {
-  animation: stlActiveRing 1.8s ease-out infinite;
-}
-
-@keyframes stlActiveRing {
-  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
-  100% { transform: translate(-50%, -50%) scale(2.2); opacity: 0; }
-}
-
-/* Profile Information Card (Apple Materials & Obsidian Glass) */
-.stl-card-container-{{ section.id }} {
-  position: absolute;
-  z-index: 20;
-  pointer-events: auto;
-  display: grid;
-  grid-template-areas: "card";
-  align-items: end;
-  justify-items: end;
+/* Profile Information Card (Obsidian Dark Glass with Orange Border) */
+#shopify-section-{{ section.id }} .stl-card-container-{{ section.id }} {
+  position: absolute !important;
+  z-index: 20 !important;
+  pointer-events: auto !important;
+  display: grid !important;
+  grid-template-areas: "card" !important;
+  align-items: end !important;
+  justify-items: end !important;
 }
 
 /* Docked Positions Desktop */
-.stl-card-pos-bottom-right {
-  bottom: 36px;
-  right: 36px;
-  justify-items: end;
+#shopify-section-{{ section.id }} .stl-card-pos-bottom-right {
+  bottom: 36px !important;
+  right: 36px !important;
+  justify-items: end !important;
 }
 
-.stl-card-pos-bottom-left {
-  bottom: 36px;
-  left: 36px;
-  justify-items: start;
+#shopify-section-{{ section.id }} .stl-card-pos-bottom-left {
+  bottom: 36px !important;
+  left: 36px !important;
+  justify-items: start !important;
 }
 
-.stl-card-pos-top-right {
-  top: 36px;
-  right: 36px;
-  justify-items: end;
-  align-items: start;
+#shopify-section-{{ section.id }} .stl-card-pos-top-right {
+  top: 36px !important;
+  right: 36px !important;
+  justify-items: end !important;
+  align-items: start !important;
 }
 
-.stl-card-pos-top-left {
-  top: 36px;
-  left: 36px;
-  justify-items: start;
-  align-items: start;
+#shopify-section-{{ section.id }} .stl-card-pos-top-left {
+  top: 36px !important;
+  left: 36px !important;
+  justify-items: start !important;
+  align-items: start !important;
 }
 
 /* Floating Card Mode */
-.stl-card-pos-floating {
-  position: absolute;
-  transition: top 0.35s var(--stl-ease-spring), left 0.35s var(--stl-ease-spring);
+#shopify-section-{{ section.id }} .stl-card-pos-floating {
+  position: absolute !important;
+  transition: top 0.35s var(--stl-ease-spring), left 0.35s var(--stl-ease-spring) !important;
 }
 
-.stl-profile-card-{{ section.id }} {
-  grid-area: card;
-  width: 100%;
-  max-width: 380px;
-  min-width: 290px;
-  background: var(--stl-card-bg);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1.5px solid var(--stl-card-border);
-  border-radius: var(--stl-radius);
-  padding: 24px 28px;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
-  color: var(--stl-text-main);
-  text-align: left;
-  line-height: normal;
-  transform-origin: bottom right;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateY(12px) scale(0.96);
+#shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }} {
+  grid-area: card !important;
+  width: 100% !important;
+  max-width: 380px !important;
+  min-width: 290px !important;
+  background: rgba(10, 10, 12, 0.94) !important;
+  background-color: #0b0b0e !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border: 1.5px solid var(--stl-card-border) !important;
+  border-radius: var(--stl-radius) !important;
+  padding: 26px 30px !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.05) inset !important;
+  color: var(--stl-text-main) !important;
+  text-align: left !important;
+  line-height: normal !important;
+  transform-origin: bottom right !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  transform: translateY(12px) scale(0.96) !important;
   transition: opacity var(--stl-duration) var(--stl-ease-spring),
               transform var(--stl-duration) var(--stl-ease-spring),
-              visibility var(--stl-duration);
+              visibility var(--stl-duration) !important;
 }
 
-.stl-profile-card-{{ section.id }}.is-active {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateY(0) scale(1);
+#shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }}.is-active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateY(0) scale(1) !important;
 }
 
 /* Card Content Typography */
-.stl-card-tagline {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--stl-accent);
-  margin-bottom: 8px;
-  display: block;
+#shopify-section-{{ section.id }} .stl-card-tagline {
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  color: var(--stl-accent) !important;
+  margin-bottom: 8px !important;
+  display: block !important;
+  line-height: 1.3 !important;
 }
 
-.stl-card-title {
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: #ffffff;
-  margin: 0 0 12px 0;
-  line-height: 1.2;
+#shopify-section-{{ section.id }} .stl-card-title {
+  font-size: 24px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+  color: #ffffff !important;
+  margin: 0 0 12px 0 !important;
+  line-height: 1.2 !important;
 }
 
-.stl-card-desc {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.55;
-  color: var(--stl-text-muted);
-  margin: 0 0 20px 0;
+#shopify-section-{{ section.id }} .stl-card-desc {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 1.55 !important;
+  color: var(--stl-text-muted) !important;
+  margin: 0 0 20px 0 !important;
 }
 
 /* CTA Button Link */
-.stl-card-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12.5px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--stl-accent);
-  text-decoration: none;
-  cursor: pointer;
-  transition: gap 0.25s var(--stl-ease-spring), color 0.2s ease;
-  padding: 4px 0;
+#shopify-section-{{ section.id }} .stl-card-cta {
+  all: unset !important;
+  box-sizing: border-box !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  font-size: 12.5px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: var(--stl-accent) !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  padding: 4px 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  transition: gap 0.25s var(--stl-ease-spring), color 0.2s ease !important;
 }
 
-.stl-card-cta .stl-cta-arrow {
-  display: inline-block;
-  font-size: 15px;
-  line-height: 1;
-  transition: transform 0.25s var(--stl-ease-spring);
+#shopify-section-{{ section.id }} .stl-card-cta .stl-cta-arrow {
+  display: inline-block !important;
+  font-size: 15px !important;
+  line-height: 1 !important;
+  color: inherit !important;
+  transition: transform 0.25s var(--stl-ease-spring) !important;
 }
 
-.stl-card-cta:hover {
-  color: #ffffff;
+#shopify-section-{{ section.id }} .stl-card-cta:hover {
+  color: #ffffff !important;
 }
 
-.stl-card-cta:hover .stl-cta-arrow {
-  transform: translateX(5px);
+#shopify-section-{{ section.id }} .stl-card-cta:hover .stl-cta-arrow {
+  transform: translateX(5px) !important;
 }
 
-.stl-card-cta:active {
-  transform: scale(0.97);
-}
-
-/* Card Navigation Dots (Inside Card for quick browsing) */
-.stl-card-nav-{{ section.id }} {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 16px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.stl-nav-dots {
-  display: flex;
-  gap: 6px;
-}
-
-.stl-nav-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.25);
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
-.stl-nav-dot.is-active {
-  background: var(--stl-accent);
-  width: 18px;
-  border-radius: 4px;
-}
-
-.stl-nav-controls {
-  display: flex;
-  gap: 6px;
-}
-
-.stl-nav-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border: none;
-  color: #ffffff;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-
-.stl-nav-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.stl-nav-btn:active {
-  transform: scale(0.9);
+#shopify-section-{{ section.id }} .stl-card-cta:active {
+  transform: scale(0.97) !important;
 }
 
 /* Mobile Layout Adaptations */
 @media screen and (max-width: 749px) {
-  .stl-card-container-{{ section.id }} {
-    position: relative;
-    bottom: auto;
-    right: auto;
-    left: auto;
-    top: auto;
-    width: 100%;
-    padding: 16px 20px 24px;
-    background: {{ section.settings.bg_color | default: '#09090b' }};
+  #shopify-section-{{ section.id }} .stl-card-container-{{ section.id }} {
+    position: relative !important;
+    bottom: auto !important;
+    right: auto !important;
+    left: auto !important;
+    top: auto !important;
+    width: 100% !important;
+    padding: 16px 20px 24px !important;
+    background: {{ section.settings.bg_color | default: '#09090b' }} !important;
+    display: block !important;
   }
 
-  .stl-profile-card-{{ section.id }} {
-    max-width: 100%;
-    min-width: 100%;
+  #shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }} {
+    max-width: 100% !important;
+    min-width: 100% !important;
     opacity: 1 !important;
     visibility: visible !important;
     transform: none !important;
-    display: none;
+    display: none !important;
   }
 
-  .stl-profile-card-{{ section.id }}.is-active {
-    display: block;
-    animation: stlMobileFadeIn 0.3s var(--stl-ease-spring) forwards;
+  #shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }}.is-active {
+    display: block !important;
+    animation: stlMobileFadeIn 0.3s var(--stl-ease-spring) forwards !important;
   }
 
   @keyframes stlMobileFadeIn {
@@ -469,28 +400,27 @@ Designed with Apple Design principles and fluid micro-animations.
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .stl-card-title {
-    font-size: 20px;
+  #shopify-section-{{ section.id }} .stl-card-title {
+    font-size: 20px !important;
   }
 
-  .stl-card-desc {
-    font-size: 13.5px;
+  #shopify-section-{{ section.id }} .stl-card-desc {
+    font-size: 13.5px !important;
   }
 }
 
 /* Accessibility: Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
-  .stl-hotspot-marker::before,
-  .stl-hotspot-marker::after {
+  #shopify-section-{{ section.id }} .stl-hotspot-marker::before {
     animation: none !important;
   }
 
-  .stl-profile-card-{{ section.id }} {
+  #shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }} {
     transition: opacity 0.2s ease !important;
     transform: none !important;
   }
 
-  .stl-card-cta:hover .stl-cta-arrow {
+  #shopify-section-{{ section.id }} .stl-card-cta:hover .stl-cta-arrow {
     transform: none !important;
   }
 }
@@ -526,9 +456,10 @@ Designed with Apple Design principles and fluid micro-animations.
     <!-- Hotspots -->
     <div class="stl-hotspots-container-{{ section.id }}">
       {%- for block in section.blocks -%}
-        <button
-          type="button"
-          class="stl-hotspot-btn-{{ section.id }} {% if forloop.first %}is-active{% endif %}"
+        <div
+          role="button"
+          tabindex="0"
+          class="stl-hotspot-item-{{ section.id }} {% if forloop.first %}is-active{% endif %}"
           style="--top: {{ block.settings.pos_y }}%; --left: {{ block.settings.pos_x }}%;"
           data-index="{{ forloop.index0 }}"
           data-block-id="{{ block.id }}"
@@ -541,7 +472,7 @@ Designed with Apple Design principles and fluid micro-animations.
           <span class="stl-hotspot-marker">
             <span class="stl-hotspot-dot"></span>
           </span>
-        </button>
+        </div>
       {%- endfor -%}
     </div>
 
@@ -575,25 +506,6 @@ Designed with Apple Design principles and fluid micro-animations.
               <span class="stl-cta-arrow" aria-hidden="true">&rarr;</span>
             </a>
           {%- endif -%}
-
-          {%- if section.blocks.size > 1 -%}
-            <div class="stl-card-nav-{{ section.id }}">
-              <div class="stl-nav-dots">
-                {%- for b in section.blocks -%}
-                  <button
-                    type="button"
-                    class="stl-nav-dot {% if forloop.first %}is-active{% endif %}"
-                    data-go-to="{{ forloop.index0 }}"
-                    aria-label="Ir a elemento {{ forloop.index }}"
-                  ></button>
-                {%- endfor -%}
-              </div>
-              <div class="stl-nav-controls">
-                <button type="button" class="stl-nav-btn stl-nav-prev" aria-label="Anterior">&lsaquo;</button>
-                <button type="button" class="stl-nav-btn stl-nav-next" aria-label="Siguiente">&rsaquo;</button>
-              </div>
-            </div>
-          {%- endif -%}
         </div>
       {%- endfor -%}
     </div>
@@ -607,7 +519,7 @@ Designed with Apple Design principles and fluid micro-animations.
   const sectionEl = document.getElementById('stl-section-' + sectionId);
   if (!sectionEl) return;
 
-  const hotspots = sectionEl.querySelectorAll('.stl-hotspot-btn-' + sectionId);
+  const hotspots = sectionEl.querySelectorAll('.stl-hotspot-item-' + sectionId);
   const cards = sectionEl.querySelectorAll('.stl-profile-card-' + sectionId);
   const cardContainer = document.getElementById('stl-card-container-' + sectionId);
   const isFloating = '{{ section.settings.card_position }}' === 'floating';
@@ -632,12 +544,6 @@ Designed with Apple Design principles and fluid micro-animations.
       card.classList.toggle('is-active', isActive);
     });
 
-    // Update dots inside cards
-    sectionEl.querySelectorAll('.stl-nav-dot').forEach(dot => {
-      const dotIdx = parseInt(dot.getAttribute('data-go-to'), 10);
-      dot.classList.toggle('is-active', dotIdx === activeIndex);
-    });
-
     // Handle floating card position if enabled
     if (isFloating && window.innerWidth >= 750 && cardContainer) {
       const activeBtn = hotspots[activeIndex];
@@ -657,37 +563,22 @@ Designed with Apple Design principles and fluid micro-animations.
     }
   }
 
-  // Hotspot Click & Pointerdown handlers (Apple responsive feel)
+  // Hotspot Click & Keydown handlers
   hotspots.forEach((btn, idx) => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       updateActive(idx);
     });
+
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        updateActive(idx);
+      }
+    });
   });
 
-  // Card Nav Dots & Controls
-  sectionEl.addEventListener('click', (e) => {
-    const dot = e.target.closest('.stl-nav-dot');
-    if (dot) {
-      const targetIdx = parseInt(dot.getAttribute('data-go-to'), 10);
-      updateActive(targetIdx);
-      return;
-    }
-
-    const prevBtn = e.target.closest('.stl-nav-prev');
-    if (prevBtn) {
-      updateActive(activeIndex - 1);
-      return;
-    }
-
-    const nextBtn = e.target.closest('.stl-nav-next');
-    if (nextBtn) {
-      updateActive(activeIndex + 1);
-      return;
-    }
-  });
-
-  // Keyboard navigation
+  // Global Arrow navigation when focused in section
   sectionEl.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
       updateActive(activeIndex + 1);
