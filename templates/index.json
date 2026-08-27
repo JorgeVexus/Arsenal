@@ -427,6 +427,11 @@
         "hotspot_policia": {
           "type": "hotspot",
           "settings": {
+            "tagline": "SOLUCIÓN POR PERFIL",
+            "title": "Fuerza Policiaca",
+            "description": "Chalecos, placas, cascos y accesorios configurados para corporaciones municipales, estatales y federales.",
+            "cta_text": "SOLICITAR ASESORÍA",
+            "cta_link": "/pages/contacto",
             "pos_x": 28,
             "pos_y": 65
           }
@@ -434,6 +439,11 @@
         "hotspot_sedena": {
           "type": "hotspot",
           "settings": {
+            "tagline": "SOLUCIÓN POR PERFIL",
+            "title": "Operaciones Especiales",
+            "description": "Protección balística de alto rendimiento diseñada para unidades de intervención rápida y fuerzas especiales.",
+            "cta_text": "SOLICITAR ASESORÍA",
+            "cta_link": "/pages/contacto",
             "pos_x": 26,
             "pos_y": 12
           }
@@ -441,6 +451,11 @@
         "hotspot_penitenciaria": {
           "type": "hotspot",
           "settings": {
+            "tagline": "SOLUCIÓN POR PERFIL",
+            "title": "Seguridad Penitenciaria",
+            "description": "Equipamiento antidisturbios y protección contra armas punzocortantes y proyectiles de alta resistencia.",
+            "cta_text": "SOLICITAR ASESORÍA",
+            "cta_link": "/pages/contacto",
             "pos_x": 49,
             "pos_y": 7
           }
@@ -448,6 +463,11 @@
         "hotspot_ejecutiva": {
           "type": "hotspot",
           "settings": {
+            "tagline": "SOLUCIÓN POR PERFIL",
+            "title": "Protección Ejecutiva",
+            "description": "Chalecos y prendas discretas con protección balística certificada para escoltas y resguardo VIP.",
+            "cta_text": "SOLICITAR ASESORÍA",
+            "cta_link": "/pages/contacto",
             "pos_x": 70,
             "pos_y": 12
           }
@@ -455,6 +475,11 @@
         "hotspot_tactico": {
           "type": "hotspot",
           "settings": {
+            "tagline": "SOLUCIÓN POR PERFIL",
+            "title": "Grupos Tácticos",
+            "description": "Configuraciones completas con sistema MOLLE, cascos FAST y placas nivel IV para combate táctico.",
+            "cta_text": "SOLICITAR ASESORÍA",
+            "cta_link": "/pages/contacto",
             "pos_x": 77,
             "pos_y": 45
           }
@@ -470,7 +495,13 @@
       "name": "Shop the Look Interactive",
       "settings": {
         "image": "shopify://shop_images/WhatsApp_Image_2026-08-18_at_8.18.49_AM.webp",
+        "subtitle": "SOLUCIONES INTEGRALES",
         "title": "Equipamiento Táctico por Perfil",
+        "bg_color": "#09090b",
+        "accent_color": "#ea5c10",
+        "card_position": "bottom-right",
+        "auto_play": false,
+        "auto_play_speed": 5,
         "padding_top": 36,
         "padding_bottom": 36
       }
