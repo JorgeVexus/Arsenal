@@ -440,8 +440,8 @@
           "type": "hotspot",
           "settings": {
             "tagline": "SOLUCIÓN POR PERFIL",
-            "title": "Operaciones Especiales",
-            "description": "Protección balística de alto rendimiento diseñada para unidades de intervención rápida y fuerzas especiales.",
+            "title": "Fuerza Policiaca",
+            "description": "Chalecos, placas, cascos y accesorios configurados para corporaciones municipales, estatales y federales.",
             "cta_text": "SOLICITAR ASESORÍA",
             "cta_link": "/pages/contacto",
             "pos_x": 26,
@@ -452,8 +452,8 @@
           "type": "hotspot",
           "settings": {
             "tagline": "SOLUCIÓN POR PERFIL",
-            "title": "Seguridad Penitenciaria",
-            "description": "Equipamiento antidisturbios y protección contra armas punzocortantes y proyectiles de alta resistencia.",
+            "title": "Resguardo de Valores",
+            "description": "Protección balística y equipamiento táctico para servicios de custodia, traslado y resguardo de valores.",
             "cta_text": "SOLICITAR ASESORÍA",
             "cta_link": "/pages/contacto",
             "pos_x": 49,
@@ -464,8 +464,8 @@
           "type": "hotspot",
           "settings": {
             "tagline": "SOLUCIÓN POR PERFIL",
-            "title": "Protección Ejecutiva",
-            "description": "Chalecos y prendas discretas con protección balística certificada para escoltas y resguardo VIP.",
+            "title": "Prendas Casuales",
+            "description": "Prendas discretas con protección balística para uso ejecutivo, traslados y actividades cotidianas.",
             "cta_text": "SOLICITAR ASESORÍA",
             "cta_link": "/pages/contacto",
             "pos_x": 70,
