@@ -184,341 +184,404 @@
     border: 1px solid #ffcdd2;
   }
 
-  /* Multi-select Searchable Dropdown */
+  /* =========================================================
+     APPLE DESIGN SYSTEM - SEARCHABLE MULTI-SELECT DROPDOWN
+     ========================================================= */
   .arsenal-multiselect {
-    position: relative;
-    width: 100%;
-    user-select: none;
+    position: relative !important;
+    width: 100% !important;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+    user-select: none !important;
+    box-sizing: border-box !important;
   }
 
+  /* Trigger Button */
   .arsenal-ms-trigger {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 48px;
-    padding: 8px 14px;
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: border-color 0.25s ease, box-shadow 0.25s ease;
-    gap: 10px;
-    box-sizing: border-box;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    min-height: 52px !important;
+    padding: 8px 14px !important;
+    background: #ffffff !important;
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    border-radius: 12px !important;
+    cursor: pointer !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    gap: 12px !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04) !important;
+  }
+
+  .arsenal-ms-trigger:hover {
+    border-color: rgba(0, 0, 0, 0.22) !important;
+    background: #fafafa !important;
+  }
+
+  .arsenal-ms-trigger:active {
+    transform: scale(0.995) !important;
   }
 
   .arsenal-ms-trigger:focus,
   .arsenal-ms-trigger.is-open {
-    border-color: {{ section.settings.button_background | default: '#e8701a' }};
-    box-shadow: 0 0 0 4px {{ section.settings.button_background | color_modify: 'alpha', 0.12 }};
-    outline: none;
+    border-color: #e8701a !important;
+    box-shadow: 0 0 0 3.5px rgba(232, 112, 26, 0.18), 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+    outline: none !important;
+    background: #ffffff !important;
   }
 
+  /* Tags / Chips Container */
   .arsenal-ms-tags-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 6px;
-    flex: 1;
-    min-width: 0;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 6px !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
   }
 
   .arsenal-ms-placeholder {
-    color: #888888;
-    font-size: 15px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    color: #86868b !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    letter-spacing: -0.01em !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
+  /* Apple Style Pill Chip */
   .arsenal-ms-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(232, 112, 26, 0.12);
-    color: #cf5c0c;
-    border: 1px solid rgba(232, 112, 26, 0.25);
-    padding: 4px 10px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 1.2;
-    animation: msChipPop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    background: rgba(232, 112, 26, 0.1) !important;
+    color: #cf5c0c !important;
+    border: 1px solid rgba(232, 112, 26, 0.22) !important;
+    padding: 4px 10px 4px 12px !important;
+    border-radius: 20px !important;
+    font-size: 12.5px !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.01em !important;
+    line-height: 1.2 !important;
+    animation: appleChipSpring 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
   }
 
-  @keyframes msChipPop {
-    from { opacity: 0; transform: scale(0.85); }
-    to { opacity: 1; transform: scale(1); }
+  @keyframes appleChipSpring {
+    0% { transform: scale(0.75); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
   }
 
   .arsenal-ms-chip-remove {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    cursor: pointer;
-    color: inherit;
-    opacity: 0.7;
-    transition: opacity 0.2s, background-color 0.2s;
-    background: transparent;
-    border: none;
-    padding: 0;
-    font-size: 14px;
-    line-height: 1;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 16px !important;
+    height: 16px !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    color: inherit !important;
+    opacity: 0.6 !important;
+    transition: all 0.15s ease !important;
+    background: rgba(232, 112, 26, 0.15) !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    font-size: 13px !important;
+    line-height: 1 !important;
   }
 
   .arsenal-ms-chip-remove:hover {
-    opacity: 1;
-    background: rgba(232, 112, 26, 0.2);
+    opacity: 1 !important;
+    background: rgba(232, 112, 26, 0.3) !important;
+    transform: scale(1.1) !important;
   }
 
   .arsenal-ms-actions {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    flex-shrink: 0;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex-shrink: 0 !important;
   }
 
   .arsenal-ms-clear-btn {
-    background: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    color: #999999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    transition: color 0.2s;
+    background: rgba(0, 0, 0, 0.05) !important;
+    border: none !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    color: #86868b !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 22px !important;
+    height: 22px !important;
+    border-radius: 50% !important;
+    transition: all 0.15s ease !important;
   }
 
   .arsenal-ms-clear-btn:hover {
-    color: #e53e3e;
+    background: rgba(229, 62, 62, 0.1) !important;
+    color: #e53e3e !important;
   }
 
   .arsenal-ms-clear-btn svg {
-    width: 16px;
-    height: 16px;
+    width: 14px !important;
+    height: 14px !important;
+    fill: currentColor !important;
   }
 
   .arsenal-ms-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #666666;
-    transition: transform 0.25s ease;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #86868b !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
   .arsenal-ms-arrow svg {
-    width: 18px;
-    height: 18px;
+    width: 18px !important;
+    height: 18px !important;
+    fill: currentColor !important;
   }
 
   .arsenal-ms-trigger.is-open .arsenal-ms-arrow {
-    transform: rotate(180deg);
+    transform: rotate(180deg) !important;
   }
 
-  /* Dropdown container */
+  /* Apple Glassmorphism Popover Dropdown */
   .arsenal-ms-dropdown {
-    position: absolute;
-    top: calc(100% + 6px);
-    left: 0;
-    right: 0;
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-    z-index: 100;
-    display: none;
-    flex-direction: column;
-    overflow: hidden;
-    animation: msDropdownFade 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    position: absolute !important;
+    top: calc(100% + 8px) !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+    backdrop-filter: blur(28px) saturate(190%) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.14), 0 0 0 1px rgba(0, 0, 0, 0.04) !important;
+    z-index: 9999 !important;
+    display: none !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    transform-origin: top center !important;
+    animation: appleDropdownEnter 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
-  @keyframes msDropdownFade {
-    from { opacity: 0; transform: translateY(-6px); }
-    to { opacity: 1; transform: translateY(0); }
+  @keyframes appleDropdownEnter {
+    0% { opacity: 0; transform: translateY(-8px) scale(0.98); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
   }
 
   .arsenal-ms-dropdown.is-open {
-    display: flex;
+    display: flex !important;
   }
 
   /* Search Header */
   .arsenal-ms-search-box {
-    display: flex;
-    align-items: center;
-    padding: 10px 14px;
-    border-bottom: 1px solid #f0f0f0;
-    background: #fafafa;
-    gap: 10px;
+    display: flex !important;
+    align-items: center !important;
+    padding: 10px 14px !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+    background: rgba(245, 245, 247, 0.8) !important;
+    gap: 10px !important;
+    box-sizing: border-box !important;
   }
 
   .arsenal-ms-search-box .ms-search-icon {
-    width: 18px;
-    height: 18px;
-    color: #888888;
-    flex-shrink: 0;
+    width: 16px !important;
+    height: 16px !important;
+    color: #86868b !important;
+    flex-shrink: 0 !important;
+    fill: currentColor !important;
   }
 
-  .arsenal-ms-search-input {
-    flex: 1;
+  /* Reset .form-field input styles for search input */
+  .arsenal-ms-search-box input.arsenal-ms-search-input {
+    flex: 1 1 auto !important;
     border: none !important;
     background: transparent !important;
-    padding: 4px 0 !important;
+    padding: 6px 0 !important;
     font-size: 14px !important;
+    font-weight: 400 !important;
     outline: none !important;
     box-shadow: none !important;
-    color: #1a1a1a;
+    color: #1d1d1f !important;
+    letter-spacing: -0.01em !important;
+    margin: 0 !important;
+    width: auto !important;
+    height: auto !important;
+  }
+
+  .arsenal-ms-search-input::placeholder {
+    color: #86868b !important;
   }
 
   .arsenal-ms-count {
-    font-size: 11px;
-    font-weight: 700;
-    color: #888888;
-    white-space: nowrap;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 11.5px !important;
+    font-weight: 600 !important;
+    color: #86868b !important;
+    white-space: nowrap !important;
+    letter-spacing: 0.2px !important;
+    background: rgba(0, 0, 0, 0.05) !important;
+    padding: 3px 8px !important;
+    border-radius: 12px !important;
   }
 
-  /* Options list */
+  /* Product List */
   .arsenal-ms-list {
-    max-height: 250px;
-    overflow-y: auto;
-    padding: 6px 0;
+    max-height: 280px !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding: 6px !important;
+    box-sizing: border-box !important;
   }
 
   .arsenal-ms-list::-webkit-scrollbar {
-    width: 6px;
+    width: 6px !important;
+  }
+
+  .arsenal-ms-list::-webkit-scrollbar-track {
+    background: transparent !important;
   }
 
   .arsenal-ms-list::-webkit-scrollbar-thumb {
-    background: #d4d4d4;
-    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.16) !important;
+    border-radius: 10px !important;
   }
 
+  /* Single Product Row (Apple List Item) */
   .arsenal-ms-option {
-    padding: 8px 14px;
-    cursor: pointer;
-    transition: background-color 0.15s ease;
-    display: flex;
-    align-items: center;
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 8px 12px !important;
+    border-radius: 10px !important;
+    cursor: pointer !important;
+    transition: background 0.15s ease, transform 0.1s ease !important;
+    box-sizing: border-box !important;
+    margin-bottom: 2px !important;
+    width: 100% !important;
   }
 
-  .arsenal-ms-option:hover,
-  .arsenal-ms-option:focus {
-    background-color: #f5f5f5;
-    outline: none;
+  .arsenal-ms-option:hover {
+    background: rgba(0, 0, 0, 0.04) !important;
+  }
+
+  .arsenal-ms-option:active {
+    transform: scale(0.99) !important;
   }
 
   .arsenal-ms-option.is-selected {
-    background-color: rgba(232, 112, 26, 0.06);
+    background: rgba(232, 112, 26, 0.08) !important;
   }
 
-  .arsenal-ms-checkbox-label {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    width: 100%;
-    cursor: pointer;
+  .arsenal-ms-option.is-selected:hover {
+    background: rgba(232, 112, 26, 0.12) !important;
   }
 
-  .arsenal-ms-checkbox {
-    display: none;
-  }
-
-  .arsenal-ms-checkmark {
-    width: 18px;
-    height: 18px;
-    border: 2px solid #cccccc;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-    flex-shrink: 0;
-    background: #ffffff;
-  }
-
-  .arsenal-ms-option.is-selected .arsenal-ms-checkmark {
-    background: {{ section.settings.button_background | default: '#e8701a' }};
-    border-color: {{ section.settings.button_background | default: '#e8701a' }};
-  }
-
-  .arsenal-ms-checkmark::after {
-    content: '';
-    width: 4px;
-    height: 8px;
-    border: solid #ffffff;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg) translateY(-1px);
-    display: none;
-  }
-
-  .arsenal-ms-option.is-selected .arsenal-ms-checkmark::after {
-    display: block;
-  }
-
+  /* Thumbnail */
   .arsenal-ms-img {
-    width: 34px;
-    height: 34px;
-    border-radius: 6px;
-    object-fit: cover;
-    background: #f0f0f0;
-    flex-shrink: 0;
-    border: 1px solid #e8e8e8;
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    border-radius: 8px !important;
+    object-fit: cover !important;
+    background: #f5f5f7 !important;
+    flex-shrink: 0 !important;
+    border: 1px solid rgba(0, 0, 0, 0.06) !important;
+    display: block !important;
   }
 
   .arsenal-ms-img-placeholder {
-    width: 34px;
-    height: 34px;
-    border-radius: 6px;
-    background: #f0f0f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #999999;
-    flex-shrink: 0;
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    border-radius: 8px !important;
+    background: #f5f5f7 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #86868b !important;
+    flex-shrink: 0 !important;
+    border: 1px solid rgba(0, 0, 0, 0.06) !important;
   }
 
   .arsenal-ms-img-placeholder svg {
-    width: 18px;
-    height: 18px;
+    width: 20px !important;
+    height: 20px !important;
   }
 
+  /* Title & Subtext */
   .arsenal-ms-product-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    min-width: 0;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
   }
 
   .arsenal-ms-product-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: #1a1a1a;
-    line-height: 1.3;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 14.5px !important;
+    font-weight: 600 !important;
+    color: #1d1d1f !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.01em !important;
+    word-break: break-word !important;
   }
 
   .arsenal-ms-product-type {
-    font-size: 11.5px;
-    color: #777777;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-size: 11.5px !important;
+    color: #86868b !important;
+    font-weight: 500 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.4px !important;
+  }
+
+  /* Apple Style Checkbox / Checkmark Circle Indicator */
+  .arsenal-ms-check-indicator {
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
+    border-radius: 50% !important;
+    border: 1.5px solid rgba(0, 0, 0, 0.2) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    flex-shrink: 0 !important;
+    background: transparent !important;
+    box-sizing: border-box !important;
+  }
+
+  .arsenal-ms-check-indicator svg {
+    width: 12px !important;
+    height: 12px !important;
+    color: #ffffff !important;
+    opacity: 0 !important;
+    transform: scale(0.5) !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  .arsenal-ms-option.is-selected .arsenal-ms-check-indicator {
+    background: #e8701a !important;
+    border-color: #e8701a !important;
+    box-shadow: 0 2px 6px rgba(232, 112, 26, 0.35) !important;
+  }
+
+  .arsenal-ms-option.is-selected .arsenal-ms-check-indicator svg {
+    opacity: 1 !important;
+    transform: scale(1) !important;
   }
 
   .arsenal-ms-empty,
   .arsenal-ms-no-results {
-    padding: 20px 14px;
-    text-align: center;
-    color: #888888;
-    font-size: 13.5px;
+    padding: 24px 16px !important;
+    text-align: center !important;
+    color: #86868b !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
   }
 {%- endstyle -%}
 
@@ -752,7 +815,7 @@
                     </div>
                   </div>
 
-                  <!-- Dropdown Panel -->
+                  <!-- Apple Style Popover Dropdown Panel -->
                   <div class="arsenal-ms-dropdown" id="ms-dropdown-{{ section.id }}" role="listbox" aria-multiselectable="true">
                     <!-- Search Input Header -->
                     <div class="arsenal-ms-search-box">
@@ -769,7 +832,7 @@
                       <span class="arsenal-ms-count" id="ms-count-{{ section.id }}">0 seleccionados</span>
                     </div>
 
-                    <!-- List of Options -->
+                    <!-- List of Product Options -->
                     <div class="arsenal-ms-list" id="ms-list-{{ section.id }}">
                       {%- for product in form_products -%}
                         <div
@@ -781,36 +844,37 @@
                           aria-selected="false"
                           tabindex="0"
                         >
-                          <label class="arsenal-ms-checkbox-label">
-                            <input type="checkbox" class="arsenal-ms-checkbox" value="{{ product.title | escape }}">
-                            <span class="arsenal-ms-checkmark"></span>
-                            
-                            {%- if product.featured_image != blank -%}
-                              <img
-                                src="{{ product.featured_image | image_url: width: 64, height: 64, crop: 'center' }}"
-                                alt="{{ product.title | escape }}"
-                                class="arsenal-ms-img"
-                                width="34"
-                                height="34"
-                                loading="lazy"
-                              >
-                            {%- else -%}
-                              <div class="arsenal-ms-img-placeholder">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                                  <polyline points="21 15 16 10 5 21"></polyline>
-                                </svg>
-                              </div>
-                            {%- endif -%}
-
-                            <div class="arsenal-ms-product-info">
-                              <span class="arsenal-ms-product-title">{{ product.title }}</span>
-                              {%- if product.type != blank -%}
-                                <span class="arsenal-ms-product-type">{{ product.type }}</span>
-                              {%- endif -%}
+                          {%- if product.featured_image != blank -%}
+                            <img
+                              src="{{ product.featured_image | image_url: width: 80, height: 80, crop: 'center' }}"
+                              alt="{{ product.title | escape }}"
+                              class="arsenal-ms-img"
+                              width="40"
+                              height="40"
+                              loading="lazy"
+                            >
+                          {%- else -%}
+                            <div class="arsenal-ms-img-placeholder">
+                              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                <polyline points="21 15 16 10 5 21"></polyline>
+                              </svg>
                             </div>
-                          </label>
+                          {%- endif -%}
+
+                          <div class="arsenal-ms-product-info">
+                            <span class="arsenal-ms-product-title">{{ product.title }}</span>
+                            {%- if product.type != blank -%}
+                              <span class="arsenal-ms-product-type">{{ product.type }}</span>
+                            {%- endif -%}
+                          </div>
+
+                          <div class="arsenal-ms-check-indicator" aria-hidden="true">
+                            <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M13.3334 4L6.00008 11.3333L2.66675 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                          </div>
                         </div>
                       {%- else -%}
                         <div class="arsenal-ms-empty">No hay productos disponibles</div>
@@ -872,7 +936,7 @@
       trigger.classList.add('is-open');
       trigger.setAttribute('aria-expanded', 'true');
       setTimeout(() => {
-        searchInput.focus();
+        if (searchInput) searchInput.focus();
       }, 50);
     };
 
@@ -880,8 +944,10 @@
       dropdown.classList.remove('is-open');
       trigger.classList.remove('is-open');
       trigger.setAttribute('aria-expanded', 'false');
-      searchInput.value = '';
-      filterOptions('');
+      if (searchInput) {
+        searchInput.value = '';
+        filterOptions('');
+      }
     };
 
     const toggleDropdown = () => {
@@ -908,7 +974,10 @@
         selectedValues.forEach(val => {
           const chip = document.createElement('span');
           chip.className = 'arsenal-ms-chip';
-          chip.textContent = val;
+          
+          const textSpan = document.createElement('span');
+          textSpan.textContent = val;
+          chip.appendChild(textSpan);
 
           const removeBtn = document.createElement('button');
           removeBtn.type = 'button';
@@ -930,8 +999,6 @@
         const isSel = selectedValues.includes(val);
         opt.classList.toggle('is-selected', isSel);
         opt.setAttribute('aria-selected', isSel ? 'true' : 'false');
-        const chk = opt.querySelector('.arsenal-ms-checkbox');
-        if (chk) chk.checked = isSel;
       });
     };
 
@@ -962,7 +1029,7 @@
       options.forEach(opt => {
         const searchStr = opt.getAttribute('data-search') || '';
         if (searchStr.includes(q)) {
-          opt.style.display = '';
+          opt.style.display = 'flex';
           visibleCount++;
         } else {
           opt.style.display = 'none';
@@ -988,13 +1055,15 @@
       }
     });
 
-    searchInput.addEventListener('input', (e) => {
-      filterOptions(e.target.value);
-    });
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        filterOptions(e.target.value);
+      });
 
-    searchInput.addEventListener('click', (e) => {
-      e.stopPropagation();
-    });
+      searchInput.addEventListener('click', (e) => {
+        e.stopPropagation();
+      });
+    }
 
     clearBtn.addEventListener('click', (e) => {
       e.stopPropagation();
