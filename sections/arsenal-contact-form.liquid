@@ -254,48 +254,68 @@
     display: inline-flex !important;
     align-items: center !important;
     gap: 6px !important;
-    background: rgba(232, 112, 26, 0.1) !important;
-    color: #cf5c0c !important;
-    border: 1px solid rgba(232, 112, 26, 0.22) !important;
-    padding: 4px 10px 4px 12px !important;
-    border-radius: 20px !important;
-    font-size: 12.5px !important;
-    font-weight: 600 !important;
+    background: #f4f4f6 !important;
+    color: #1d1d1f !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    padding: 3px 8px !important;
+    border-radius: 6px !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
     letter-spacing: -0.01em !important;
-    line-height: 1.2 !important;
-    animation: appleChipSpring 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    backdrop-filter: blur(8px) !important;
-    -webkit-backdrop-filter: blur(8px) !important;
+    line-height: 1.3 !important;
+    animation: appleChipSpring 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 2px 0 !important;
   }
 
   @keyframes appleChipSpring {
-    0% { transform: scale(0.75); opacity: 0; }
+    0% { transform: scale(0.85); opacity: 0; }
     100% { transform: scale(1); opacity: 1; }
+  }
+
+  .arsenal-ms-chip .chip-text {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 240px !important;
+    color: #1d1d1f !important;
   }
 
   .arsenal-ms-chip-remove {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    width: 16px !important;
-    height: 16px !important;
+    width: 15px !important;
+    height: 15px !important;
+    min-width: 15px !important;
+    max-width: 15px !important;
     border-radius: 50% !important;
     cursor: pointer !important;
-    color: inherit !important;
-    opacity: 0.6 !important;
+    color: #6e6e73 !important;
     transition: all 0.15s ease !important;
-    background: rgba(232, 112, 26, 0.15) !important;
+    background: rgba(0, 0, 0, 0.08) !important;
     border: none !important;
     padding: 0 !important;
     margin: 0 !important;
-    font-size: 13px !important;
-    line-height: 1 !important;
+    box-sizing: border-box !important;
+    flex-shrink: 0 !important;
   }
 
   .arsenal-ms-chip-remove:hover {
-    opacity: 1 !important;
-    background: rgba(232, 112, 26, 0.3) !important;
+    color: #000000 !important;
+    background: rgba(0, 0, 0, 0.2) !important;
     transform: scale(1.1) !important;
+  }
+
+  .arsenal-ms-chip-remove svg {
+    width: 7px !important;
+    height: 7px !important;
+    stroke: currentColor !important;
+    stroke-width: 2px !important;
+    display: block !important;
   }
 
   .arsenal-ms-actions {
@@ -935,12 +955,13 @@
           chip.className = 'arsenal-ms-chip';
           
           const textSpan = document.createElement('span');
+          textSpan.className = 'chip-text';
           textSpan.textContent = val;
           chip.appendChild(textSpan);
 
           const removeBtn = document.createElement('span');
           removeBtn.className = 'arsenal-ms-chip-remove';
-          removeBtn.innerHTML = '&times;';
+          removeBtn.innerHTML = '<svg viewBox="0 0 12 12" fill="none"><line x1="2" y1="2" x2="10" y2="10"/><line x1="10" y1="2" x2="2" y2="10"/></svg>';
           removeBtn.setAttribute('role', 'button');
           removeBtn.setAttribute('tabindex', '0');
           removeBtn.setAttribute('aria-label', 'Quitar ' + val);
