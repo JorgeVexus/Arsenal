@@ -459,6 +459,10 @@
     width: 100% !important;
   }
 
+  .arsenal-ms-option.is-hidden {
+    display: none !important;
+  }
+
   .arsenal-ms-option:hover {
     background: rgba(0, 0, 0, 0.04) !important;
   }
@@ -576,6 +580,10 @@
     color: #86868b !important;
     font-size: 14px !important;
     font-weight: 400 !important;
+  }
+
+  .arsenal-ms-no-results.is-hidden {
+    display: none !important;
   }
 {%- endstyle -%}
 
@@ -861,7 +869,7 @@
                       {%- else -%}
                         <div class="arsenal-ms-empty">No hay productos disponibles</div>
                       {%- endfor -%}
-                      <div class="arsenal-ms-no-results" id="ms-no-results-{{ section.id }}" style="display: none;">
+                      <div class="arsenal-ms-no-results is-hidden" id="ms-no-results-{{ section.id }}">
                         No se encontraron productos que coincidan con la búsqueda.
                       </div>
                     </div>
@@ -1004,21 +1012,26 @@
     };
 
     const filterOptions = (query) => {
-      const q = query.toLowerCase().trim();
+      const normalize = (str) => (str || '').toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+      const q = normalize(query);
       let visibleCount = 0;
 
       options.forEach(opt => {
-        const searchStr = opt.getAttribute('data-search') || '';
+        const searchStr = normalize(opt.getAttribute('data-search') || opt.getAttribute('data-value') || opt.textContent || '');
         if (searchStr.includes(q)) {
-          opt.style.display = 'flex';
+          opt.classList.remove('is-hidden');
           visibleCount++;
         } else {
-          opt.style.display = 'none';
+          opt.classList.add('is-hidden');
         }
       });
 
       if (noResults) {
-        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        if (visibleCount === 0) {
+          noResults.classList.remove('is-hidden');
+        } else {
+          noResults.classList.add('is-hidden');
+        }
       }
     };
 
