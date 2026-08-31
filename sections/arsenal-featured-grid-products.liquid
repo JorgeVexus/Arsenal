@@ -254,6 +254,81 @@
     stroke-width: 1.5px;
   }
 
+  /* WhatsApp Link / Button in Product Card */
+  .fpg-whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.25s ease;
+    width: fit-content;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+
+  .fpg-whatsapp-btn svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    fill: currentColor;
+    transition: transform 0.25s ease;
+  }
+
+  .fpg-whatsapp-btn:hover svg {
+    transform: scale(1.18);
+  }
+
+  /* Style: Link */
+  .fpg-whatsapp-btn--link {
+    color: {{ section.settings.whatsapp_button_color | default: '#e8701a' }};
+    padding: 2px 0;
+    border-bottom: 1px solid transparent;
+  }
+
+  .fpg-whatsapp-btn--link:hover {
+    color: {{ section.settings.whatsapp_button_hover_color | default: '#cf5c0c' }};
+    border-bottom-color: currentColor;
+  }
+
+  /* Style: Button Solid */
+  .fpg-whatsapp-btn--button_solid {
+    background-color: {{ section.settings.whatsapp_button_color | default: '#e8701a' }};
+    color: {{ section.settings.whatsapp_button_text_color | default: '#ffffff' }};
+    padding: 8px 14px;
+    border-radius: {{ section.settings.whatsapp_button_radius | default: 4 }}px;
+    border: 1px solid transparent;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .fpg-whatsapp-btn--button_solid:hover {
+    background-color: {{ section.settings.whatsapp_button_hover_color | default: '#cf5c0c' }};
+    color: {{ section.settings.whatsapp_button_text_color | default: '#ffffff' }};
+    transform: translateY(-2px);
+  }
+
+  /* Style: Button Outline */
+  .fpg-whatsapp-btn--button_outline {
+    background-color: transparent;
+    color: {{ section.settings.whatsapp_button_color | default: '#e8701a' }};
+    border: 1.5px solid {{ section.settings.whatsapp_button_color | default: '#e8701a' }};
+    padding: 7px 14px;
+    border-radius: {{ section.settings.whatsapp_button_radius | default: 4 }}px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .fpg-whatsapp-btn--button_outline:hover {
+    background-color: {{ section.settings.whatsapp_button_color | default: '#e8701a' }};
+    color: {{ section.settings.whatsapp_button_text_color | default: '#ffffff' }};
+    transform: translateY(-2px);
+  }
+
   /* Slider Minimalist Arrows - Simple Icon Only */
   .fpg-arrows-{{ section.id }} {
     display: flex !important;
@@ -430,7 +505,7 @@
             </div>
 
             <div class="fpg-info">
-              <a href="{{ product.url }}" class="fpg-product-title">
+              <a href="{{ product.url | default: '#' }}" class="fpg-product-title">
                 {{ product.title | default: "Example Product Title" }}
               </a>
 
@@ -444,19 +519,28 @@
                 </div>
               {%- endunless -%}
 
-              {%- comment -%}
-              {%- if block.settings.stars_count > 0 -%}
-                <div class="fpg-stars">
-                  {%- for i in (1..5) -%}
-                    {%- if i <= block.settings.stars_count -%}
-                      <svg class="fpg-star-icon filled" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    {%- else -%}
-                      <svg class="fpg-star-icon empty" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                    {%- endif -%}
-                  {%- endfor -%}
-                </div>
+              {%- if section.settings.show_whatsapp_button -%}
+                {%- liquid
+                  assign clean_wa_number = section.settings.whatsapp_number | default: settings.whatsapp | default: '524776873939' | remove: '+' | remove: ' ' | remove: '-' | remove: '(' | remove: ')'
+                  assign base_wa_msg = section.settings.whatsapp_message | default: 'Hola, me interesa solicitar más información sobre el producto:'
+                  assign card_prod_title = product.title | default: 'Producto Arsenal'
+                  assign wa_full_msg = base_wa_msg | append: ' ' | append: card_prod_title
+                  if product.url != blank
+                    assign wa_full_msg = wa_full_msg | append: ' (' | append: shop.url | append: product.url | append: ')'
+                  endif
+                  assign wa_encoded_msg = wa_full_msg | url_encode
+                -%}
+                <a href="https://wa.me/{{ clean_wa_number }}?text={{ wa_encoded_msg }}"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="fpg-whatsapp-btn fpg-whatsapp-btn--{{ section.settings.whatsapp_button_style | default: 'link' }}"
+                   aria-label="{{ section.settings.whatsapp_button_text | default: 'Solicitar más información' }} - {{ card_prod_title | escape }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                  </svg>
+                  <span>{{ section.settings.whatsapp_button_text | default: 'Solicitar más información' }}</span>
+                </a>
               {%- endif -%}
-              {%- endcomment -%}
             </div>
           </div>
         {%- endfor -%}
@@ -884,6 +968,75 @@ document.addEventListener('DOMContentLoaded', () => {
       "unit": "px",
       "label": "Padding Bottom",
       "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Enlace de WhatsApp en Tarjetas"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_whatsapp_button",
+      "label": "Mostrar enlace de WhatsApp",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_button_text",
+      "label": "Texto del enlace",
+      "default": "Solicitar más información"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_number",
+      "label": "Número de WhatsApp",
+      "default": "+524776873939",
+      "info": "Incluye código de país (Ej: +524776873939)"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_message",
+      "label": "Mensaje Inicial de WhatsApp",
+      "default": "Hola, me interesa solicitar más información sobre el producto:",
+      "info": "El nombre del producto se añadirá automáticamente al final."
+    },
+    {
+      "type": "select",
+      "id": "whatsapp_button_style",
+      "label": "Estilo visual del enlace",
+      "options": [
+        { "value": "link", "label": "Enlace de texto con icono" },
+        { "value": "button_solid", "label": "Botón Sólido" },
+        { "value": "button_outline", "label": "Botón con Borde" }
+      ],
+      "default": "link"
+    },
+    {
+      "type": "color",
+      "id": "whatsapp_button_color",
+      "label": "Color del Enlace / Botón",
+      "default": "#e8701a"
+    },
+    {
+      "type": "color",
+      "id": "whatsapp_button_hover_color",
+      "label": "Color en Hover",
+      "default": "#cf5c0c"
+    },
+    {
+      "type": "color",
+      "id": "whatsapp_button_text_color",
+      "label": "Color de Texto (si es Botón)",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "whatsapp_button_radius",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Radio de bordes (si es Botón)",
+      "default": 4
     }
   ],
   "blocks": [
