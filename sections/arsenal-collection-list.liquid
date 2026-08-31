@@ -65,7 +65,51 @@
     align-items: center;
   }
   .cl-header-content-{{ section.id }} {
-    max-width: 600px;
+    max-width: {{ section.settings.description_max_width | default: 600 }}px;
+  }
+  /* Kicker / Tagline */
+  .cl-kicker-{{ section.id }} {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: {{ section.settings.kicker_color | default: section.settings.accent_color }};
+    font-size: clamp({{ section.settings.kicker_font_size_mobile | default: 11 }}px, 1.2vw, {{ section.settings.kicker_font_size_desktop | default: 13 }}px);
+    font-weight: {{ section.settings.kicker_font_weight | default: '700' }};
+    text-transform: {{ section.settings.kicker_text_transform | default: 'uppercase' }};
+    letter-spacing: {{ section.settings.kicker_letter_spacing | default: 2 }}px;
+    margin-bottom: {{ section.settings.kicker_margin_bottom | default: 10 }}px;
+    line-height: 1.2;
+    box-sizing: border-box;
+    width: fit-content;
+  }
+  .cl-header-{{ section.id }}.layout-center .cl-kicker-{{ section.id }} {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cl-kicker--badge-{{ section.id }} {
+    background-color: {{ section.settings.kicker_bg | default: 'rgba(232, 112, 26, 0.12)' }};
+    border: 1px solid {{ section.settings.kicker_border_color | default: 'rgba(232, 112, 26, 0.3)' }};
+    padding: 6px 16px;
+    border-radius: 50px;
+  }
+  .cl-kicker--text-{{ section.id }} {
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+  .cl-kicker-{{ section.id }} .kicker-pulse {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background-color: {{ section.settings.kicker_color | default: section.settings.accent_color }};
+    border-radius: 50%;
+    box-shadow: 0 0 8px {{ section.settings.kicker_color | default: section.settings.accent_color }};
+    animation: clPulseDot-{{ section.id }} 1.6s infinite ease-in-out;
+  }
+  @keyframes clPulseDot-{{ section.id }} {
+    0% { transform: scale(0.9); opacity: 0.7; }
+    50% { transform: scale(1.25); opacity: 1; box-shadow: 0 0 12px {{ section.settings.kicker_color | default: section.settings.accent_color }}; }
+    100% { transform: scale(0.9); opacity: 0.7; }
   }
   .cl-header-{{ section.id }} .cl-badge {
     display: inline-block;
@@ -80,19 +124,36 @@
     margin-bottom: 16px;
   }
   .cl-header-{{ section.id }} h2 {
-    font-size: clamp(28px, 5vw, {{ section.settings.heading_size }}px);
-    font-weight: 800;
+    font-size: clamp(24px, 4vw, {{ section.settings.heading_size | default: 36 }}px);
+    font-weight: {{ section.settings.heading_font_weight | default: '800' }};
     color: {{ section.settings.heading_color }};
-    margin: 0 0 12px 0;
+    margin: 0 0 {{ section.settings.heading_margin_bottom | default: 12 }}px 0;
     line-height: 1.15;
     letter-spacing: -0.02em;
   }
+  .cl-header-{{ section.id }} .cl-description-{{ section.id }},
   .cl-header-{{ section.id }} .cl-subtitle {
-    font-size: clamp(15px, 2vw, 18px);
-    color: {{ section.settings.text_color }};
-    line-height: 1.6;
+    font-size: clamp({{ section.settings.description_font_size_mobile | default: 14 }}px, 1.4vw, {{ section.settings.description_font_size | default: 16 }}px);
+    color: {{ section.settings.description_color | default: section.settings.text_color }};
+    line-height: {{ section.settings.description_line_height | default: 1.6 }};
     margin: 0;
-    opacity: 0.8;
+    max-width: {{ section.settings.description_max_width | default: 600 }}px;
+  }
+  .cl-header-{{ section.id }} .cl-description-{{ section.id }} p,
+  .cl-header-{{ section.id }} .cl-subtitle p {
+    margin: 0 0 8px 0;
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+  .cl-header-{{ section.id }} .cl-description-{{ section.id }} p:last-child,
+  .cl-header-{{ section.id }} .cl-subtitle p:last-child {
+    margin-bottom: 0;
+  }
+  .cl-header-{{ section.id }}.layout-center .cl-description-{{ section.id }},
+  .cl-header-{{ section.id }}.layout-center .cl-subtitle {
+    margin-left: auto;
+    margin-right: auto;
   }
   /* View All Button */
   .cl-view-all-{{ section.id }} {
@@ -480,16 +541,28 @@
     {%- if section.settings.show_header -%}
       <div class="cl-header-{{ section.id }} layout-{{ section.settings.header_layout }}">
         <div class="cl-header-content-{{ section.id }}">
-          {%- if section.settings.badge_text != blank -%}
-            <span class="cl-badge">{{ section.settings.badge_text }}</span>
+          {%- if section.settings.kicker != blank or section.settings.badge_text != blank -%}
+            {%- assign kicker_text = section.settings.kicker | default: section.settings.badge_text -%}
+            <div class="cl-kicker-{{ section.id }} cl-kicker--{{ section.settings.kicker_style | default: 'text' }}-{{ section.id }}">
+              {%- if section.settings.kicker_show_dot -%}
+                <span class="kicker-pulse" aria-hidden="true"></span>
+              {%- endif -%}
+              <span>{{ kicker_text }}</span>
+            </div>
           {%- endif -%}
           
           {%- if section.settings.heading != blank -%}
             <h2>{{ section.settings.heading }}</h2>
           {%- endif -%}
           
-          {%- if section.settings.subtitle != blank -%}
-            <p class="cl-subtitle">{{ section.settings.subtitle }}</p>
+          {%- if section.settings.description != blank or section.settings.subtitle != blank -%}
+            <div class="cl-description-{{ section.id }} cl-subtitle">
+              {%- if section.settings.description != blank -%}
+                {{ section.settings.description }}
+              {%- else -%}
+                <p>{{ section.settings.subtitle }}</p>
+              {%- endif -%}
+            </div>
           {%- endif -%}
         </div>
         {%- if section.settings.show_view_all and section.settings.view_all_link != blank -%}
@@ -529,7 +602,9 @@
                     {{ collection_image | image_url: width: 1000 }} 1000w
                   "
                   sizes="(min-width: 990px) 33vw, (min-width: 750px) 50vw, 100vw"
-                  alt="{{ collection.title }}"
+                  alt="{{ collection.title | escape }}"
+                  width="{{ collection_image.width }}"
+                  height="{{ collection_image.height }}"
                   loading="lazy"
                 >
               {%- else -%}
@@ -602,7 +677,7 @@
     },
     {
       "type": "header",
-      "content": "Encabezado"
+      "content": "Encabezado y Kicker"
     },
     {
       "type": "checkbox",
@@ -612,9 +687,107 @@
     },
     {
       "type": "text",
-      "id": "badge_text",
-      "label": "Texto del Badge",
+      "id": "kicker",
+      "label": "Texto del Kicker / Tagline",
       "default": "Explora"
+    },
+    {
+      "type": "select",
+      "id": "kicker_style",
+      "label": "Estilo del Kicker",
+      "options": [
+        { "value": "text", "label": "Texto simple (Sin fondo)" },
+        { "value": "badge", "label": "Insignia / Badge con fondo" }
+      ],
+      "default": "text"
+    },
+    {
+      "type": "checkbox",
+      "id": "kicker_show_dot",
+      "label": "Mostrar punto luminoso / indicador",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "kicker_color",
+      "label": "Color del Kicker",
+      "default": "#e8701a"
+    },
+    {
+      "type": "color",
+      "id": "kicker_bg",
+      "label": "Color de Fondo (Modo Insignia)",
+      "default": "rgba(232, 112, 26, 0.12)"
+    },
+    {
+      "type": "color",
+      "id": "kicker_border_color",
+      "label": "Color de Borde (Modo Insignia)",
+      "default": "rgba(232, 112, 26, 0.3)"
+    },
+    {
+      "type": "range",
+      "id": "kicker_font_size_desktop",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Tamaño del Kicker Desktop",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "kicker_font_size_mobile",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Tamaño del Kicker Móvil",
+      "default": 11
+    },
+    {
+      "type": "select",
+      "id": "kicker_font_weight",
+      "label": "Grosor del Kicker",
+      "options": [
+        { "value": "400", "label": "Normal (400)" },
+        { "value": "500", "label": "Medio (500)" },
+        { "value": "600", "label": "Seminegrita (600)" },
+        { "value": "700", "label": "Negrita (700)" },
+        { "value": "800", "label": "Extra Negrita (800)" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "range",
+      "id": "kicker_letter_spacing",
+      "min": 0,
+      "max": 6,
+      "step": 0.5,
+      "unit": "px",
+      "label": "Espaciado de Letras del Kicker",
+      "default": 2
+    },
+    {
+      "type": "select",
+      "id": "kicker_text_transform",
+      "label": "Transformación de Texto del Kicker",
+      "options": [
+        { "value": "uppercase", "label": "MAYÚSCULAS" },
+        { "value": "none", "label": "Normal / Como se escribió" },
+        { "value": "capitalize", "label": "Capitalizar palabras" }
+      ],
+      "default": "uppercase"
+    },
+    {
+      "type": "range",
+      "id": "kicker_margin_bottom",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Separación Inferior del Kicker",
+      "default": 10
     },
     {
       "type": "text",
@@ -623,10 +796,93 @@
       "default": "Nuestras Colecciones"
     },
     {
-      "type": "textarea",
-      "id": "subtitle",
-      "label": "Subtítulo",
-      "default": "Descubre nuestra selección cuidadosamente curada de productos premium."
+      "type": "color",
+      "id": "heading_color",
+      "label": "Color del Título",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 24,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "label": "Tamaño del Título de Sección",
+      "default": 36
+    },
+    {
+      "type": "select",
+      "id": "heading_font_weight",
+      "label": "Grosor del Título",
+      "options": [
+        { "value": "400", "label": "Normal (400)" },
+        { "value": "600", "label": "Seminegrita (600)" },
+        { "value": "700", "label": "Negrita (700)" },
+        { "value": "800", "label": "Extra Negrita (800)" }
+      ],
+      "default": "800"
+    },
+    {
+      "type": "range",
+      "id": "heading_margin_bottom",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Separación Inferior del Título",
+      "default": 12
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Descripción debajo del Título",
+      "default": "<p>Descubre nuestra selección cuidadosamente curada de productos premium.</p>"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Color de la Descripción",
+      "default": "#a3a3a3"
+    },
+    {
+      "type": "range",
+      "id": "description_font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Tamaño de Descripción Desktop",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "description_font_size_mobile",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Tamaño de Descripción Móvil",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "description_line_height",
+      "min": 1.2,
+      "max": 2.2,
+      "step": 0.1,
+      "label": "Interlineado de Descripción",
+      "default": 1.6
+    },
+    {
+      "type": "range",
+      "id": "description_max_width",
+      "min": 400,
+      "max": 1000,
+      "step": 20,
+      "unit": "px",
+      "label": "Ancho Máximo de Descripción",
+      "default": 600
     },
     {
       "type": "select",
@@ -783,14 +1039,8 @@
     },
     {
       "type": "color",
-      "id": "heading_color",
-      "label": "Color de Títulos",
-      "default": "#1f2937"
-    },
-    {
-      "type": "color",
       "id": "text_color",
-      "label": "Color de Texto",
+      "label": "Color de Texto General",
       "default": "#6b7280"
     },
     {
@@ -839,17 +1089,7 @@
     },
     {
       "type": "header",
-      "content": "Tipografía"
-    },
-    {
-      "type": "range",
-      "id": "heading_size",
-      "min": 28,
-      "max": 56,
-      "step": 2,
-      "unit": "px",
-      "label": "Tamaño del Título de Sección",
-      "default": 42
+      "content": "Tipografía de Tarjetas"
     },
     {
       "type": "range",
@@ -916,8 +1156,9 @@
       "settings": {
         "layout": "editorial",
         "card_style": "overlay",
+        "kicker": "Explora",
         "heading": "Nuestras Colecciones",
-        "subtitle": "Descubre nuestra selección cuidadosamente curada de productos premium."
+        "description": "<p>Descubre nuestra selección cuidadosamente curada de productos premium.</p>"
       }
     }
   ]
