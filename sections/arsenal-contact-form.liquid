@@ -305,32 +305,6 @@
     flex-shrink: 0 !important;
   }
 
-  .arsenal-ms-clear-btn {
-    background: rgba(0, 0, 0, 0.05) !important;
-    border: none !important;
-    padding: 0 !important;
-    cursor: pointer !important;
-    color: #86868b !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 22px !important;
-    height: 22px !important;
-    border-radius: 50% !important;
-    transition: all 0.15s ease !important;
-  }
-
-  .arsenal-ms-clear-btn:hover {
-    background: rgba(229, 62, 62, 0.1) !important;
-    color: #e53e3e !important;
-  }
-
-  .arsenal-ms-clear-btn svg {
-    width: 14px !important;
-    height: 14px !important;
-    fill: currentColor !important;
-  }
-
   .arsenal-ms-arrow {
     display: flex !important;
     align-items: center !important;
@@ -795,18 +769,6 @@
                       </span>
                     </div>
                     <div class="arsenal-ms-actions">
-                      <button
-                        type="button"
-                        class="arsenal-ms-clear-btn"
-                        id="ms-clear-{{ section.id }}"
-                        title="Limpiar selección"
-                        style="display: none;"
-                        aria-label="Limpiar selección"
-                      >
-                        <svg viewBox="0 0 20 20" fill="currentColor">
-                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
-                        </svg>
-                      </button>
                       <span class="arsenal-ms-arrow" aria-hidden="true">
                         <svg viewBox="0 0 20 20" fill="currentColor">
                           <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
@@ -923,7 +885,6 @@
     const searchInput = document.getElementById('ms-search-{{ section.id }}');
     const tagsWrap = document.getElementById('ms-tags-{{ section.id }}');
     const placeholder = document.getElementById('ms-placeholder-{{ section.id }}');
-    const clearBtn = document.getElementById('ms-clear-{{ section.id }}');
     const countLabel = document.getElementById('ms-count-{{ section.id }}');
     const hiddenInput = document.getElementById('ContactForm-products-{{ section.id }}');
     const noResults = document.getElementById('ms-no-results-{{ section.id }}');
@@ -963,11 +924,9 @@
 
       if (selectedValues.length === 0) {
         tagsWrap.appendChild(placeholder);
-        clearBtn.style.display = 'none';
         if (countLabel) countLabel.textContent = '0 seleccionados';
         hiddenInput.value = '';
       } else {
-        clearBtn.style.display = 'inline-flex';
         if (countLabel) countLabel.textContent = selectedValues.length + ' seleccionado' + (selectedValues.length > 1 ? 's' : '');
         hiddenInput.value = selectedValues.join(', ');
 
@@ -979,10 +938,11 @@
           textSpan.textContent = val;
           chip.appendChild(textSpan);
 
-          const removeBtn = document.createElement('button');
-          removeBtn.type = 'button';
+          const removeBtn = document.createElement('span');
           removeBtn.className = 'arsenal-ms-chip-remove';
           removeBtn.innerHTML = '&times;';
+          removeBtn.setAttribute('role', 'button');
+          removeBtn.setAttribute('tabindex', '0');
           removeBtn.setAttribute('aria-label', 'Quitar ' + val);
           removeBtn.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -1065,11 +1025,6 @@
       });
     }
 
-    clearBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      selectedValues = [];
-      updateUI();
-    });
 
     options.forEach(opt => {
       opt.addEventListener('click', (e) => {
