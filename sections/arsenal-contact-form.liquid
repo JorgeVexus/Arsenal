@@ -183,6 +183,343 @@
     color: #c62828;
     border: 1px solid #ffcdd2;
   }
+
+  /* Multi-select Searchable Dropdown */
+  .arsenal-multiselect {
+    position: relative;
+    width: 100%;
+    user-select: none;
+  }
+
+  .arsenal-ms-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 48px;
+    padding: 8px 14px;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    gap: 10px;
+    box-sizing: border-box;
+  }
+
+  .arsenal-ms-trigger:focus,
+  .arsenal-ms-trigger.is-open {
+    border-color: {{ section.settings.button_background | default: '#e8701a' }};
+    box-shadow: 0 0 0 4px {{ section.settings.button_background | color_modify: 'alpha', 0.12 }};
+    outline: none;
+  }
+
+  .arsenal-ms-tags-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .arsenal-ms-placeholder {
+    color: #888888;
+    font-size: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .arsenal-ms-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(232, 112, 26, 0.12);
+    color: #cf5c0c;
+    border: 1px solid rgba(232, 112, 26, 0.25);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.2;
+    animation: msChipPop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes msChipPop {
+    from { opacity: 0; transform: scale(0.85); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .arsenal-ms-chip-remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: inherit;
+    opacity: 0.7;
+    transition: opacity 0.2s, background-color 0.2s;
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  .arsenal-ms-chip-remove:hover {
+    opacity: 1;
+    background: rgba(232, 112, 26, 0.2);
+  }
+
+  .arsenal-ms-actions {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .arsenal-ms-clear-btn {
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: #999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transition: color 0.2s;
+  }
+
+  .arsenal-ms-clear-btn:hover {
+    color: #e53e3e;
+  }
+
+  .arsenal-ms-clear-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .arsenal-ms-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666666;
+    transition: transform 0.25s ease;
+  }
+
+  .arsenal-ms-arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .arsenal-ms-trigger.is-open .arsenal-ms-arrow {
+    transform: rotate(180deg);
+  }
+
+  /* Dropdown container */
+  .arsenal-ms-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    animation: msDropdownFade 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  @keyframes msDropdownFade {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .arsenal-ms-dropdown.is-open {
+    display: flex;
+  }
+
+  /* Search Header */
+  .arsenal-ms-search-box {
+    display: flex;
+    align-items: center;
+    padding: 10px 14px;
+    border-bottom: 1px solid #f0f0f0;
+    background: #fafafa;
+    gap: 10px;
+  }
+
+  .arsenal-ms-search-box .ms-search-icon {
+    width: 18px;
+    height: 18px;
+    color: #888888;
+    flex-shrink: 0;
+  }
+
+  .arsenal-ms-search-input {
+    flex: 1;
+    border: none !important;
+    background: transparent !important;
+    padding: 4px 0 !important;
+    font-size: 14px !important;
+    outline: none !important;
+    box-shadow: none !important;
+    color: #1a1a1a;
+  }
+
+  .arsenal-ms-count {
+    font-size: 11px;
+    font-weight: 700;
+    color: #888888;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Options list */
+  .arsenal-ms-list {
+    max-height: 250px;
+    overflow-y: auto;
+    padding: 6px 0;
+  }
+
+  .arsenal-ms-list::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .arsenal-ms-list::-webkit-scrollbar-thumb {
+    background: #d4d4d4;
+    border-radius: 4px;
+  }
+
+  .arsenal-ms-option {
+    padding: 8px 14px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    display: flex;
+    align-items: center;
+  }
+
+  .arsenal-ms-option:hover,
+  .arsenal-ms-option:focus {
+    background-color: #f5f5f5;
+    outline: none;
+  }
+
+  .arsenal-ms-option.is-selected {
+    background-color: rgba(232, 112, 26, 0.06);
+  }
+
+  .arsenal-ms-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    cursor: pointer;
+  }
+
+  .arsenal-ms-checkbox {
+    display: none;
+  }
+
+  .arsenal-ms-checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #cccccc;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    background: #ffffff;
+  }
+
+  .arsenal-ms-option.is-selected .arsenal-ms-checkmark {
+    background: {{ section.settings.button_background | default: '#e8701a' }};
+    border-color: {{ section.settings.button_background | default: '#e8701a' }};
+  }
+
+  .arsenal-ms-checkmark::after {
+    content: '';
+    width: 4px;
+    height: 8px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) translateY(-1px);
+    display: none;
+  }
+
+  .arsenal-ms-option.is-selected .arsenal-ms-checkmark::after {
+    display: block;
+  }
+
+  .arsenal-ms-img {
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    object-fit: cover;
+    background: #f0f0f0;
+    flex-shrink: 0;
+    border: 1px solid #e8e8e8;
+  }
+
+  .arsenal-ms-img-placeholder {
+    width: 34px;
+    height: 34px;
+    border-radius: 6px;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999999;
+    flex-shrink: 0;
+  }
+
+  .arsenal-ms-img-placeholder svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .arsenal-ms-product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .arsenal-ms-product-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1a1a1a;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .arsenal-ms-product-type {
+    font-size: 11.5px;
+    color: #777777;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .arsenal-ms-empty,
+  .arsenal-ms-no-results {
+    padding: 20px 14px;
+    text-align: center;
+    color: #888888;
+    font-size: 13.5px;
+  }
 {%- endstyle -%}
 
 <section class="arsenal-contact-section section-{{ section.id }}-padding">
@@ -353,6 +690,140 @@
               </div>
             </div>
 
+            {%- if section.settings.enable_products_selector -%}
+              {%- liquid
+                if section.settings.products_list != blank and section.settings.products_list.count > 0
+                  assign form_products = section.settings.products_list
+                elsif section.settings.products_collection != blank and section.settings.products_collection.products.size > 0
+                  assign form_products = section.settings.products_collection.products
+                else
+                  assign form_products = collections.all.products
+                endif
+              -%}
+              <div class="form-field form-field-products" id="fld-products-{{ section.id }}">
+                <label for="ProductSelectTrigger-{{ section.id }}">
+                  {{ section.settings.label_products | default: 'Productos de Interés' }}
+                  {%- if section.settings.products_required -%}
+                    <span aria-hidden="true" style="color: #e53e3e;">*</span>
+                  {%- endif -%}
+                </label>
+
+                <input
+                  type="hidden"
+                  id="ContactForm-products-{{ section.id }}"
+                  name="contact[Productos de Interés]"
+                  value=""
+                  {% if section.settings.products_required %}required{% endif %}
+                >
+
+                <div class="arsenal-multiselect" id="multiselect-{{ section.id }}">
+                  <!-- Trigger Button -->
+                  <div
+                    class="arsenal-ms-trigger"
+                    id="ProductSelectTrigger-{{ section.id }}"
+                    tabindex="0"
+                    role="combobox"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                  >
+                    <div class="arsenal-ms-tags-wrap" id="ms-tags-{{ section.id }}">
+                      <span class="arsenal-ms-placeholder" id="ms-placeholder-{{ section.id }}">
+                        {{ section.settings.placeholder_products | default: 'Selecciona o busca productos de tu interés...' }}
+                      </span>
+                    </div>
+                    <div class="arsenal-ms-actions">
+                      <button
+                        type="button"
+                        class="arsenal-ms-clear-btn"
+                        id="ms-clear-{{ section.id }}"
+                        title="Limpiar selección"
+                        style="display: none;"
+                        aria-label="Limpiar selección"
+                      >
+                        <svg viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                        </svg>
+                      </button>
+                      <span class="arsenal-ms-arrow" aria-hidden="true">
+                        <svg viewBox="0 0 20 20" fill="currentColor">
+                          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Dropdown Panel -->
+                  <div class="arsenal-ms-dropdown" id="ms-dropdown-{{ section.id }}" role="listbox" aria-multiselectable="true">
+                    <!-- Search Input Header -->
+                    <div class="arsenal-ms-search-box">
+                      <svg viewBox="0 0 20 20" fill="currentColor" class="ms-search-icon">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+                      </svg>
+                      <input
+                        type="text"
+                        class="arsenal-ms-search-input"
+                        id="ms-search-{{ section.id }}"
+                        placeholder="Buscar por nombre de producto..."
+                        autocomplete="off"
+                      >
+                      <span class="arsenal-ms-count" id="ms-count-{{ section.id }}">0 seleccionados</span>
+                    </div>
+
+                    <!-- List of Options -->
+                    <div class="arsenal-ms-list" id="ms-list-{{ section.id }}">
+                      {%- for product in form_products -%}
+                        <div
+                          class="arsenal-ms-option"
+                          data-value="{{ product.title | escape }}"
+                          data-id="{{ product.id }}"
+                          data-search="{{ product.title | downcase | escape }}"
+                          role="option"
+                          aria-selected="false"
+                          tabindex="0"
+                        >
+                          <label class="arsenal-ms-checkbox-label">
+                            <input type="checkbox" class="arsenal-ms-checkbox" value="{{ product.title | escape }}">
+                            <span class="arsenal-ms-checkmark"></span>
+                            
+                            {%- if product.featured_image != blank -%}
+                              <img
+                                src="{{ product.featured_image | image_url: width: 64, height: 64, crop: 'center' }}"
+                                alt="{{ product.title | escape }}"
+                                class="arsenal-ms-img"
+                                width="34"
+                                height="34"
+                                loading="lazy"
+                              >
+                            {%- else -%}
+                              <div class="arsenal-ms-img-placeholder">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                  <polyline points="21 15 16 10 5 21"></polyline>
+                                </svg>
+                              </div>
+                            {%- endif -%}
+
+                            <div class="arsenal-ms-product-info">
+                              <span class="arsenal-ms-product-title">{{ product.title }}</span>
+                              {%- if product.type != blank -%}
+                                <span class="arsenal-ms-product-type">{{ product.type }}</span>
+                              {%- endif -%}
+                            </div>
+                          </label>
+                        </div>
+                      {%- else -%}
+                        <div class="arsenal-ms-empty">No hay productos disponibles</div>
+                      {%- endfor -%}
+                      <div class="arsenal-ms-no-results" id="ms-no-results-{{ section.id }}" style="display: none;">
+                        No se encontraron productos que coincidan con la búsqueda.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {%- endif -%}
+
             <div class="form-field">
               <label for="ContactForm-body">{{ section.settings.label_message }}</label>
               <textarea
@@ -376,6 +847,191 @@
     </div>
   </div>
 </section>
+
+{%- if section.settings.enable_products_selector -%}
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('multiselect-{{ section.id }}');
+    if (!container) return;
+
+    const trigger = document.getElementById('ProductSelectTrigger-{{ section.id }}');
+    const dropdown = document.getElementById('ms-dropdown-{{ section.id }}');
+    const searchInput = document.getElementById('ms-search-{{ section.id }}');
+    const tagsWrap = document.getElementById('ms-tags-{{ section.id }}');
+    const placeholder = document.getElementById('ms-placeholder-{{ section.id }}');
+    const clearBtn = document.getElementById('ms-clear-{{ section.id }}');
+    const countLabel = document.getElementById('ms-count-{{ section.id }}');
+    const hiddenInput = document.getElementById('ContactForm-products-{{ section.id }}');
+    const noResults = document.getElementById('ms-no-results-{{ section.id }}');
+    const options = container.querySelectorAll('.arsenal-ms-option');
+
+    let selectedValues = [];
+
+    const openDropdown = () => {
+      dropdown.classList.add('is-open');
+      trigger.classList.add('is-open');
+      trigger.setAttribute('aria-expanded', 'true');
+      setTimeout(() => {
+        searchInput.focus();
+      }, 50);
+    };
+
+    const closeDropdown = () => {
+      dropdown.classList.remove('is-open');
+      trigger.classList.remove('is-open');
+      trigger.setAttribute('aria-expanded', 'false');
+      searchInput.value = '';
+      filterOptions('');
+    };
+
+    const toggleDropdown = () => {
+      if (dropdown.classList.contains('is-open')) {
+        closeDropdown();
+      } else {
+        openDropdown();
+      }
+    };
+
+    const updateUI = () => {
+      tagsWrap.innerHTML = '';
+
+      if (selectedValues.length === 0) {
+        tagsWrap.appendChild(placeholder);
+        clearBtn.style.display = 'none';
+        if (countLabel) countLabel.textContent = '0 seleccionados';
+        hiddenInput.value = '';
+      } else {
+        clearBtn.style.display = 'inline-flex';
+        if (countLabel) countLabel.textContent = selectedValues.length + ' seleccionado' + (selectedValues.length > 1 ? 's' : '');
+        hiddenInput.value = selectedValues.join(', ');
+
+        selectedValues.forEach(val => {
+          const chip = document.createElement('span');
+          chip.className = 'arsenal-ms-chip';
+          chip.textContent = val;
+
+          const removeBtn = document.createElement('button');
+          removeBtn.type = 'button';
+          removeBtn.className = 'arsenal-ms-chip-remove';
+          removeBtn.innerHTML = '&times;';
+          removeBtn.setAttribute('aria-label', 'Quitar ' + val);
+          removeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            deselectValue(val);
+          });
+
+          chip.appendChild(removeBtn);
+          tagsWrap.appendChild(chip);
+        });
+      }
+
+      options.forEach(opt => {
+        const val = opt.getAttribute('data-value');
+        const isSel = selectedValues.includes(val);
+        opt.classList.toggle('is-selected', isSel);
+        opt.setAttribute('aria-selected', isSel ? 'true' : 'false');
+        const chk = opt.querySelector('.arsenal-ms-checkbox');
+        if (chk) chk.checked = isSel;
+      });
+    };
+
+    const selectValue = (val) => {
+      if (!selectedValues.includes(val)) {
+        selectedValues.push(val);
+        updateUI();
+      }
+    };
+
+    const deselectValue = (val) => {
+      selectedValues = selectedValues.filter(v => v !== val);
+      updateUI();
+    };
+
+    const toggleValue = (val) => {
+      if (selectedValues.includes(val)) {
+        deselectValue(val);
+      } else {
+        selectValue(val);
+      }
+    };
+
+    const filterOptions = (query) => {
+      const q = query.toLowerCase().trim();
+      let visibleCount = 0;
+
+      options.forEach(opt => {
+        const searchStr = opt.getAttribute('data-search') || '';
+        if (searchStr.includes(q)) {
+          opt.style.display = '';
+          visibleCount++;
+        } else {
+          opt.style.display = 'none';
+        }
+      });
+
+      if (noResults) {
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+      }
+    };
+
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleDropdown();
+    });
+
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleDropdown();
+      } else if (e.key === 'Escape') {
+        closeDropdown();
+      }
+    });
+
+    searchInput.addEventListener('input', (e) => {
+      filterOptions(e.target.value);
+    });
+
+    searchInput.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+
+    clearBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      selectedValues = [];
+      updateUI();
+    });
+
+    options.forEach(opt => {
+      opt.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const val = opt.getAttribute('data-value');
+        toggleValue(val);
+      });
+
+      opt.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const val = opt.getAttribute('data-value');
+          toggleValue(val);
+        }
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!container.contains(e.target)) {
+        closeDropdown();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeDropdown();
+      }
+    });
+  });
+  </script>
+{%- endif -%}
 
 {% schema %}
 {
@@ -466,6 +1122,46 @@
       "id": "placeholder_country",
       "label": "Country Placeholder",
       "default": "Selecciona tu país"
+    },
+    {
+      "type": "header",
+      "content": "Selector de Productos de Interés"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_products_selector",
+      "label": "Activar selector de productos",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "label_products",
+      "label": "Etiqueta del selector",
+      "default": "Productos de Interés"
+    },
+    {
+      "type": "text",
+      "id": "placeholder_products",
+      "label": "Placeholder del selector",
+      "default": "Selecciona o busca productos de tu interés..."
+    },
+    {
+      "type": "product_list",
+      "id": "products_list",
+      "label": "Productos a mostrar (Opcional)",
+      "info": "Selecciona productos específicos o déjalo vacío para listar los productos de la tienda."
+    },
+    {
+      "type": "collection",
+      "id": "products_collection",
+      "label": "Colección de productos (Opcional)",
+      "info": "Si no seleccionas productos específicos, se pueden cargar desde esta colección."
+    },
+    {
+      "type": "checkbox",
+      "id": "products_required",
+      "label": "Campo obligatorio",
+      "default": false
     },
     {
       "type": "text",
