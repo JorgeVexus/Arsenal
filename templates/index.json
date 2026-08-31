@@ -267,11 +267,11 @@
       "name": "Lista de Colecciones",
       "settings": {
         "collections_list": [
+          "prendas-balisticas",
           "placas-balisticas",
-          "accesorios",
           "cascos",
           "equipamiento-no-balistico",
-          "prendas-balisticas"
+          "accesorios"
         ],
         "collections_limit": 8,
         "show_header": true,
