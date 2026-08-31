@@ -28,18 +28,69 @@
   .fpg-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-end;
     margin-bottom: 2rem;
     gap: 1.5rem;
     flex-wrap: wrap;
   }
 
+  .fpg-header-left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Kicker / Tagline */
+  .fpg-kicker-{{ section.id }} {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: {{ section.settings.kicker_color | default: '#e8701a' }};
+    font-size: clamp({{ section.settings.kicker_font_size_mobile | default: 11 }}px, 1.2vw, {{ section.settings.kicker_font_size_desktop | default: 13 }}px);
+    font-weight: {{ section.settings.kicker_font_weight | default: '700' }};
+    text-transform: {{ section.settings.kicker_text_transform | default: 'uppercase' }};
+    letter-spacing: {{ section.settings.kicker_letter_spacing | default: 2 }}px;
+    margin-bottom: {{ section.settings.kicker_margin_bottom | default: 8 }}px;
+    line-height: 1.2;
+    box-sizing: border-box;
+    width: fit-content;
+  }
+
+  .fpg-kicker--badge-{{ section.id }} {
+    background-color: {{ section.settings.kicker_bg | default: 'rgba(232, 112, 26, 0.12)' }};
+    border: 1px solid {{ section.settings.kicker_border_color | default: 'rgba(232, 112, 26, 0.3)' }};
+    padding: 6px 16px;
+    border-radius: 50px;
+  }
+
+  .fpg-kicker--text-{{ section.id }} {
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .fpg-kicker-{{ section.id }} .kicker-pulse {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background-color: {{ section.settings.kicker_color | default: '#e8701a' }};
+    border-radius: 50%;
+    box-shadow: 0 0 8px {{ section.settings.kicker_color | default: '#e8701a' }};
+    animation: fpgPulseDot-{{ section.id }} 1.6s infinite ease-in-out;
+  }
+
+  @keyframes fpgPulseDot-{{ section.id }} {
+    0% { transform: scale(0.9); opacity: 0.7; }
+    50% { transform: scale(1.25); opacity: 1; box-shadow: 0 0 12px {{ section.settings.kicker_color | default: '#e8701a' }}; }
+    100% { transform: scale(0.9); opacity: 0.7; }
+  }
+
   .fpg-title {
-    font-size: clamp(24px, 4vw, 36px);
+    font-size: clamp(24px, 4vw, {{ section.settings.title_font_size | default: 36 }}px);
     font-weight: 900;
+    color: {{ section.settings.title_color | default: '#000000' }};
     margin: 0;
     text-transform: uppercase;
-    line-height: 1;
+    line-height: 1.1;
   }
 
   .fpg-cta {
@@ -319,9 +370,20 @@
   <div class="fpg-container-{{ section.id }}">
     
     <div class="fpg-header">
-      {%- if section.settings.title != blank -%}
-        <h2 class="fpg-title">{{ section.settings.title }}</h2>
-      {%- endif -%}
+      <div class="fpg-header-left">
+        {%- if section.settings.kicker != blank -%}
+          <div class="fpg-kicker-{{ section.id }} fpg-kicker--{{ section.settings.kicker_style | default: 'text' }}-{{ section.id }}">
+            {%- if section.settings.kicker_show_dot -%}
+              <span class="kicker-pulse" aria-hidden="true"></span>
+            {%- endif -%}
+            <span>{{ section.settings.kicker }}</span>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.title != blank -%}
+          <h2 class="fpg-title">{{ section.settings.title }}</h2>
+        {%- endif -%}
+      </div>
 
       <div style="display: flex; align-items: center; gap: 16px;">
         {%- if section.blocks.size > section.settings.columns_desktop -%}
@@ -359,7 +421,9 @@
                 <img src="{{ card_image | image_url: width: 800 }}" 
                      loading="lazy" 
                      class="fpg-img" 
-                     alt="{{ card_image.alt | escape }}">
+                     alt="{{ card_image.alt | default: product.title | escape }}"
+                     width="{{ card_image.width }}"
+                     height="{{ card_image.height }}">
               {%- else -%}
                 {{ 'product-1' | placeholder_svg_tag: 'fpg-img placeholder-svg' }}
               {%- endif -%}
@@ -476,10 +540,138 @@ document.addEventListener('DOMContentLoaded', () => {
   "class": "section",
   "settings": [
     {
+      "type": "header",
+      "content": "Kicker / Tagline Superior"
+    },
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Texto del Kicker / Tagline",
+      "default": "DESTACADOS"
+    },
+    {
+      "type": "select",
+      "id": "kicker_style",
+      "label": "Estilo del Kicker",
+      "options": [
+        { "value": "text", "label": "Texto simple (Sin fondo)" },
+        { "value": "badge", "label": "Insignia / Badge con fondo" }
+      ],
+      "default": "text"
+    },
+    {
+      "type": "checkbox",
+      "id": "kicker_show_dot",
+      "label": "Mostrar punto luminoso / indicador",
+      "default": false
+    },
+    {
+      "type": "color",
+      "id": "kicker_color",
+      "label": "Color del Kicker",
+      "default": "#e8701a"
+    },
+    {
+      "type": "color",
+      "id": "kicker_bg",
+      "label": "Color de Fondo (Modo Insignia)",
+      "default": "rgba(232, 112, 26, 0.12)"
+    },
+    {
+      "type": "color",
+      "id": "kicker_border_color",
+      "label": "Color de Borde (Modo Insignia)",
+      "default": "rgba(232, 112, 26, 0.3)"
+    },
+    {
+      "type": "range",
+      "id": "kicker_font_size_desktop",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Tamaño del Kicker Desktop",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "kicker_font_size_mobile",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Tamaño del Kicker Móvil",
+      "default": 11
+    },
+    {
+      "type": "select",
+      "id": "kicker_font_weight",
+      "label": "Grosor del Kicker",
+      "options": [
+        { "value": "400", "label": "Normal (400)" },
+        { "value": "500", "label": "Medio (500)" },
+        { "value": "600", "label": "Seminegrita (600)" },
+        { "value": "700", "label": "Negrita (700)" },
+        { "value": "800", "label": "Extra Negrita (800)" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "range",
+      "id": "kicker_letter_spacing",
+      "min": 0,
+      "max": 6,
+      "step": 0.5,
+      "unit": "px",
+      "label": "Espaciado de Letras del Kicker",
+      "default": 2
+    },
+    {
+      "type": "select",
+      "id": "kicker_text_transform",
+      "label": "Transformación de Texto del Kicker",
+      "options": [
+        { "value": "uppercase", "label": "MAYÚSCULAS" },
+        { "value": "none", "label": "Normal / Como se escribió" },
+        { "value": "capitalize", "label": "Capitalizar palabras" }
+      ],
+      "default": "uppercase"
+    },
+    {
+      "type": "range",
+      "id": "kicker_margin_bottom",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Separación Inferior del Kicker",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Título y Botón"
+    },
+    {
       "type": "text",
       "id": "title",
       "label": "Heading",
       "default": "BACKCOUNTRY ESSENTIALS"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Color del Título",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "min": 20,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "label": "Tamaño de Fuente del Título",
+      "default": 36
     },
     {
       "type": "text",
