@@ -82,6 +82,196 @@
     {%- endif -%}
   {%- endcapture -%}
 {% endif %}
+{%- style -%}
+  /* Compact & Discrete Footer */
+  .shopify-section-group-footer-group,
+  #shopify-section-{{ section.id }} {
+    background-color: #000000 !important;
+  }
+
+  #footer-nav {
+    padding-top: 36px !important;
+    padding-bottom: 28px !important;
+    max-width: 1280px !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    gap: 24px 40px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  }
+
+  /* Customer Support (First Column) */
+  #footer-nav > .width-33:first-child,
+  #footer-nav > div:first-child {
+    flex: 1.2 1 260px !important;
+    max-width: 360px !important;
+  }
+
+  /* Menu Columns */
+  #footer-nav > .width-33:not(:first-child),
+  #footer-nav > [class*="width-"]:not(:first-child) {
+    flex: 1 1 180px !important;
+    max-width: 260px !important;
+  }
+
+  /* Tagline Title */
+  #footer-nav .title-underline-none,
+  #footer-nav .title-underline-accent,
+  #footer-nav > div:first-child h4:first-child,
+  #footer-nav > div:first-child > div:first-child h4 {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+    font-weight: 700 !important;
+    color: #e8701a !important;
+    margin-bottom: 14px !important;
+    text-transform: none !important;
+    letter-spacing: 0.2px !important;
+  }
+
+  #footer-nav > div:first-child h4 span,
+  #footer-nav > div:first-child h4 a {
+    text-decoration: none !important;
+    color: #e8701a !important;
+  }
+
+  /* Brand Logo */
+  #footer-nav figure,
+  #footer-nav figure picture {
+    display: block !important;
+    margin-bottom: 10px !important;
+  }
+
+  #footer-nav figure img {
+    max-width: 170px !important;
+    height: auto !important;
+    display: block !important;
+  }
+
+  /* Contact Text Block */
+  #footer-nav > div:first-child .cols > div {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+  }
+
+  #footer-nav > div:first-child h4:not(:first-child),
+  #footer-nav > div:first-child strong {
+    font-size: 13.5px !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    margin-top: 6px !important;
+    margin-bottom: 2px !important;
+    display: inline-block !important;
+  }
+
+  #footer-nav > div:first-child p {
+    margin: 2px 0 !important;
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+  }
+
+  #footer-nav > div:first-child p a {
+    color: rgba(255, 255, 255, 0.7) !important;
+    text-decoration: none !important;
+    font-size: 13px !important;
+    transition: color 0.2s ease !important;
+  }
+
+  #footer-nav > div:first-child p a:hover {
+    color: #e8701a !important;
+  }
+
+  /* Sleek & Discrete Button */
+  #footer-nav .link-btn {
+    margin-top: 10px !important;
+  }
+
+  #footer-nav .link-btn a {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 7px 14px !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    border-radius: 6px !important;
+    background: rgba(232, 112, 26, 0.12) !important;
+    color: #e8701a !important;
+    border: 1px solid rgba(232, 112, 26, 0.35) !important;
+    box-shadow: none !important;
+    transform: none !important;
+    transition: all 0.2s ease !important;
+    width: fit-content !important;
+    text-decoration: none !important;
+  }
+
+  #footer-nav .link-btn a:hover {
+    background: #e8701a !important;
+    color: #ffffff !important;
+    border-color: #e8701a !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* Menu Headings & Links */
+  #footer-nav > [class*="width-"]:not(:first-child) h4,
+  #footer-nav > [class*="width-"]:not(:first-child) .ff-primary,
+  #footer-nav > [class*="width-"]:not(:first-child) .ff-secondary {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin-bottom: 12px !important;
+    letter-spacing: 0.3px !important;
+  }
+
+  #footer-nav > [class*="width-"]:not(:first-child) ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 7px !important;
+  }
+
+  #footer-nav > [class*="width-"]:not(:first-child) ul li a {
+    font-size: 13px !important;
+    color: rgba(255, 255, 255, 0.65) !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease, padding-left 0.2s ease !important;
+    line-height: 1.4 !important;
+    display: inline-block !important;
+  }
+
+  #footer-nav > [class*="width-"]:not(:first-child) ul li a:hover {
+    color: #ffffff !important;
+    padding-left: 3px !important;
+  }
+
+  /* Bottom Copyright Bar */
+  #footer-nav + div.cols,
+  #content > .shopify-section-group-footer-group > div.cols {
+    padding-top: 14px !important;
+    padding-bottom: 18px !important;
+    max-width: 1280px !important;
+    margin: 0 auto !important;
+  }
+
+  #footer-nav + div.cols p,
+  #footer-nav + div.cols span,
+  #footer-nav + div.cols a {
+    font-size: 11.5px !important;
+    color: rgba(255, 255, 255, 0.4) !important;
+  }
+
+  @media screen and (max-width: 749px) {
+    #footer-nav {
+      padding-top: 24px !important;
+      padding-bottom: 20px !important;
+      gap: 20px !important;
+    }
+  }
+{%- endstyle -%}
+
 <nav
   id="footer-nav"
   class="cols {{ nav_alignment }}"
