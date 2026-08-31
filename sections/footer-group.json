@@ -22,11 +22,11 @@
             "customer_support_img": "shopify://shop_images/arsenal_logo_svg.svg",
             "customer_support_img_width": 250,
             "customer_support_img_rounded": false,
-            "text": "<h4><strong>Contacto</strong></h4><p><a href=\"tel:5515537039\" title=\"tel:5515537039\"><strong>55 155 370 39</strong></a></p><p><a href=\"mailto:dircom@arsenalprotect.com\" title=\"mailto:dircom@arsenalprotect.com\"><strong>dircom@arsenalprotect.com</strong></a></p><p><a href=\"mailto:marketing@arsenalprotect.com\" title=\"mailto:marketing@arsenalprotect.com\"><strong>marketing@arsenalprotect.com</strong></a></p>",
+            "text": "",
             "show_phone_link": false,
             "show_mail_link": false,
             "show_whatsapp_link": false,
-            "button_label": "Quejas, sugerencias y denuncias",
+            "button_label": "",
             "button_link": "shopify://pages/formulario-de-quejas",
             "button_style": "secondary solid",
             "enable_follow_on_shop": false
