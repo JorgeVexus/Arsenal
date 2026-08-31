@@ -228,21 +228,50 @@
     gap: {{ section.settings.elements_gap }}px;
   }
 
-  /* Tagline / Badge */
-  .arsenal-iwt-badge-{{ section_id }} {
+  /* Tagline Superior */
+  .arsenal-iwt-tagline-{{ section_id }} {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background-color: {{ section.settings.tagline_bg }};
-    color: {{ section.settings.tagline_color }};
+    color: {{ section.settings.tagline_color | default: '#e8701a' }};
+    font-size: clamp({{ section.settings.tagline_font_size_mobile | default: 11 }}px, 1.2vw, {{ section.settings.tagline_font_size_desktop | default: 13 }}px);
+    font-weight: {{ section.settings.tagline_font_weight | default: '700' }};
+    text-transform: {{ section.settings.tagline_text_transform | default: 'uppercase' }};
+    letter-spacing: {{ section.settings.tagline_letter_spacing | default: 2 }}px;
+    margin-bottom: {{ section.settings.tagline_margin_bottom | default: 6 }}px;
+    width: fit-content;
+    line-height: 1.2;
+    align-self: {% if section.settings.content_alignment == 'center' %}center{% elsif section.settings.content_alignment == 'right' %}flex-end{% else %}flex-start{% endif %};
+    box-sizing: border-box;
+  }
+
+  .arsenal-iwt-tagline--badge-{{ section_id }} {
+    background-color: {{ section.settings.tagline_bg | default: 'rgba(232, 112, 26, 0.12)' }};
+    border: 1px solid {{ section.settings.tagline_border_color | default: 'rgba(232, 112, 26, 0.3)' }};
     padding: 6px 16px;
     border-radius: 50px;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.8px;
-    margin-bottom: 4px;
-    width: fit-content;
+  }
+
+  .arsenal-iwt-tagline--text-{{ section_id }} {
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+
+  .arsenal-iwt-tagline-{{ section_id }} .tagline-pulse {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background-color: {{ section.settings.tagline_color | default: '#e8701a' }};
+    border-radius: 50%;
+    box-shadow: 0 0 8px {{ section.settings.tagline_color | default: '#e8701a' }};
+    animation: arsenalPulseDot-{{ section_id }} 1.6s infinite ease-in-out;
+  }
+
+  @keyframes arsenalPulseDot-{{ section_id }} {
+    0% { transform: scale(0.9); opacity: 0.7; }
+    50% { transform: scale(1.25); opacity: 1; box-shadow: 0 0 12px {{ section.settings.tagline_color | default: '#e8701a' }}; }
+    100% { transform: scale(0.9); opacity: 0.7; }
   }
 
   /* Título Rich Text */
@@ -488,8 +517,11 @@
         <div class="arsenal-iwt-inner-{{ section_id }}">
           
           {%- if section.settings.tagline != blank -%}
-            <div class="arsenal-iwt-badge-{{ section_id }}">
-              {{ section.settings.tagline }}
+            <div class="arsenal-iwt-tagline-{{ section_id }} arsenal-iwt-tagline--{{ section.settings.tagline_style | default: 'text' }}-{{ section_id }}">
+              {%- if section.settings.tagline_show_dot -%}
+                <span class="tagline-pulse" aria-hidden="true"></span>
+              {%- endif -%}
+              <span>{{ section.settings.tagline }}</span>
             </div>
           {%- endif -%}
 
@@ -818,22 +850,112 @@
       "content": "Contenido y Tipografía"
     },
     {
+      "type": "header",
+      "content": "Tagline / Subtítulo Superior"
+    },
+    {
       "type": "text",
       "id": "tagline",
-      "label": "Insignia / Tagline Superior",
+      "label": "Texto del Tagline",
       "info": "Ejemplo: TECNOLOGÍA DE PROTECCIÓN"
+    },
+    {
+      "type": "select",
+      "id": "tagline_style",
+      "label": "Estilo del Tagline",
+      "options": [
+        { "value": "text", "label": "Texto simple (Sin fondo)" },
+        { "value": "badge", "label": "Insignia / Badge con fondo" }
+      ],
+      "default": "text"
+    },
+    {
+      "type": "checkbox",
+      "id": "tagline_show_dot",
+      "label": "Mostrar punto luminoso / indicador",
+      "default": false
     },
     {
       "type": "color",
       "id": "tagline_color",
-      "label": "Color del Texto de la Insignia",
+      "label": "Color del Texto del Tagline",
       "default": "#e8701a"
     },
     {
       "type": "color",
       "id": "tagline_bg",
-      "label": "Fondo de la Insignia",
+      "label": "Color de Fondo (Modo Insignia)",
       "default": "rgba(232, 112, 26, 0.12)"
+    },
+    {
+      "type": "color",
+      "id": "tagline_border_color",
+      "label": "Color del Borde (Modo Insignia)",
+      "default": "rgba(232, 112, 26, 0.3)"
+    },
+    {
+      "type": "range",
+      "id": "tagline_font_size_desktop",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Tamaño de Fuente Desktop",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "tagline_font_size_mobile",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Tamaño de Fuente Móvil",
+      "default": 11
+    },
+    {
+      "type": "select",
+      "id": "tagline_font_weight",
+      "label": "Grosor de la Fuente",
+      "options": [
+        { "value": "400", "label": "Normal (400)" },
+        { "value": "500", "label": "Medio (500)" },
+        { "value": "600", "label": "Seminegrita (600)" },
+        { "value": "700", "label": "Negrita (700)" },
+        { "value": "800", "label": "Extra Negrita (800)" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "range",
+      "id": "tagline_letter_spacing",
+      "min": 0,
+      "max": 6,
+      "step": 0.5,
+      "unit": "px",
+      "label": "Espaciado entre Letras (Tracking)",
+      "default": 2
+    },
+    {
+      "type": "select",
+      "id": "tagline_text_transform",
+      "label": "Transformación de Texto",
+      "options": [
+        { "value": "uppercase", "label": "MAYÚSCULAS" },
+        { "value": "none", "label": "Normal / Como se escribió" },
+        { "value": "capitalize", "label": "Capitalizar palabras" }
+      ],
+      "default": "uppercase"
+    },
+    {
+      "type": "range",
+      "id": "tagline_margin_bottom",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Separación Inferior del Tagline",
+      "default": 6
     },
     {
       "type": "richtext",
