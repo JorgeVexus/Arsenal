@@ -1,4 +1,31 @@
 {%- style -%}
+  /* Reset y Márgenes Exteriores */
+  #shopify-section-{{ section.id }},
+  #shopify-section-{{ section.id }}.shopify-section {
+    width: 100%;
+    margin-top: {{ section.settings.margin_top | default: 0 }}px !important;
+    margin-bottom: {{ section.settings.margin_bottom | default: 60 }}px !important;
+    display: block !important;
+    position: relative;
+    z-index: 2;
+  }
+
+  {% if section.settings.full_width %}
+    #shopify-section-{{ section.id }},
+    #shopify-section-{{ section.id }}.shopify-section {
+      width: 100vw !important;
+      max-width: 100vw !important;
+      position: relative !important;
+      left: 50% !important;
+      right: 50% !important;
+      margin-left: -50vw !important;
+      margin-right: -50vw !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      box-sizing: border-box !important;
+    }
+  {% endif %}
+
   /* Base Section Styles */
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
@@ -638,6 +665,12 @@
       "default": 1200
     },
     {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Ancho Completo (Full Width 100vw)",
+      "default": true
+    },
+    {
       "type": "header",
       "content": "Espaciado"
     },
@@ -648,7 +681,7 @@
       "max": 150,
       "step": 5,
       "unit": "px",
-      "label": "Padding Superior",
+      "label": "Padding Superior (Interior)",
       "default": 100
     },
     {
@@ -658,8 +691,32 @@
       "max": 150,
       "step": 5,
       "unit": "px",
-      "label": "Padding Inferior",
+      "label": "Padding Inferior (Interior)",
       "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Márgenes Exteriores"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Margen Superior (Separación arriba)",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Margen Inferior (Separación abajo)",
+      "default": 60
     }
   ],
   "blocks": [
