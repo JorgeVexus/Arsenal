@@ -502,6 +502,9 @@
         "content_9bzeLn",
         "content_9ffbzD"
       ],
+      "custom_css": [
+        "h3 {margin-top: 15px !important;}"
+      ],
       "settings": {
         "width": "boxed",
         "height": "xs",
