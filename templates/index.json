@@ -554,6 +554,7 @@
       ],
       "name": "Arsenal Marquee",
       "settings": {
+        "full_width": true,
         "heading": "<h3><strong>Clientes del Sector Público y Privado:</strong></h3>",
         "header_margin": 32,
         "background_color": "#ffffff",
@@ -752,6 +753,7 @@
       ],
       "name": "Arsenal Marquee",
       "settings": {
+        "full_width": true,
         "heading": "<h3><strong>Certificaciones</strong></h3>",
         "header_margin": 32,
         "background_color": "rgba(0,0,0,0)",

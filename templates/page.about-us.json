@@ -23,14 +23,14 @@
         "title_XpXWAV": {
           "type": "title",
           "settings": {
-            "title": "<h3>Somos una empresa mexicana especializada en protección balística.</h3>",
+            "title": "<h2><strong>Somos una empresa mexicana con más de 25 años de experiencia...</strong></h2>",
             "title_underline_style": "none"
           }
         },
         "text_ci6DiT": {
           "type": "text",
           "settings": {
-            "text": "<p>Con más de 25 años de experiencia, en Arsenal Protection Mexico diseñamos, fabricamos y comercializamos soluciones de protección balística y equipos de seguridad para instituciones y cuerpos de seguridad pública y privada.<br/><br/>Desarrollamos productos y soluciones orientados a proteger la integridad física de quienes desempeñan funciones de seguridad, combinando tecnología, innovación, calidad y experiencia para responder a las necesidades de nuestros clientes en México y otros mercados.</p>",
+            "text": "<p>En el diseño, fabricación y distribución de la más alta calidad en tecnología balística personal; con la cual, custodiamos la integridad física de los distintos cuerpos de seguridad nacional e internacional, que brindan protección pública y privada.</p>",
             "font": "secondary",
             "font_size": "16px"
           }
@@ -197,7 +197,7 @@
           "settings": {
             "icon": "mission",
             "title": "Nuestra Misión",
-            "description": "Diseñar soluciones para proteger vidas.\n<br><br>\n\nDiseñar, fabricar y comercializar sistemas integrales de protección balística y equipos de seguridad, apoyándonos en un equipo especializado, tecnología de vanguardia y procesos orientados a la calidad.<br><br>\n\nNuestro compromiso es satisfacer las necesidades de nuestros clientes mediante soluciones confiables que cumplan con los estándares y normativas aplicables, contribuyendo a la protección de quienes realizan labores de seguridad pública y privada."
+            "description": "Comprometidos con la Protección y la Innovación<br><br>\n\nDiseñar, Fabricar y Comercializar Sistemas Integrales de Protección Balística derivados de las operaciones de producción a través de un excelente equipo y tecnología de punta, con el fin de satisfacer las necesidades de nuestros clientes dentro de los parámetros de calidad y en cumplimiento con las normativas reglamentarias, garantizando nuestros productos."
           }
         },
         "card_f3FUai": {
@@ -205,7 +205,7 @@
           "settings": {
             "icon": "vision",
             "title": "Nuestra Visión",
-            "description": "Liderazgo en protección balística.\n<br><br>\nSer una empresa referente en protección balística y equipamiento para fuerzas de seguridad, reconocida por la calidad de sus productos, innovación, capacidad de respuesta y compromiso con sus clientes.\n<br><br>\nBuscamos consolidarnos como una de las principales opciones para instituciones y organizaciones que requieren chalecos balísticos, placas balísticas y soluciones integrales de protección, fortaleciendo nuestra presencia en México y en mercados internacionales."
+            "description": "Visión de Liderazgo en Protección Balística\n<br><br>\nConvertirnos en la primera opción de nuestros clientes actuales y futuros en Sistemas Integrales de Protección Balística y equipamiento para fuerzas del orden público y privado; satisfaciendo sus necesidades y requerimientos, proyectándonos en el mercado nacional e internacional, siempre comprometidos con el bienestar de nuestro equipo humano."
           }
         }
       },
@@ -219,8 +219,7 @@
         "badge_text": "Quiénes Somos",
         "section_heading": "Nuestra Esencia",
         "tagline": "Protección, innovación y compromiso",
-        "tagline_color": "#ea5c10",
-        "section_subtitle": "Nuestra filosofía se basa en desarrollar soluciones de protección confiables, respaldadas por la experiencia, la innovación tecnológica y el compromiso con la calidad.\n\n\nTrabajamos para ofrecer productos que respondan a las exigencias de profesionales e instituciones que requieren equipamiento de protección balística y soluciones de seguridad de alto desempeño.",
+        "section_subtitle": "Descubre los valores y principios que nos guían cada día en nuestra misión de ofrecer excelencia.",
         "header_alignment": "center",
         "background_color": "#f8f9fa",
         "background_image": "shopify://shop_images/img-3.jpg",
@@ -457,7 +456,7 @@
           "type": "content",
           "settings": {
             "page": "",
-            "text": "<p>En Arsenal Protection Mexico S. de R.L. de C.V. nos comprometemos con la fabricación y comercialización de productos de protección balística y equipos de seguridad que cumplan con los requisitos de calidad y las necesidades de nuestros clientes.<br/><br/>Trabajamos bajo principios de calidad, mejora continua y responsabilidad ambiental, procurando prevenir y reducir los impactos ambientales asociados a nuestras actividades y procesos.<br/><br/>Nuestro compromiso incluye el cumplimiento de la normatividad aplicable, la satisfacción de nuestros clientes, el uso responsable de los recursos y la mejora continua de nuestro sistema de gestión y de nuestros procesos.</p>",
+            "text": "<p>En Arsenal Protection Mexico S, de R.L. de C.V. fabricamos y comercializamos la más alta calidad de los chalecos y placas balísticas, así como equipos de protección con los cuales custodiamos la integridad física de los distintos cuerpos de seguridad que brindan protección pública y privada a la sociedad, protegiendo el medio ambiente y previniendo la contaminación en nuestros procesos asegurándonos del cumplimiento de la normatividad aplicable, la satisfacción de nuestros clientes e impulsando la mejora continua en nuestros procesos.</p>",
             "font": "secondary",
             "enable_custom_text_styling": false,
             "font_weight": "400",
@@ -639,7 +638,6 @@
         "background_height_mobile": 100,
         "spacing_desktop": -20,
         "spacing_mobile": -10,
-        "padding_top_mobile": 30,
         "fix_zindex": 0
       }
     },
@@ -1105,6 +1103,7 @@
       ],
       "name": "Arsenal Marquee",
       "settings": {
+        "full_width": true,
         "heading": "<h3><strong>Clientes del Sector Público y Privado:</strong></h3>",
         "header_margin": 32,
         "background_color": "#ffffff",
@@ -1148,11 +1147,6 @@
         "color_palette": "",
         "overlay_opacity": 100,
         "layout": "image-right",
-        "align_image_flush": true,
-        "image_content_gap": 40,
-        "image_content_gap_mobile": 20,
-        "content_padding_outer": 40,
-        "content_padding_outer_mobile": 20,
         "text_position": "text-start",
         "background_color_palette": "",
         "background_overlay_opacity": 75,
@@ -1161,10 +1155,6 @@
         "background_height": 100,
         "background_width_mobile": 100,
         "background_height_mobile": 100,
-        "padding_top": 40,
-        "padding_bottom": 40,
-        "padding_top_mobile": 20,
-        "padding_bottom_mobile": 20,
         "spacing_desktop": 50,
         "spacing_mobile": 30,
         "fix_zindex": 0
