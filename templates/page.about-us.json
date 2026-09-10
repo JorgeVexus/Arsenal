@@ -483,12 +483,24 @@
             "font_weight": "400",
             "font_size": "16px"
           }
+        },
+        "content_9ffbzD": {
+          "type": "content",
+          "settings": {
+            "page": "",
+            "text": "<p>Nuestro compromiso incluye el cumplimiento de la normatividad aplicable, la satisfacción de nuestros clientes, el uso responsable de los recursos y la mejora continua de nuestro sistema de gestión y de nuestros procesos.</p>",
+            "font": "secondary",
+            "enable_custom_text_styling": false,
+            "font_weight": "400",
+            "font_size": "16px"
+          }
         }
       },
       "block_order": [
         "template--19595896848705__7b233bd0-c26a-462b-98bb-a47fcde2f1c7-title-1",
         "33b82370-c3de-495d-8fd9-d76b7918df2f",
-        "content_9bzeLn"
+        "content_9bzeLn",
+        "content_9ffbzD"
       ],
       "settings": {
         "width": "boxed",
