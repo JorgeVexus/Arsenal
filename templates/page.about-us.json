@@ -23,14 +23,22 @@
         "title_XpXWAV": {
           "type": "title",
           "settings": {
-            "title": "<h2><strong>Somos una empresa mexicana con más de 25 años de experiencia...</strong></h2>",
+            "title": "<h3>Somos una empresa mexicana especializada en protección balística.</h3>",
             "title_underline_style": "none"
           }
         },
         "text_ci6DiT": {
           "type": "text",
           "settings": {
-            "text": "<p>En el diseño, fabricación y distribución de la más alta calidad en tecnología balística personal; con la cual, custodiamos la integridad física de los distintos cuerpos de seguridad nacional e internacional, que brindan protección pública y privada.</p>",
+            "text": "<p>Con más de 25 años de experiencia, en Arsenal Protection Mexico diseñamos, fabricamos y comercializamos soluciones de protección balística y equipos de seguridad para instituciones y cuerpos de seguridad pública y privada.<br/></p>",
+            "font": "secondary",
+            "font_size": "16px"
+          }
+        },
+        "text_eAxtkQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Desarrollamos productos y soluciones orientados a proteger la integridad física de quienes desempeñan funciones de seguridad, combinando tecnología, innovación, calidad y experiencia para responder a las necesidades de nuestros clientes en México y otros mercados.</p>",
             "font": "secondary",
             "font_size": "16px"
           }
@@ -52,6 +60,7 @@
       "block_order": [
         "title_XpXWAV",
         "text_ci6DiT",
+        "text_eAxtkQ",
         "buttons_jRUPfN"
       ],
       "name": "t:sections.video_with_text.presets.name",
