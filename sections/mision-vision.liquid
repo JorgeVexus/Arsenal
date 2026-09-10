@@ -83,8 +83,17 @@
     font-size: clamp(28px, 5vw, 48px);
     font-weight: 700;
     color: {{ section.settings.heading_color }};
-    margin: 0 0 15px 0;
+    margin: 0 0 12px 0;
     line-height: 1.2;
+  }
+  .mv-header-{{ section.id }} .mv-tagline {
+    font-size: clamp(14px, 1.8vw, 17px);
+    font-weight: 700;
+    color: {{ section.settings.tagline_color | default: section.settings.accent_color }};
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 15px 0;
+    line-height: 1.4;
   }
   .mv-header-{{ section.id }} .mv-subtitle {
     font-size: clamp(16px, 2vw, 18px);
@@ -94,8 +103,10 @@
     margin: 0 auto;
     line-height: 1.6;
   }
-  .mv-header-{{ section.id }}.left .mv-subtitle {
-    margin: 0;
+  .mv-header-{{ section.id }}.left .mv-subtitle,
+  .mv-header-{{ section.id }}.left .mv-tagline {
+    margin-left: 0;
+    margin-right: 0;
   }
   /* Grid Layout */
   .mv-grid-{{ section.id }} {
@@ -269,6 +280,10 @@
         {%- if section.settings.section_heading != blank -%}
           <h2>{{ section.settings.section_heading }}</h2>
         {%- endif -%}
+
+        {%- if section.settings.tagline != blank -%}
+          <div class="mv-tagline">{{ section.settings.tagline }}</div>
+        {%- endif -%}
         
         {%- if section.settings.section_subtitle != blank -%}
           <p class="mv-subtitle">{{ section.settings.section_subtitle }}</p>
@@ -366,6 +381,18 @@
       "id": "section_heading",
       "label": "Título de Sección",
       "default": "Nuestra Esencia"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline / Power Phrase",
+      "default": "Protección, innovación y compromiso"
+    },
+    {
+      "type": "color",
+      "id": "tagline_color",
+      "label": "Color del Tagline",
+      "default": "#ea5c10"
     },
     {
       "type": "textarea",
