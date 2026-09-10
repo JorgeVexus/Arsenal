@@ -205,7 +205,7 @@
           "settings": {
             "icon": "vision",
             "title": "Nuestra Visión",
-            "description": "Visión de Liderazgo en Protección Balística\n<br><br>\nConvertirnos en la primera opción de nuestros clientes actuales y futuros en Sistemas Integrales de Protección Balística y equipamiento para fuerzas del orden público y privado; satisfaciendo sus necesidades y requerimientos, proyectándonos en el mercado nacional e internacional, siempre comprometidos con el bienestar de nuestro equipo humano."
+            "description": "Liderazgo en protección balística.\n<br><br>\nSer una empresa referente en protección balística y equipamiento para fuerzas de seguridad, reconocida por la calidad de sus productos, innovación, capacidad de respuesta y compromiso con sus clientes.\n<br><br>\nBuscamos consolidarnos como una de las principales opciones para instituciones y organizaciones que requieren chalecos balísticos, placas balísticas y soluciones integrales de protección, fortaleciendo nuestra presencia en México y en mercados internacionales."
           }
         }
       },
@@ -218,6 +218,8 @@
         "show_header": true,
         "badge_text": "Quiénes Somos",
         "section_heading": "Nuestra Esencia",
+        "tagline": "Protección, innovación y compromiso",
+        "tagline_color": "#ea5c10",
         "section_subtitle": "Nuestra filosofía se basa en desarrollar soluciones de protección confiables, respaldadas por la experiencia, la innovación tecnológica y el compromiso con la calidad.\n\n\nTrabajamos para ofrecer productos que respondan a las exigencias de profesionales e instituciones que requieren equipamiento de protección balística y soluciones de seguridad de alto desempeño.",
         "header_alignment": "center",
         "background_color": "#f8f9fa",
