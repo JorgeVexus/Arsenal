@@ -23,14 +23,22 @@
         "title_XpXWAV": {
           "type": "title",
           "settings": {
-            "title": "<h2><strong>Somos una empresa mexicana con más de 25 años de experiencia...</strong></h2>",
+            "title": "<h3>Somos una empresa mexicana especializada en protección balística.<br/></h3>",
             "title_underline_style": "none"
           }
         },
         "text_ci6DiT": {
           "type": "text",
           "settings": {
-            "text": "<p>En el diseño, fabricación y distribución de la más alta calidad en tecnología balística personal; con la cual, custodiamos la integridad física de los distintos cuerpos de seguridad nacional e internacional, que brindan protección pública y privada.</p>",
+            "text": "<p>Con más de 25 años de experiencia, en Arsenal Protection Mexico diseñamos, fabricamos y comercializamos soluciones de protección balística y equipos de seguridad para instituciones y cuerpos de seguridad pública y privada.<br/></p>",
+            "font": "secondary",
+            "font_size": "16px"
+          }
+        },
+        "text_eAxtkQ": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Desarrollamos productos y soluciones orientados a proteger la integridad física de quienes desempeñan funciones de seguridad, combinando tecnología, innovación, calidad y experiencia para responder a las necesidades de nuestros clientes en México y otros mercados.</p>",
             "font": "secondary",
             "font_size": "16px"
           }
@@ -52,6 +60,7 @@
       "block_order": [
         "title_XpXWAV",
         "text_ci6DiT",
+        "text_eAxtkQ",
         "buttons_jRUPfN"
       ],
       "name": "t:sections.video_with_text.presets.name",
@@ -197,7 +206,7 @@
           "settings": {
             "icon": "mission",
             "title": "Nuestra Misión",
-            "description": "Comprometidos con la Protección y la Innovación<br><br>\n\nDiseñar, Fabricar y Comercializar Sistemas Integrales de Protección Balística derivados de las operaciones de producción a través de un excelente equipo y tecnología de punta, con el fin de satisfacer las necesidades de nuestros clientes dentro de los parámetros de calidad y en cumplimiento con las normativas reglamentarias, garantizando nuestros productos."
+            "description": "Diseñar soluciones para proteger vidas.\n<br><br>\n\nDiseñar, fabricar y comercializar sistemas integrales de protección balística y equipos de seguridad, apoyándonos en un equipo especializado, tecnología de vanguardia y procesos orientados a la calidad.\n<br><br>\nNuestro compromiso es satisfacer las necesidades de nuestros clientes mediante soluciones confiables que cumplan con los estándares y normativas aplicables, contribuyendo a la protección de quienes realizan labores de seguridad pública y privada."
           }
         },
         "card_f3FUai": {
@@ -205,7 +214,7 @@
           "settings": {
             "icon": "vision",
             "title": "Nuestra Visión",
-            "description": "Visión de Liderazgo en Protección Balística\n<br><br>\nConvertirnos en la primera opción de nuestros clientes actuales y futuros en Sistemas Integrales de Protección Balística y equipamiento para fuerzas del orden público y privado; satisfaciendo sus necesidades y requerimientos, proyectándonos en el mercado nacional e internacional, siempre comprometidos con el bienestar de nuestro equipo humano."
+            "description": "Liderazgo en protección balística.\n<br><br>\nSer una empresa referente en protección balística y equipamiento para fuerzas de seguridad, reconocida por la calidad de sus productos, innovación, capacidad de respuesta y compromiso con sus clientes.\n<br><br>\nBuscamos consolidarnos como una de las principales opciones para instituciones y organizaciones que requieren chalecos balísticos, placas balísticas y soluciones integrales de protección, fortaleciendo nuestra presencia en México y en mercados internacionales."
           }
         }
       },
@@ -219,7 +228,8 @@
         "badge_text": "Quiénes Somos",
         "section_heading": "Nuestra Esencia",
         "tagline": "Protección, innovación y compromiso",
-        "section_subtitle": "Descubre los valores y principios que nos guían cada día en nuestra misión de ofrecer excelencia.",
+        "tagline_color": "#ea5c10",
+        "section_subtitle": "Nuestra filosofía se basa en desarrollar soluciones de protección confiables, respaldadas por la experiencia, la innovación tecnológica y el compromiso con la calidad.<br><br>\n\nTrabajamos para ofrecer productos que respondan a las exigencias de profesionales e instituciones que requieren equipamiento de protección balística y soluciones de seguridad de alto desempeño.",
         "header_alignment": "center",
         "background_color": "#f8f9fa",
         "background_image": "shopify://shop_images/img-3.jpg",
@@ -247,11 +257,8 @@
         "title_font_size": 26,
         "text_font_size": 16,
         "max_width": 1200,
-        "full_width": true,
         "padding_top": 100,
-        "padding_bottom": 100,
-        "margin_top": 0,
-        "margin_bottom": 60
+        "padding_bottom": 100
       }
     },
     "69004205-e7a6-4b16-8ef7-0364226a75a2": {
@@ -459,7 +466,29 @@
           "type": "content",
           "settings": {
             "page": "",
-            "text": "<p>En Arsenal Protection Mexico S, de R.L. de C.V. fabricamos y comercializamos la más alta calidad de los chalecos y placas balísticas, así como equipos de protección con los cuales custodiamos la integridad física de los distintos cuerpos de seguridad que brindan protección pública y privada a la sociedad, protegiendo el medio ambiente y previniendo la contaminación en nuestros procesos asegurándonos del cumplimiento de la normatividad aplicable, la satisfacción de nuestros clientes e impulsando la mejora continua en nuestros procesos.</p>",
+            "text": "<p>En Arsenal Protection Mexico S. de R.L. de C.V. nos comprometemos con la fabricación y comercialización de productos de protección balística y equipos de seguridad que cumplan con los requisitos de calidad y las necesidades de nuestros clientes.<br/></p>",
+            "font": "secondary",
+            "enable_custom_text_styling": false,
+            "font_weight": "400",
+            "font_size": "16px"
+          }
+        },
+        "content_9bzeLn": {
+          "type": "content",
+          "settings": {
+            "page": "",
+            "text": "<p>Trabajamos bajo principios de calidad, mejora continua y responsabilidad ambiental, procurando prevenir y reducir los impactos ambientales asociados a nuestras actividades y procesos.</p>",
+            "font": "secondary",
+            "enable_custom_text_styling": false,
+            "font_weight": "400",
+            "font_size": "16px"
+          }
+        },
+        "content_9ffbzD": {
+          "type": "content",
+          "settings": {
+            "page": "",
+            "text": "<p>Nuestro compromiso incluye el cumplimiento de la normatividad aplicable, la satisfacción de nuestros clientes, el uso responsable de los recursos y la mejora continua de nuestro sistema de gestión y de nuestros procesos.</p>",
             "font": "secondary",
             "enable_custom_text_styling": false,
             "font_weight": "400",
@@ -469,7 +498,9 @@
       },
       "block_order": [
         "template--19595896848705__7b233bd0-c26a-462b-98bb-a47fcde2f1c7-title-1",
-        "33b82370-c3de-495d-8fd9-d76b7918df2f"
+        "33b82370-c3de-495d-8fd9-d76b7918df2f",
+        "content_9bzeLn",
+        "content_9ffbzD"
       ],
       "settings": {
         "width": "boxed",
@@ -641,6 +672,7 @@
         "background_height_mobile": 100,
         "spacing_desktop": -20,
         "spacing_mobile": -10,
+        "padding_top_mobile": 30,
         "fix_zindex": 0
       }
     },
@@ -805,6 +837,17 @@
             "link_text": "Leer más"
           }
         },
+        "milestone_VrCnmc": {
+          "type": "milestone",
+          "disabled": true,
+          "settings": {
+            "year": "2001",
+            "title": "Inicio de operaciones",
+            "description": "Comienza nuestra historia en Venezuela",
+            "link": "",
+            "link_text": "Leer más"
+          }
+        },
         "milestone_wUAzjH": {
           "type": "milestone",
           "settings": {
@@ -875,7 +918,7 @@
           "type": "milestone",
           "settings": {
             "year": "2015",
-            "title": "Certificación NIJ 0101.06, Modelo GR-102",
+            "title": "Certificación NIJ 0101.06, Modelo GR201",
             "description": "",
             "image": "shopify://shop_images/0fbe8c68-ceed-4871-b139-1487d57411b1.png",
             "link": "",
@@ -930,7 +973,7 @@
           "type": "milestone",
           "settings": {
             "year": "2024",
-            "title": "Certificación ISO 37001",
+            "title": "Certificación ISO 37001:2016",
             "description": "",
             "image": "shopify://shop_images/insignia-globalstd-iso37001_page-0001.jpg",
             "link": "",
@@ -962,6 +1005,7 @@
       },
       "block_order": [
         "milestone_bQ7grf",
+        "milestone_VrCnmc",
         "milestone_wUAzjH",
         "milestone_yyDRzk",
         "milestone_WziURf",
@@ -1118,7 +1162,9 @@
         "pause_on_hover": true,
         "hover_effect": true,
         "padding_top": 100,
-        "padding_bottom": 100
+        "padding_bottom": 100,
+        "margin_top": 0,
+        "margin_bottom": 0
       }
     },
     "section_image_with_text_jt9pb4": {
@@ -1150,6 +1196,11 @@
         "color_palette": "",
         "overlay_opacity": 100,
         "layout": "image-right",
+        "align_image_flush": true,
+        "image_content_gap": 40,
+        "image_content_gap_mobile": 20,
+        "content_padding_outer": 40,
+        "content_padding_outer_mobile": 20,
         "text_position": "text-start",
         "background_color_palette": "",
         "background_overlay_opacity": 75,
@@ -1158,6 +1209,10 @@
         "background_height": 100,
         "background_width_mobile": 100,
         "background_height_mobile": 100,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
         "spacing_desktop": 50,
         "spacing_mobile": 30,
         "fix_zindex": 0
