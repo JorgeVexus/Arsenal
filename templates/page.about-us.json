@@ -23,14 +23,14 @@
         "title_XpXWAV": {
           "type": "title",
           "settings": {
-            "title": "<h2><strong>Somos una empresa mexicana con más de 25 años de experiencia...</strong></h2>",
+            "title": "<h3>Somos una empresa mexicana especializada en protección balística.</h3>",
             "title_underline_style": "none"
           }
         },
         "text_ci6DiT": {
           "type": "text",
           "settings": {
-            "text": "<p>En el diseño, fabricación y distribución de la más alta calidad en tecnología balística personal; con la cual, custodiamos la integridad física de los distintos cuerpos de seguridad nacional e internacional, que brindan protección pública y privada.</p>",
+            "text": "<p>Con más de 25 años de experiencia, en Arsenal Protection Mexico diseñamos, fabricamos y comercializamos soluciones de protección balística y equipos de seguridad para instituciones y cuerpos de seguridad pública y privada.<br/><br/>Desarrollamos productos y soluciones orientados a proteger la integridad física de quienes desempeñan funciones de seguridad, combinando tecnología, innovación, calidad y experiencia para responder a las necesidades de nuestros clientes en México y otros mercados.</p>",
             "font": "secondary",
             "font_size": "16px"
           }
@@ -218,8 +218,7 @@
         "show_header": true,
         "badge_text": "Quiénes Somos",
         "section_heading": "Nuestra Esencia",
-        "tagline": "Protección, innovación y compromiso",
-        "section_subtitle": "Descubre los valores y principios que nos guían cada día en nuestra misión de ofrecer excelencia.",
+        "section_subtitle": "Nuestra filosofía se basa en desarrollar soluciones de protección confiables, respaldadas por la experiencia, la innovación tecnológica y el compromiso con la calidad.\n\n\nTrabajamos para ofrecer productos que respondan a las exigencias de profesionales e instituciones que requieren equipamiento de protección balística y soluciones de seguridad de alto desempeño.",
         "header_alignment": "center",
         "background_color": "#f8f9fa",
         "background_image": "shopify://shop_images/img-3.jpg",
@@ -638,6 +637,7 @@
         "background_height_mobile": 100,
         "spacing_desktop": -20,
         "spacing_mobile": -10,
+        "padding_top_mobile": 30,
         "fix_zindex": 0
       }
     },
@@ -1146,6 +1146,11 @@
         "color_palette": "",
         "overlay_opacity": 100,
         "layout": "image-right",
+        "align_image_flush": true,
+        "image_content_gap": 40,
+        "image_content_gap_mobile": 20,
+        "content_padding_outer": 40,
+        "content_padding_outer_mobile": 20,
         "text_position": "text-start",
         "background_color_palette": "",
         "background_overlay_opacity": 75,
@@ -1154,6 +1159,10 @@
         "background_height": 100,
         "background_width_mobile": 100,
         "background_height_mobile": 100,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
         "spacing_desktop": 50,
         "spacing_mobile": 30,
         "fix_zindex": 0
