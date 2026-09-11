@@ -1008,6 +1008,16 @@
             "link_text": "Leer más"
           }
         },
+        "milestone_kUtznY": {
+          "type": "milestone",
+          "settings": {
+            "year": "2001",
+            "title": "Inicio de operaciones",
+            "description": "Comienza nuestra historia en Venezuela",
+            "link": "",
+            "link_text": "Leer más"
+          }
+        },
         "milestone_66ReKr": {
           "type": "milestone",
           "settings": {
@@ -1015,6 +1025,16 @@
             "title": "Certificación BA9000",
             "description": "",
             "image": "shopify://shop_images/BA_circle.png",
+            "link": "",
+            "link_text": "Leer más"
+          }
+        },
+        "milestone_L4Lach": {
+          "type": "milestone",
+          "settings": {
+            "year": "2026",
+            "title": "Certificación NIJ 0101.07",
+            "description": "Modelos: GR407 y GR507",
             "link": "",
             "link_text": "Leer más"
           }
@@ -1036,7 +1056,9 @@
         "milestone_w3raRm",
         "milestone_hKK6Pz",
         "milestone_jftCpC",
-        "milestone_66ReKr"
+        "milestone_kUtznY",
+        "milestone_66ReKr",
+        "milestone_L4Lach"
       ],
       "name": "Arsenal Timeline",
       "settings": {
