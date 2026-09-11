@@ -1,3 +1,24 @@
+{%- style -%}
+  .shopify-section-breadcrumbs,
+  #shopify-section-breadcrumbs,
+  #content > .shopify-section-breadcrumbs,
+  #content > .shopify-section-breadcrumbs:first-child,
+  #content > .shopify-section-breadcrumbs:first-of-type {
+    margin-top: {{ section.settings.margin_top | default: 50 }}px !important;
+    padding-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  @media screen and (max-width: 749px) {
+    .shopify-section-breadcrumbs,
+    #shopify-section-breadcrumbs,
+    #content > .shopify-section-breadcrumbs,
+    #content > .shopify-section-breadcrumbs:first-child,
+    #content > .shopify-section-breadcrumbs:first-of-type {
+      margin-top: {{ section.settings.margin_top_mobile | default: 25 }}px !important;
+    }
+  }
+{%- endstyle -%}
+
 {%- render 'breadcrumbs', hide_mobile: section.settings.hide_mobile, back_button: section.settings.back_button %}
 
 {% schema %}
@@ -17,7 +38,28 @@
       "label": "t:static_sections.breadcrumbs.settings.back_button.label",
       "info": "t:static_sections.breadcrumbs.settings.back_button.info",
       "default": false
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Espacio superior (Margin top)",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "margin_top_mobile",
+      "label": "Espacio superior móvil",
+      "min": 0,
+      "max": 60,
+      "step": 5,
+      "unit": "px",
+      "default": 25
     }
   ]
 }
 {% endschema %}
+
