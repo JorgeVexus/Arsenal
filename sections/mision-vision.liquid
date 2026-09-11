@@ -112,6 +112,7 @@
     color: {{ section.settings.heading_color }};
     margin: 0 0 12px 0;
     line-height: 1.2;
+    text-align: {{ section.settings.heading_alignment | default: section.settings.header_alignment }};
   }
   .mv-header-{{ section.id }} .mv-tagline {
     font-size: clamp(14px, 1.8vw, 17px);
@@ -121,16 +122,31 @@
     text-transform: uppercase;
     margin: 0 0 15px 0;
     line-height: 1.4;
+    text-align: {{ section.settings.tagline_alignment | default: section.settings.header_alignment }};
   }
   .mv-header-{{ section.id }} .mv-subtitle {
-    font-size: clamp(16px, 2vw, 18px);
+    font-size: clamp(15px, 1.8vw, 17px);
     color: {{ section.settings.text_color }};
-    opacity: 0.8;
-    max-width: 600px;
+    opacity: 0.88;
+    max-width: {{ section.settings.subtitle_max_width | default: 780 }}px;
     margin: 0 auto;
-    line-height: 1.6;
+    line-height: 1.7;
+    text-align: {{ section.settings.subtitle_alignment | default: 'justify' }};
+    text-justify: inter-word;
+    word-break: break-word;
   }
-  .mv-header-{{ section.id }}.left .mv-subtitle,
+  .mv-header-{{ section.id }}.left .mv-subtitle {
+    margin-left: 0;
+    margin-right: auto;
+  }
+  .mv-header-{{ section.id }}.right .mv-subtitle {
+    margin-left: auto;
+    margin-right: 0;
+  }
+  .mv-header-{{ section.id }}.center .mv-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
   .mv-header-{{ section.id }}.left .mv-tagline {
     margin-left: 0;
     margin-right: 0;
@@ -313,7 +329,7 @@
         {%- endif -%}
         
         {%- if section.settings.section_subtitle != blank -%}
-          <p class="mv-subtitle">{{ section.settings.section_subtitle }}</p>
+          <div class="mv-subtitle">{{ section.settings.section_subtitle | newline_to_br }}</div>
         {%- endif -%}
       </div>
     {%- endif -%}
@@ -424,19 +440,63 @@
     {
       "type": "textarea",
       "id": "section_subtitle",
-      "label": "Subtítulo",
+      "label": "Subtítulo / Descripción",
       "default": "Descubre los valores y principios que nos guían cada día en nuestra misión de ofrecer excelencia."
     },
     {
       "type": "select",
       "id": "header_alignment",
-      "label": "Alineación del Encabezado",
+      "label": "Alineación General del Encabezado",
       "options": [
         { "value": "left", "label": "Izquierda" },
         { "value": "center", "label": "Centro" },
         { "value": "right", "label": "Derecha" }
       ],
       "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "heading_alignment",
+      "label": "Alineación del Título",
+      "options": [
+        { "value": "center", "label": "Centrado" },
+        { "value": "left", "label": "Izquierda" },
+        { "value": "right", "label": "Derecha" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "tagline_alignment",
+      "label": "Alineación del Tagline",
+      "options": [
+        { "value": "center", "label": "Centrado" },
+        { "value": "left", "label": "Izquierda" },
+        { "value": "right", "label": "Derecha" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "subtitle_alignment",
+      "label": "Alineación de la Descripción",
+      "options": [
+        { "value": "justify", "label": "Justificado" },
+        { "value": "center", "label": "Centrado" },
+        { "value": "left", "label": "Izquierda" },
+        { "value": "right", "label": "Derecha" }
+      ],
+      "default": "justify"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_max_width",
+      "min": 500,
+      "max": 1100,
+      "step": 20,
+      "unit": "px",
+      "label": "Ancho Máximo de la Descripción",
+      "default": 780
     },
     {
       "type": "header",
