@@ -23,7 +23,7 @@
         "title_XpXWAV": {
           "type": "title",
           "settings": {
-            "title": "<h3>Somos una empresa mexicana especializada en protección balística.<br/></h3>",
+            "title": "<h3>Somos una empresa mexicana </h3><h3>especializada en protección balística.<br/></h3>",
             "title_underline_style": "none"
           }
         },
@@ -73,6 +73,9 @@
         "video_alt_text": "",
         "width": "boxed",
         "text_position": "left",
+        "center_content": true,
+        "text_alignment": "justify",
+        "content_max_width": 900,
         "color_palette": "scheme-1",
         "background_overlay_opacity": 75,
         "background_position": "left",
@@ -231,6 +234,10 @@
         "tagline_color": "#ea5c10",
         "section_subtitle": "Nuestra filosofía se basa en desarrollar soluciones de protección confiables, respaldadas por la experiencia, la innovación tecnológica y el compromiso con la calidad.<br><br>\n\nTrabajamos para ofrecer productos que respondan a las exigencias de profesionales e instituciones que requieren equipamiento de protección balística y soluciones de seguridad de alto desempeño.",
         "header_alignment": "center",
+        "heading_alignment": "center",
+        "tagline_alignment": "center",
+        "subtitle_alignment": "justify",
+        "subtitle_max_width": 780,
         "background_color": "#f8f9fa",
         "background_image": "shopify://shop_images/img-3.jpg",
         "show_overlay": true,
@@ -257,8 +264,11 @@
         "title_font_size": 26,
         "text_font_size": 16,
         "max_width": 1200,
+        "full_width": true,
         "padding_top": 100,
-        "padding_bottom": 100
+        "padding_bottom": 100,
+        "margin_top": 0,
+        "margin_bottom": 60
       }
     },
     "69004205-e7a6-4b16-8ef7-0364226a75a2": {
@@ -776,6 +786,9 @@
         "video_alt_text": "",
         "width": "boxed",
         "text_position": "center",
+        "center_content": true,
+        "text_alignment": "justify",
+        "content_max_width": 900,
         "color_palette": "scheme-3",
         "background_overlay_opacity": 100,
         "background_position": "left",
