@@ -151,30 +151,87 @@
     display: block !important;
   }
 
-  /* Socials in Top Footer (Clean & Subtle) */
-  .footer-top-socials,
-  #footer-nav .l4sc {
-    display: flex !important;
+  /* Customer Support CTA Button */
+  #footer-nav .link-btn {
+    margin-top: 14px !important;
+    margin-bottom: 14px !important;
+    display: block !important;
+  }
+
+  #footer-nav .link-btn a {
+    display: inline-flex !important;
     align-items: center !important;
-    gap: 10px !important;
-    margin-top: 10px !important;
+    justify-content: center !important;
+    padding: 8px 18px !important;
+    font-size: 12.5px !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+    letter-spacing: 0.2px !important;
+    border-radius: 50px !important;
+    min-height: 0 !important;
+    height: auto !important;
+    width: auto !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    text-align: center !important;
+    background: #e8701a !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 3px 10px rgba(232, 112, 26, 0.25) !important;
+    transition: all 0.25s ease !important;
+    text-decoration: none !important;
+  }
+
+  #footer-nav .link-btn a:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 5px 14px rgba(232, 112, 26, 0.38) !important;
+    background: #f07b28 !important;
+    color: #ffffff !important;
+  }
+
+  /* Socials in Top Footer (Single horizontal line, never wrap) */
+  .footer-top-socials,
+  #footer-nav .l4sc,
+  #footer-nav ul.l4sc {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 12px !important;
+    margin-top: 14px !important;
     margin-bottom: 0 !important;
     padding: 0 !important;
     list-style: none !important;
+    --dist_a: 0px !important;
+    --dist_b: 0px !important;
+    width: auto !important;
+    max-width: 100% !important;
+  }
+
+  .footer-top-socials li,
+  #footer-nav .l4sc li,
+  #footer-nav .l4sc > * {
+    margin: 0 !important;
+    padding: 0 !important;
+    flex: 0 0 auto !important;
+    display: inline-flex !important;
+    width: auto !important;
   }
 
   .footer-top-socials li a,
   #footer-nav .l4sc li a {
-    display: flex !important;
+    display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    width: 28px !important;
-    height: 28px !important;
+    width: 34px !important;
+    height: 34px !important;
     border-radius: 50% !important;
     background: rgba(255, 255, 255, 0.08) !important;
     color: #ffffff !important;
-    font-size: 13px !important;
-    transition: all 0.2s ease !important;
+    font-size: 15px !important;
+    line-height: 1 !important;
+    transition: all 0.25s ease !important;
     text-decoration: none !important;
   }
 
@@ -183,6 +240,17 @@
     background: #e8701a !important;
     color: #ffffff !important;
     transform: translateY(-2px) !important;
+    box-shadow: 0 4px 10px rgba(232, 112, 26, 0.35) !important;
+  }
+
+  .footer-top-socials li a i,
+  #footer-nav .l4sc li a i {
+    font-size: 15px !important;
+    line-height: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: inherit !important;
   }
 
   /* Hide bottom duplicate socials */
