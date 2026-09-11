@@ -1102,7 +1102,7 @@
             "image_border_radius": 8,
             "hover_scale": 1,
             "column_ratio": "60_40",
-            "desktop_width_percent": 100,
+            "desktop_width_percent": 80,
             "gap": 40,
             "gap_mobile": 30,
             "padding": 40,
