@@ -80,9 +80,25 @@
           {%- when 'content' -%}
             <div
               {{ block.shopify_attributes }}
-              class="ff-{{ block.settings.font }} {% if block.settings.enable_custom_text_styling %}fw-{{ block.settings.font_weight }}{% endif %} margin-0 {{ max_width_class }}"
+              id="block-{{ block.id }}"
+              class="ff-{{ block.settings.font }} {% if block.settings.enable_custom_text_styling %}fw-{{ block.settings.font_weight }}{% endif %} margin-0 {{ max_width_class }} rich-text-content-block"
               style="{% if block.settings.enable_custom_text_styling %}--main_fz:{{ block.settings.font_size }};font-size:var(--main_fz);{% endif %} {{ max_width_styling }}"
             >
+              {%- if block.settings.text_alignment != 'inherit' and block.settings.text_alignment != blank -%}
+                <style>
+                  #block-{{ block.id }},
+                  #block-{{ block.id }} p,
+                  #block-{{ block.id }} div,
+                  #block-{{ block.id }} span {
+                    text-align: {{ block.settings.text_alignment }} !important;
+                    {%- if block.settings.text_alignment == 'justify' -%}
+                      text-justify: inter-word;
+                      -webkit-hyphens: auto;
+                      hyphens: auto;
+                    {%- endif -%}
+                  }
+                </style>
+              {%- endif -%}
               {%- if block.settings.page != empty -%}
                 {{ block.settings.page.content }}
               {%- endif %}
@@ -577,6 +593,34 @@
           "type": "richtext",
           "label": "t:sections.rich_text.blocks.content.settings.text.label",
           "default": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "Alineación del texto",
+          "options": [
+            {
+              "value": "inherit",
+              "label": "Predeterminado de la sección"
+            },
+            {
+              "value": "justify",
+              "label": "Justificado"
+            },
+            {
+              "value": "center",
+              "label": "Centrado"
+            },
+            {
+              "value": "left",
+              "label": "Alinear a la izquierda"
+            },
+            {
+              "value": "right",
+              "label": "Alinear a la derecha"
+            }
+          ],
+          "default": "inherit"
         },
         {
           "type": "select",
