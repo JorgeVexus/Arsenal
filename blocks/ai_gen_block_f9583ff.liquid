@@ -72,7 +72,7 @@
   .ai-text-image-description-{{ ai_gen_id }} {
     font-size: {{ block.settings.text_size }}px;
     color: {{ block.settings.text_color }};
-    line-height: 1.7;
+    line-height: 1.6;
     margin: 0;
     text-align: {{ block.settings.text_alignment | default: 'left' }};
     {% if block.settings.text_alignment == 'justify' %}
@@ -83,10 +83,16 @@
   }
 
   .ai-text-image-description-{{ ai_gen_id }} p {
-    margin: 0 0 14px 0;
+    margin: 0 0 {{ block.settings.paragraph_spacing | default: 12 }}px 0;
   }
   .ai-text-image-description-{{ ai_gen_id }} p:last-child {
     margin-bottom: 0;
+  }
+  .ai-text-image-description-{{ ai_gen_id }} p:empty {
+    display: none;
+  }
+  .ai-text-image-description-{{ ai_gen_id }} br + br {
+    display: none;
   }
 
   /* Columna de Imagen / Logos */
@@ -255,7 +261,21 @@
       {% endif %}
 
       {% if block.settings.description != blank %}
-        <div class="ai-text-image-description-{{ ai_gen_id }}">{{ block.settings.description }}</div>
+        {% assign formatted_description = block.settings.description
+          | replace: '<br/><br/>', '</p><p>'
+          | replace: '<br><br>', '</p><p>'
+          | replace: '<br /><br />', '</p><p>'
+          | replace: '<br/><br>', '</p><p>'
+          | replace: '<br><br/>', '</p><p>'
+          | replace: '<br /> <br />', '</p><p>'
+          | replace: '<br/> <br/>', '</p><p>'
+          | replace: '<br> <br>', '</p><p>'
+          | replace: '<p></p>', ''
+          | replace: '<p><br></p>', ''
+          | replace: '<p><br/></p>', ''
+          | replace: '<p><br /></p>', ''
+        %}
+        <div class="ai-text-image-description-{{ ai_gen_id }}">{{ formatted_description }}</div>
       {% endif %}
     </div>
 
@@ -616,6 +636,16 @@
       "step": 1,
       "unit": "px",
       "default": 14
+    },
+    {
+      "type": "range",
+      "id": "paragraph_spacing",
+      "label": "Espacio entre párrafos",
+      "min": 4,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 12
     }
   ],
   "presets": [
