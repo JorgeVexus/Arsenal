@@ -74,7 +74,7 @@
         "width": "boxed",
         "text_position": "left",
         "center_content": true,
-        "text_alignment": "justify",
+        "text_alignment": "center",
         "content_max_width": 900,
         "color_palette": "scheme-1",
         "background_overlay_opacity": 75,
@@ -209,7 +209,8 @@
           "settings": {
             "icon": "mission",
             "title": "Nuestra Misión",
-            "description": "Diseñar soluciones para proteger vidas.\n<br><br>\n\nDiseñar, fabricar y comercializar sistemas integrales de protección balística y equipos de seguridad, apoyándonos en un equipo especializado, tecnología de vanguardia y procesos orientados a la calidad.\n<br><br>\nNuestro compromiso es satisfacer las necesidades de nuestros clientes mediante soluciones confiables que cumplan con los estándares y normativas aplicables, contribuyendo a la protección de quienes realizan labores de seguridad pública y privada."
+            "description": "Diseñar soluciones para proteger vidas.\n<br><br>\n\nDiseñar, fabricar y comercializar sistemas integrales de protección balística y equipos de seguridad, apoyándonos en un equipo especializado, tecnología de vanguardia y procesos orientados a la calidad.\n<br><br>\nNuestro compromiso es satisfacer las necesidades de nuestros clientes mediante soluciones confiables que cumplan con los estándares y normativas aplicables, contribuyendo a la protección de quienes realizan labores de seguridad pública y privada.",
+            "text_alignment": "justify"
           }
         },
         "card_f3FUai": {
@@ -217,7 +218,8 @@
           "settings": {
             "icon": "vision",
             "title": "Nuestra Visión",
-            "description": "Liderazgo en protección balística.\n<br><br>\nSer una empresa referente en protección balística y equipamiento para fuerzas de seguridad, reconocida por la calidad de sus productos, innovación, capacidad de respuesta y compromiso con sus clientes.\n<br><br>\nBuscamos consolidarnos como una de las principales opciones para instituciones y organizaciones que requieren chalecos balísticos, placas balísticas y soluciones integrales de protección, fortaleciendo nuestra presencia en México y en mercados internacionales."
+            "description": "Liderazgo en protección balística.\n<br><br>\nSer una empresa referente en protección balística y equipamiento para fuerzas de seguridad, reconocida por la calidad de sus productos, innovación, capacidad de respuesta y compromiso con sus clientes.\n<br><br>\nBuscamos consolidarnos como una de las principales opciones para instituciones y organizaciones que requieren chalecos balísticos, placas balísticas y soluciones integrales de protección, fortaleciendo nuestra presencia en México y en mercados internacionales.",
+            "text_alignment": "justify"
           }
         }
       },
@@ -236,7 +238,7 @@
         "header_alignment": "center",
         "heading_alignment": "center",
         "tagline_alignment": "center",
-        "subtitle_alignment": "justify",
+        "subtitle_alignment": "center",
         "subtitle_max_width": 780,
         "background_color": "#f8f9fa",
         "background_image": "shopify://shop_images/img-3.jpg",
@@ -263,6 +265,7 @@
         "icon_border_radius": 16,
         "title_font_size": 26,
         "text_font_size": 16,
+        "card_text_alignment": "justify",
         "max_width": 1200,
         "full_width": true,
         "padding_top": 100,
@@ -1079,16 +1082,29 @@
         "ai_gen_block_f9583ff_NKb4PC": {
           "type": "ai_gen_block_f9583ff",
           "settings": {
+            "badge_text": "Norma Internacional",
+            "badge_color": "#ea5c10",
+            "badge_bg_color": "#ea5c101a",
             "heading": "<p>Certificado en BA9000:2016.</p>",
             "heading_font": "inter_n7",
             "description": "<p>En Arsenal Protection Mexico, nos orgullece anunciar este certificado en BA9000:2016.<br/><br/>Design, Manufacture, and Marketing of Ballistic Vest and Plates, Multipurpose Vests (Bulletproof and Anti-Point), as well as Personal Protective Equipment<br/><br/>Diseño, Fabricación y Comercialización de Chalecos y Placas balísticas, chalecos multipropósito (antibalas y anti-puntas), así como Equipos de Protección Personal</p>",
+            "text_alignment": "left",
             "image": "shopify://shop_images/Group_6.png",
+            "image_max_width": 380,
+            "image_max_height": 240,
+            "image_alignment": "center",
+            "enable_image_card": true,
+            "card_bg": "#ffffff",
+            "card_border": "#ebebeb",
+            "card_padding": 24,
             "image_border_radius": 8,
             "hover_scale": 1,
+            "column_ratio": "60_40",
             "desktop_width_percent": 100,
             "gap": 40,
             "gap_mobile": 30,
             "padding": 40,
+            "container_border_radius": 12,
             "background_color": "#ffffff",
             "heading_color": "#000000",
             "text_color": "#333333",
