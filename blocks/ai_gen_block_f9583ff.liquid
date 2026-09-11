@@ -20,10 +20,20 @@
     gap: {{ block.settings.gap }}px;
     padding: {{ block.settings.padding }}px;
     background-color: {{ block.settings.background_color }};
+    border-radius: {{ block.settings.container_border_radius | default: 12 }}px;
   }
 
+  /* Proporciones de Columna */
   .ai-text-image-text-{{ ai_gen_id }} {
-    flex: 1;
+    {% if block.settings.column_ratio == '65_35' %}
+      flex: 0 0 calc(65% - ({{ block.settings.gap }}px / 2));
+    {% elsif block.settings.column_ratio == '60_40' %}
+      flex: 0 0 calc(60% - ({{ block.settings.gap }}px / 2));
+    {% elsif block.settings.column_ratio == '70_30' %}
+      flex: 0 0 calc(70% - ({{ block.settings.gap }}px / 2));
+    {% else %}
+      flex: 1;
+    {% endif %}
     opacity: 0;
     transform: translateX(-30px);
   }
@@ -32,26 +42,69 @@
     animation: ai-slide-in-left-{{ ai_gen_id }} 0.8s ease-out forwards;
   }
 
+  .ai-badge-{{ ai_gen_id }} {
+    display: inline-block;
+    padding: 6px 16px;
+    background: {{ block.settings.badge_bg_color | default: 'rgba(234, 92, 16, 0.1)' }};
+    color: {{ block.settings.badge_color | default: '#ea5c10' }};
+    border-radius: 50px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 14px;
+  }
+
   .ai-text-image-heading-{{ ai_gen_id }} {
     font-size: {{ block.settings.heading_size }}px;
     color: {{ block.settings.heading_color }};
     margin: 0 0 {{ block.settings.heading_spacing }}px 0;
     font-family: {{ block.settings.heading_font.family }}, {{ block.settings.heading_font.fallback_families }};
     font-weight: {{ block.settings.heading_font.weight }};
+    line-height: 1.25;
+  }
+
+  .ai-text-image-heading-{{ ai_gen_id }} p,
+  .ai-text-image-heading-{{ ai_gen_id }} strong {
+    margin: 0;
   }
 
   .ai-text-image-description-{{ ai_gen_id }} {
     font-size: {{ block.settings.text_size }}px;
     color: {{ block.settings.text_color }};
-    line-height: 1.6;
+    line-height: 1.7;
     margin: 0;
+    text-align: {{ block.settings.text_alignment | default: 'left' }};
+    {% if block.settings.text_alignment == 'justify' %}
+      text-justify: inter-word;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    {% endif %}
   }
 
+  .ai-text-image-description-{{ ai_gen_id }} p {
+    margin: 0 0 14px 0;
+  }
+  .ai-text-image-description-{{ ai_gen_id }} p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Columna de Imagen / Logos */
   .ai-text-image-image-wrapper-{{ ai_gen_id }} {
-    flex: 1;
+    {% if block.settings.column_ratio == '65_35' %}
+      flex: 0 0 calc(35% - ({{ block.settings.gap }}px / 2));
+    {% elsif block.settings.column_ratio == '60_40' %}
+      flex: 0 0 calc(40% - ({{ block.settings.gap }}px / 2));
+    {% elsif block.settings.column_ratio == '70_30' %}
+      flex: 0 0 calc(30% - ({{ block.settings.gap }}px / 2));
+    {% else %}
+      flex: 1;
+    {% endif %}
     position: relative;
-    overflow: hidden;
-    border-radius: {{ block.settings.image_border_radius }}px;
+    display: flex;
+    flex-direction: column;
+    align-items: {% if block.settings.image_alignment == 'left' %}flex-start{% elsif block.settings.image_alignment == 'right' %}flex-end{% else %}center{% endif %};
+    justify-content: center;
     opacity: 0;
     transform: translateX(30px);
   }
@@ -60,15 +113,49 @@
     animation: ai-slide-in-right-{{ ai_gen_id }} 0.8s ease-out forwards;
   }
 
+  /* Tarjeta de Showcase para Logos */
+  .ai-image-card-{{ ai_gen_id }} {
+    width: 100%;
+    max-width: {{ block.settings.image_max_width | default: 380 }}px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    {% if block.settings.enable_image_card %}
+      background: {{ block.settings.card_bg | default: '#ffffff' }};
+      border: 1px solid {{ block.settings.card_border | default: '#e8e8e8' }};
+      border-radius: {{ block.settings.image_border_radius }}px;
+      padding: {{ block.settings.card_padding | default: 24 }}px;
+      box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.07);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    {% else %}
+      border-radius: {{ block.settings.image_border_radius }}px;
+    {% endif %}
+  }
+
+  {% if block.settings.enable_image_card %}
+    .ai-image-card-{{ ai_gen_id }}:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.12);
+    }
+  {% endif %}
+
   .ai-text-image-image-{{ ai_gen_id }} {
     width: 100%;
+    max-width: {{ block.settings.image_max_width | default: 380 }}px;
+    max-height: {{ block.settings.image_max_height | default: 240 }}px;
+    object-fit: contain;
     height: auto;
     display: block;
+    margin: 0 auto;
     transition: transform 0.4s ease;
   }
 
   .ai-text-image-image-wrapper-{{ ai_gen_id }}:hover .ai-text-image-image-{{ ai_gen_id }} {
-    transform: scale({{ block.settings.hover_scale }});
+    {% unless block.settings.enable_image_card %}
+      transform: scale({{ block.settings.hover_scale }});
+    {% endunless %}
   }
 
   .ai-text-image-placeholder-{{ ai_gen_id }} {
@@ -122,10 +209,17 @@
     }
   }
 
-  @media screen and (max-width: 749px) {
+  @media screen and (max-width: 989px) {
     .ai-text-image-container-{{ ai_gen_id }} {
       flex-direction: column;
       gap: {{ block.settings.gap_mobile }}px;
+      text-align: left;
+    }
+
+    .ai-text-image-text-{{ ai_gen_id }},
+    .ai-text-image-image-wrapper-{{ ai_gen_id }} {
+      flex: 1 1 100%;
+      width: 100%;
     }
 
     .ai-text-image-heading-{{ ai_gen_id }} {
@@ -134,6 +228,14 @@
 
     .ai-text-image-description-{{ ai_gen_id }} {
       font-size: {{ block.settings.text_size_mobile }}px;
+    }
+
+    .ai-image-card-{{ ai_gen_id }} {
+      max-width: 100%;
+    }
+
+    .ai-text-image-image-{{ ai_gen_id }} {
+      max-width: 320px;
     }
   }
 {% endstyle %}
@@ -144,32 +246,39 @@
 >
   <div class="ai-text-image-container-{{ ai_gen_id }}">
     <div class="ai-text-image-text-{{ ai_gen_id }}" data-animate>
-      {% if block.settings.heading != blank %}
-        <h2 class="ai-text-image-heading-{{ ai_gen_id }}">{{ block.settings.heading }}</h2>
+      {% if block.settings.badge_text != blank %}
+        <span class="ai-badge-{{ ai_gen_id }}">{{ block.settings.badge_text }}</span>
       {% endif %}
+
+      {% if block.settings.heading != blank %}
+        <div class="ai-text-image-heading-{{ ai_gen_id }}">{{ block.settings.heading }}</div>
+      {% endif %}
+
       {% if block.settings.description != blank %}
         <div class="ai-text-image-description-{{ ai_gen_id }}">{{ block.settings.description }}</div>
       {% endif %}
     </div>
 
     <div class="ai-text-image-image-wrapper-{{ ai_gen_id }}" data-animate>
-      {% if block.settings.image %}
-        <img
-          src="{{ block.settings.image | image_url: width: 1200 }}"
-          alt="{{ block.settings.image.alt | escape }}"
-          loading="lazy"
-          width="{{ block.settings.image.width }}"
-          height="{{ block.settings.image.height }}"
-          class="ai-text-image-image-{{ ai_gen_id }}"
-        >
-      {% else %}
-        <div class="ai-text-image-placeholder-{{ ai_gen_id }}">
-          {{ 'image' | placeholder_svg_tag }}
-          <div class="ai-text-image-empty-state-{{ ai_gen_id }}">
-            Siguiente, agrega una imagen
+      <div class="ai-image-card-{{ ai_gen_id }}">
+        {% if block.settings.image %}
+          <img
+            src="{{ block.settings.image | image_url: width: 800 }}"
+            alt="{{ block.settings.image.alt | default: 'Certificado y Acreditaciones' | escape }}"
+            loading="lazy"
+            width="{{ block.settings.image.width }}"
+            height="{{ block.settings.image.height }}"
+            class="ai-text-image-image-{{ ai_gen_id }}"
+          >
+        {% else %}
+          <div class="ai-text-image-placeholder-{{ ai_gen_id }}">
+            {{ 'image' | placeholder_svg_tag }}
+            <div class="ai-text-image-empty-state-{{ ai_gen_id }}">
+              Siguiente, agrega una imagen
+            </div>
           </div>
-        </div>
-      {% endif %}
+        {% endif %}
+      </div>
     </div>
   </div>
 </text-image-section-{{ ai_gen_id }}>
@@ -226,6 +335,28 @@
   "settings": [
     {
       "type": "header",
+      "content": "Insignia / Badge"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Texto de la insignia",
+      "default": "Norma Internacional"
+    },
+    {
+      "type": "color",
+      "id": "badge_color",
+      "label": "Color de la insignia",
+      "default": "#ea5c10"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg_color",
+      "label": "Fondo de la insignia",
+      "default": "rgba(234, 92, 16, 0.1)"
+    },
+    {
+      "type": "header",
       "content": "Contenido"
     },
     {
@@ -247,13 +378,83 @@
       "default": "<p>Ofrecemos productos de la más alta calidad con un servicio excepcional. Nuestra misión es superar tus expectativas en cada compra.</p>"
     },
     {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Alineación del texto",
+      "options": [
+        { "value": "left", "label": "Izquierda" },
+        { "value": "justify", "label": "Justificado" },
+        { "value": "center", "label": "Centrado" }
+      ],
+      "default": "left"
+    },
+    {
       "type": "header",
-      "content": "Imagen"
+      "content": "Imagen / Logos"
     },
     {
       "type": "image_picker",
       "id": "image",
       "label": "Imagen"
+    },
+    {
+      "type": "range",
+      "id": "image_max_width",
+      "label": "Ancho máximo de la imagen / logos",
+      "min": 150,
+      "max": 650,
+      "step": 10,
+      "unit": "px",
+      "default": 380
+    },
+    {
+      "type": "range",
+      "id": "image_max_height",
+      "label": "Altura máxima de la imagen / logos",
+      "min": 100,
+      "max": 400,
+      "step": 10,
+      "unit": "px",
+      "default": 240
+    },
+    {
+      "type": "select",
+      "id": "image_alignment",
+      "label": "Alineación horizontal de la imagen",
+      "options": [
+        { "value": "center", "label": "Centro" },
+        { "value": "left", "label": "Izquierda" },
+        { "value": "right", "label": "Derecha" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_image_card",
+      "label": "Presentar imagen en tarjeta / marco",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Fondo de la tarjeta",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_border",
+      "label": "Borde de la tarjeta",
+      "default": "#ebebeb"
+    },
+    {
+      "type": "range",
+      "id": "card_padding",
+      "label": "Padding interior de la tarjeta",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "default": 24
     },
     {
       "type": "range",
@@ -263,20 +464,32 @@
       "max": 40,
       "step": 2,
       "unit": "px",
-      "default": 8
+      "default": 12
     },
     {
       "type": "range",
       "id": "hover_scale",
       "label": "Escala al pasar el cursor",
       "min": 1,
-      "max": 1.5,
+      "max": 1.3,
       "step": 0.1,
       "default": 1.1
     },
     {
       "type": "header",
-      "content": "Diseño"
+      "content": "Distribución y Diseño"
+    },
+    {
+      "type": "select",
+      "id": "column_ratio",
+      "label": "Proporción Texto vs Imagen",
+      "options": [
+        { "value": "60_40", "label": "60% Texto / 40% Logos (Recomendado)" },
+        { "value": "65_35", "label": "65% Texto / 35% Logos" },
+        { "value": "50_50", "label": "50% Texto / 50% Logos" },
+        { "value": "70_30", "label": "70% Texto / 30% Logos" }
+      ],
+      "default": "60_40"
     },
     {
       "type": "range",
@@ -291,12 +504,12 @@
     {
       "type": "range",
       "id": "gap",
-      "label": "Espacio entre elementos",
+      "label": "Espacio entre columnas",
       "min": 20,
       "max": 100,
       "step": 10,
       "unit": "px",
-      "default": 40
+      "default": 50
     },
     {
       "type": "range",
@@ -311,12 +524,22 @@
     {
       "type": "range",
       "id": "padding",
-      "label": "Relleno",
+      "label": "Relleno del contenedor",
       "min": 0,
       "max": 100,
       "step": 10,
       "unit": "px",
       "default": 40
+    },
+    {
+      "type": "range",
+      "id": "container_border_radius",
+      "label": "Radio del contenedor",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 12
     },
     {
       "type": "header",
@@ -325,7 +548,7 @@
     {
       "type": "color",
       "id": "background_color",
-      "label": "Fondo",
+      "label": "Fondo de la sección",
       "default": "#ffffff"
     },
     {
