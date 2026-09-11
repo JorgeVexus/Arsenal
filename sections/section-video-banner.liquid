@@ -155,7 +155,7 @@
         {% when 'text' -%}
           {% if block.settings.text != empty %}
             <div
-              class="ff-{{ block.settings.font }} margin-0"
+              class="ff-{{ block.settings.font }} margin-0 video-banner-text"
               style="font-size:{{ block.settings.font_size }};"
               {{ block.shopify_attributes }}
             >
@@ -250,6 +250,37 @@
   @media only screen and (max-width: 47.5em) {
     #shopify-section-{{ section.id }} .m6bx { margin-bottom: {{ section.settings.spacing_mobile }}px; }
   }
+
+  #shopify-section-{{ section.id }} .video-banner-content-container {
+    max-width: {{ section.settings.content_max_width | default: 900 }}px;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  {% if section.settings.center_content or section.settings.text_position == 'center' %}
+    #shopify-section-{{ section.id }} .heading,
+    #shopify-section-{{ section.id }} .heading h1,
+    #shopify-section-{{ section.id }} .heading h2,
+    #shopify-section-{{ section.id }} .heading h3 {
+      text-align: center;
+    }
+    #shopify-section-{{ section.id }} .video-banner-text,
+    #shopify-section-{{ section.id }} .video-banner-text p,
+    #shopify-section-{{ section.id }} .video-banner-content-container .ff-primary,
+    #shopify-section-{{ section.id }} .video-banner-content-container .ff-secondary {
+      text-align: {{ section.settings.text_alignment | default: 'justify' }};
+      text-justify: inter-word;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+    #shopify-section-{{ section.id }} .link-btn {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+  {% endif %}
 </style>
 
 {% schema %}
@@ -338,6 +369,42 @@
         }
       ],
       "default": "center"
+    },
+    {
+      "type": "checkbox",
+      "id": "center_content",
+      "label": "Centrar bloque de contenido",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Alineación de párrafos",
+      "options": [
+        {
+          "value": "justify",
+          "label": "Justificado"
+        },
+        {
+          "value": "center",
+          "label": "Centrado"
+        },
+        {
+          "value": "left",
+          "label": "Izquierda"
+        }
+      ],
+      "default": "justify"
+    },
+    {
+      "type": "range",
+      "id": "content_max_width",
+      "min": 600,
+      "max": 1400,
+      "step": 20,
+      "unit": "px",
+      "label": "Ancho máximo del texto",
+      "default": 900
     },
     {
       "type": "header",
