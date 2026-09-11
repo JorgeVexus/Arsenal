@@ -8,15 +8,6 @@
   endif
 -%}
 {%- style -%}
-  #shopify-section-{{ section.id }} {
-    padding: 0 20px;
-    box-sizing: border-box;
-  }
-  @media screen and (min-width: 750px) {
-    #shopify-section-{{ section.id }} {
-      padding: 0 32px;
-    }
-  }
   .main-article-content-{{ section.id }} {
     margin: 0 auto;
     padding-top: 36px;
@@ -30,23 +21,43 @@
       padding-bottom: 40px;
     }
   }
+
+  /* Padding for article body content */
+  .main-article-content-{{ section.id }} > *:not(.m6fr),
+  .main-article-content-{{ section.id }} .rte,
+  .main-article-content-{{ section.id }} > header {
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+  @media screen and (min-width: 750px) {
+    .main-article-content-{{ section.id }} > *:not(.m6fr),
+    .main-article-content-{{ section.id }} .rte,
+    .main-article-content-{{ section.id }} > header {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+  }
+
   .main-article-content-{{ section.id }} > header {
     margin-top: 8px;
     margin-bottom: 24px;
   }
-  .main-article-content-{{ section.id }} h1,
-  .main-article-content-{{ section.id }} .h1 {
+  .main-article-content-{{ section.id }} > header h1,
+  .main-article-content-{{ section.id }} > header .h1 {
     font-size: clamp(24px, 4.5vw, 40px);
     line-height: 1.25;
     letter-spacing: -0.02em;
     margin-bottom: 16px;
   }
-  .main-article-content-{{ section.id }} p {
+
+  /* Regular article body text */
+  .main-article-content-{{ section.id }} p:not(.article-banner-meta) {
     line-height: 1.75;
     margin-bottom: 1.5em;
     color: #222222;
   }
-  .main-article-content-{{ section.id }} ul,
+  .main-article-content-{{ section.id }} ul:not(.l4sc):not(.l4cm):not(.l4in),
   .main-article-content-{{ section.id }} ol {
     padding-left: 20px;
     margin-bottom: 1.6em;
@@ -59,6 +70,46 @@
     margin-top: 36px;
     padding-top: 20px;
     border-top: 1px solid #eeeeee;
+  }
+
+  /* ===================================================
+     HERO BANNER (Texto de fecha, autor, lectura en BLANCO)
+     =================================================== */
+  .main-article-content-{{ section.id }} .m6fr article h1,
+  .main-article-content-{{ section.id }} .m6fr article h2,
+  .main-article-content-{{ section.id }} .m6fr article h3,
+  .main-article-content-{{ section.id }} .m6fr article .article-banner-meta,
+  .main-article-content-{{ section.id }} .m6fr article .article-banner-meta *,
+  .main-article-content-{{ section.id }} .m6fr article .article-banner-meta time,
+  .main-article-content-{{ section.id }} .m6fr article .article-banner-meta i,
+  .main-article-content-{{ section.id }} .m6fr article .article-banner-meta svg,
+  .main-article-content-{{ section.id }} .m6fr article p {
+    color: #ffffff !important;
+    --primary_text: #ffffff !important;
+    --main_color: #ffffff !important;
+  }
+
+  .main-article-content-{{ section.id }} .m6fr article .article-banner-meta,
+  .main-article-content-{{ section.id }} .m6fr article p {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-size: 0.95rem !important;
+    line-height: 1.5 !important;
+    margin-top: 14px !important;
+    margin-bottom: 0 !important;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7) !important;
+    display: block !important;
+  }
+
+  .main-article-content-{{ section.id }} .m6fr article .article-banner-meta i.icon-calendar {
+    color: #ffffff !important;
+    margin-right: 6px !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+  }
+
+  .main-article-content-{{ section.id }} .m6fr article .article-banner-meta time {
+    color: #ffffff !important;
+    font-weight: 500 !important;
   }
 {%- endstyle -%}
 
@@ -99,7 +150,7 @@
               </figure>
               <{{ block.settings.title_size }}>{{ article.title }}</{{ block.settings.title_size }}>
               {%- if block.settings.show_author or block.settings.show_date or block.settings.show_article_reading_time -%}
-                <p>
+                <p class="article-banner-meta">
                   {%- if block.settings.show_date %}<i aria-hidden="true" class="icon-calendar"></i> {{ article.published_at | time_tag: format: 'month_day_year' -}}{%- endif -%}
                   {%- if block.settings.show_author and block.settings.show_date -%}, {% endif -%}
                   {%- if block.settings.show_author -%}{%- if block.settings.show_date -%}{{ 'blog.written_by' | t }}{%- else -%}{{ 'blog.written_by' | t | capitalize }}{%- endif %} {{ article.author }}{%- endif -%}
