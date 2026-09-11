@@ -47,8 +47,8 @@
       "settings": {
         "width": "wide",
         "height": "21/9",
-        "enable_custom_height": false,
-        "custom_height": 300,
+        "enable_custom_height": true,
+        "custom_height": 250,
         "autoplay": false,
         "autoplay_seconds": 3,
         "enable_controls": false,
