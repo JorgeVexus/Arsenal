@@ -263,6 +263,12 @@
     line-height: 1.7;
     margin: 0;
     opacity: 0.9;
+    text-align: {{ section.settings.card_text_alignment | default: 'justify' }};
+    {% if section.settings.card_text_alignment == 'justify' or section.settings.card_text_alignment == blank %}
+      text-justify: inter-word;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    {% endif %}
   }
   /* Divider Line */
   .mv-card-divider-{{ section.id }} {
@@ -335,6 +341,12 @@
     {%- endif -%}
     <div class="mv-grid-{{ section.id }}">
       {%- for block in section.blocks -%}
+        {%- liquid
+          assign card_align = block.settings.text_alignment
+          if card_align == blank or card_align == 'inherit'
+            assign card_align = section.settings.card_text_alignment | default: 'justify'
+          endif
+        -%}
         <div class="mv-card-{{ section.id }} style-{{ section.settings.card_style }}" {{ block.shopify_attributes }}>
           
           {%- if section.settings.show_accent_line -%}
@@ -391,7 +403,7 @@
             <div class="mv-card-divider-{{ section.id }}"></div>
           {%- endif -%}
           
-          <p class="mv-card-text-{{ section.id }}">{{ block.settings.description }}</p>
+          <p class="mv-card-text-{{ section.id }} mv-card-text-{{ block.id }}" style="text-align: {{ card_align }} !important;{% if card_align == 'justify' %} text-justify: inter-word; -webkit-hyphens: auto; hyphens: auto;{% endif %}">{{ block.settings.description }}</p>
         </div>
       {%- endfor -%}
     </div>
@@ -711,6 +723,18 @@
       "default": 16
     },
     {
+      "type": "select",
+      "id": "card_text_alignment",
+      "label": "Alineación del Texto de Tarjetas (General)",
+      "options": [
+        { "value": "left", "label": "Izquierda" },
+        { "value": "center", "label": "Centro" },
+        { "value": "right", "label": "Derecha" },
+        { "value": "justify", "label": "Justificado" }
+      ],
+      "default": "justify"
+    },
+    {
       "type": "header",
       "content": "Layout"
     },
@@ -811,6 +835,19 @@
           "id": "description",
           "label": "Descripción",
           "default": "Proveer soluciones innovadoras y de alta calidad que superen las expectativas de nuestros clientes, contribuyendo al éxito de sus proyectos y al desarrollo sostenible de la comunidad."
+        },
+        {
+          "type": "select",
+          "id": "text_alignment",
+          "label": "Alineación del Texto",
+          "options": [
+            { "value": "inherit", "label": "Predeterminado (General de Sección)" },
+            { "value": "left", "label": "Izquierda" },
+            { "value": "center", "label": "Centro" },
+            { "value": "right", "label": "Derecha" },
+            { "value": "justify", "label": "Justificado" }
+          ],
+          "default": "justify"
         }
       ]
     }
