@@ -1084,7 +1084,7 @@
             "description": "<p>En Arsenal Protection Mexico, nos orgullece anunciar este certificado en BA9000:2016.<br/><br/>Design, Manufacture, and Marketing of Ballistic Vest and Plates, Multipurpose Vests (Bulletproof and Anti-Point), as well as Personal Protective Equipment<br/><br/>Diseño, Fabricación y Comercialización de Chalecos y Placas balísticas, chalecos multipropósito (antibalas y anti-puntas), así como Equipos de Protección Personal</p>",
             "image": "shopify://shop_images/Group_6.png",
             "image_border_radius": 8,
-            "hover_scale": 1.1,
+            "hover_scale": 1,
             "desktop_width_percent": 100,
             "gap": 40,
             "gap_mobile": 30,
