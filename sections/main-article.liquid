@@ -7,7 +7,62 @@
     assign minutes =  words.size | divided_by: 180
   endif
 -%}
-<div class="{% if section.settings.compact %}align-center{% endif %}" style="font-size:{{ section.settings.font_size }};--main_fz:{{ section.settings.font_size }};{% if section.settings.compact %} max-width: 940px;--glw: 940px{% endif %}">
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  @media screen and (min-width: 750px) {
+    #shopify-section-{{ section.id }} {
+      padding: 0 32px;
+    }
+  }
+  .main-article-content-{{ section.id }} {
+    margin: 0 auto;
+    padding-top: 36px;
+    padding-bottom: 60px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  @media screen and (max-width: 749px) {
+    .main-article-content-{{ section.id }} {
+      padding-top: 24px;
+      padding-bottom: 40px;
+    }
+  }
+  .main-article-content-{{ section.id }} > header {
+    margin-top: 8px;
+    margin-bottom: 24px;
+  }
+  .main-article-content-{{ section.id }} h1,
+  .main-article-content-{{ section.id }} .h1 {
+    font-size: clamp(24px, 4.5vw, 40px);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .main-article-content-{{ section.id }} p {
+    line-height: 1.75;
+    margin-bottom: 1.5em;
+    color: #222222;
+  }
+  .main-article-content-{{ section.id }} ul,
+  .main-article-content-{{ section.id }} ol {
+    padding-left: 20px;
+    margin-bottom: 1.6em;
+  }
+  .main-article-content-{{ section.id }} li {
+    line-height: 1.7;
+    margin-bottom: 0.8em;
+  }
+  .main-article-content-{{ section.id }} .article-tags-wrap {
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 1px solid #eeeeee;
+  }
+{%- endstyle -%}
+
+<div class="main-article-content-{{ section.id }} {% if section.settings.compact %}align-center{% endif %}" style="font-size:{{ section.settings.font_size }};--main_fz:{{ section.settings.font_size }};{% if section.settings.compact %} max-width: 940px;--glw: 940px{% endif %}">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when '@app' -%}
@@ -114,16 +169,18 @@
       {%- endif -%}
       {%- when 'tags' -%}
       {% if article.tags.size > 0 %}
-        <{{ settings.global_title_size }} class="margin-content" {{ block.shopify_attributes }}>{{ 'blog.tags' | t }}</{{ settings.global_title_size }}>
-        <p class="link-btn margin-x125 button-palette-{{ settings.active_tabs_color }} plain overlay-content">
-          {%- for tag in article.tags -%}
-            {%- if current_tags contains tag -%}
-              {{ tag | link_to_remove_tag: tag }}
-            {%- else -%}
-              {{ tag | link_to_add_tag: tag }}
-            {%- endif -%}
-          {%- endfor -%}
-        </p>
+        <div class="article-tags-wrap">
+          <{{ settings.global_title_size }} class="margin-content" {{ block.shopify_attributes }}>{{ 'blog.tags' | t }}</{{ settings.global_title_size }}>
+          <p class="link-btn margin-x125 button-palette-{{ settings.active_tabs_color }} plain overlay-content">
+            {%- for tag in article.tags -%}
+              {%- if current_tags contains tag -%}
+                {{ tag | link_to_remove_tag: tag }}
+              {%- else -%}
+                {{ tag | link_to_add_tag: tag }}
+              {%- endif -%}
+            {%- endfor -%}
+          </p>
+        </div>
       {% endif %}
       {%- when 'comments' -%}
         {%- if article.comments_count > 0 and blog.comments_enabled? -%}
