@@ -480,7 +480,7 @@
           "settings": {
             "page": "",
             "text": "<p>En Arsenal Protection Mexico S. de R.L. de C.V. nos comprometemos con la fabricación y comercialización de productos de protección balística y equipos de seguridad que cumplan con los requisitos de calidad y las necesidades de nuestros clientes.<br/></p>",
-            "text_alignment": "justify",
+            "text_alignment": "center",
             "font": "secondary",
             "enable_custom_text_styling": false,
             "font_weight": "400",
@@ -492,7 +492,7 @@
           "settings": {
             "page": "",
             "text": "<p>Trabajamos bajo principios de calidad, mejora continua y responsabilidad ambiental, procurando prevenir y reducir los impactos ambientales asociados a nuestras actividades y procesos.</p>",
-            "text_alignment": "justify",
+            "text_alignment": "center",
             "font": "secondary",
             "enable_custom_text_styling": false,
             "font_weight": "400",
@@ -504,7 +504,7 @@
           "settings": {
             "page": "",
             "text": "<p>Nuestro compromiso incluye el cumplimiento de la normatividad aplicable, la satisfacción de nuestros clientes, el uso responsable de los recursos y la mejora continua de nuestro sistema de gestión y de nuestros procesos.</p>",
-            "text_alignment": "justify",
+            "text_alignment": "center",
             "font": "secondary",
             "enable_custom_text_styling": false,
             "font_weight": "400",
