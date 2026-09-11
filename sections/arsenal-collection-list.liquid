@@ -2,12 +2,12 @@
   /* Base Section Styles */
   .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    padding-bottom: {% if section.settings.padding_bottom < 40 %}40{% else %}{{ section.settings.padding_bottom | times: 0.75 | round: 0 }}{% endif %}px;
   }
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-bottom: {% if section.settings.padding_bottom < 60 %}60{% else %}{{ section.settings.padding_bottom }}{% endif %}px;
     }
   }
   /* Collections Section */
@@ -15,6 +15,8 @@
     position: relative;
     background: {{ section.settings.background_color }};
     overflow: hidden;
+    clear: both;
+    margin-bottom: 0;
   }
   /* Decorative Elements */
   .collections-section-{{ section.id }} .cl-decoration {
@@ -606,6 +608,7 @@
                   width="{{ collection_image.width }}"
                   height="{{ collection_image.height }}"
                   loading="lazy"
+                  decoding="async"
                 >
               {%- else -%}
                 <div class="cl-placeholder-{{ section.id }}">

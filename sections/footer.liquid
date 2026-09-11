@@ -90,11 +90,20 @@
     margin-top: 0 !important;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
+    position: relative !important;
+    z-index: 10 !important;
+    clear: both !important;
+    width: 100% !important;
+  }
+
+  /* Prevent footer background pseudo-element from bleeding upwards into previous sections */
+  .shopify-section-footer:before {
+    top: 0 !important;
   }
 
   #footer-nav {
-    padding-top: 24px !important;
-    padding-bottom: 20px !important;
+    padding-top: 36px !important;
+    padding-bottom: 22px !important;
     max-width: 1200px !important;
     margin: 0 auto !important;
     display: flex !important;
@@ -311,8 +320,8 @@
 
   @media screen and (max-width: 749px) {
     #footer-nav {
-      padding-top: 18px !important;
-      padding-bottom: 16px !important;
+      padding-top: 24px !important;
+      padding-bottom: 18px !important;
       gap: 16px !important;
     }
   }
@@ -906,7 +915,7 @@
   --footer_bg:               var(--{{ section.settings.footer_color }}_bg);
   --footer_fg:               var(--{{ section.settings.footer_color }}_fg);
   --footer_fg_hover:         var(--footer_fg);
-  --footer_bg_offset:        {{ section.settings.footer_bg_offset }}px;
+  --footer_bg_offset:        0px;
   {% if newsletter_block %}
     --footer_link_bg:          var(--secondary_btn_bg);
     --footer_link_dark:        var(--secondary_btn_bg_dark);
@@ -929,11 +938,9 @@
     }
   }
 </style>
-{%- if section.settings.footer_bg_offset > 0 -%}
-  <script>
-    document.documentElement.classList.add('has-footer-negative-margin');
-  </script>
-{%- endif -%}
+<script>
+  document.documentElement.classList.remove('has-footer-negative-margin');
+</script>
 {% schema %}
 {
   "name": "t:static_sections.footer.name",
