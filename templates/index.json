@@ -188,6 +188,7 @@
             "button_2_label": "Saber más",
             "button_2_link": "shopify://pages/nosotros",
             "desktop_width_percent": 100,
+            "full_width": true,
             "min_height": 500,
             "mobile_image_height": 280,
             "content_padding": 60,
@@ -233,8 +234,8 @@
         "padding_bottom_mobile": 0,
         "padding_left_mobile": 0,
         "padding_right_mobile": 0,
-        "spacing_desktop": 50,
-        "spacing_mobile": 30,
+        "spacing_desktop": 0,
+        "spacing_mobile": 0,
         "fix_zindex": 0
       }
     },
