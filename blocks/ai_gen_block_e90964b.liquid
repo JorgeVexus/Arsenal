@@ -5,8 +5,8 @@
 {% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
 
 {% style %}
-  .ai-image-text-{{ ai_gen_id }} { width: {{ block.settings.desktop_width_percent }}%; max-width: 100%; display: block; background: {{ block.settings.background_color }}; color: {{ block.settings.text_color }}; border-radius: {{ block.settings.border_radius }}px; overflow: hidden; }
-  .ai-image-text__layout-{{ ai_gen_id }} { display: grid; grid-template-columns: 1fr 1fr; min-height: {{ block.settings.min_height }}px; }
+  .ai-image-text-{{ ai_gen_id }} { width: {{ block.settings.desktop_width_percent }}%; max-width: 100%; display: block; background: {{ block.settings.background_color }}; color: {{ block.settings.text_color }}; border-radius: {{ block.settings.border_radius }}px; overflow: hidden; margin-bottom: 0 !important; }
+  .ai-image-text__layout-{{ ai_gen_id }} { display: grid; grid-template-columns: 1fr 1fr; min-height: {{ block.settings.min_height }}px; margin-bottom: 0 !important; }
   .ai-image-text__media-{{ ai_gen_id }} { min-height: 100%; background: {{ block.settings.image_placeholder_color }}; }
   .ai-image-text__media-{{ ai_gen_id }} img, .ai-image-text__media-{{ ai_gen_id }} svg { display: block; width: 100%; height: 100%; min-height: {{ block.settings.min_height }}px; object-fit: cover; }
   .ai-image-text__media-{{ ai_gen_id }} svg { color: #666666; background: {{ block.settings.image_placeholder_color }}; }
@@ -20,7 +20,7 @@
   .ai-image-text__button-{{ ai_gen_id }}:hover { opacity: .82; }
   .ai-image-text__button--secondary-{{ ai_gen_id }} { border-color: {{ block.settings.secondary_button_color }}; background: {{ block.settings.secondary_button_color }}; color: {{ block.settings.secondary_button_text_color }}; }
   .ai-image-text__button-{{ ai_gen_id }}:focus-visible { outline: 3px solid {{ block.settings.accent_color }}; outline-offset: 3px; }
-  @media screen and (max-width: 749px) { .ai-image-text-{{ ai_gen_id }} { width: 100%; } .ai-image-text__layout-{{ ai_gen_id }} { grid-template-columns: 1fr; } .ai-image-text__media-{{ ai_gen_id }}, .ai-image-text__media-{{ ai_gen_id }} img, .ai-image-text__media-{{ ai_gen_id }} svg { min-height: {{ block.settings.mobile_image_height }}px; } .ai-image-text__content-{{ ai_gen_id }} { padding: {{ block.settings.mobile_padding }}px; } .ai-image-text__title-{{ ai_gen_id }} { font-size: {{ block.settings.mobile_heading_size }}px; } .ai-image-text__buttons-{{ ai_gen_id }} { width: 100%; } .ai-image-text__button-{{ ai_gen_id }} { flex: 1 1 100%; } }
+  @media screen and (max-width: 749px) { .ai-image-text-{{ ai_gen_id }} { width: 100%; margin-bottom: 0 !important; } .ai-image-text__layout-{{ ai_gen_id }} { grid-template-columns: 1fr; margin-bottom: 0 !important; } .ai-image-text__media-{{ ai_gen_id }}, .ai-image-text__media-{{ ai_gen_id }} img, .ai-image-text__media-{{ ai_gen_id }} svg { min-height: {{ block.settings.mobile_image_height }}px; } .ai-image-text__content-{{ ai_gen_id }} { padding: {{ block.settings.mobile_padding }}px; } .ai-image-text__title-{{ ai_gen_id }} { font-size: {{ block.settings.mobile_heading_size }}px; } .ai-image-text__buttons-{{ ai_gen_id }} { width: 100%; } .ai-image-text__button-{{ ai_gen_id }} { flex: 1 1 100%; } }
 {% endstyle %}
 
 <div class="ai-image-text-{{ ai_gen_id }}" {{ block.shopify_attributes }}>

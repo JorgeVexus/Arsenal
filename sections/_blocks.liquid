@@ -15,6 +15,10 @@
         margin-bottom: {{ section.settings.spacing_desktop }}px;
         padding: {{ section.settings.padding_top }}px {{ section.settings.padding_right }}px {{ section.settings.padding_bottom }}px {{ section.settings.padding_left }}px;
     }
+    #shopify-section-{{ section.id }} .m6bx > div > *:last-child,
+    #shopify-section-{{ section.id }} .m6bx *:last-child {
+        margin-bottom: 0 !important;
+    }
     @media only screen and (max-width: 47.5em) {
         #shopify-section-{{ section.id }} .m6bx {
             margin-bottom: {{ section.settings.spacing_mobile }}px;

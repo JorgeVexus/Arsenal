@@ -13,12 +13,14 @@
     color: {{ block.settings.text_color }};
     border-radius: {{ block.settings.border_radius }}px;
     overflow: hidden;
+    margin-bottom: 0 !important;
   }
 
   .ai-image-text__layout-{{ ai_gen_id }} {
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: {{ block.settings.min_height }}px;
+    margin-bottom: 0 !important;
   }
 
   .ai-image-text__media-{{ ai_gen_id }} {
@@ -116,10 +118,12 @@
   @media screen and (max-width: 749px) {
     .ai-image-text-{{ ai_gen_id }} {
       width: 100%;
+      margin-bottom: 0 !important;
     }
 
     .ai-image-text__layout-{{ ai_gen_id }} {
       grid-template-columns: 1fr;
+      margin-bottom: 0 !important;
     }
 
     .ai-image-text__media-{{ ai_gen_id }},
