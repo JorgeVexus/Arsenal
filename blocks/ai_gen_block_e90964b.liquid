@@ -12,7 +12,7 @@
   .ai-image-text__media-{{ ai_gen_id }} svg { color: #666666; background: {{ block.settings.image_placeholder_color }}; }
   .ai-image-text__content-{{ ai_gen_id }} { display: flex; flex-direction: column; justify-content: center; align-items: {{ block.settings.content_alignment }}; padding: {{ block.settings.content_padding }}px; text-align: {{ block.settings.text_alignment }}; }
   .ai-image-text__eyebrow-{{ ai_gen_id }} { margin: 0 0 12px; color: {{ block.settings.accent_color }}; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-  .ai-image-text__title-{{ ai_gen_id }} { max-width: 620px; margin: 0 0 16px; color: {{ block.settings.heading_color }}; font-family: {{ block.settings.heading_font.family }}; font-size: {{ block.settings.heading_size }}px; line-height: 1.15; }
+  .ai-image-text__title-{{ ai_gen_id }} { max-width: 620px; margin: 0 0 16px; color: {{ block.settings.heading_color }}; font-family: var(--main_ff_h), 'Acumin Pro Bold', 'Acumin Pro Regular', sans-serif; font-size: {{ block.settings.heading_size }}px; line-height: 1.15; }
   .ai-image-text__title-{{ ai_gen_id }} p { margin: 0; }
   .ai-image-text__description-{{ ai_gen_id }} { max-width: 620px; margin: 0; color: {{ block.settings.text_color }}; font-size: {{ block.settings.body_size }}px; line-height: 1.6; }
   .ai-image-text__buttons-{{ ai_gen_id }} { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
