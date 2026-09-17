@@ -6,13 +6,25 @@
 
 {% style %}
   .ai-image-text-{{ ai_gen_id }} {
-    width: {{ block.settings.desktop_width_percent }}%;
-    max-width: 100%;
+    {% if block.settings.full_width or block.settings.full_width == nil %}
+      width: 100vw;
+      max-width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      border-radius: 0;
+    {% else %}
+      width: {{ block.settings.desktop_width_percent }}%;
+      max-width: 100%;
+      border-radius: {{ block.settings.border_radius }}px;
+    {% endif %}
     display: block;
     background: {{ block.settings.background_color }};
     color: {{ block.settings.text_color }};
-    border-radius: {{ block.settings.border_radius }}px;
     overflow: hidden;
+    box-sizing: border-box;
   }
 
   .ai-image-text__layout-{{ ai_gen_id }} {
@@ -115,7 +127,18 @@
 
   @media screen and (max-width: 749px) {
     .ai-image-text-{{ ai_gen_id }} {
-      width: 100%;
+      {% if block.settings.full_width or block.settings.full_width == nil %}
+        width: 100vw;
+        max-width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        border-radius: 0;
+      {% else %}
+        width: 100%;
+      {% endif %}
     }
 
     .ai-image-text__layout-{{ ai_gen_id }} {
@@ -192,6 +215,7 @@
     { "type": "text", "id": "button_2_label", "label": "Botón 2", "default": "Conoce más" },
     { "type": "url", "id": "button_2_link", "label": "Enlace del botón 2" },
     { "type": "header", "content": "Diseño" },
+    { "type": "checkbox", "id": "full_width", "label": "Ancho completo (hasta el borde)", "default": true },
     { "type": "range", "id": "desktop_width_percent", "label": "Ancho en escritorio", "min": 50, "max": 100, "step": 5, "unit": "%", "default": 100 },
     { "type": "range", "id": "min_height", "label": "Altura mínima", "min": 300, "max": 800, "step": 50, "unit": "px", "default": 500 },
     { "type": "range", "id": "mobile_image_height", "label": "Imagen en móvil", "min": 180, "max": 500, "step": 20, "unit": "px", "default": 280 },
