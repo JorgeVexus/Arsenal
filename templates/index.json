@@ -185,7 +185,7 @@
         "custom_height_desktop": 900,
         "custom_height_mobile": 450,
         "image": "shopify://shop_images/Empresa_Mexicana.jpg",
-        "image_height_mode": "custom",
+        "image_height_mode": "fill",
         "image_custom_height_desktop": 900,
         "image_custom_height_mobile": 350,
         "mobile_aspect_ratio": "4 / 3",
