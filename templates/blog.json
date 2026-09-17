@@ -73,7 +73,7 @@
         "background_color_section": true,
         "text_alignment": "center",
         "content_width": 2000,
-        "title": "<h3><strong>Arsenal Blog</strong></h3>",
+        "title": "<h5><strong>Arsenal Blog</strong></h5>",
         "title_underline_style": "none",
         "enable_custom_title_size": true,
         "custom_title_size": 57,
