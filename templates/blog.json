@@ -60,6 +60,9 @@
     },
     "d5a21998-bfbb-4dbf-bfee-1e214e93df06": {
       "type": "section-image-mask",
+      "custom_css": [
+        "h5{font-size: 75px !important;}"
+      ],
       "settings": {
         "width": "wide",
         "height": "m",
