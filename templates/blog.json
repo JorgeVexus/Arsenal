@@ -73,7 +73,7 @@
         "background_color_section": true,
         "text_alignment": "center",
         "content_width": 2000,
-        "title": "<h2><strong>Arsenal Blog</strong></h2>",
+        "title": "<h3><strong>Arsenal Blog</strong></h3>",
         "title_underline_style": "none",
         "enable_custom_title_size": true,
         "custom_title_size": 57,
@@ -91,7 +91,9 @@
       "disabled": true,
       "settings": {
         "hide_mobile": false,
-        "back_button": false
+        "back_button": false,
+        "margin_top": 50,
+        "margin_top_mobile": 25
       }
     },
     "main-blog": {
