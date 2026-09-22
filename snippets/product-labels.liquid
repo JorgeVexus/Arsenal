@@ -67,12 +67,12 @@
 
 <span class="{{ class }}">
   {%- if is_certified -%}
-    <span class="s1bx overlay-certified" style="display:inline-flex !important;align-items:center !important;justify-content:flex-start !important;flex-direction:row !important;gap:4px !important;">
-      <svg class="s1bx-cert-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#ea5c10" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position:static !important;display:inline-block !important;vertical-align:middle !important;width:13px !important;height:13px !important;min-width:13px !important;max-width:13px !important;margin:0 !important;padding:0 !important;left:auto !important;right:auto !important;top:auto !important;bottom:auto !important;flex-shrink:0 !important;">
+    <span class="s1bx overlay-certified" style="background-color:#0e1320 !important;color:#ffffff !important;border:1px solid rgba(234,92,16,0.7) !important;border-radius:4px !important;display:inline-flex !important;flex-direction:row !important;align-items:center !important;justify-content:center !important;gap:6px !important;padding:5px 10px !important;line-height:1 !important;box-shadow:0 2px 8px rgba(0,0,0,0.35) !important;white-space:nowrap !important;">
+      <svg class="s1bx-cert-icon" viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="#ea5c10" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position:static !important;display:block !important;width:13px !important;height:13px !important;min-width:13px !important;max-width:13px !important;margin:0 !important;padding:0 !important;left:auto !important;right:auto !important;top:auto !important;bottom:auto !important;flex-shrink:0 !important;color:#ea5c10 !important;">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
         <path d="m9 12 2 2 4-4"/>
       </svg>
-      <span class="s1bx-cert-text" style="position:static !important;display:inline-block !important;vertical-align:middle !important;line-height:inherit !important;">Certificado</span>
+      <b class="s1bx-cert-text" style="position:static !important;display:inline-block !important;background:transparent !important;background-color:transparent !important;border:none !important;box-shadow:none !important;padding:0 !important;margin:0 !important;color:#ffffff !important;font-size:11px !important;font-weight:700 !important;letter-spacing:0.5px !important;text-transform:uppercase !important;line-height:1 !important;vertical-align:middle !important;">Certificado</b>
     </span>
   {%- endif -%}
   {%- if show_sale_label -%}
