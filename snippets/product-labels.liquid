@@ -34,9 +34,47 @@
       assign discount = current_variant.compare_at_price | minus: current_variant.price | money
     endif
   endif
+
+  assign is_certified = false
+  if product != blank
+    for tag in product.tags
+      assign t_clean = tag | downcase | strip
+      if t_clean == 'certificado' or t_clean == 'certificada' or t_clean == 'badge:certificado' or t_clean == 'badge: certificado'
+        assign is_certified = true
+        break
+      endif
+    endfor
+
+    unless is_certified
+      assign p_handle = product.handle | downcase
+      assign p_title = product.title | downcase
+      if p_handle contains 'gr-407' or p_title contains 'gr 407' or p_title contains 'gr-407' or p_title contains 'gr407'
+        assign is_certified = true
+      elsif p_handle contains '4s17' or p_title contains '4s17'
+        assign is_certified = true
+      elsif p_handle contains 'lon-iii-p' or p_handle contains 'lon-iii' or p_title contains 'lon-iii-p' or p_title contains 'lon-iii' or p_title contains 'lon iii'
+        assign is_certified = true
+      elsif p_handle contains 'gr-507' or p_title contains 'gr 507' or p_title contains 'gr-507' or p_title contains 'gr507'
+        assign is_certified = true
+      elsif p_handle contains 'gr-301' or p_title contains 'gr 301' or p_title contains 'gr-301' or p_title contains 'gr301'
+        assign is_certified = true
+      elsif p_handle contains 'gr-501' or p_title contains 'gr 501' or p_title contains 'gr-501' or p_title contains 'gr501'
+        assign is_certified = true
+      endif
+    endunless
+  endif
 -%}
 
 <span class="{{ class }}">
+  {%- if is_certified -%}
+    <span class="s1bx overlay-certified">
+      <svg class="s1bx-cert-icon" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#ea5c10" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <path d="m9 12 2 2 4-4"/>
+      </svg>
+      Certificado
+    </span>
+  {%- endif -%}
   {%- if show_sale_label -%}
     <span class="s1bx overlay-sale">{{ 'product.sale_tag' | t }}<b>{% if settings.sale_label_price == 'percentage' %}&nbsp;-{{ discount }}%{% elsif settings.sale_label_price == 'amount' %}&nbsp;-{{ discount }}{% endif %}</b></span>
   {%- endif -%}

@@ -486,8 +486,41 @@
           {%- assign product = block.settings.product -%}
           <div class="fpg-card" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
             <div class="fpg-media-wrapper">
-              {%- if block.settings.badge_text != blank -%}
-                <span class="fpg-badge">{{ block.settings.badge_text }}</span>
+              {%- liquid
+                assign card_badge = block.settings.badge_text
+                if card_badge == blank and product != blank
+                  assign is_cert_block = false
+                  for tag in product.tags
+                    assign t_c = tag | downcase | strip
+                    if t_c == 'certificado' or t_c == 'certificada' or t_c == 'badge:certificado' or t_c == 'badge: certificado'
+                      assign is_cert_block = true
+                      break
+                    endif
+                  endfor
+                  unless is_cert_block
+                    assign b_h = product.handle | downcase
+                    assign b_t = product.title | downcase
+                    if b_h contains 'gr-407' or b_t contains 'gr 407' or b_t contains 'gr-407' or b_t contains 'gr407'
+                      assign is_cert_block = true
+                    elsif b_h contains '4s17' or b_t contains '4s17'
+                      assign is_cert_block = true
+                    elsif b_h contains 'lon-iii-p' or b_h contains 'lon-iii' or b_t contains 'lon-iii-p' or b_t contains 'lon-iii' or b_t contains 'lon iii'
+                      assign is_cert_block = true
+                    elsif b_h contains 'gr-507' or b_t contains 'gr 507' or b_t contains 'gr-507' or b_t contains 'gr507'
+                      assign is_cert_block = true
+                    elsif b_h contains 'gr-301' or b_t contains 'gr 301' or b_t contains 'gr-301' or b_t contains 'gr301'
+                      assign is_cert_block = true
+                    elsif b_h contains 'gr-501' or b_t contains 'gr 501' or b_t contains 'gr-501' or b_t contains 'gr501'
+                      assign is_cert_block = true
+                    endif
+                  endunless
+                  if is_cert_block
+                    assign card_badge = 'Certificado'
+                  endif
+                endif
+              -%}
+              {%- if card_badge != blank -%}
+                <span class="fpg-badge">{{ card_badge }}</span>
               {%- endif -%}
 
               {%- assign card_image = block.settings.image_override | default: product.featured_image -%}
