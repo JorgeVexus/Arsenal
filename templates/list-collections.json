@@ -53,7 +53,7 @@
         "columns": 3,
         "grid_gap": 20,
         "card_style": "bordered",
-        "image_ratio": "1/1",
+        "image_ratio": "4/5",
         "card_radius": 16,
         "show_product_count": false,
         "product_singular": "producto",
