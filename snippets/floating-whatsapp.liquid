@@ -5,24 +5,24 @@
   endif
   assign phone = settings.whatsapp_phone | default: '5215512345678' | strip | remove: ' ' | remove: '+' | remove: '-' | remove: '(' | remove: ')'
   assign agent_name = settings.whatsapp_agent_name | default: 'Arsenal Protección'
-  assign status_text = settings.whatsapp_status_text | default: 'En línea • Respuesta rápida'
+  assign status_text = settings.whatsapp_status_text | default: 'En línea'
   assign welcome_message = settings.whatsapp_welcome_message | default: '¡Hola! 👋 Bienvenido a Arsenal Protección Balística. ¿En qué podemos ayudarte el día de hoy?'
-  assign input_placeholder = settings.whatsapp_input_placeholder | default: 'Escribe tu mensaje aquí...'
-  assign tooltip_text = settings.whatsapp_button_tooltip | default: '¿Dudas? Escríbenos'
+  assign input_placeholder = settings.whatsapp_input_placeholder | default: 'Escribe tu mensaje...'
 -%}
 
 {%- if enable -%}
 <div id="arsenal-whatsapp-widget" class="arsenal-wa-widget" data-phone="{{ phone }}">
-  <!-- Floating Button -->
-  <button 
-    type="button" 
+  <!-- Floating Circle Trigger Button -->
+  <div 
+    role="button" 
+    tabindex="0"
     id="arsenal-wa-trigger" 
     class="arsenal-wa-trigger" 
     aria-label="Abrir chat de WhatsApp"
     aria-expanded="false"
   >
-    <span class="arsenal-wa-pulse"></span>
-    <span class="arsenal-wa-icon-wrap">
+    <span class="arsenal-wa-online-dot"></span>
+    <div class="arsenal-wa-icons">
       <!-- WhatsApp Icon -->
       <svg class="arsenal-wa-icon-wa" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M16 2.667C8.636 2.667 2.667 8.636 2.667 16c0 2.457.669 4.757 1.833 6.743L2.667 29.333l6.812-1.785A13.253 13.253 0 0016 29.333c7.364 0 13.333-5.969 13.333-13.333S23.364 2.667 16 2.667z" fill="#25D366"/>
@@ -33,58 +33,57 @@
         <line x1="18" y1="6" x2="6" y2="18"></line>
         <line x1="6" y1="6" x2="18" y2="18"></line>
       </svg>
-    </span>
-    {%- if tooltip_text != blank -%}
-      <span class="arsenal-wa-tooltip">{{ tooltip_text }}</span>
-    {%- endif -%}
-  </button>
+    </div>
+  </div>
 
-  <!-- Simulated WhatsApp Chat Box -->
+  <!-- Simulated Minimalist WhatsApp Chat Box -->
   <div id="arsenal-wa-chatbox" class="arsenal-wa-chatbox" role="dialog" aria-modal="true" aria-hidden="true">
     <!-- Header -->
     <div class="arsenal-wa-header">
-      <div class="arsenal-wa-header-avatar">
-        <span class="arsenal-wa-avatar-shield">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.12v4.7c0 4.67-3.13 9.03-7 10.18-3.87-1.15-7-5.51-7-10.18V6.3l7-3.12z"/>
-          </svg>
+      <div class="arsenal-wa-avatar">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 2.18l7 3.12v4.7c0 4.67-3.13 9.03-7 10.18-3.87-1.15-7-5.51-7-10.18V6.3l7-3.12z"/>
+        </svg>
+      </div>
+      <div class="arsenal-wa-header-text">
+        <span class="arsenal-wa-title">{{ agent_name }}</span>
+        <span class="arsenal-wa-sub">
+          <span class="arsenal-wa-green-dot"></span>
+          {{ status_text }}
         </span>
-        <span class="arsenal-wa-status-dot"></span>
       </div>
-      <div class="arsenal-wa-header-info">
-        <span class="arsenal-wa-agent-name">{{ agent_name }}</span>
-        <span class="arsenal-wa-agent-status">{{ status_text }}</span>
-      </div>
-      <button type="button" id="arsenal-wa-close-btn" class="arsenal-wa-close-btn" aria-label="Cerrar chat">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <div 
+        role="button" 
+        tabindex="0"
+        id="arsenal-wa-close-btn" 
+        class="arsenal-wa-close-btn" 
+        aria-label="Cerrar chat"
+      >
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
-      </button>
+      </div>
     </div>
 
-    <!-- Chat Body -->
+    <!-- Body -->
     <div class="arsenal-wa-body">
-      <div class="arsenal-wa-day-badge">Hoy</div>
+      <div class="arsenal-wa-date">HOY</div>
 
-      <!-- Welcome Bubble (Incoming) -->
-      <div class="arsenal-wa-message incoming">
-        <div class="arsenal-wa-bubble">
-          <p class="arsenal-wa-bubble-text">{{ welcome_message }}</p>
-          <div class="arsenal-wa-meta">
-            <span class="arsenal-wa-time" id="arsenal-wa-time">12:00</span>
-            <span class="arsenal-wa-ticks">
-              <svg viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11.04 0.940002L4.76001 7.22002L1.92 4.38002L0.980011 5.32002L4.76001 9.10002L12 1.88002L11.04 0.940002ZM15.04 0.940002L8.76001 7.22002L7.82001 6.28002L6.88001 7.22002L8.76001 9.10002L16 1.88002L15.04 0.940002Z" fill="#53bdeb"/>
-              </svg>
-            </span>
-          </div>
+      <!-- Welcome Bubble -->
+      <div class="arsenal-wa-bubble">
+        <p class="arsenal-wa-msg-text">{{ welcome_message }}</p>
+        <div class="arsenal-wa-meta">
+          <span class="arsenal-wa-timestamp" id="arsenal-wa-time">12:00</span>
+          <svg class="arsenal-wa-ticks" viewBox="0 0 16 11" fill="none">
+            <path d="M11.04 0.94L4.76 7.22L1.92 4.38L0.98 5.32L4.76 9.1L12 1.88L11.04 0.94ZM15.04 0.94L8.76 7.22L7.82 6.28L6.88 7.22L8.76 9.1L16 1.88L15.04 0.94Z" fill="#53bdeb"/>
+          </svg>
         </div>
       </div>
     </div>
 
-    <!-- Chat Footer / Input -->
-    <form id="arsenal-wa-form" class="arsenal-wa-footer" onsubmit="return false;">
+    <!-- Footer / Input Form -->
+    <div class="arsenal-wa-footer">
       <input 
         type="text" 
         id="arsenal-wa-input" 
@@ -92,513 +91,555 @@
         placeholder="{{ input_placeholder }}" 
         autocomplete="off"
       />
-      <button type="submit" id="arsenal-wa-send-btn" class="arsenal-wa-send-btn" aria-label="Enviar mensaje a WhatsApp">
+      <div 
+        role="button" 
+        tabindex="0"
+        id="arsenal-wa-send-btn" 
+        class="arsenal-wa-send-btn" 
+        aria-label="Enviar mensaje a WhatsApp"
+      >
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
         </svg>
-      </button>
-    </form>
+      </div>
+    </div>
   </div>
 </div>
 
 <style>
 /* ==========================================================================
-   ARSENAL FLOATING WHATSAPP & SIMULATED CHAT
+   ARSENAL: Ultra-Minimalist Floating WhatsApp & Chat Widget
+   Complete Isolation from Theme Button Styles
    ========================================================================== */
-.arsenal-wa-widget {
-  position: fixed;
-  bottom: 26px;
-  right: 26px;
-  z-index: 999999;
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
-  -webkit-font-smoothing: antialiased;
+
+#arsenal-whatsapp-widget,
+#arsenal-whatsapp-widget * {
+  box-sizing: border-box !important;
 }
 
-/* Floating Trigger Button */
-.arsenal-wa-trigger {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  background: #25D366;
-  color: #ffffff;
-  cursor: pointer;
-  box-shadow: 0 10px 25px -4px rgba(37, 211, 102, 0.5), 0 4px 12px rgba(0, 0, 0, 0.25);
-  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 220ms ease, background 220ms ease;
-  padding: 0;
-  outline: none;
+#arsenal-whatsapp-widget *::before,
+#arsenal-whatsapp-widget *::after {
+  display: none !important;
+  content: none !important;
 }
 
-.arsenal-wa-trigger:hover {
-  transform: scale(1.08);
-  box-shadow: 0 14px 30px -4px rgba(37, 211, 102, 0.65), 0 6px 16px rgba(0, 0, 0, 0.3);
+#arsenal-whatsapp-widget {
+  position: fixed !important;
+  bottom: 24px !important;
+  right: 24px !important;
+  z-index: 999999 !important;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
 }
 
-.arsenal-wa-trigger:active {
-  transform: scale(0.95);
+/* 1. Floating Circular Trigger */
+#arsenal-whatsapp-widget .arsenal-wa-trigger {
+  all: unset !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 50px !important;
+  height: 50px !important;
+  min-width: 50px !important;
+  max-width: 50px !important;
+  min-height: 50px !important;
+  max-height: 50px !important;
+  border-radius: 50% !important;
+  background: #25D366 !important;
+  color: #ffffff !important;
+  cursor: pointer !important;
+  box-shadow: 0 6px 20px -2px rgba(37, 211, 102, 0.5), 0 3px 8px rgba(0, 0, 0, 0.2) !important;
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms ease, background 200ms ease !important;
+  position: relative !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  outline: none !important;
+  flex-shrink: 0 !important;
 }
 
-.arsenal-wa-pulse {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: #25D366;
-  opacity: 0.5;
-  animation: arsenalWaPulse 2.4s infinite cubic-bezier(0.24, 0, 0.38, 1);
-  z-index: 1;
-  pointer-events: none;
+#arsenal-whatsapp-widget .arsenal-wa-trigger:hover {
+  transform: translateY(-2px) scale(1.05) !important;
+  box-shadow: 0 10px 24px -2px rgba(37, 211, 102, 0.6), 0 4px 12px rgba(0, 0, 0, 0.25) !important;
 }
 
-@keyframes arsenalWaPulse {
-  0% { transform: scale(1); opacity: 0.6; }
-  60% { transform: scale(1.45); opacity: 0; }
-  100% { transform: scale(1.45); opacity: 0; }
+#arsenal-whatsapp-widget .arsenal-wa-trigger:active {
+  transform: scale(0.95) !important;
 }
 
-.arsenal-wa-icon-wrap {
-  position: relative;
-  z-index: 2;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Live green online dot on trigger */
+#arsenal-whatsapp-widget .arsenal-wa-online-dot {
+  display: block !important;
+  position: absolute !important;
+  top: 1px !important;
+  right: 1px !important;
+  width: 11px !important;
+  height: 11px !important;
+  border-radius: 50% !important;
+  background: #22c55e !important;
+  border: 2px solid #0e1320 !important;
+  z-index: 3 !important;
+  pointer-events: none !important;
 }
 
-.arsenal-wa-icon-wa,
-.arsenal-wa-icon-close {
-  width: 32px;
-  height: 32px;
-  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1), opacity 200ms ease;
+#arsenal-whatsapp-widget .arsenal-wa-icons {
+  position: relative !important;
+  width: 28px !important;
+  height: 28px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-.arsenal-wa-icon-close {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  color: #ffffff;
-  opacity: 0;
-  transform: rotate(-90deg) scale(0.6);
+#arsenal-whatsapp-widget .arsenal-wa-icon-wa {
+  width: 28px !important;
+  height: 28px !important;
+  display: block !important;
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), opacity 180ms ease !important;
 }
 
-.arsenal-wa-widget.is-open .arsenal-wa-icon-wa {
-  opacity: 0;
-  transform: rotate(90deg) scale(0.6);
+#arsenal-whatsapp-widget .arsenal-wa-icon-close {
+  position: absolute !important;
+  width: 20px !important;
+  height: 20px !important;
+  color: #ffffff !important;
+  opacity: 0 !important;
+  transform: rotate(-90deg) scale(0.6) !important;
+  transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1), opacity 180ms ease !important;
 }
 
-.arsenal-wa-widget.is-open .arsenal-wa-icon-close {
-  opacity: 1;
-  transform: rotate(0) scale(1);
+/* Open State of Trigger */
+#arsenal-whatsapp-widget.is-open .arsenal-wa-trigger {
+  background: #111827 !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35) !important;
 }
 
-.arsenal-wa-widget.is-open .arsenal-wa-pulse {
-  display: none;
+#arsenal-whatsapp-widget.is-open .arsenal-wa-online-dot {
+  display: none !important;
 }
 
-.arsenal-wa-widget.is-open .arsenal-wa-trigger {
-  background: #0e1320;
-  border-color: rgba(234, 92, 16, 0.6);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+#arsenal-whatsapp-widget.is-open .arsenal-wa-icon-wa {
+  opacity: 0 !important;
+  transform: rotate(90deg) scale(0.6) !important;
 }
 
-/* Tooltip Pill */
-.arsenal-wa-tooltip {
-  position: absolute;
-  right: 68px;
-  white-space: nowrap;
-  background: rgba(14, 19, 32, 0.94);
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 600;
-  padding: 7px 14px;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  pointer-events: none;
-  opacity: 0;
-  transform: translateX(8px);
-  transition: opacity 180ms ease, transform 180ms cubic-bezier(0.16, 1, 0.3, 1);
+#arsenal-whatsapp-widget.is-open .arsenal-wa-icon-close {
+  opacity: 1 !important;
+  transform: rotate(0) scale(1) !important;
 }
 
-.arsenal-wa-trigger:hover .arsenal-wa-tooltip {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.arsenal-wa-widget.is-open .arsenal-wa-tooltip {
-  display: none;
-}
-
-/* Simulated Chat Box Modal */
-.arsenal-wa-chatbox {
-  position: absolute;
-  bottom: 74px;
-  right: 0;
-  width: 360px;
-  max-width: calc(100vw - 32px);
-  border-radius: 20px;
-  background: rgba(14, 19, 32, 0.96);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+/* 2. Chat Box Modal */
+#arsenal-whatsapp-widget .arsenal-wa-chatbox {
+  position: absolute !important;
+  bottom: 66px !important;
+  right: 0 !important;
+  width: 330px !important;
+  max-width: calc(100vw - 32px) !important;
+  border-radius: 18px !important;
+  background: rgba(14, 19, 32, 0.96) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
   box-shadow: 
-    0 24px 60px -10px rgba(0, 0, 0, 0.6),
-    0 10px 25px -5px rgba(0, 0, 0, 0.4),
-    0 0 0 1px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(28px) saturate(190%);
-  -webkit-backdrop-filter: blur(28px) saturate(190%);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(20px) scale(0.94);
-  transform-origin: bottom right;
-  transition: opacity 240ms cubic-bezier(0.16, 1, 0.3, 1), transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
-  z-index: 10;
+    0 20px 48px -8px rgba(0, 0, 0, 0.6),
+    0 8px 16px -4px rgba(0, 0, 0, 0.3) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(14px) scale(0.96) !important;
+  transform-origin: bottom right !important;
+  transition: opacity 200ms cubic-bezier(0.16, 1, 0.3, 1), transform 200ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+  z-index: 10 !important;
 }
 
-.arsenal-wa-widget.is-open .arsenal-wa-chatbox {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0) scale(1);
+#arsenal-whatsapp-widget.is-open .arsenal-wa-chatbox {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  transform: translateY(0) scale(1) !important;
 }
 
 /* Header */
-.arsenal-wa-header {
-  display: flex;
-  align-items: center;
-  padding: 16px 18px;
-  background: linear-gradient(135deg, rgba(14, 19, 32, 0.98), rgba(28, 36, 56, 0.95));
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+#arsenal-whatsapp-widget .arsenal-wa-header {
+  display: flex !important;
+  align-items: center !important;
+  padding: 12px 14px !important;
+  background: rgba(20, 27, 44, 0.85) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  gap: 10px !important;
 }
 
-.arsenal-wa-header-avatar {
-  position: relative;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: #111827;
-  border: 1.5px solid rgba(234, 92, 16, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  margin-right: 12px;
+#arsenal-whatsapp-widget .arsenal-wa-avatar {
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+  max-width: 34px !important;
+  border-radius: 50% !important;
+  background: #111827 !important;
+  border: 1px solid rgba(234, 92, 16, 0.7) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #ea5c10 !important;
+  flex-shrink: 0 !important;
 }
 
-.arsenal-wa-avatar-shield {
-  width: 22px;
-  height: 22px;
-  color: #ea5c10;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#arsenal-whatsapp-widget .arsenal-wa-avatar svg {
+  width: 17px !important;
+  height: 17px !important;
+  display: block !important;
 }
 
-.arsenal-wa-status-dot {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-  background: #25D366;
-  border: 2px solid #0e1320;
+#arsenal-whatsapp-widget .arsenal-wa-header-text {
+  flex-grow: 1 !important;
+  overflow: hidden !important;
 }
 
-.arsenal-wa-header-info {
-  flex-grow: 1;
-  overflow: hidden;
+#arsenal-whatsapp-widget .arsenal-wa-title {
+  display: block !important;
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 13.5px !important;
+  line-height: 1.25 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 }
 
-.arsenal-wa-agent-name {
-  display: block;
-  color: #ffffff;
-  font-weight: 700;
-  font-size: 14.5px;
-  line-height: 1.25;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+#arsenal-whatsapp-widget .arsenal-wa-sub {
+  display: flex !important;
+  align-items: center !important;
+  gap: 5px !important;
+  color: #25D366 !important;
+  font-size: 11.5px !important;
+  font-weight: 500 !important;
+  margin-top: 1px !important;
 }
 
-.arsenal-wa-agent-status {
-  display: block;
-  color: #25D366;
-  font-size: 12px;
-  font-weight: 500;
-  margin-top: 2px;
+#arsenal-whatsapp-widget .arsenal-wa-green-dot {
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50% !important;
+  background: #25D366 !important;
+  display: inline-block !important;
 }
 
-.arsenal-wa-close-btn {
-  background: transparent;
-  border: none;
-  color: rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 6px;
-  transition: color 160ms ease, background 160ms ease;
+/* Close Button (Header) */
+#arsenal-whatsapp-widget .arsenal-wa-close-btn {
+  all: unset !important;
+  box-sizing: border-box !important;
+  width: 26px !important;
+  height: 26px !important;
+  min-width: 26px !important;
+  max-width: 26px !important;
+  min-height: 26px !important;
+  max-height: 26px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.07) !important;
+  color: #9ca3af !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  outline: none !important;
+  transition: background 150ms ease, color 150ms ease !important;
 }
 
-.arsenal-wa-close-btn:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.08);
+#arsenal-whatsapp-widget .arsenal-wa-close-btn:hover {
+  background: rgba(255, 255, 255, 0.16) !important;
+  color: #ffffff !important;
 }
 
 /* Chat Body */
-.arsenal-wa-body {
-  padding: 18px 16px;
-  min-height: 170px;
-  max-height: 300px;
-  background: 
-    radial-gradient(circle at 10% 20%, rgba(234, 92, 16, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(37, 211, 102, 0.04) 0%, transparent 40%),
-    rgba(10, 14, 23, 0.95);
-  display: flex;
-  flex-direction: column;
+#arsenal-whatsapp-widget .arsenal-wa-body {
+  padding: 14px 14px !important;
+  background: #0c101a !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 140px !important;
 }
 
-.arsenal-wa-day-badge {
-  align-self: center;
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 11px;
-  font-weight: 600;
-  padding: 3px 10px;
-  border-radius: 10px;
-  margin-bottom: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
+#arsenal-whatsapp-widget .arsenal-wa-date {
+  align-self: center !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  color: rgba(255, 255, 255, 0.45) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  padding: 2px 8px !important;
+  border-radius: 8px !important;
+  margin-bottom: 12px !important;
+  letter-spacing: 0.5px !important;
 }
 
-.arsenal-wa-message.incoming {
-  align-self: flex-start;
-  max-width: 88%;
+#arsenal-whatsapp-widget .arsenal-wa-bubble {
+  align-self: flex-start !important;
+  max-width: 90% !important;
+  background: #172032 !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  color: #e5e7eb !important;
+  padding: 10px 12px 6px !important;
+  border-radius: 14px 14px 14px 3px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
 }
 
-.arsenal-wa-bubble {
-  background: #1b2334;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  color: #e5e7eb;
-  padding: 12px 14px 8px;
-  border-radius: 16px 16px 16px 4px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+#arsenal-whatsapp-widget .arsenal-wa-msg-text {
+  margin: 0 !important;
+  font-size: 12.5px !important;
+  line-height: 1.45 !important;
+  color: #f3f4f6 !important;
 }
 
-.arsenal-wa-bubble-text {
-  margin: 0;
-  font-size: 13.5px;
-  line-height: 1.45;
-  color: #f3f4f6;
+#arsenal-whatsapp-widget .arsenal-wa-meta {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 4px !important;
+  margin-top: 4px !important;
 }
 
-.arsenal-wa-meta {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 4px;
-  margin-top: 6px;
+#arsenal-whatsapp-widget .arsenal-wa-timestamp {
+  font-size: 10px !important;
+  color: rgba(255, 255, 255, 0.45) !important;
 }
 
-.arsenal-wa-time {
-  font-size: 10.5px;
-  color: rgba(255, 255, 255, 0.45);
-}
-
-.arsenal-wa-ticks svg {
-  width: 14px;
-  height: 9px;
-  display: block;
+#arsenal-whatsapp-widget .arsenal-wa-ticks {
+  width: 13px !important;
+  height: 8px !important;
+  display: block !important;
 }
 
 /* Footer / Input Form */
-.arsenal-wa-footer {
-  display: flex;
-  align-items: center;
-  padding: 12px 14px;
-  background: rgba(14, 19, 32, 0.98);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  gap: 10px;
+#arsenal-whatsapp-widget .arsenal-wa-footer {
+  display: flex !important;
+  align-items: center !important;
+  padding: 10px 12px !important;
+  background: rgba(14, 19, 32, 0.98) !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+  gap: 8px !important;
 }
 
-.arsenal-wa-input {
-  flex-grow: 1;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: #ffffff;
-  font-size: 13px;
-  padding: 10px 14px;
-  border-radius: 20px;
-  outline: none;
-  transition: border-color 160ms ease, background 160ms ease;
+#arsenal-whatsapp-widget .arsenal-wa-input {
+  flex-grow: 1 !important;
+  height: 36px !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  font-size: 12.5px !important;
+  padding: 0 12px !important;
+  border-radius: 18px !important;
+  outline: none !important;
+  line-height: 36px !important;
+  transition: border-color 150ms ease, background 150ms ease !important;
 }
 
-.arsenal-wa-input:focus {
-  border-color: #25D366;
-  background: rgba(255, 255, 255, 0.1);
+#arsenal-whatsapp-widget .arsenal-wa-input:focus {
+  border-color: #25D366 !important;
+  background: rgba(255, 255, 255, 0.09) !important;
 }
 
-.arsenal-wa-input::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+#arsenal-whatsapp-widget .arsenal-wa-input::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
 }
 
-.arsenal-wa-send-btn {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #25D366;
-  color: #ffffff;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1), background 160ms ease;
+/* Send Button (Footer) */
+#arsenal-whatsapp-widget .arsenal-wa-send-btn {
+  all: unset !important;
+  box-sizing: border-box !important;
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+  max-width: 34px !important;
+  min-height: 34px !important;
+  max-height: 34px !important;
+  border-radius: 50% !important;
+  background: #25D366 !important;
+  color: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  flex-shrink: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.35) !important;
+  transition: transform 160ms cubic-bezier(0.16, 1, 0.3, 1), background 160ms ease !important;
 }
 
-.arsenal-wa-send-btn svg {
-  width: 18px;
-  height: 18px;
-  transform: translateX(1px);
+#arsenal-whatsapp-widget .arsenal-wa-send-btn svg {
+  width: 15px !important;
+  height: 15px !important;
+  display: block !important;
+  transform: translateX(1px) !important;
 }
 
-.arsenal-wa-send-btn:hover {
-  background: #20bd5a;
-  transform: scale(1.06);
+#arsenal-whatsapp-widget .arsenal-wa-send-btn:hover {
+  background: #20bd5a !important;
+  transform: scale(1.06) !important;
 }
 
-.arsenal-wa-send-btn:active {
-  transform: scale(0.94);
+#arsenal-whatsapp-widget .arsenal-wa-send-btn:active {
+  transform: scale(0.94) !important;
 }
 
-/* Mobile Responsiveness */
+/* Mobile Screen Tuning */
 @media (max-width: 480px) {
-  .arsenal-wa-widget {
-    bottom: 20px;
-    right: 18px;
+  #arsenal-whatsapp-widget {
+    bottom: 18px !important;
+    right: 16px !important;
   }
-  .arsenal-wa-chatbox {
-    width: calc(100vw - 36px);
-    right: -2px;
-    bottom: 70px;
+  #arsenal-whatsapp-widget .arsenal-wa-chatbox {
+    width: calc(100vw - 32px) !important;
+    bottom: 62px !important;
+    right: 0 !important;
   }
 }
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  var widget = document.getElementById('arsenal-whatsapp-widget');
-  if (!widget) return;
+(function() {
+  function initWhatsAppWidget() {
+    var widget = document.getElementById('arsenal-whatsapp-widget');
+    if (!widget || widget.dataset.initialized) return;
+    widget.dataset.initialized = 'true';
 
-  var trigger = document.getElementById('arsenal-wa-trigger');
-  var closeBtn = document.getElementById('arsenal-wa-close-btn');
-  var chatbox = document.getElementById('arsenal-wa-chatbox');
-  var form = document.getElementById('arsenal-wa-form');
-  var input = document.getElementById('arsenal-wa-input');
-  var timeEl = document.getElementById('arsenal-wa-time');
-  var phone = widget.getAttribute('data-phone') || '';
+    var trigger = document.getElementById('arsenal-wa-trigger');
+    var closeBtn = document.getElementById('arsenal-wa-close-btn');
+    var chatbox = document.getElementById('arsenal-wa-chatbox');
+    var sendBtn = document.getElementById('arsenal-wa-send-btn');
+    var input = document.getElementById('arsenal-wa-input');
+    var timeEl = document.getElementById('arsenal-wa-time');
+    var phone = widget.getAttribute('data-phone') || '';
 
-  // Update current time in bubble
-  if (timeEl) {
-    var now = new Date();
-    var hours = now.getHours();
-    var minutes = now.getMinutes();
-    var ampm = hours >= 12 ? 'p.m.' : 'a.m.';
-    hours = hours % 12;
-    hours = hours ? hours : 12;
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-    timeEl.textContent = hours + ':' + minutes + ' ' + ampm;
-  }
+    // Update dynamic time
+    if (timeEl) {
+      var now = new Date();
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      var ampm = hours >= 12 ? 'p.m.' : 'a.m.';
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      timeEl.textContent = hours + ':' + minutes + ' ' + ampm;
+    }
 
-  function toggleChat() {
-    var isOpen = widget.classList.contains('is-open');
-    if (isOpen) {
+    function toggleChat(e) {
+      if (e) e.stopPropagation();
+      var isOpen = widget.classList.contains('is-open');
+      if (isOpen) {
+        closeChat();
+      } else {
+        openChat();
+      }
+    }
+
+    function openChat() {
+      widget.classList.add('is-open');
+      if (trigger) trigger.setAttribute('aria-expanded', 'true');
+      if (chatbox) chatbox.setAttribute('aria-hidden', 'false');
+      setTimeout(function() {
+        if (input) input.focus();
+      }, 220);
+    }
+
+    function closeChat() {
+      widget.classList.remove('is-open');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+      if (chatbox) chatbox.setAttribute('aria-hidden', 'true');
+    }
+
+    if (trigger) {
+      trigger.addEventListener('click', toggleChat);
+      trigger.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleChat();
+        }
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        closeChat();
+      });
+      closeBtn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          closeChat();
+        }
+      });
+    }
+
+    if (chatbox) {
+      chatbox.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+    }
+
+    // Close on outside click
+    document.addEventListener('click', function(e) {
+      if (widget.classList.contains('is-open') && !widget.contains(e.target)) {
+        closeChat();
+      }
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && widget.classList.contains('is-open')) {
+        closeChat();
+      }
+    });
+
+    // Send action
+    function sendMessage() {
+      var msg = (input ? input.value : '').trim();
+      if (!msg) {
+        msg = 'Hola, me gustaría recibir más información sobre sus productos balísticos.';
+      }
+      var cleanPhone = phone.replace(/[^0-9]/g, '');
+      var url = 'https://wa.me/' + cleanPhone + '?text=' + encodeURIComponent(msg);
+      window.open(url, '_blank', 'noopener,noreferrer');
+      if (input) input.value = '';
       closeChat();
-    } else {
-      openChat();
+    }
+
+    if (sendBtn) {
+      sendBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        sendMessage();
+      });
+      sendBtn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          sendMessage();
+        }
+      });
+    }
+
+    if (input) {
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          sendMessage();
+        }
+      });
     }
   }
 
-  function openChat() {
-    widget.classList.add('is-open');
-    trigger.setAttribute('aria-expanded', 'true');
-    chatbox.setAttribute('aria-hidden', 'false');
-    setTimeout(function() {
-      if (input) input.focus();
-    }, 250);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initWhatsAppWidget);
+  } else {
+    initWhatsAppWidget();
   }
-
-  function closeChat() {
-    widget.classList.remove('is-open');
-    trigger.setAttribute('aria-expanded', 'false');
-    chatbox.setAttribute('aria-hidden', 'true');
-  }
-
-  if (trigger) {
-    trigger.addEventListener('click', function(e) {
-      e.stopPropagation();
-      toggleChat();
-    });
-  }
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', function(e) {
-      e.stopPropagation();
-      closeChat();
-    });
-  }
-
-  if (chatbox) {
-    chatbox.addEventListener('click', function(e) {
-      e.stopPropagation();
-    });
-  }
-
-  // Close on outside click
-  document.addEventListener('click', function(e) {
-    if (widget.classList.contains('is-open') && !widget.contains(e.target)) {
-      closeChat();
-    }
-  });
-
-  // Close on Escape key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && widget.classList.contains('is-open')) {
-      closeChat();
-    }
-  });
-
-  // Submit message to WhatsApp
-  function sendMessage() {
-    var message = (input ? input.value : '').trim();
-    if (!message) {
-      message = 'Hola, me gustaría recibir más información sobre sus productos balísticos.';
-    }
-    var cleanPhone = phone.replace(/[^0-9]/g, '');
-    var url = 'https://wa.me/' + cleanPhone + '?text=' + encodeURIComponent(message);
-    window.open(url, '_blank', 'noopener,noreferrer');
-    if (input) input.value = '';
-    closeChat();
-  }
-
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      sendMessage();
-    });
-  }
-});
+})();
 </script>
 {%- endif -%}
