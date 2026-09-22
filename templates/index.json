@@ -320,7 +320,7 @@
         ],
         "custom_image_ratio": 100,
         "show_in_circle": false,
-        "fill_images": false,
+        "fill_images": true,
         "layout": "grid",
         "number_of_items": 3,
         "show_below": true,

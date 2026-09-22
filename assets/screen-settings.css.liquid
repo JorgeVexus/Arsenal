@@ -786,3 +786,23 @@ figure.img-multiply-bg:before,
 picture.img-multiply-bg:before {
   background: transparent !important;
 }
+
+/* Ensure arsenal-collection-list images cover full container and disable orange overlay */
+[class*="cl-card-image"] {
+  overflow: hidden !important;
+  background: transparent !important;
+}
+[class*="cl-card-image"] img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+.style-bordered [class*="cl-card-image"]::after,
+.style-minimal [class*="cl-card-image"]::after,
+.style-elevated [class*="cl-card-image"]::after,
+[class*="cl-card-image"].no-overlay::after {
+  display: none !important;
+  opacity: 0 !important;
+}

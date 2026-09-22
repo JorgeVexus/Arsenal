@@ -331,33 +331,45 @@
     position: relative;
     aspect-ratio: {{ section.settings.image_ratio }};
     overflow: hidden;
+    display: block;
+    width: 100%;
+    background: transparent;
   }
   .cl-card-image-{{ section.id }} img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   .cl-card-{{ section.id }}:hover .cl-card-image-{{ section.id }} img {
     transform: scale(1.1);
   }
-  /* Image Overlay Gradient */
+  /* Image Overlay Gradient - Only active for overlay style */
   .cl-card-image-{{ section.id }}::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      0deg,
-      {{ section.settings.overlay_color }} 0%,
-      {{ section.settings.overlay_color | color_modify: 'alpha', 0.3 }} 40%,
-      transparent 100%
-    );
-    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
-    transition: opacity 0.4s ease;
+    pointer-events: none;
+    {% if section.settings.card_style == 'overlay' %}
+      background: linear-gradient(
+        0deg,
+        {{ section.settings.overlay_color }} 0%,
+        {{ section.settings.overlay_color | color_modify: 'alpha', 0.3 }} 40%,
+        transparent 100%
+      );
+      opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+      transition: opacity 0.4s ease;
+    {% else %}
+      display: none !important;
+    {% endif %}
   }
-  .cl-card-{{ section.id }}:hover .cl-card-image-{{ section.id }}::after {
-    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 | plus: 0.2 }};
-  }
+  {% if section.settings.card_style == 'overlay' %}
+    .cl-card-{{ section.id }}:hover .cl-card-image-{{ section.id }}::after {
+      opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 | plus: 0.2 }};
+    }
+  {% endif %}
   /* Card Content - Overlay Style */
   .cl-card-content-{{ section.id }} {
     position: absolute;
