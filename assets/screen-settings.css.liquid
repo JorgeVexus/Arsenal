@@ -800,3 +800,212 @@ picture.img-multiply-bg:before {
   object-fit: cover !important;
   object-position: center !important;
 }
+
+/* ==========================================================================
+   APPLE DESIGN & ANIMATE: High-Fidelity Menu Dropdown & Submenus
+   ========================================================================== */
+
+/* Dropdown Containers: Frosted Glass, Apple Curves & Layered Shadows */
+#header-inner #nav > ul > li.sub-static > ul,
+#nav > ul > li.sub-static > ul,
+#header-inner #nav > ul > li.sub-static ul ul:not(:first-child),
+#nav > ul > li.sub-static ul ul:not(:first-child) {
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(28px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.8) !important;
+  border-radius: 18px !important;
+  box-shadow: 
+    0 24px 48px -12px rgba(0, 0, 0, 0.18),
+    0 12px 24px -8px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.05),
+    0 1px 0 0 rgba(255, 255, 255, 0.8) inset !important;
+  padding: 8px !important;
+  min-width: 275px !important;
+  margin-top: 6px !important;
+  transform-origin: top left !important;
+}
+
+/* Remove default solid background pseudo-element from theme */
+#nav > ul > li.sub-static ul ul:before,
+#nav > ul > li.sub-static > ul:before {
+  display: none !important;
+}
+
+#nav > ul > li.sub-static > ul > li > ul {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+/* Fluid Entrance Animations */
+@keyframes appleDropdownEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes appleSubmenuEnter {
+  0% {
+    opacity: 0;
+    transform: translateX(-8px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes appleItemStagger {
+  0% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Open Dropdown on Hover/Toggle with Apple Spring Curve */
+[data-whatin="mouse"] #nav > ul > li.sub-static:hover > ul,
+#nav > ul > li.sub-static.toggle > ul {
+  display: block !important;
+  animation: appleDropdownEnter 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+/* Open Nested Submenu Flyout with Fluid Spring Slide */
+[data-whatin="mouse"] #nav > ul > li.sub-static li:hover > ul:not(:first-child),
+#nav > ul > li.sub-static li.toggle > ul:not(:first-child) {
+  display: block !important;
+  animation: appleSubmenuEnter 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+  margin-left: 8px !important;
+  top: -8px !important;
+}
+
+/* Dropdown Item Styling */
+#nav > ul > li.sub-static li {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: block !important;
+}
+
+#nav > ul > li.sub-static li + li {
+  margin-top: 3px !important;
+}
+
+/* Micro-stagger on Children Items */
+#nav > ul > li.sub-static > ul > li > ul > li {
+  animation: appleItemStagger 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+#nav > ul > li.sub-static > ul > li > ul > li:nth-child(1) { animation-delay: 20ms; }
+#nav > ul > li.sub-static > ul > li > ul > li:nth-child(2) { animation-delay: 45ms; }
+#nav > ul > li.sub-static > ul > li > ul > li:nth-child(3) { animation-delay: 70ms; }
+#nav > ul > li.sub-static > ul > li > ul > li:nth-child(4) { animation-delay: 95ms; }
+#nav > ul > li.sub-static > ul > li > ul > li:nth-child(5) { animation-delay: 120ms; }
+#nav > ul > li.sub-static > ul > li > ul > li:nth-child(6) { animation-delay: 145ms; }
+#nav > ul > li.sub-static > ul > li > ul > li:nth-child(7) { animation-delay: 170ms; }
+#nav > ul > li.sub-static > ul > li > ul > li:nth-child(8) { animation-delay: 195ms; }
+
+/* Interactive Link Pill & Typography */
+#nav > ul > li.sub-static li > a {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 9px 12px !important;
+  border-radius: 12px !important;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.01em !important;
+  color: #111827 !important;
+  text-decoration: none !important;
+  transition: 
+    background-color 160ms cubic-bezier(0.25, 1, 0.5, 1),
+    color 160ms cubic-bezier(0.25, 1, 0.5, 1),
+    transform 160ms cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+/* Hover Pill Highlight */
+[data-whatin="mouse"] #nav > ul > li.sub-static li > a:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  color: #ea5c10 !important;
+  transform: translateX(4px) !important;
+}
+
+/* Active / Press State (Apple physical feedback) */
+#nav > ul > li.sub-static li > a:active {
+  transform: scale(0.98) translateX(3px) !important;
+  transition: transform 80ms ease-out !important;
+}
+
+/* Circular Thumbnail Icons with Smooth Scale */
+#nav > ul > li.sub-static a img,
+#nav > ul > li.sub-static a .img {
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  margin-right: 12px !important;
+  margin-left: 0 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.05) !important;
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+  flex-shrink: 0 !important;
+}
+
+[data-whatin="mouse"] #nav > ul > li.sub-static li > a:hover img,
+[data-whatin="mouse"] #nav > ul > li.sub-static li > a:hover .img {
+  transform: scale(1.08) !important;
+}
+
+/* Submenu Indicator Chevron */
+#nav > ul > li.sub-static li.sub > a {
+  padding-right: 34px !important;
+}
+
+#nav > ul > li.sub-static li.sub > a:before {
+  content: "\e96b" !important;
+  font-family: i !important;
+  font-size: 11px !important;
+  color: rgba(0, 0, 0, 0.35) !important;
+  position: absolute !important;
+  right: 12px !important;
+  left: auto !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  margin: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  line-height: 1 !important;
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), color 200ms ease !important;
+}
+
+[data-whatin="mouse"] #nav > ul > li.sub-static li.sub:hover > a:before {
+  color: #ea5c10 !important;
+  transform: translateY(-50%) translateX(3px) !important;
+}
+
+/* Accessible Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  [data-whatin="mouse"] #nav > ul > li.sub-static:hover > ul,
+  #nav > ul > li.sub-static.toggle > ul,
+  [data-whatin="mouse"] #nav > ul > li.sub-static li:hover > ul:not(:first-child),
+  #nav > ul > li.sub-static li.toggle > ul:not(:first-child) {
+    animation: none !important;
+    transition: opacity 150ms ease !important;
+    transform: none !important;
+  }
+  #nav > ul > li.sub-static > ul > li > ul > li {
+    animation: none !important;
+  }
+  #nav > ul > li.sub-static li > a:hover,
+  #nav > ul > li.sub-static li > a:active {
+    transform: none !important;
+  }
+}
