@@ -4,9 +4,13 @@
     assign enable = true
   endif
   assign phone = settings.whatsapp_phone | default: '5215512345678' | strip | remove: ' ' | remove: '+' | remove: '-' | remove: '(' | remove: ')'
-  assign agent_name = settings.whatsapp_agent_name | default: 'Arsenal Protección'
+  assign agent_name = settings.whatsapp_agent_name | default: 'Arsenal'
+  if agent_name contains 'Arsenal Protección'
+    assign agent_name = 'Arsenal'
+  endif
   assign status_text = settings.whatsapp_status_text | default: 'En línea'
-  assign welcome_message = settings.whatsapp_welcome_message | default: '¡Hola! 👋 Bienvenido a Arsenal Protección Balística. ¿En qué podemos ayudarte el día de hoy?'
+  assign welcome_message = settings.whatsapp_welcome_message | default: '¡Hola! 👋 Bienvenido a Arsenal. ¿En qué podemos ayudarte el día de hoy?'
+  assign welcome_message = welcome_message | replace: 'Arsenal Protección Balística', 'Arsenal' | replace: 'Arsenal Protección', 'Arsenal'
   assign input_placeholder = settings.whatsapp_input_placeholder | default: 'Escribe tu mensaje...'
 -%}
 
@@ -603,7 +607,7 @@
     function sendMessage() {
       var msg = (input ? input.value : '').trim();
       if (!msg) {
-        msg = 'Hola, me gustaría recibir más información sobre sus productos balísticos.';
+        msg = 'Hola, me gustaría recibir más información.';
       }
       var cleanPhone = phone.replace(/[^0-9]/g, '');
       var url = 'https://wa.me/' + cleanPhone + '?text=' + encodeURIComponent(msg);

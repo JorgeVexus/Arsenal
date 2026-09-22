@@ -3160,7 +3160,7 @@
         "type": "text",
         "id": "whatsapp_agent_name",
         "label": "Nombre del Asesor / Negocio",
-        "default": "Arsenal Protección"
+        "default": "Arsenal"
       },
       {
         "type": "text",
@@ -3172,7 +3172,7 @@
         "type": "textarea",
         "id": "whatsapp_welcome_message",
         "label": "Mensaje de bienvenida inicial",
-        "default": "¡Hola! 👋 Bienvenido a Arsenal Protección Balística. ¿En qué podemos ayudarte el día de hoy?"
+        "default": "¡Hola! 👋 Bienvenido a Arsenal. ¿En qué podemos ayudarte el día de hoy?"
       },
       {
         "type": "text",
