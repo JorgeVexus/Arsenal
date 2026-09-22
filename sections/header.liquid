@@ -350,6 +350,22 @@
       ">
         <ul data-type="horizontal-nav" {% if has_images %}class="category-img"{% endif %}>
           {%- render 'header-menu', menu: menu, show_dropdown_images: section.settings.show_dropdown_images, show_dropdown_images_autofill: section.settings.show_dropdown_images_autofill, show_dropdown_images_rounded: section.settings.show_dropdown_images_rounded, show_dropdown_images_fill: section.settings.show_dropdown_images_fill, has_images: has_images, layout: menu_layout, main_menu_items_clickable: section.settings.main_menu_items_clickable, menubar_caps: section.settings.menubar_caps, sale_highlight: section.settings.sale_highlight, sale_highlight_item: section.settings.sale_highlight_item, manual_collapse: false, menu_items_limit: section.settings.menu_items_limit, menu_recently_viewed_products: section.settings.menu_recently_viewed_products, menu_subs_font: section.settings.menu_subs_font, blocks: section.blocks, header_width: section.settings.width -%}
+          {%- if section.settings.enable_catalog_button and section.settings.catalog_button_position != 'inside_dropdown' -%}
+            {%- if section.settings.catalog_pdf_file != blank or request.design_mode -%}
+              <li class="nav-catalog-item">
+                <a href="{{ section.settings.catalog_pdf_file | default: '#' }}" class="nav-catalog-btn" target="_blank" rel="noopener noreferrer"{% if section.settings.catalog_pdf_file != blank %} download{% endif %}>
+                  <span class="nav-catalog-icon">
+                    <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                      <polyline points="7 10 12 15 17 10"></polyline>
+                      <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                  </span>
+                  <span class="nav-catalog-text">{{ section.settings.catalog_button_text | default: 'Descargar Catálogo' }}</span>
+                </a>
+              </li>
+            {%- endif -%}
+          {%- endif -%}
         </ul>
       </nav>
     </div>
@@ -1666,6 +1682,48 @@
         }
       ],
       "default": "secondary"
+    },
+    {
+      "type": "header",
+      "content": "Botón Descargar Catálogo"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_catalog_button",
+      "label": "Mostrar botón de Descargar Catálogo",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "catalog_pdf_file",
+      "label": "Enlace del archivo PDF del Catálogo",
+      "info": "Sube tu archivo PDF en Shopify Admin > Contenido > Archivos y selecciona o pega aquí la URL."
+    },
+    {
+      "type": "text",
+      "id": "catalog_button_text",
+      "label": "Texto del botón",
+      "default": "Descargar Catálogo"
+    },
+    {
+      "type": "select",
+      "id": "catalog_button_position",
+      "label": "Ubicación del botón",
+      "options": [
+        {
+          "value": "navbar_end",
+          "label": "Al final del menú de navegación"
+        },
+        {
+          "value": "inside_dropdown",
+          "label": "Dentro del menú desplegable"
+        },
+        {
+          "value": "both",
+          "label": "En ambos lugares"
+        }
+      ],
+      "default": "navbar_end"
     },
     {
       "type": "checkbox",

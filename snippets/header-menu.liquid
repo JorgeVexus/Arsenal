@@ -117,6 +117,28 @@
                             </li>
                         </ul>
                         {%- endfor -%}
+                        {%- if section.settings.enable_catalog_button and section.settings.catalog_button_position != 'navbar_end' -%}
+                          {%- if section.settings.catalog_pdf_file != blank or request.design_mode -%}
+                            <li class="dropdown-catalog-item">
+                                <ul>
+                                    <li>
+                                        <a href="{{ section.settings.catalog_pdf_file | default: '#' }}" class="dropdown-catalog-link" target="_blank" rel="noopener noreferrer"{% if section.settings.catalog_pdf_file != blank %} download{% endif %}>
+                                            <span class="img catalog-pdf-icon-wrap">
+                                                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                                    <polyline points="14 2 14 8 20 8"></polyline>
+                                                    <line x1="12" y1="18" x2="12" y2="12"></line>
+                                                    <polyline points="9 15 12 18 15 15"></polyline>
+                                                </svg>
+                                            </span>
+                                            <span class="catalog-link-text">{{ section.settings.catalog_button_text | default: 'Descargar Catálogo' }}</span>
+                                            <span class="catalog-pdf-badge">PDF</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                          {%- endif -%}
+                        {%- endif -%}
                 </ul>
             {%- endif -%}
         </li>

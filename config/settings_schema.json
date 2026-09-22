@@ -3139,5 +3139,53 @@
         "default": "dynamic_buy_button"
       }
     ]
+  },
+  {
+    "name": "WhatsApp Flotante",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "whatsapp_enable",
+        "label": "Habilitar botón flotante de WhatsApp",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_phone",
+        "label": "Número de WhatsApp (con código de país)",
+        "info": "Sin signos '+' ni espacios. Ej: 5215512345678",
+        "default": "5215512345678"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_agent_name",
+        "label": "Nombre del Asesor / Negocio",
+        "default": "Arsenal Protección"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_status_text",
+        "label": "Estado del Asesor",
+        "default": "En línea • Respuesta rápida"
+      },
+      {
+        "type": "textarea",
+        "id": "whatsapp_welcome_message",
+        "label": "Mensaje de bienvenida inicial",
+        "default": "¡Hola! 👋 Bienvenido a Arsenal Protección Balística. ¿En qué podemos ayudarte el día de hoy?"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_input_placeholder",
+        "label": "Texto provisional del campo de mensaje",
+        "default": "Escribe tu mensaje aquí..."
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_button_tooltip",
+        "label": "Texto del botón flotante",
+        "default": "¿Dudas? Escríbenos"
+      }
+    ]
   }
 ]
