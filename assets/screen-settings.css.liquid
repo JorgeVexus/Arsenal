@@ -759,3 +759,30 @@ html[data-whatin=mouse] #root .link-btn.tabs > a:hover:before {
   text-transform: uppercase !important;
   line-height: 1 !important;
 }
+
+/* Ensure collection card and catalog grid images cover full container and remove orange stripe */
+.l4cl figure,
+.catalog figure {
+  overflow: hidden !important;
+  border-radius: var(--b2p) !important;
+  background: transparent !important;
+}
+
+.l4cl figure img,
+.l4cl figure picture img,
+.catalog figure img,
+.catalog picture img,
+.cl-card-image img {
+  object-fit: cover !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.catalog figure.img-multiply-bg:before,
+.catalog picture.img-multiply-bg:before,
+.l4cl figure.img-multiply-bg:before,
+.l4cl picture.img-multiply-bg:before,
+figure.img-multiply-bg:before,
+picture.img-multiply-bg:before {
+  background: transparent !important;
+}

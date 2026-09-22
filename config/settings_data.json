@@ -62,7 +62,7 @@
     "custom_product_image_ratio": 115,
     "fill_product_images": false,
     "multiply_product_images": "multiply",
-    "multiply_collection_images": "multiply-bg",
+    "multiply_collection_images": "none",
     "images_corner_radius": 10,
     "button_style": "solid",
     "buy_button_style": "solid",
