@@ -24,11 +24,23 @@ Designed with Apple Design principles, responsive one-screen mobile fit, and flu
   }
 }
 
-#shopify-section-{{ section.id }} {
-  position: relative;
-  overflow: hidden;
-  background-color: {{ section.settings.bg_color | default: '#09090b' }};
+#shopify-section-{{ section.id }},
+#shopify-section-{{ section.id }}.shopify-section,
+[id*="shopify-section"][id*="{{ section.id }}"] {
+  position: relative !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  left: 50% !important;
+  right: 50% !important;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  background-color: {{ section.settings.bg_color | default: '#09090b' }} !important;
 }
+
 
 .stl-section-{{ section.id }} {
   --stl-accent: {{ accent_color }};
@@ -422,30 +434,37 @@ Designed with Apple Design principles, responsive one-screen mobile fit, and flu
 @media screen and (max-width: 749px) {
   .section-{{ section.id }}-padding {
     padding-top: 18px !important;
-    padding-bottom: 22px !important;
+    padding-bottom: 24px !important;
   }
 
   .stl-header-{{ section.id }} {
-    margin-bottom: 12px !important;
+    margin-bottom: 14px !important;
     padding: 0 16px !important;
   }
 
   .stl-header-{{ section.id }} .stl-tagline {
     font-size: 10.5px !important;
-    margin-bottom: 3px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.12em !important;
+    margin-bottom: 4px !important;
   }
 
   .stl-header-{{ section.id }} .stl-title {
-    font-size: clamp(17px, 5vw, 21px) !important;
+    font-size: clamp(18px, 5.2vw, 24px) !important;
+    font-weight: 900 !important;
+    letter-spacing: -0.02em !important;
+    line-height: 1.15 !important;
   }
 
-  /* Stage scaled to fit within a single screen view */
+  /* Stage scaled to fit cleanly within single screen view */
   .stl-stage-{{ section.id }} {
     width: calc(100% - 24px) !important;
+    max-width: 520px !important;
     margin: 0 auto !important;
-    border-radius: 14px !important;
+    border-radius: 16px !important;
     overflow: hidden !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
   }
 
   .stl-main-img-{{ section.id }} {
@@ -458,27 +477,27 @@ Designed with Apple Design principles, responsive one-screen mobile fit, and flu
     display: block !important;
   }
 
-  /* Hotspots respond to mobile coordinates */
+  /* Hotspots: Apple-grade 44px thumb touch target */
   #shopify-section-{{ section.id }} .stl-hotspot-item-{{ section.id }} {
     top: var(--top-mobile, var(--top-desktop)) !important;
     left: var(--left-mobile, var(--left-desktop)) !important;
-    width: 38px !important;
-    height: 38px !important;
-    margin-top: -19px !important;
-    margin-left: -19px !important;
+    width: 44px !important;
+    height: 44px !important;
+    margin-top: -22px !important;
+    margin-left: -22px !important;
   }
 
   #shopify-section-{{ section.id }} .stl-hotspot-marker {
-    width: 18px !important;
-    height: 18px !important;
+    width: 20px !important;
+    height: 20px !important;
   }
 
   #shopify-section-{{ section.id }} .stl-hotspot-item-{{ section.id }}.is-active .stl-hotspot-marker {
-    width: 26px !important;
-    height: 26px !important;
+    width: 28px !important;
+    height: 28px !important;
   }
 
-  /* Profile Card Container fits right below stage */
+  /* Profile Card Container: Seamlessly centered on deep obsidian background */
   #shopify-section-{{ section.id }} .stl-card-container-{{ section.id }} {
     position: relative !important;
     bottom: auto !important;
@@ -486,7 +505,8 @@ Designed with Apple Design principles, responsive one-screen mobile fit, and flu
     left: auto !important;
     top: auto !important;
     width: calc(100% - 24px) !important;
-    margin: 12px auto 0 !important;
+    max-width: 520px !important;
+    margin: 14px auto 0 !important;
     padding: 0 !important;
     background: transparent !important;
     display: grid !important;
@@ -494,21 +514,31 @@ Designed with Apple Design principles, responsive one-screen mobile fit, and flu
     align-items: stretch !important;
   }
 
+  /* Profile Card: Apple Obsidian Glass with Crisp 1.5px Orange Border */
   #shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }} {
     grid-area: card !important;
+    width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
+    box-sizing: border-box !important;
     background: rgba(14, 14, 18, 0.94) !important;
     backdrop-filter: blur(24px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
-    border: 1px solid rgba(234, 92, 16, 0.4) !important;
-    border-radius: 14px !important;
-    padding: 16px 18px !important;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
-    transform: translateY(8px) scale(0.98) !important;
+    border: 1.5px solid var(--stl-accent) !important;
+    border-radius: 16px !important;
+    padding: 20px 22px !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.08) inset !important;
+    transform: translateY(10px) scale(0.97) !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: opacity var(--stl-duration) var(--stl-ease-spring),
+                transform var(--stl-duration) var(--stl-ease-spring),
+                visibility var(--stl-duration) !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
+    text-align: left !important;
   }
 
   #shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }}.is-active {
@@ -518,23 +548,117 @@ Designed with Apple Design principles, responsive one-screen mobile fit, and flu
     pointer-events: auto !important;
   }
 
+  #shopify-section-{{ section.id }} .stl-card-header-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-bottom: 6px !important;
+  }
+
+  #shopify-section-{{ section.id }} .stl-card-tagline {
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    color: var(--stl-accent) !important;
+    line-height: 1.3 !important;
+    margin: 0 !important;
+  }
+
+  #shopify-section-{{ section.id }} .stl-card-counter {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    color: rgba(255, 255, 255, 0.75) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    padding: 2px 8px !important;
+    border-radius: 12px !important;
+    line-height: 1.2 !important;
+  }
+
   #shopify-section-{{ section.id }} .stl-card-title {
-    font-size: 18px !important;
-    margin: 0 0 6px 0 !important;
+    font-size: 20px !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+    color: #ffffff !important;
+    margin: 0 0 8px 0 !important;
+    line-height: 1.2 !important;
   }
 
   #shopify-section-{{ section.id }} .stl-card-desc {
-    font-size: 13px !important;
-    line-height: 1.45 !important;
-    margin: 0 0 14px 0 !important;
+    font-size: 13.5px !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    color: #a1a1aa !important;
+    margin: 0 0 16px 0 !important;
+  }
+
+  #shopify-section-{{ section.id }} .stl-card-footer-row {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+    margin-top: auto !important;
+    padding-top: 4px !important;
   }
 
   #shopify-section-{{ section.id }} .stl-card-cta {
     font-size: 12px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: var(--stl-accent) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    min-height: 40px !important;
+    transition: gap 0.25s var(--stl-ease-spring), color 0.2s ease !important;
+    -webkit-tap-highlight-color: transparent !important;
   }
 
+  #shopify-section-{{ section.id }} .stl-card-cta .stl-cta-arrow {
+    display: inline-block !important;
+    font-size: 15px !important;
+    line-height: 1 !important;
+    color: inherit !important;
+    transition: transform 0.25s var(--stl-ease-spring) !important;
+  }
+
+  #shopify-section-{{ section.id }} .stl-card-cta:active {
+    transform: scale(0.96) !important;
+  }
+
+  /* Tactile Pill Navigation with Apple Haptic-like Instant Feedback */
   #shopify-section-{{ section.id }} .stl-mobile-nav {
     display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  #shopify-section-{{ section.id }} .stl-nav-btn {
+    all: unset !important;
+    box-sizing: border-box !important;
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 18px !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    -webkit-tap-highlight-color: transparent !important;
+    transition: background 0.15s ease, transform 0.1s var(--stl-ease-spring), border-color 0.15s ease !important;
+  }
+
+  #shopify-section-{{ section.id }} .stl-nav-btn:active {
+    background: var(--stl-accent) !important;
+    border-color: var(--stl-accent) !important;
+    transform: scale(0.88) !important;
   }
 }
 
