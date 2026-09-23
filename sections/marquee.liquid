@@ -92,10 +92,19 @@
     -webkit-user-select: none;
     display: flex;
     align-items: center;
+    padding-top: 18px;
+    padding-bottom: 18px;
     {% if section.settings.fade_edges %}
       -webkit-mask-image: linear-gradient(to right, transparent 0%, black var(--marquee-fade-width), black calc(100% - var(--marquee-fade-width)), transparent 100%);
       mask-image: linear-gradient(to right, transparent 0%, black var(--marquee-fade-width), black calc(100% - var(--marquee-fade-width)), transparent 100%);
     {% endif %}
+  }
+
+  @media screen and (min-width: 750px) {
+    .arsenal-marquee-wrapper-{{ section.id }} {
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
   }
 
   /* Pista que contiene los grupos */
@@ -105,6 +114,7 @@
     gap: var(--marquee-gap);
     align-items: center;
     will-change: transform;
+    min-height: calc(var(--marquee-logo-height) * 1.35);
   }
 
   /* Cada grupo se anima en paralelo de forma independiente (-100% - gap) */
@@ -114,6 +124,7 @@
     align-items: center;
     gap: var(--marquee-gap);
     will-change: transform;
+    min-height: calc(var(--marquee-logo-height) * 1.35);
     animation: arsenal-marquee-slide-{{ section.settings.direction }}-{{ section.id }} var(--marquee-speed) linear infinite;
   }
 
@@ -133,7 +144,8 @@
   .arsenal-marquee-item-{{ section.id }} {
     flex: 0 0 auto;
     width: auto;
-    height: var(--marquee-logo-height);
+    height: auto;
+    min-height: calc(var(--marquee-logo-height) * 1.35);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -155,7 +167,7 @@
   .arsenal-marquee-item-{{ section.id }} img, 
   .arsenal-marquee-item-{{ section.id }} svg {
     height: calc(var(--marquee-logo-height) * var(--item-scale, 1));
-    max-height: calc(var(--marquee-logo-height) * 1.35);
+    max-height: none;
     max-width: none;
     width: auto;
     object-fit: contain;
