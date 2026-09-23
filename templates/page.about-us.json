@@ -14,7 +14,9 @@
       "disabled": true,
       "settings": {
         "hide_mobile": false,
-        "back_button": false
+        "back_button": false,
+        "margin_top": 50,
+        "margin_top_mobile": 25
       }
     },
     "section_video_banner_CGtW88": {
@@ -972,7 +974,7 @@
           "settings": {
             "year": "2020",
             "title": "Certificación ISO 14001:2015",
-            "description": "",
+            "description": "Certificación NIJ 0101.06, Modelo GR501",
             "image": "shopify://shop_images/89312c21-a666-4ad8-b0c5-14c5ac8f34bc.jpg",
             "link": "",
             "link_text": "Leer más"
@@ -1103,6 +1105,7 @@
             "hover_scale": 1,
             "column_ratio": "60_40",
             "desktop_width_percent": 70,
+            "mobile_width_percent": 90,
             "gap": 40,
             "gap_mobile": 30,
             "padding": 40,
@@ -1114,7 +1117,8 @@
             "heading_size_mobile": 28,
             "heading_spacing": 20,
             "text_size": 16,
-            "text_size_mobile": 14
+            "text_size_mobile": 14,
+            "paragraph_spacing": 12
           },
           "blocks": {}
         }
