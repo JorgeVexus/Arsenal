@@ -459,7 +459,9 @@
             "cta_text": "SOLICITAR ASESORÍA",
             "cta_link": "/pages/contacto",
             "pos_x": 28,
-            "pos_y": 65
+            "pos_y": 65,
+            "pos_x_mobile": 24,
+            "pos_y_mobile": 52
           }
         },
         "hotspot_sedena": {
@@ -471,7 +473,9 @@
             "cta_text": "SOLICITAR ASESORÍA",
             "cta_link": "/pages/contacto",
             "pos_x": 26,
-            "pos_y": 12
+            "pos_y": 12,
+            "pos_x_mobile": 24,
+            "pos_y_mobile": 15
           }
         },
         "hotspot_penitenciaria": {
@@ -483,7 +487,9 @@
             "cta_text": "SOLICITAR ASESORÍA",
             "cta_link": "/pages/contacto",
             "pos_x": 49,
-            "pos_y": 7
+            "pos_y": 7,
+            "pos_x_mobile": 49,
+            "pos_y_mobile": 10
           }
         },
         "hotspot_ejecutiva": {
@@ -495,7 +501,9 @@
             "cta_text": "SOLICITAR ASESORÍA",
             "cta_link": "/pages/contacto",
             "pos_x": 70,
-            "pos_y": 12
+            "pos_y": 12,
+            "pos_x_mobile": 72,
+            "pos_y_mobile": 15
           }
         },
         "hotspot_tactico": {
@@ -507,7 +515,9 @@
             "cta_text": "SOLICITAR ASESORÍA",
             "cta_link": "/pages/contacto",
             "pos_x": 77,
-            "pos_y": 45
+            "pos_y": 45,
+            "pos_x_mobile": 76,
+            "pos_y_mobile": 48
           }
         }
       },
@@ -521,6 +531,7 @@
       "name": "Shop the Look Interactive",
       "settings": {
         "image": "shopify://shop_images/grupo_horizontal-min.webp",
+        "stage_height_mobile": 280,
         "subtitle": "SOLUCIONES INTEGRALES",
         "title": "Equipamiento Táctico por Perfil",
         "bg_color": "#09090b",
@@ -538,43 +549,37 @@
         "image_pgVqBY": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cliente-1.jpg",
-            "link": ""
+            "image": "shopify://shop_images/cliente-1.jpg"
           }
         },
         "image_JETnim": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cliente-2.jpg",
-            "link": ""
+            "image": "shopify://shop_images/cliente-2.jpg"
           }
         },
         "image_K7DN6M": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cliente-3.jpg",
-            "link": ""
+            "image": "shopify://shop_images/cliente-3.jpg"
           }
         },
         "image_LgDhDb": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cliente-4.jpg",
-            "link": ""
+            "image": "shopify://shop_images/cliente-4.jpg"
           }
         },
         "image_hQEjNL": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cliente-5.jpg",
-            "link": ""
+            "image": "shopify://shop_images/cliente-5.jpg"
           }
         },
         "image_xp9Adq": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cliente-6.jpg",
-            "link": ""
+            "image": "shopify://shop_images/cliente-6.jpg"
           }
         }
       },
@@ -592,10 +597,10 @@
         "heading": "<h3><strong>Clientes del Sector Público y Privado:</strong></h3>",
         "header_margin": 32,
         "background_color": "#ffffff",
-        "direction": "left",
-        "fade_edges": true,
         "speed": 35,
         "speed_mobile": 35,
+        "direction": "left",
+        "fade_edges": true,
         "logo_height": 140,
         "logo_height_mobile": 75,
         "gap": 60,
@@ -735,57 +740,49 @@
         "image_etnUQD": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/WhatsApp_Image_2026-05-08_at_1.49.33_PM_2.jpg",
-            "link": ""
+            "image": "shopify://shop_images/WhatsApp_Image_2026-05-08_at_1.49.33_PM_2.jpg"
           }
         },
         "image_wmatgU": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cer-1.jpg",
-            "link": ""
+            "image": "shopify://shop_images/cer-1.jpg"
           }
         },
         "image_RRd4pj": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cer-2.jpg",
-            "link": ""
+            "image": "shopify://shop_images/cer-2.jpg"
           }
         },
         "image_QmhDqc": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cer-3.jpg",
-            "link": ""
+            "image": "shopify://shop_images/cer-3.jpg"
           }
         },
         "image_rtTKAD": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cer-4.jpg",
-            "link": ""
+            "image": "shopify://shop_images/cer-4.jpg"
           }
         },
         "image_BpapQJ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cer-5.jpg",
-            "link": ""
+            "image": "shopify://shop_images/cer-5.jpg"
           }
         },
         "image_nhAiEP": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cer-6.jpg",
-            "link": ""
+            "image": "shopify://shop_images/cer-6.jpg"
           }
         },
         "image_ymp8k9": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cer-7.jpg",
-            "link": ""
+            "image": "shopify://shop_images/cer-7.jpg"
           }
         }
       },
@@ -805,10 +802,10 @@
         "heading": "<h3><strong>Certificaciones</strong></h3>",
         "header_margin": 32,
         "background_color": "rgba(0,0,0,0)",
-        "direction": "left",
-        "fade_edges": true,
         "speed": 40,
         "speed_mobile": 40,
+        "direction": "left",
+        "fade_edges": true,
         "logo_height": 80,
         "logo_height_mobile": 55,
         "gap": 70,

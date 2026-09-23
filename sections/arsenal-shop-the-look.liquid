@@ -1,12 +1,14 @@
 {% comment %}
 Shop the Look Interactive - Profile Solutions
 Section with interactive hotspots revealing tactical profile solution cards (Tagline, Title, Description, CTA).
-Designed with Apple Design principles and fluid micro-animations.
+Designed with Apple Design principles, responsive one-screen mobile fit, and fluid micro-animations.
 @author: Jorge Cerna / Vexus & Antigravity
 {% endcomment %}
 
 {%- liquid
   assign accent_color = section.settings.accent_color | default: '#ea5c10'
+  assign desktop_img = section.settings.image
+  assign mobile_img = section.settings.image_mobile | default: desktop_img
 -%}
 
 {%- style -%}
@@ -30,7 +32,7 @@ Designed with Apple Design principles and fluid micro-animations.
 
 .stl-section-{{ section.id }} {
   --stl-accent: {{ accent_color }};
-  --stl-card-bg: rgba(11, 11, 14, 0.94);
+  --stl-card-bg: rgba(14, 14, 18, 0.94);
   --stl-card-border: {{ accent_color }};
   --stl-text-main: #ffffff;
   --stl-text-muted: #a1a1aa;
@@ -43,23 +45,23 @@ Designed with Apple Design principles and fluid micro-animations.
 }
 
 .stl-header-{{ section.id }} {
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   text-align: center;
   padding: 0 20px;
 }
 
 .stl-header-{{ section.id }} .stl-tagline {
   display: inline-block;
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--stl-accent);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .stl-header-{{ section.id }} .stl-title {
-  font-size: clamp(24px, 4vw, 36px);
+  font-size: clamp(22px, 3.8vw, 36px);
   font-weight: 900;
   letter-spacing: -0.02em;
   color: #ffffff;
@@ -74,6 +76,7 @@ Designed with Apple Design principles and fluid micro-animations.
   width: 100%;
   line-height: 0;
   user-select: none;
+  -webkit-user-select: none;
   overflow: hidden;
   border-radius: 0;
 }
@@ -87,13 +90,6 @@ Designed with Apple Design principles and fluid micro-animations.
   transition: filter 0.4s ease;
 }
 
-@media screen and (max-width: 749px) {
-  .stl-main-img-{{ section.id }} {
-    min-height: 500px;
-    object-position: center 20%;
-  }
-}
-
 /* Hotspots Container */
 .stl-hotspots-container-{{ section.id }} {
   position: absolute;
@@ -105,13 +101,13 @@ Designed with Apple Design principles and fluid micro-animations.
   z-index: 10;
 }
 
-/* Hotspot Trigger Item (div-based, completely isolated from global button styles) */
+/* Hotspot Trigger Item (Apple-style 44px hit target) */
 #shopify-section-{{ section.id }} .stl-hotspot-item-{{ section.id }} {
   all: unset !important;
   box-sizing: border-box !important;
   position: absolute !important;
-  top: var(--top) !important;
-  left: var(--left) !important;
+  top: var(--top, var(--top-desktop)) !important;
+  left: var(--left, var(--left-desktop)) !important;
   width: 44px !important;
   height: 44px !important;
   margin-top: -22px !important;
@@ -149,7 +145,7 @@ Designed with Apple Design principles and fluid micro-animations.
 }
 
 #shopify-section-{{ section.id }} .stl-hotspot-item-{{ section.id }}:active {
-  transform: scale(0.92) !important;
+  transform: scale(0.9) !important;
 }
 
 /* Hotspot Visual Marker */
@@ -161,7 +157,7 @@ Designed with Apple Design principles and fluid micro-animations.
   border-radius: 50% !important;
   background: var(--stl-accent) !important;
   border: 2px solid #ffffff !important;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6), 0 0 12px var(--stl-accent) !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.6), 0 0 14px var(--stl-accent) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -201,13 +197,13 @@ Designed with Apple Design principles and fluid micro-animations.
   100% { transform: scale(2.0); opacity: 0; }
 }
 
-/* Active Hotspot State (Prominent Dual Ring & Solid White Center) */
+/* Active Hotspot State (Prominent Dual Ring & Radiant Center) */
 #shopify-section-{{ section.id }} .stl-hotspot-item-{{ section.id }}.is-active .stl-hotspot-marker {
-  width: 32px !important;
-  height: 32px !important;
+  width: 30px !important;
+  height: 30px !important;
   background: var(--stl-accent) !important;
   border: 3px solid #ffffff !important;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8), 0 0 25px var(--stl-accent) !important;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.85), 0 0 24px var(--stl-accent) !important;
 }
 
 #shopify-section-{{ section.id }} .stl-hotspot-item-{{ section.id }}.is-active .stl-hotspot-dot {
@@ -219,7 +215,7 @@ Designed with Apple Design principles and fluid micro-animations.
   display: none !important;
 }
 
-/* Profile Information Card (Obsidian Dark Glass with Orange Border) */
+/* Profile Information Card (Obsidian Dark Glass with Accent Border) */
 #shopify-section-{{ section.id }} .stl-card-container-{{ section.id }} {
   position: absolute !important;
   z-index: 20 !important;
@@ -268,14 +264,13 @@ Designed with Apple Design principles and fluid micro-animations.
   width: 100% !important;
   max-width: 380px !important;
   min-width: 290px !important;
-  background: rgba(10, 10, 12, 0.94) !important;
-  background-color: #0b0b0e !important;
+  background: rgba(14, 14, 18, 0.94) !important;
   backdrop-filter: blur(24px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
   border: 1.5px solid var(--stl-card-border) !important;
   border-radius: var(--stl-radius) !important;
-  padding: 26px 30px !important;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.05) inset !important;
+  padding: 24px 28px !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.06) inset !important;
   color: var(--stl-text-main) !important;
   text-align: left !important;
   line-height: normal !important;
@@ -297,32 +292,57 @@ Designed with Apple Design principles and fluid micro-animations.
 }
 
 /* Card Content Typography */
+#shopify-section-{{ section.id }} .stl-card-header-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 6px !important;
+}
+
 #shopify-section-{{ section.id }} .stl-card-tagline {
   font-size: 11px !important;
   font-weight: 800 !important;
   letter-spacing: 0.1em !important;
   text-transform: uppercase !important;
   color: var(--stl-accent) !important;
-  margin-bottom: 8px !important;
-  display: block !important;
   line-height: 1.3 !important;
+  margin: 0 !important;
+}
+
+#shopify-section-{{ section.id }} .stl-card-counter {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.05em !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  padding: 2px 8px !important;
+  border-radius: 12px !important;
+  line-height: 1.2 !important;
 }
 
 #shopify-section-{{ section.id }} .stl-card-title {
-  font-size: 24px !important;
+  font-size: 22px !important;
   font-weight: 800 !important;
   letter-spacing: -0.02em !important;
   color: #ffffff !important;
-  margin: 0 0 12px 0 !important;
+  margin: 0 0 10px 0 !important;
   line-height: 1.2 !important;
 }
 
 #shopify-section-{{ section.id }} .stl-card-desc {
-  font-size: 14px !important;
+  font-size: 13.5px !important;
   font-weight: 400 !important;
-  line-height: 1.55 !important;
+  line-height: 1.5 !important;
   color: var(--stl-text-muted) !important;
-  margin: 0 0 20px 0 !important;
+  margin: 0 0 18px 0 !important;
+}
+
+/* Card Footer Row: CTA + Controls */
+#shopify-section-{{ section.id }} .stl-card-footer-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
 }
 
 /* CTA Button Link */
@@ -367,45 +387,154 @@ Designed with Apple Design principles and fluid micro-animations.
   transform: scale(0.97) !important;
 }
 
-/* Mobile Layout Adaptations */
+/* Mobile Nav Pill Buttons (Thumb-friendly) */
+#shopify-section-{{ section.id }} .stl-mobile-nav {
+  display: none !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+#shopify-section-{{ section.id }} .stl-nav-btn {
+  all: unset !important;
+  box-sizing: border-box !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+#shopify-section-{{ section.id }} .stl-nav-btn:active {
+  background: var(--stl-accent) !important;
+  transform: scale(0.9) !important;
+}
+
+/* =========================================================
+   Mobile Layout Adaptations: One-Screen Fit & Full Visibility
+   ========================================================= */
 @media screen and (max-width: 749px) {
+  .section-{{ section.id }}-padding {
+    padding-top: 18px !important;
+    padding-bottom: 22px !important;
+  }
+
+  .stl-header-{{ section.id }} {
+    margin-bottom: 12px !important;
+    padding: 0 16px !important;
+  }
+
+  .stl-header-{{ section.id }} .stl-tagline {
+    font-size: 10.5px !important;
+    margin-bottom: 3px !important;
+  }
+
+  .stl-header-{{ section.id }} .stl-title {
+    font-size: clamp(17px, 5vw, 21px) !important;
+  }
+
+  /* Stage scaled to fit within a single screen view */
+  .stl-stage-{{ section.id }} {
+    width: calc(100% - 24px) !important;
+    margin: 0 auto !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+  }
+
+  .stl-main-img-{{ section.id }} {
+    width: 100% !important;
+    height: {{ section.settings.stage_height_mobile | default: 280 }}px !important;
+    min-height: unset !important;
+    max-height: 40vh !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    display: block !important;
+  }
+
+  /* Hotspots respond to mobile coordinates */
+  #shopify-section-{{ section.id }} .stl-hotspot-item-{{ section.id }} {
+    top: var(--top-mobile, var(--top-desktop)) !important;
+    left: var(--left-mobile, var(--left-desktop)) !important;
+    width: 38px !important;
+    height: 38px !important;
+    margin-top: -19px !important;
+    margin-left: -19px !important;
+  }
+
+  #shopify-section-{{ section.id }} .stl-hotspot-marker {
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  #shopify-section-{{ section.id }} .stl-hotspot-item-{{ section.id }}.is-active .stl-hotspot-marker {
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  /* Profile Card Container fits right below stage */
   #shopify-section-{{ section.id }} .stl-card-container-{{ section.id }} {
     position: relative !important;
     bottom: auto !important;
     right: auto !important;
     left: auto !important;
     top: auto !important;
-    width: 100% !important;
-    padding: 16px 20px 24px !important;
-    background: {{ section.settings.bg_color | default: '#09090b' }} !important;
-    display: block !important;
+    width: calc(100% - 24px) !important;
+    margin: 12px auto 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    display: grid !important;
+    grid-template-areas: "card" !important;
+    align-items: stretch !important;
   }
 
   #shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }} {
+    grid-area: card !important;
     max-width: 100% !important;
-    min-width: 100% !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-    display: none !important;
+    min-width: 0 !important;
+    background: rgba(14, 14, 18, 0.94) !important;
+    backdrop-filter: blur(24px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+    border: 1px solid rgba(234, 92, 16, 0.4) !important;
+    border-radius: 14px !important;
+    padding: 16px 18px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+    transform: translateY(8px) scale(0.98) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
   }
 
   #shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }}.is-active {
-    display: block !important;
-    animation: stlMobileFadeIn 0.3s var(--stl-ease-spring) forwards !important;
-  }
-
-  @keyframes stlMobileFadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) scale(1) !important;
+    pointer-events: auto !important;
   }
 
   #shopify-section-{{ section.id }} .stl-card-title {
-    font-size: 20px !important;
+    font-size: 18px !important;
+    margin: 0 0 6px 0 !important;
   }
 
   #shopify-section-{{ section.id }} .stl-card-desc {
-    font-size: 13.5px !important;
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+    margin: 0 0 14px 0 !important;
+  }
+
+  #shopify-section-{{ section.id }} .stl-card-cta {
+    font-size: 12px !important;
+  }
+
+  #shopify-section-{{ section.id }} .stl-mobile-nav {
+    display: flex !important;
   }
 }
 
@@ -440,15 +569,21 @@ Designed with Apple Design principles and fluid micro-animations.
   {%- endif -%}
 
   <div class="stl-stage-{{ section.id }}" id="stl-stage-{{ section.id }}">
-    {%- if section.settings.image != blank -%}
-      <img
-        src="{{ section.settings.image | image_url: width: 2500 }}"
-        loading="lazy"
-        width="{{ section.settings.image.width }}"
-        height="{{ section.settings.image.height }}"
-        class="stl-main-img-{{ section.id }}"
-        alt="{{ section.settings.image.alt | default: section.settings.title | escape }}"
-      >
+    {%- if desktop_img != blank -%}
+      <picture>
+        {%- if section.settings.image_mobile != blank -%}
+          <source media="(max-width: 749px)" srcset="{{ section.settings.image_mobile | image_url: width: 1200 }}">
+        {%- endif -%}
+        <img
+          src="{{ desktop_img | image_url: width: 2500 }}"
+          loading="eager"
+          fetchpriority="high"
+          width="{{ desktop_img.width }}"
+          height="{{ desktop_img.height }}"
+          class="stl-main-img-{{ section.id }}"
+          alt="{{ section.settings.image.alt | default: section.settings.title | escape }}"
+        >
+      </picture>
     {%- else -%}
       {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg stl-main-img-placeholder' }}
     {%- endif -%}
@@ -456,11 +591,21 @@ Designed with Apple Design principles and fluid micro-animations.
     <!-- Hotspots -->
     <div class="stl-hotspots-container-{{ section.id }}">
       {%- for block in section.blocks -%}
+        {%- assign top_mobile = block.settings.pos_y_mobile -%}
+        {%- if top_mobile == blank or top_mobile == 0 -%}
+          {%- assign top_mobile = block.settings.pos_y -%}
+        {%- endif -%}
+
+        {%- assign left_mobile = block.settings.pos_x_mobile -%}
+        {%- if left_mobile == blank or left_mobile == 0 -%}
+          {%- assign left_mobile = block.settings.pos_x -%}
+        {%- endif -%}
+
         <div
           role="button"
           tabindex="0"
           class="stl-hotspot-item-{{ section.id }} {% if forloop.first %}is-active{% endif %}"
-          style="--top: {{ block.settings.pos_y }}%; --left: {{ block.settings.pos_x }}%;"
+          style="--top-desktop: {{ block.settings.pos_y }}%; --left-desktop: {{ block.settings.pos_x }}%; --top-mobile: {{ top_mobile }}%; --left-mobile: {{ left_mobile }}%;"
           data-index="{{ forloop.index0 }}"
           data-block-id="{{ block.id }}"
           data-x="{{ block.settings.pos_x }}"
@@ -475,28 +620,33 @@ Designed with Apple Design principles and fluid micro-animations.
         </div>
       {%- endfor -%}
     </div>
+  </div>
 
-    <!-- Desktop Cards Container -->
-    <div class="stl-card-container-{{ section.id }} stl-card-pos-{{ section.settings.card_position | default: 'bottom-right' }}" id="stl-card-container-{{ section.id }}">
-      {%- for block in section.blocks -%}
-        <div
-          class="stl-profile-card-{{ section.id }} {% if forloop.first %}is-active{% endif %}"
-          id="stl-card-{{ section.id }}-{{ forloop.index0 }}"
-          data-index="{{ forloop.index0 }}"
-          data-block-id="{{ block.id }}"
-        >
+  <!-- Cards Container (Desktop Docked / Mobile One-Screen Glass Sheet) -->
+  <div class="stl-card-container-{{ section.id }} stl-card-pos-{{ section.settings.card_position | default: 'bottom-right' }}" id="stl-card-container-{{ section.id }}">
+    {%- for block in section.blocks -%}
+      <div
+        class="stl-profile-card-{{ section.id }} {% if forloop.first %}is-active{% endif %}"
+        id="stl-card-{{ section.id }}-{{ forloop.index0 }}"
+        data-index="{{ forloop.index0 }}"
+        data-block-id="{{ block.id }}"
+      >
+        <div class="stl-card-header-row">
           {%- if block.settings.tagline != blank -%}
             <span class="stl-card-tagline">{{ block.settings.tagline }}</span>
           {%- endif -%}
+          <span class="stl-card-counter">{{ forloop.index }} / {{ forloop.length }}</span>
+        </div>
 
-          {%- if block.settings.title != blank -%}
-            <h3 class="stl-card-title">{{ block.settings.title }}</h3>
-          {%- endif -%}
+        {%- if block.settings.title != blank -%}
+          <h3 class="stl-card-title">{{ block.settings.title }}</h3>
+        {%- endif -%}
 
-          {%- if block.settings.description != blank -%}
-            <p class="stl-card-desc">{{ block.settings.description }}</p>
-          {%- endif -%}
+        {%- if block.settings.description != blank -%}
+          <p class="stl-card-desc">{{ block.settings.description }}</p>
+        {%- endif -%}
 
+        <div class="stl-card-footer-row">
           {%- if block.settings.cta_text != blank -%}
             <a
               href="{{ block.settings.cta_link | default: '#contacto' }}"
@@ -505,12 +655,19 @@ Designed with Apple Design principles and fluid micro-animations.
               <span>{{ block.settings.cta_text }}</span>
               <span class="stl-cta-arrow" aria-hidden="true">&rarr;</span>
             </a>
+          {%- else -%}
+            <span></span>
           {%- endif -%}
-        </div>
-      {%- endfor -%}
-    </div>
 
+          <div class="stl-mobile-nav" aria-label="Navegación de perfiles">
+            <button type="button" class="stl-nav-btn stl-nav-prev" aria-label="Perfil anterior">&#8249;</button>
+            <button type="button" class="stl-nav-btn stl-nav-next" aria-label="Perfil siguiente">&#8250;</button>
+          </div>
+        </div>
+      </div>
+    {%- endfor -%}
   </div>
+
 </section>
 
 <script>
@@ -544,7 +701,7 @@ Designed with Apple Design principles and fluid micro-animations.
       card.classList.toggle('is-active', isActive);
     });
 
-    // Handle floating card position if enabled
+    // Handle floating card position if enabled (desktop only)
     if (isFloating && window.innerWidth >= 750 && cardContainer) {
       const activeBtn = hotspots[activeIndex];
       if (activeBtn) {
@@ -577,6 +734,53 @@ Designed with Apple Design principles and fluid micro-animations.
       }
     });
   });
+
+  // Mobile Navigation Arrows (prev / next)
+  sectionEl.querySelectorAll('.stl-nav-prev').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      updateActive(activeIndex - 1);
+    });
+  });
+
+  sectionEl.querySelectorAll('.stl-nav-next').forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      updateActive(activeIndex + 1);
+    });
+  });
+
+  // Direct Manipulation: Swipe Gestures on Mobile Card
+  if (cardContainer) {
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let touchEndX = 0;
+    let touchEndY = 0;
+
+    cardContainer.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    cardContainer.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      touchEndY = e.changedTouches[0].screenY;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const diffX = touchEndX - touchStartX;
+      const diffY = touchEndY - touchStartY;
+      // Ensure horizontal swipe intent (not vertical scroll)
+      if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX < 0) {
+          updateActive(activeIndex + 1); // Swipe left -> next
+        } else {
+          updateActive(activeIndex - 1); // Swipe right -> prev
+        }
+      }
+    }
+  }
 
   // Global Arrow navigation when focused in section
   sectionEl.addEventListener('keydown', (e) => {
@@ -623,53 +827,69 @@ Designed with Apple Design principles and fluid micro-animations.
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Background Image"
+      "label": "Imagen de Fondo (Escritorio)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Imagen de Fondo (Celular / Móvil - Opcional)"
+    },
+    {
+      "type": "range",
+      "id": "stage_height_mobile",
+      "min": 200,
+      "max": 450,
+      "step": 10,
+      "unit": "px",
+      "label": "Altura de imagen en Celular",
+      "info": "Recomendado 260px - 290px para mostrar todos los personajes sin recortes.",
+      "default": 280
     },
     {
       "type": "text",
       "id": "subtitle",
-      "label": "Section Subtitle / Tagline",
+      "label": "Subtítulo / Tagline",
       "default": "SOLUCIONES INTEGRALES"
     },
     {
       "type": "text",
       "id": "title",
-      "label": "Section Title",
+      "label": "Título de la Sección",
       "default": "EQUIPAMIENTO TÁCTICO POR PERFIL"
     },
     {
       "type": "color",
       "id": "bg_color",
-      "label": "Section Background Color",
+      "label": "Color de Fondo de la Sección",
       "default": "#09090b"
     },
     {
       "type": "color",
       "id": "accent_color",
-      "label": "Accent Color (Hotspots & Card Border)",
+      "label": "Color de Acento (Hotspots y Bordes)",
       "default": "#ea5c10"
     },
     {
       "type": "select",
       "id": "card_position",
-      "label": "Card Position (Desktop)",
+      "label": "Posición de Tarjeta (Escritorio)",
       "options": [
-        { "value": "bottom-right", "label": "Bottom Right" },
-        { "value": "bottom-left", "label": "Bottom Left" },
-        { "value": "top-right", "label": "Top Right" },
-        { "value": "top-left", "label": "Top Left" },
-        { "value": "floating", "label": "Floating Near Active Hotspot" }
+        { "value": "bottom-right", "label": "Inferior Derecha" },
+        { "value": "bottom-left", "label": "Inferior Izquierda" },
+        { "value": "top-right", "label": "Superior Derecha" },
+        { "value": "top-left", "label": "Superior Izquierda" },
+        { "value": "floating", "label": "Flotante junto al Hotspot Activo" }
       ],
       "default": "bottom-right"
     },
     {
       "type": "header",
-      "content": "Auto Play"
+      "content": "Rotación Automática"
     },
     {
       "type": "checkbox",
       "id": "auto_play",
-      "label": "Auto rotate hotspots",
+      "label": "Rotar perfiles automáticamente",
       "default": false
     },
     {
@@ -679,12 +899,12 @@ Designed with Apple Design principles and fluid micro-animations.
       "max": 10,
       "step": 1,
       "unit": "s",
-      "label": "Rotation Speed",
+      "label": "Velocidad de rotación",
       "default": 5
     },
     {
       "type": "header",
-      "content": "Spacing"
+      "content": "Espaciado de la Sección"
     },
     {
       "type": "range",
@@ -693,7 +913,7 @@ Designed with Apple Design principles and fluid micro-animations.
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "Padding Top",
+      "label": "Padding Superior",
       "default": 36
     },
     {
@@ -703,14 +923,14 @@ Designed with Apple Design principles and fluid micro-animations.
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "Padding Bottom",
+      "label": "Padding Inferior",
       "default": 36
     }
   ],
   "blocks": [
     {
       "type": "hotspot",
-      "name": "Hotspot",
+      "name": "Hotspot / Perfil",
       "settings": [
         {
           "type": "text",
@@ -721,25 +941,29 @@ Designed with Apple Design principles and fluid micro-animations.
         {
           "type": "text",
           "id": "title",
-          "label": "Title",
+          "label": "Título",
           "default": "Fuerza Policiaca"
         },
         {
           "type": "textarea",
           "id": "description",
-          "label": "Description",
+          "label": "Descripción",
           "default": "Chalecos, placas, cascos y accesorios configurados para corporaciones municipales, estatales y federales."
         },
         {
           "type": "text",
           "id": "cta_text",
-          "label": "CTA Button Text",
+          "label": "Texto del Botón CTA",
           "default": "SOLICITAR ASESORÍA"
         },
         {
           "type": "url",
           "id": "cta_link",
-          "label": "CTA Link"
+          "label": "Enlace del Botón"
+        },
+        {
+          "type": "header",
+          "content": "Posición en Escritorio"
         },
         {
           "type": "range",
@@ -748,7 +972,7 @@ Designed with Apple Design principles and fluid micro-animations.
           "max": 100,
           "step": 1,
           "unit": "%",
-          "label": "Horizontal Position (X)",
+          "label": "Posición Horizontal en Escritorio (X)",
           "default": 50
         },
         {
@@ -758,8 +982,34 @@ Designed with Apple Design principles and fluid micro-animations.
           "max": 100,
           "step": 1,
           "unit": "%",
-          "label": "Vertical Position (Y)",
+          "label": "Posición Vertical en Escritorio (Y)",
           "default": 50
+        },
+        {
+          "type": "header",
+          "content": "Posición en Celular / Móvil (Opcional)"
+        },
+        {
+          "type": "range",
+          "id": "pos_x_mobile",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Posición Horizontal en Móvil (X)",
+          "info": "Si se deja en 0, usa la posición de escritorio.",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "pos_y_mobile",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "label": "Posición Vertical en Móvil (Y)",
+          "info": "Si se deja en 0, usa la posición de escritorio.",
+          "default": 0
         }
       ]
     }
@@ -776,51 +1026,61 @@ Designed with Apple Design principles and fluid micro-animations.
             "description": "Chalecos, placas, cascos y accesorios configurados para corporaciones municipales, estatales y federales.",
             "cta_text": "SOLICITAR ASESORÍA",
             "pos_x": 28,
-            "pos_y": 65
+            "pos_y": 65,
+            "pos_x_mobile": 24,
+            "pos_y_mobile": 52
           }
         },
         {
           "type": "hotspot",
           "settings": {
             "tagline": "SOLUCIÓN POR PERFIL",
-            "title": "Operaciones Especiales",
+            "title": "Fuerzas Armadas",
             "description": "Protección balística de alto rendimiento diseñada para unidades de intervención rápida y fuerzas especiales.",
             "cta_text": "SOLICITAR ASESORÍA",
             "pos_x": 26,
-            "pos_y": 12
+            "pos_y": 12,
+            "pos_x_mobile": 24,
+            "pos_y_mobile": 15
           }
         },
         {
           "type": "hotspot",
           "settings": {
             "tagline": "SOLUCIÓN POR PERFIL",
-            "title": "Seguridad Penitenciaria",
+            "title": "Resguardo de Valores",
             "description": "Equipamiento antidisturbios y protección contra armas punzocortantes y proyectiles de alta resistencia.",
             "cta_text": "SOLICITAR ASESORÍA",
             "pos_x": 49,
-            "pos_y": 7
+            "pos_y": 7,
+            "pos_x_mobile": 49,
+            "pos_y_mobile": 10
           }
         },
         {
           "type": "hotspot",
           "settings": {
             "tagline": "SOLUCIÓN POR PERFIL",
-            "title": "Protección Ejecutiva",
+            "title": "Prendas Casuales",
             "description": "Chalecos y prendas discretas con protección balística certificada para escoltas y resguardo VIP.",
             "cta_text": "SOLICITAR ASESORÍA",
             "pos_x": 70,
-            "pos_y": 12
+            "pos_y": 12,
+            "pos_x_mobile": 72,
+            "pos_y_mobile": 15
           }
         },
         {
           "type": "hotspot",
           "settings": {
             "tagline": "SOLUCIÓN POR PERFIL",
-            "title": "Grupos Tácticos",
+            "title": "Fuerzas Privadas",
             "description": "Configuraciones completas con sistema MOLLE, cascos FAST y placas nivel IV para combate táctico.",
             "cta_text": "SOLICITAR ASESORÍA",
             "pos_x": 77,
-            "pos_y": 45
+            "pos_y": 45,
+            "pos_x_mobile": 76,
+            "pos_y_mobile": 48
           }
         }
       ]
