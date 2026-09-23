@@ -413,9 +413,13 @@ div.stl-profile-card-{{ section.id }}.is-active {
   gap: 6px !important;
 }
 
-#shopify-section-{{ section.id }} .stl-nav-btn {
+#shopify-section-{{ section.id }} .stl-nav-btn,
+.stl-nav-btn {
   all: unset !important;
   box-sizing: border-box !important;
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
   width: 32px !important;
   height: 32px !important;
   border-radius: 50% !important;
@@ -427,10 +431,13 @@ div.stl-profile-card-{{ section.id }}.is-active {
   justify-content: center !important;
   font-size: 16px !important;
   cursor: pointer !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
   transition: all 0.2s ease !important;
 }
 
-#shopify-section-{{ section.id }} .stl-nav-btn:active {
+#shopify-section-{{ section.id }} .stl-nav-btn:active,
+.stl-nav-btn:active {
   background: var(--stl-accent) !important;
   transform: scale(0.9) !important;
 }
@@ -667,6 +674,9 @@ div.stl-profile-card-{{ section.id }}.is-active {
   #shopify-section-{{ section.id }} .stl-nav-btn {
     all: unset !important;
     box-sizing: border-box !important;
+    position: relative !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
     width: 38px !important;
     height: 38px !important;
     border-radius: 50% !important;
@@ -679,6 +689,8 @@ div.stl-profile-card-{{ section.id }}.is-active {
     font-size: 18px !important;
     line-height: 1 !important;
     cursor: pointer !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
     -webkit-tap-highlight-color: transparent !important;
     transition: background 0.15s ease, transform 0.1s var(--stl-ease-spring), border-color 0.15s ease !important;
   }
@@ -780,6 +792,9 @@ div.stl-profile-card-{{ section.id }}.is-active {
     #shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }},
     .stl-section-{{ section.id }} .stl-profile-card-{{ section.id }},
     div.stl-profile-card-{{ section.id }} {
+      position: relative !important;
+      overflow: hidden !important;
+      isolation: isolate !important;
       background: #0e0e12 !important;
       background-color: #0e0e12 !important;
       border: 1.5px solid {{ accent_color }} !important;
@@ -800,10 +815,38 @@ div.stl-profile-card-{{ section.id }}.is-active {
     .stl-profile-card-{{ section.id }} .stl-card-cta .stl-cta-arrow {
       color: {{ accent_color }} !important;
     }
+    .stl-profile-card-{{ section.id }} .stl-mobile-nav {
+      position: relative !important;
+      isolation: isolate !important;
+    }
     .stl-profile-card-{{ section.id }} .stl-nav-btn {
+      position: relative !important;
+      overflow: hidden !important;
+      isolation: isolate !important;
       background: rgba(255, 255, 255, 0.08) !important;
       color: #ffffff !important;
       border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    }
+    /* Strictly neutralize any theme pseudo-elements that try to inject orange overlays inside cards */
+    #shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }}::before,
+    #shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }}::after,
+    #shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }} *::before,
+    #shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }} *::after,
+    #shopify-section-{{ section.id }} .stl-mobile-nav::before,
+    #shopify-section-{{ section.id }} .stl-mobile-nav::after,
+    #shopify-section-{{ section.id }} .stl-nav-btn::before,
+    #shopify-section-{{ section.id }} .stl-nav-btn::after,
+    .stl-nav-btn::before,
+    .stl-nav-btn::after {
+      content: none !important;
+      display: none !important;
+      background: none !important;
+      background-color: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      width: 0 !important;
+      height: 0 !important;
+      opacity: 0 !important;
     }
   </style>
 
@@ -815,7 +858,7 @@ div.stl-profile-card-{{ section.id }}.is-active {
         id="stl-card-{{ section.id }}-{{ forloop.index0 }}"
         data-index="{{ forloop.index0 }}"
         data-block-id="{{ block.id }}"
-        style="background: #0e0e12 !important; background-color: #0e0e12 !important; border: 1.5px solid {{ accent_color }} !important; border-radius: 16px !important; color: #ffffff !important; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8) !important;"
+        style="position: relative !important; overflow: hidden !important; isolation: isolate !important; background: #0e0e12 !important; background-color: #0e0e12 !important; border: 1.5px solid {{ accent_color }} !important; border-radius: 16px !important; color: #ffffff !important; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8) !important;"
       >
         <div class="stl-card-header-row" style="display: flex !important; align-items: center !important; justify-content: space-between !important; margin-bottom: 6px !important;">
           {%- if block.settings.tagline != blank -%}
@@ -846,9 +889,9 @@ div.stl-profile-card-{{ section.id }}.is-active {
             <span></span>
           {%- endif -%}
 
-          <div class="stl-mobile-nav" aria-label="Navegación de perfiles">
-            <button type="button" class="stl-nav-btn stl-nav-prev" aria-label="Perfil anterior" style="background: rgba(255, 255, 255, 0.08) !important; color: #ffffff !important; border: 1px solid rgba(255, 255, 255, 0.15) !important;">&#8249;</button>
-            <button type="button" class="stl-nav-btn stl-nav-next" aria-label="Perfil siguiente" style="background: rgba(255, 255, 255, 0.08) !important; color: #ffffff !important; border: 1px solid rgba(255, 255, 255, 0.15) !important;">&#8250;</button>
+          <div class="stl-mobile-nav" aria-label="Navegación de perfiles" style="position: relative !important; display: flex !important; align-items: center !important; gap: 8px !important;">
+            <span role="button" tabindex="0" class="stl-nav-btn stl-nav-prev" aria-label="Perfil anterior" style="background: rgba(255, 255, 255, 0.08) !important; color: #ffffff !important; border: 1px solid rgba(255, 255, 255, 0.15) !important; cursor: pointer !important; position: relative !important; overflow: hidden !important; width: 38px !important; height: 38px !important; border-radius: 50% !important; display: flex !important; align-items: center !important; justify-content: center !important; user-select: none !important; -webkit-user-select: none !important;">&#8249;</span>
+            <span role="button" tabindex="0" class="stl-nav-btn stl-nav-next" aria-label="Perfil siguiente" style="background: rgba(255, 255, 255, 0.08) !important; color: #ffffff !important; border: 1px solid rgba(255, 255, 255, 0.15) !important; cursor: pointer !important; position: relative !important; overflow: hidden !important; width: 38px !important; height: 38px !important; border-radius: 50% !important; display: flex !important; align-items: center !important; justify-content: center !important; user-select: none !important; -webkit-user-select: none !important;">&#8250;</span>
           </div>
         </div>
       </div>
@@ -928,12 +971,26 @@ div.stl-profile-card-{{ section.id }}.is-active {
       e.stopPropagation();
       updateActive(activeIndex - 1);
     });
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        e.stopPropagation();
+        updateActive(activeIndex - 1);
+      }
+    });
   });
 
   sectionEl.querySelectorAll('.stl-nav-next').forEach((btn) => {
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       updateActive(activeIndex + 1);
+    });
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        e.stopPropagation();
+        updateActive(activeIndex + 1);
+      }
     });
   });
 
