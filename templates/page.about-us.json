@@ -980,6 +980,17 @@
             "link_text": "Leer más"
           }
         },
+        "milestone_zMzz3w": {
+          "type": "milestone",
+          "settings": {
+            "year": "2020",
+            "title": "Registro de marca ante el IMPI",
+            "description": "",
+            "image": "shopify://shop_images/IMPI.avif",
+            "link": "",
+            "link_text": "Leer más"
+          }
+        },
         "milestone_hKK6Pz": {
           "type": "milestone",
           "settings": {
@@ -998,17 +1009,6 @@
             "title": "Certificación Hecho en México",
             "description": "",
             "image": "shopify://shop_images/hem_red-BKy1oPzd.jpg",
-            "link": "",
-            "link_text": "Leer más"
-          }
-        },
-        "milestone_zMzz3w": {
-          "type": "milestone",
-          "settings": {
-            "year": "2011",
-            "title": "Registro de marca ante el IMPI",
-            "description": "",
-            "image": "shopify://shop_images/IMPI.avif",
             "link": "",
             "link_text": "Leer más"
           }
@@ -1061,9 +1061,9 @@
         "milestone_hccJGH",
         "milestone_bgj4WA",
         "milestone_w3raRm",
+        "milestone_zMzz3w",
         "milestone_hKK6Pz",
         "milestone_jftCpC",
-        "milestone_zMzz3w",
         "milestone_kUtznY",
         "milestone_66ReKr",
         "milestone_L4Lach"
