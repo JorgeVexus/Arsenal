@@ -148,15 +148,16 @@
   }
 
   .timeline-icon img {
-    width: 65%;
-    height: 65%;
+    width: 68%;
+    height: 68%;
     object-fit: contain;
-    border-radius: 50%;
+    border-radius: 6px;
+    display: block;
   }
 
   .timeline-icon svg {
-    width: 50%;
-    height: 50%;
+    width: 52%;
+    height: 52%;
   }
 
   .timeline-year {
@@ -233,17 +234,17 @@
       display: flex;
       gap: 8px;
       overflow-x: auto;
-      padding: 8px;
-      margin-bottom: 24px;
+      padding: 6px 8px;
+      margin-bottom: 22px;
       -webkit-overflow-scrolling: touch;
       scroll-snap-type: x proximity;
       scrollbar-width: none;
-      backdrop-filter: blur(16px) saturate(180%);
-      -webkit-backdrop-filter: blur(16px) saturate(180%);
-      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      background: rgba(255, 255, 255, 0.85);
       border: 1px solid rgba(0, 0, 0, 0.08);
-      border-radius: 40px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+      border-radius: 9999px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
     }
 
     .timeline-mobile-nav::-webkit-scrollbar {
@@ -252,12 +253,13 @@
 
     .timeline-mobile-nav-item {
       flex: 0 0 auto;
-      padding: 8px 18px;
-      font-size: 14px;
+      padding: 7px 16px;
+      font-size: 13.5px;
       font-weight: 600;
-      color: rgba(0,0,0,0.6);
+      font-variant-numeric: tabular-nums;
+      color: rgba(0,0,0,0.65);
       background: transparent;
-      border-radius: 20px;
+      border-radius: 9999px;
       border: none;
       cursor: pointer;
       scroll-snap-align: center;
@@ -267,7 +269,7 @@
     }
 
     .timeline-mobile-nav-item:active {
-      transform: scale(0.94);
+      transform: scale(0.92);
     }
 
     .timeline-mobile-nav-item.active {
@@ -281,9 +283,10 @@
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
       gap: 16px;
-      padding: 10px 10px 24px;
-      margin: 0 -10px;
+      padding: 12px 20px 24px;
+      margin: 0 -20px;
       scrollbar-width: none;
     }
 
@@ -292,10 +295,11 @@
     }
 
     .timeline-item {
-      flex: 0 0 calc(85vw - 20px);
-      max-width: 340px;
-      min-width: 270px;
+      flex: 0 0 calc(85vw - 16px);
+      max-width: 360px;
+      min-width: 280px;
       scroll-snap-align: center;
+      scroll-snap-stop: always;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -304,38 +308,72 @@
       margin-bottom: 0;
       background: #ffffff;
       border-radius: 24px;
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+      padding: 22px 22px 24px;
+      box-shadow: 0 4px 20px -2px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.03);
       border: 1px solid rgba(0,0,0,0.06);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.15s ease;
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .timeline-item:active {
-      transform: scale(0.97);
+      transform: scale(0.98);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
 
     .timeline-header-mobile {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 18px;
+      gap: 16px;
+      margin-bottom: 20px;
     }
 
+    /* Apple-Grade Enriched Logo Badge: Prominent, Crisp, Unclipped */
     .timeline-icon {
-      width: 52px;
-      height: 52px;
-      border-width: 3px;
+      width: 72px;
+      height: 72px;
+      border-width: 2.5px;
+      border-color: {{ section.settings.line_color }};
+      background: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin: 0;
       flex-shrink: 0;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.04);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .timeline-icon img {
+      width: 82%;
+      height: 82%;
+      max-width: 58px;
+      max-height: 58px;
+      object-fit: contain;
+      border-radius: 4px;
+      display: block;
+    }
+
+    .timeline-icon svg {
+      width: 62%;
+      height: 62%;
     }
 
     .timeline-year {
-      font-size: 16px;
-      padding: 6px 14px;
+      font-size: 15px;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.01em;
+      padding: 6px 16px;
       margin: 0;
       border-width: 1.5px;
+      border-color: {{ section.settings.line_color }};
+      color: {{ section.settings.line_color }};
+      background: {{ section.settings.year_background | default: '#ffffff' }};
+      border-radius: 9999px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
     }
 
     .timeline-content {
@@ -350,35 +388,58 @@
     }
 
     .timeline-content h3 {
-      font-size: 18px;
-      margin-bottom: 8px;
+      font-size: 19px;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      color: #111111;
+      margin: 0 0 8px 0;
     }
 
     .timeline-content p {
-      font-size: 14px;
-      line-height: 1.5;
+      font-size: 14.5px;
+      font-weight: 400;
+      line-height: 1.55;
+      color: rgba(0, 0, 0, 0.65);
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+
+    .timeline-read-more {
+      font-size: 13.5px;
+      font-weight: 600;
+      gap: 6px;
+      margin-top: 14px;
+      color: {{ section.settings.line_color }};
+      transition: gap 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .timeline-mobile-indicator {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      margin-top: 14px;
+      gap: 7px;
+      margin-top: 16px;
     }
 
     .timeline-mobile-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
+      width: 7px;
+      height: 7px;
+      border-radius: 9999px;
       background: rgba(0,0,0,0.15);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: width 0.35s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.25s ease, transform 0.2s ease;
+    }
+
+    .timeline-mobile-dot:active {
+      transform: scale(1.3);
     }
 
     .timeline-mobile-dot.active {
-      width: 22px;
-      border-radius: 10px;
+      width: 24px;
       background: {{ section.settings.line_color }};
+      box-shadow: 0 2px 8px {{ section.settings.line_color | color_modify: 'alpha', 0.35 }};
     }
   }
 {%- endstyle -%}
@@ -491,6 +552,16 @@
   navItems.forEach(function(navBtn) {
     navBtn.addEventListener('click', function() {
       const targetIndex = this.getAttribute('data-target-index');
+      const targetCard = document.getElementById('timelineItem-' + sectionId + '-' + targetIndex);
+      if (targetCard) {
+        targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    });
+  });
+
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      const targetIndex = this.getAttribute('data-dot-index');
       const targetCard = document.getElementById('timelineItem-' + sectionId + '-' + targetIndex);
       if (targetCard) {
         targetCard.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
