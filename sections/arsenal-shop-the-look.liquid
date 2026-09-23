@@ -271,19 +271,23 @@ Designed with Apple Design principles, responsive one-screen mobile fit, and flu
   transition: top 0.35s var(--stl-ease-spring), left 0.35s var(--stl-ease-spring) !important;
 }
 
-#shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }} {
+#shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }},
+.stl-section-{{ section.id }} .stl-profile-card-{{ section.id }},
+[id*="shopify-section"][id*="{{ section.id }}"] .stl-profile-card-{{ section.id }},
+div.stl-profile-card-{{ section.id }} {
   grid-area: card !important;
   width: 100% !important;
   max-width: 380px !important;
   min-width: 290px !important;
-  background: rgba(14, 14, 18, 0.94) !important;
+  background: rgba(14, 14, 18, 0.96) !important;
+  background-color: #0e0e12 !important;
   backdrop-filter: blur(24px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
   border: 1.5px solid var(--stl-card-border) !important;
   border-radius: var(--stl-radius) !important;
   padding: 24px 28px !important;
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.06) inset !important;
-  color: var(--stl-text-main) !important;
+  color: #ffffff !important;
   text-align: left !important;
   line-height: normal !important;
   transform-origin: bottom right !important;
@@ -296,7 +300,10 @@ Designed with Apple Design principles, responsive one-screen mobile fit, and flu
               visibility var(--stl-duration) !important;
 }
 
-#shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }}.is-active {
+#shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }}.is-active,
+.stl-section-{{ section.id }} .stl-profile-card-{{ section.id }}.is-active,
+[id*="shopify-section"][id*="{{ section.id }}"] .stl-profile-card-{{ section.id }}.is-active,
+div.stl-profile-card-{{ section.id }}.is-active {
   opacity: 1 !important;
   visibility: visible !important;
   pointer-events: auto !important;
@@ -515,19 +522,24 @@ Designed with Apple Design principles, responsive one-screen mobile fit, and flu
   }
 
   /* Profile Card: Apple Obsidian Glass with Crisp 1.5px Orange Border */
-  #shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }} {
+  #shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }},
+  .stl-section-{{ section.id }} .stl-profile-card-{{ section.id }},
+  [id*="shopify-section"][id*="{{ section.id }}"] .stl-profile-card-{{ section.id }},
+  div.stl-profile-card-{{ section.id }} {
     grid-area: card !important;
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
     box-sizing: border-box !important;
-    background: rgba(14, 14, 18, 0.94) !important;
+    background: rgba(14, 14, 18, 0.96) !important;
+    background-color: #0e0e12 !important;
     backdrop-filter: blur(24px) saturate(180%) !important;
     -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
     border: 1.5px solid var(--stl-accent) !important;
     border-radius: 16px !important;
     padding: 20px 22px !important;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.08) inset !important;
+    color: #ffffff !important;
     transform: translateY(10px) scale(0.97) !important;
     opacity: 0 !important;
     visibility: hidden !important;
@@ -541,13 +553,17 @@ Designed with Apple Design principles, responsive one-screen mobile fit, and flu
     text-align: left !important;
   }
 
-  #shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }}.is-active {
+  #shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }}.is-active,
+  .stl-section-{{ section.id }} .stl-profile-card-{{ section.id }}.is-active,
+  [id*="shopify-section"][id*="{{ section.id }}"] .stl-profile-card-{{ section.id }}.is-active,
+  div.stl-profile-card-{{ section.id }}.is-active {
     opacity: 1 !important;
     visibility: visible !important;
     transform: translateY(0) scale(1) !important;
     pointer-events: auto !important;
   }
 
+  .stl-card-header-row,
   #shopify-section-{{ section.id }} .stl-card-header-row {
     display: flex !important;
     align-items: center !important;
@@ -555,6 +571,7 @@ Designed with Apple Design principles, responsive one-screen mobile fit, and flu
     margin-bottom: 6px !important;
   }
 
+  .stl-card-tagline,
   #shopify-section-{{ section.id }} .stl-card-tagline {
     font-size: 11px !important;
     font-weight: 800 !important;
@@ -563,8 +580,10 @@ Designed with Apple Design principles, responsive one-screen mobile fit, and flu
     color: var(--stl-accent) !important;
     line-height: 1.3 !important;
     margin: 0 !important;
+    display: block !important;
   }
 
+  .stl-card-counter,
   #shopify-section-{{ section.id }} .stl-card-counter {
     font-size: 11px !important;
     font-weight: 700 !important;
@@ -577,6 +596,7 @@ Designed with Apple Design principles, responsive one-screen mobile fit, and flu
     line-height: 1.2 !important;
   }
 
+  .stl-card-title,
   #shopify-section-{{ section.id }} .stl-card-title {
     font-size: 20px !important;
     font-weight: 800 !important;
@@ -586,6 +606,7 @@ Designed with Apple Design principles, responsive one-screen mobile fit, and flu
     line-height: 1.2 !important;
   }
 
+  .stl-card-desc,
   #shopify-section-{{ section.id }} .stl-card-desc {
     font-size: 13.5px !important;
     font-weight: 400 !important;
@@ -594,6 +615,7 @@ Designed with Apple Design principles, responsive one-screen mobile fit, and flu
     margin: 0 0 16px 0 !important;
   }
 
+  .stl-card-footer-row,
   #shopify-section-{{ section.id }} .stl-card-footer-row {
     display: flex !important;
     align-items: center !important;
@@ -603,6 +625,7 @@ Designed with Apple Design principles, responsive one-screen mobile fit, and flu
     padding-top: 4px !important;
   }
 
+  .stl-card-cta,
   #shopify-section-{{ section.id }} .stl-card-cta {
     font-size: 12px !important;
     font-weight: 800 !important;
@@ -613,29 +636,34 @@ Designed with Apple Design principles, responsive one-screen mobile fit, and flu
     align-items: center !important;
     gap: 8px !important;
     min-height: 40px !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
     transition: gap 0.25s var(--stl-ease-spring), color 0.2s ease !important;
     -webkit-tap-highlight-color: transparent !important;
   }
 
+  .stl-card-cta .stl-cta-arrow,
   #shopify-section-{{ section.id }} .stl-card-cta .stl-cta-arrow {
     display: inline-block !important;
     font-size: 15px !important;
     line-height: 1 !important;
-    color: inherit !important;
+    color: var(--stl-accent) !important;
     transition: transform 0.25s var(--stl-ease-spring) !important;
   }
 
-  #shopify-section-{{ section.id }} .stl-card-cta:active {
+  .stl-card-cta:active {
     transform: scale(0.96) !important;
   }
 
   /* Tactile Pill Navigation with Apple Haptic-like Instant Feedback */
+  .stl-mobile-nav,
   #shopify-section-{{ section.id }} .stl-mobile-nav {
     display: flex !important;
     align-items: center !important;
     gap: 8px !important;
   }
 
+  .stl-nav-btn,
   #shopify-section-{{ section.id }} .stl-nav-btn {
     all: unset !important;
     box-sizing: border-box !important;
@@ -655,6 +683,7 @@ Designed with Apple Design principles, responsive one-screen mobile fit, and flu
     transition: background 0.15s ease, transform 0.1s var(--stl-ease-spring), border-color 0.15s ease !important;
   }
 
+  .stl-nav-btn:active,
   #shopify-section-{{ section.id }} .stl-nav-btn:active {
     background: var(--stl-accent) !important;
     border-color: var(--stl-accent) !important;
@@ -746,46 +775,80 @@ Designed with Apple Design principles, responsive one-screen mobile fit, and flu
     </div>
   </div>
 
+  <style>
+    .stl-profile-card-{{ section.id }},
+    #shopify-section-{{ section.id }} .stl-profile-card-{{ section.id }},
+    .stl-section-{{ section.id }} .stl-profile-card-{{ section.id }},
+    div.stl-profile-card-{{ section.id }} {
+      background: #0e0e12 !important;
+      background-color: #0e0e12 !important;
+      border: 1.5px solid {{ accent_color }} !important;
+      border-radius: 16px !important;
+      color: #ffffff !important;
+    }
+    .stl-profile-card-{{ section.id }} .stl-card-tagline {
+      color: {{ accent_color }} !important;
+    }
+    .stl-profile-card-{{ section.id }} .stl-card-title {
+      color: #ffffff !important;
+    }
+    .stl-profile-card-{{ section.id }} .stl-card-desc {
+      color: #a1a1aa !important;
+    }
+    .stl-profile-card-{{ section.id }} .stl-card-cta,
+    .stl-profile-card-{{ section.id }} .stl-card-cta span,
+    .stl-profile-card-{{ section.id }} .stl-card-cta .stl-cta-arrow {
+      color: {{ accent_color }} !important;
+    }
+    .stl-profile-card-{{ section.id }} .stl-nav-btn {
+      background: rgba(255, 255, 255, 0.08) !important;
+      color: #ffffff !important;
+      border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    }
+  </style>
+
   <!-- Cards Container (Desktop Docked / Mobile One-Screen Glass Sheet) -->
-  <div class="stl-card-container-{{ section.id }} stl-card-pos-{{ section.settings.card_position | default: 'bottom-right' }}" id="stl-card-container-{{ section.id }}">
+  <div class="stl-card-container-{{ section.id }} stl-card-pos-{{ section.settings.card_position | default: 'bottom-right' }}" id="stl-card-container-{{ section.id }}" style="background: transparent !important;">
     {%- for block in section.blocks -%}
       <div
         class="stl-profile-card-{{ section.id }} {% if forloop.first %}is-active{% endif %}"
         id="stl-card-{{ section.id }}-{{ forloop.index0 }}"
         data-index="{{ forloop.index0 }}"
         data-block-id="{{ block.id }}"
+        style="background: #0e0e12 !important; background-color: #0e0e12 !important; border: 1.5px solid {{ accent_color }} !important; border-radius: 16px !important; color: #ffffff !important; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8) !important;"
       >
-        <div class="stl-card-header-row">
+        <div class="stl-card-header-row" style="display: flex !important; align-items: center !important; justify-content: space-between !important; margin-bottom: 6px !important;">
           {%- if block.settings.tagline != blank -%}
-            <span class="stl-card-tagline">{{ block.settings.tagline }}</span>
+            <span class="stl-card-tagline" style="color: {{ accent_color }} !important; font-size: 11px !important; font-weight: 800 !important; letter-spacing: 0.1em !important; text-transform: uppercase !important; display: block !important;">{{ block.settings.tagline }}</span>
           {%- endif -%}
-          <span class="stl-card-counter">{{ forloop.index }} / {{ forloop.length }}</span>
+          <span class="stl-card-counter" style="color: rgba(255, 255, 255, 0.75) !important; background: rgba(255, 255, 255, 0.08) !important; border: 1px solid rgba(255, 255, 255, 0.12) !important; border-radius: 12px !important; padding: 2px 8px !important; font-size: 11px !important; font-weight: 700 !important; line-height: 1.2 !important;">{{ forloop.index }} / {{ forloop.length }}</span>
         </div>
 
         {%- if block.settings.title != blank -%}
-          <h3 class="stl-card-title">{{ block.settings.title }}</h3>
+          <h3 class="stl-card-title" style="color: #ffffff !important; font-size: 20px !important; font-weight: 800 !important; letter-spacing: -0.02em !important; margin: 0 0 8px 0 !important; line-height: 1.2 !important;">{{ block.settings.title }}</h3>
         {%- endif -%}
 
         {%- if block.settings.description != blank -%}
-          <p class="stl-card-desc">{{ block.settings.description }}</p>
+          <p class="stl-card-desc" style="color: #a1a1aa !important; font-size: 13.5px !important; font-weight: 400 !important; line-height: 1.5 !important; margin: 0 0 16px 0 !important;">{{ block.settings.description }}</p>
         {%- endif -%}
 
-        <div class="stl-card-footer-row">
+        <div class="stl-card-footer-row" style="display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 12px !important; margin-top: auto !important;">
           {%- if block.settings.cta_text != blank -%}
             <a
               href="{{ block.settings.cta_link | default: '#contacto' }}"
               class="stl-card-cta"
+              style="color: {{ accent_color }} !important; font-size: 12px !important; font-weight: 800 !important; letter-spacing: 0.08em !important; text-transform: uppercase !important; text-decoration: none !important; display: inline-flex !important; align-items: center !important; gap: 8px !important;"
             >
-              <span>{{ block.settings.cta_text }}</span>
-              <span class="stl-cta-arrow" aria-hidden="true">&rarr;</span>
+              <span style="color: {{ accent_color }} !important;">{{ block.settings.cta_text }}</span>
+              <span class="stl-cta-arrow" aria-hidden="true" style="color: {{ accent_color }} !important; font-size: 15px !important; display: inline-block !important;">&rarr;</span>
             </a>
           {%- else -%}
             <span></span>
           {%- endif -%}
 
           <div class="stl-mobile-nav" aria-label="Navegación de perfiles">
-            <button type="button" class="stl-nav-btn stl-nav-prev" aria-label="Perfil anterior">&#8249;</button>
-            <button type="button" class="stl-nav-btn stl-nav-next" aria-label="Perfil siguiente">&#8250;</button>
+            <button type="button" class="stl-nav-btn stl-nav-prev" aria-label="Perfil anterior" style="background: rgba(255, 255, 255, 0.08) !important; color: #ffffff !important; border: 1px solid rgba(255, 255, 255, 0.15) !important;">&#8249;</button>
+            <button type="button" class="stl-nav-btn stl-nav-next" aria-label="Perfil siguiente" style="background: rgba(255, 255, 255, 0.08) !important; color: #ffffff !important; border: 1px solid rgba(255, 255, 255, 0.15) !important;">&#8250;</button>
           </div>
         </div>
       </div>
