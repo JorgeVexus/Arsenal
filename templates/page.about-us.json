@@ -14,7 +14,9 @@
       "disabled": true,
       "settings": {
         "hide_mobile": false,
-        "back_button": false
+        "back_button": false,
+        "margin_top": 50,
+        "margin_top_mobile": 25
       }
     },
     "section_video_banner_CGtW88": {
@@ -901,17 +903,6 @@
             "link_text": "Leer más"
           }
         },
-        "milestone_zMzz3w": {
-          "type": "milestone",
-          "settings": {
-            "year": "2011",
-            "title": "Registro de marca ante el IMPI",
-            "description": "",
-            "image": "shopify://shop_images/IMPI.avif",
-            "link": "",
-            "link_text": "Leer más"
-          }
-        },
         "milestone_jfaxg3": {
           "type": "milestone",
           "settings": {
@@ -1011,8 +1002,20 @@
             "link_text": "Leer más"
           }
         },
+        "milestone_zMzz3w": {
+          "type": "milestone",
+          "settings": {
+            "year": "2011",
+            "title": "Registro de marca ante el IMPI",
+            "description": "",
+            "image": "shopify://shop_images/IMPI.avif",
+            "link": "",
+            "link_text": "Leer más"
+          }
+        },
         "milestone_kUtznY": {
           "type": "milestone",
+          "disabled": true,
           "settings": {
             "year": "2001",
             "title": "Inicio de operaciones",
@@ -1051,7 +1054,6 @@
         "milestone_wUAzjH",
         "milestone_yyDRzk",
         "milestone_WziURf",
-        "milestone_zMzz3w",
         "milestone_jfaxg3",
         "milestone_F4ny8z",
         "milestone_PHThDg",
@@ -1061,6 +1063,7 @@
         "milestone_w3raRm",
         "milestone_hKK6Pz",
         "milestone_jftCpC",
+        "milestone_zMzz3w",
         "milestone_kUtznY",
         "milestone_66ReKr",
         "milestone_L4Lach"
@@ -1103,6 +1106,7 @@
             "hover_scale": 1,
             "column_ratio": "60_40",
             "desktop_width_percent": 70,
+            "mobile_width_percent": 90,
             "gap": 40,
             "gap_mobile": 30,
             "padding": 40,
@@ -1114,7 +1118,8 @@
             "heading_size_mobile": 28,
             "heading_spacing": 20,
             "text_size": 16,
-            "text_size_mobile": 14
+            "text_size_mobile": 14,
+            "paragraph_spacing": 12
           },
           "blocks": {}
         }
@@ -1149,49 +1154,57 @@
         "image_TEF636": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/WhatsApp_Image_2026-05-12_at_11.13.28_AM.jpg"
+            "image": "shopify://shop_images/WhatsApp_Image_2026-05-12_at_11.13.28_AM.jpg",
+            "link": ""
           }
         },
         "image_A98WLw": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/WhatsApp_Image_2026-05-12_at_11.13.33_AM.jpg"
+            "image": "shopify://shop_images/WhatsApp_Image_2026-05-12_at_11.13.33_AM.jpg",
+            "link": ""
           }
         },
         "image_zgTUiG": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cliente-1.jpg"
+            "image": "shopify://shop_images/cliente-1.jpg",
+            "link": ""
           }
         },
         "image_eQBr9c": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cliente-2.jpg"
+            "image": "shopify://shop_images/cliente-2.jpg",
+            "link": ""
           }
         },
         "image_7e4U9q": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cliente-3.jpg"
+            "image": "shopify://shop_images/cliente-3.jpg",
+            "link": ""
           }
         },
         "image_hNmAWN": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cliente-4.jpg"
+            "image": "shopify://shop_images/cliente-4.jpg",
+            "link": ""
           }
         },
         "image_GkcUbU": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cliente-5.jpg"
+            "image": "shopify://shop_images/cliente-5.jpg",
+            "link": ""
           }
         },
         "image_84F9LH": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cliente-6.jpg"
+            "image": "shopify://shop_images/cliente-6.jpg",
+            "link": ""
           }
         }
       },
@@ -1211,10 +1224,10 @@
         "heading": "<h3><strong>Clientes del Sector Público y Privado:</strong></h3>",
         "header_margin": 32,
         "background_color": "#ffffff",
-        "speed": 35,
-        "speed_mobile": 35,
         "direction": "left",
         "fade_edges": true,
+        "speed": 35,
+        "speed_mobile": 35,
         "logo_height": 130,
         "logo_height_mobile": 75,
         "gap": 80,
