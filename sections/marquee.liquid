@@ -1,5 +1,5 @@
 {%- style -%}
-  /* Control de Ancho y Reset de Sección */
+  /* Control de Ancho y Variables de Sección */
   #shopify-section-{{ section.id }},
   #shopify-section-{{ section.id }}.shopify-section {
     width: 100%;
@@ -11,6 +11,23 @@
     position: relative;
     z-index: 2;
     background-color: {{ section.settings.background_color }};
+
+    /* Variables Responsivas para Celular (Mobile First) */
+    --marquee-speed: {{ section.settings.speed_mobile | default: section.settings.speed | default: 30 }}s;
+    --marquee-gap: {{ section.settings.gap_mobile | default: 35 }}px;
+    --marquee-logo-height: {{ section.settings.logo_height_mobile | default: 55 }}px;
+    --marquee-fade-width: 10%;
+  }
+
+  /* Variables Responsivas para Escritorio (Desktop) */
+  @media screen and (min-width: 750px) {
+    #shopify-section-{{ section.id }},
+    #shopify-section-{{ section.id }}.shopify-section {
+      --marquee-speed: {{ section.settings.speed | default: 30 }}s;
+      --marquee-gap: {{ section.settings.gap | default: 70 }}px;
+      --marquee-logo-height: {{ section.settings.logo_height | default: 80 }}px;
+      --marquee-fade-width: 7%;
+    }
   }
 
   {% if section.settings.full_width %}
@@ -59,43 +76,59 @@
   .arsenal-marquee-header-{{ section.id }} h3 {
     margin: 0;
     line-height: 1.2;
+    letter-spacing: -0.015em;
   }
 
-  /* Rich text styles */
   .arsenal-marquee-header-{{ section.id }} .rich-text__text {
     word-break: break-word;
   }
 
+  /* Contenedor del Marquee con Máscara Apple Style */
   .arsenal-marquee-wrapper-{{ section.id }} {
     overflow: hidden;
     position: relative;
     width: 100%;
     user-select: none;
+    -webkit-user-select: none;
     display: flex;
     align-items: center;
+    {% if section.settings.fade_edges %}
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black var(--marquee-fade-width), black calc(100% - var(--marquee-fade-width)), transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black var(--marquee-fade-width), black calc(100% - var(--marquee-fade-width)), transparent 100%);
+    {% endif %}
   }
 
+  /* Pista que contiene los grupos */
   .arsenal-marquee-track-{{ section.id }} {
     display: flex;
     width: max-content;
-    animation: marquee-{{ section.id }} {{ section.settings.speed }}s linear infinite;
-    gap: {{ section.settings.gap }}px;
+    gap: var(--marquee-gap);
+    align-items: center;
+    will-change: transform;
   }
 
-  {% if section.settings.pause_on_hover %}
-  .arsenal-marquee-wrapper-{{ section.id }}:hover .arsenal-marquee-track-{{ section.id }} {
-    animation-play-state: paused;
-  }
-  {% endif %}
-
-  .arsenal-marquee-set-{{ section.id }} {
+  /* Cada grupo se anima en paralelo de forma independiente (-100% - gap) */
+  .arsenal-marquee-group-{{ section.id }} {
     display: flex;
     flex-shrink: 0;
-    gap: {{ section.settings.gap }}px;
     align-items: center;
-    justify-content: space-around;
-    min-width: 100%;
+    gap: var(--marquee-gap);
+    will-change: transform;
+    animation: arsenal-marquee-slide-{{ section.settings.direction }}-{{ section.id }} var(--marquee-speed) linear infinite;
   }
+
+  /* Pausa en hover y al tocar/presionar (Apple touch feel) */
+  {% if section.settings.pause_on_hover %}
+    @media (hover: hover) {
+      .arsenal-marquee-wrapper-{{ section.id }}:hover .arsenal-marquee-group-{{ section.id }} {
+        animation-play-state: paused;
+      }
+    }
+    .arsenal-marquee-wrapper-{{ section.id }}:active .arsenal-marquee-group-{{ section.id }},
+    .arsenal-marquee-wrapper-{{ section.id }}[data-paused="true"] .arsenal-marquee-group-{{ section.id }} {
+      animation-play-state: paused;
+    }
+  {% endif %}
 
   .arsenal-marquee-item-{{ section.id }} {
     flex: 0 0 auto;
@@ -104,42 +137,71 @@
     justify-content: center;
   }
 
+  .arsenal-marquee-link-{{ section.id }} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+  }
+
   .arsenal-marquee-item-{{ section.id }} img, 
   .arsenal-marquee-item-{{ section.id }} svg {
-    max-height: {{ section.settings.logo_height }}px;
+    height: var(--marquee-logo-height);
+    max-height: var(--marquee-logo-height);
     width: auto;
+    max-width: none;
+    object-fit: contain;
     filter: {{ section.settings.logo_filter }};
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
     display: block;
+    pointer-events: auto;
   }
 
-  .arsenal-marquee-item-{{ section.id }}:hover img {
-    {% if section.settings.hover_effect %}
-    transform: scale(1.1);
-    filter: none;
-    {% endif %}
-  }
-
-  @keyframes marquee-{{ section.id }} {
-    0% {
-      transform: translateX(0);
+  {% if section.settings.hover_effect %}
+    @media (hover: hover) {
+      .arsenal-marquee-item-{{ section.id }}:hover img,
+      .arsenal-marquee-item-{{ section.id }}:hover svg {
+        transform: scale(1.08);
+        filter: none;
+      }
     }
-    100% {
-      /* Move exactly the width of one set + the gap */
-      transform: translateX(calc(-50% - {{ section.settings.gap | divided_by: 2 }}px));
-    }
-  }
-
-  {% if section.settings.direction == 'right' %}
-  @keyframes marquee-{{ section.id }} {
-    0% {
-      transform: translateX(calc(-50% - {{ section.settings.gap | divided_by: 2 }}px));
-    }
-    100% {
-      transform: translateX(0);
-    }
-  }
   {% endif %}
+
+  /* Keyframe continuo matemáticamente exacto: Dirección Izquierda */
+  @keyframes arsenal-marquee-slide-left-{{ section.id }} {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(calc(-100% - var(--marquee-gap)), 0, 0);
+    }
+  }
+
+  /* Keyframe continuo matemáticamente exacto: Dirección Derecha */
+  @keyframes arsenal-marquee-slide-right-{{ section.id }} {
+    0% {
+      transform: translate3d(calc(-100% - var(--marquee-gap)), 0, 0);
+    }
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  /* Modo accesibilidad: Respetar preferencia de reducción de movimiento */
+  @media (prefers-reduced-motion: reduce) {
+    .arsenal-marquee-group-{{ section.id }} {
+      animation: none !important;
+    }
+    .arsenal-marquee-wrapper-{{ section.id }} {
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .arsenal-marquee-wrapper-{{ section.id }}::-webkit-scrollbar {
+      display: none;
+    }
+  }
 {%- endstyle -%}
 
 <div class="arsenal-marquee-container-{{ section.id }} section-{{ section.id }}-padding" id="ArsenalMarquee-{{ section.id }}">
@@ -151,20 +213,35 @@
     </div>
   {%- endif -%}
 
-  <div class="arsenal-marquee-wrapper-{{ section.id }}">
+  {%- assign repeat_count = 4 -%}
+  {%- if section.blocks.size < 5 -%}
+    {%- assign repeat_count = 6 -%}
+  {%- endif -%}
+
+  <div class="arsenal-marquee-wrapper-{{ section.id }}" data-marquee-wrapper>
     <div class="arsenal-marquee-track-{{ section.id }}">
-      {%- for i in (1..2) -%}
-        <div class="arsenal-marquee-set-{{ section.id }}" {% if i > 1 %}aria-hidden="true"{% endif %}>
+      {%- for i in (1..repeat_count) -%}
+        <div class="arsenal-marquee-group-{{ section.id }}" {% if i > 1 %}aria-hidden="true"{% endif %}>
           {%- for block in section.blocks -%}
             <div class="arsenal-marquee-item-{{ section.id }}" {{ block.shopify_attributes }}>
+              {%- if block.settings.link != blank -%}
+                <a href="{{ block.settings.link }}" class="arsenal-marquee-link-{{ section.id }}" target="_blank" rel="noopener">
+              {%- endif -%}
+
               {%- if block.settings.image != blank -%}
+                {%- assign logo_alt = block.settings.image.alt | default: 'Logo' | escape -%}
                 {{ block.settings.image | image_url: width: 400 | image_tag: 
-                  loading: 'lazy',
-                  widths: '200, 400',
-                  alt: block.settings.image.alt | escape
+                  loading: 'eager',
+                  widths: '150, 300, 400',
+                  alt: logo_alt,
+                  class: 'arsenal-marquee-logo'
                 }}
               {%- else -%}
-                <div style="width: 100px; height: 50px; background: rgba(0,0,0,0.1); border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #666; font-size: 10px;">LOGO</div>
+                <div style="width: 100px; height: 50px; background: rgba(0,0,0,0.06); border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #888; font-size: 11px; font-weight: 600; letter-spacing: 0.05em;">LOGO</div>
+              {%- endif -%}
+
+              {%- if block.settings.link != blank -%}
+                </a>
               {%- endif -%}
             </div>
           {%- endfor -%}
@@ -173,6 +250,18 @@
     </div>
   </div>
 </div>
+
+<script>
+  (function() {
+    var wrapper = document.querySelector('#ArsenalMarquee-{{ section.id }} [data-marquee-wrapper]');
+    if (!wrapper) return;
+    function pause() { wrapper.setAttribute('data-paused', 'true'); }
+    function resume() { wrapper.removeAttribute('data-paused'); }
+    wrapper.addEventListener('pointerdown', pause, { passive: true });
+    wrapper.addEventListener('pointerup', resume, { passive: true });
+    wrapper.addEventListener('pointercancel', resume, { passive: true });
+  })();
+</script>
 
 {% schema %}
 {
@@ -189,7 +278,7 @@
     {
       "type": "richtext",
       "id": "heading",
-      "label": "Heading",
+      "label": "Título",
       "default": "<p>Nuestras Marcas Asociadas</p>"
     },
     {
@@ -199,40 +288,66 @@
       "max": 100,
       "step": 4,
       "unit": "px",
-      "label": "Heading Bottom Margin",
+      "label": "Margen inferior del título",
       "default": 32
     },
     {
       "type": "color",
       "id": "background_color",
-      "label": "Background Color",
+      "label": "Color de Fondo",
       "default": "#ffffff"
+    },
+    {
+      "type": "select",
+      "id": "direction",
+      "label": "Dirección del movimiento",
+      "options": [
+        {
+          "value": "left",
+          "label": "Hacia la Izquierda"
+        },
+        {
+          "value": "right",
+          "label": "Hacia la Derecha"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "checkbox",
+      "id": "fade_edges",
+      "label": "Desvanecimiento elegante en bordes (Apple style)",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Velocidad y Tiempos de Animación"
     },
     {
       "type": "range",
       "id": "speed",
       "min": 5,
-      "max": 100,
+      "max": 120,
       "step": 5,
       "unit": "s",
-      "label": "Animation Speed (Seconds per cycle)",
-      "default": 30
+      "label": "Velocidad en Escritorio (Segundos por ciclo)",
+      "info": "Mayor tiempo = movimiento más suave y pausado.",
+      "default": 35
     },
     {
-      "type": "select",
-      "id": "direction",
-      "label": "Direction",
-      "options": [
-        {
-          "value": "left",
-          "label": "Left"
-        },
-        {
-          "value": "right",
-          "label": "Right"
-        }
-      ],
-      "default": "left"
+      "type": "range",
+      "id": "speed_mobile",
+      "min": 5,
+      "max": 120,
+      "step": 5,
+      "unit": "s",
+      "label": "Velocidad en Celular / Móvil (Segundos por ciclo)",
+      "info": "Permite ajustar la velocidad en pantallas táctiles de forma independiente.",
+      "default": 35
+    },
+    {
+      "type": "header",
+      "content": "Tamaño de Logos y Espaciado"
     },
     {
       "type": "range",
@@ -241,39 +356,64 @@
       "max": 200,
       "step": 5,
       "unit": "px",
-      "label": "Logo Max Height",
-      "default": 50
+      "label": "Altura máx. de logos en Escritorio",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "logo_height_mobile",
+      "min": 20,
+      "max": 150,
+      "step": 5,
+      "unit": "px",
+      "label": "Altura máx. de logos en Celular",
+      "default": 55
     },
     {
       "type": "range",
       "id": "gap",
-      "min": 20,
+      "min": 10,
       "max": 200,
-      "step": 10,
+      "step": 5,
       "unit": "px",
-      "label": "Gap between items",
-      "default": 100
+      "label": "Espacio entre logos en Escritorio",
+      "default": 70
+    },
+    {
+      "type": "range",
+      "id": "gap_mobile",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Espacio entre logos en Celular",
+      "info": "Recomendado 30-45px para evitar huecos vacíos en móviles.",
+      "default": 35
+    },
+    {
+      "type": "header",
+      "content": "Filtros y Efectos Visuales"
     },
     {
       "type": "select",
       "id": "logo_filter",
-      "label": "Logo Filter",
+      "label": "Filtro de Color de Logos",
       "options": [
         {
           "value": "none",
-          "label": "None (Full Color)"
+          "label": "Ninguno (Color Original)"
         },
         {
           "value": "grayscale(100%)",
-          "label": "Grayscale"
+          "label": "Escala de Grises"
         },
         {
           "value": "brightness(0) invert(1)",
-          "label": "White (Invert)"
+          "label": "Blanco Puro (Invert)"
         },
         {
           "value": "brightness(0)",
-          "label": "Black"
+          "label": "Negro Puro"
         }
       ],
       "default": "none"
@@ -281,18 +421,18 @@
     {
       "type": "checkbox",
       "id": "pause_on_hover",
-      "label": "Pause on hover",
+      "label": "Pausar al interactuar (Hover en PC / Tocar en Celular)",
       "default": true
     },
     {
       "type": "checkbox",
       "id": "hover_effect",
-      "label": "Enable hover effect (Scale/Color)",
+      "label": "Efecto zoom interactivo en logo",
       "default": true
     },
     {
       "type": "header",
-      "content": "Section Padding"
+      "content": "Espaciado Interno (Padding)"
     },
     {
       "type": "range",
@@ -301,7 +441,7 @@
       "max": 150,
       "step": 5,
       "unit": "px",
-      "label": "Padding Top",
+      "label": "Padding Superior",
       "default": 40
     },
     {
@@ -311,7 +451,7 @@
       "max": 150,
       "step": 5,
       "unit": "px",
-      "label": "Padding Bottom",
+      "label": "Padding Inferior",
       "default": 40
     },
     {
@@ -347,7 +487,12 @@
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Image"
+          "label": "Imagen del Logo"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Enlace (Opcional)"
         }
       ]
     }
