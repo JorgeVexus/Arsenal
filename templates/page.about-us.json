@@ -14,9 +14,7 @@
       "disabled": true,
       "settings": {
         "hide_mobile": false,
-        "back_button": false,
-        "margin_top": 50,
-        "margin_top_mobile": 25
+        "back_button": false
       }
     },
     "section_video_banner_CGtW88": {
@@ -974,7 +972,7 @@
           "settings": {
             "year": "2020",
             "title": "Certificación ISO 14001:2015",
-            "description": "Certificación NIJ 0101.06, Modelo GR501",
+            "description": "",
             "image": "shopify://shop_images/89312c21-a666-4ad8-b0c5-14c5ac8f34bc.jpg",
             "link": "",
             "link_text": "Leer más"
@@ -1009,6 +1007,17 @@
             "title": "Certificación Hecho en México",
             "description": "",
             "image": "shopify://shop_images/hem_red-BKy1oPzd.jpg",
+            "link": "",
+            "link_text": "Leer más"
+          }
+        },
+        "milestone_kUtznY": {
+          "type": "milestone",
+          "settings": {
+            "year": "2001",
+            "title": "Inicio de operaciones",
+            "description": "Comienza nuestra historia en Venezuela",
+            "image": "shopify://shop_images/emojione_flag-for-venezuela.svg",
             "link": "",
             "link_text": "Leer más"
           }
@@ -1052,6 +1061,7 @@
         "milestone_w3raRm",
         "milestone_hKK6Pz",
         "milestone_jftCpC",
+        "milestone_kUtznY",
         "milestone_66ReKr",
         "milestone_L4Lach"
       ],
@@ -1093,7 +1103,6 @@
             "hover_scale": 1,
             "column_ratio": "60_40",
             "desktop_width_percent": 70,
-            "mobile_width_percent": 90,
             "gap": 40,
             "gap_mobile": 30,
             "padding": 40,
@@ -1105,8 +1114,7 @@
             "heading_size_mobile": 28,
             "heading_spacing": 20,
             "text_size": 16,
-            "text_size_mobile": 14,
-            "paragraph_spacing": 12
+            "text_size_mobile": 14
           },
           "blocks": {}
         }
@@ -1203,10 +1211,10 @@
         "heading": "<h3><strong>Clientes del Sector Público y Privado:</strong></h3>",
         "header_margin": 32,
         "background_color": "#ffffff",
-        "speed": 30,
+        "speed": 35,
         "direction": "left",
         "logo_height": 130,
-        "gap": 100,
+        "gap": 80,
         "logo_filter": "none",
         "pause_on_hover": true,
         "hover_effect": true,
