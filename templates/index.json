@@ -747,6 +747,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/WhatsApp_Image_2026-05-08_at_1.49.33_PM_2.jpg",
+            "asset_image": "cert-anab.png",
+            "scale": 102,
             "link": ""
           }
         },
@@ -754,6 +756,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/cer-1.jpg",
+            "asset_image": "cert-impi.png",
+            "scale": 84,
             "link": ""
           }
         },
@@ -761,6 +765,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/cer-2.jpg",
+            "asset_image": "cert-iso37001.png",
+            "scale": 108,
             "link": ""
           }
         },
@@ -768,6 +774,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/WhatsApp_Image_2026-09-23_at_11.54.05_AM-remover-bg.png",
+            "asset_image": "cert-normex-286.png",
+            "scale": 122,
             "link": ""
           }
         },
@@ -775,6 +783,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/WhatsApp_Image_2026-09-23_at_11.53.57_AM.jpg",
+            "asset_image": "cert-normex-035.png",
+            "scale": 122,
             "link": ""
           }
         },
@@ -782,6 +792,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/WhatsApp_Image_2026-09-23_at_11.54.51_AM.jpg",
+            "asset_image": "cert-nij.png",
+            "scale": 96,
             "link": ""
           }
         },
@@ -789,6 +801,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/cer-6.jpg",
+            "asset_image": "cert-normex-triangle.png",
+            "scale": 98,
             "link": ""
           }
         },
@@ -796,6 +810,8 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/cer-7.jpg",
+            "asset_image": "cert-hecho-en-mexico.png",
+            "scale": 90,
             "link": ""
           }
         }
@@ -818,12 +834,12 @@
         "background_color": "rgba(0,0,0,0)",
         "direction": "left",
         "fade_edges": true,
-        "speed": 40,
-        "speed_mobile": 40,
-        "logo_height": 80,
-        "logo_height_mobile": 55,
-        "gap": 70,
-        "gap_mobile": 35,
+        "speed": 35,
+        "speed_mobile": 35,
+        "logo_height": 58,
+        "logo_height_mobile": 44,
+        "gap": 56,
+        "gap_mobile": 36,
         "logo_filter": "grayscale(100%)",
         "pause_on_hover": true,
         "hover_effect": true,
