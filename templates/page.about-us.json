@@ -1013,17 +1013,6 @@
             "link_text": "Leer más"
           }
         },
-        "milestone_kUtznY": {
-          "type": "milestone",
-          "settings": {
-            "year": "2001",
-            "title": "Inicio de operaciones",
-            "description": "Comienza nuestra historia en Venezuela",
-            "image": "shopify://shop_images/emojione_flag-for-venezuela.svg",
-            "link": "",
-            "link_text": "Leer más"
-          }
-        },
         "milestone_66ReKr": {
           "type": "milestone",
           "settings": {
@@ -1063,7 +1052,6 @@
         "milestone_w3raRm",
         "milestone_hKK6Pz",
         "milestone_jftCpC",
-        "milestone_kUtznY",
         "milestone_66ReKr",
         "milestone_L4Lach"
       ],
