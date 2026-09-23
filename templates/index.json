@@ -549,37 +549,43 @@
         "image_pgVqBY": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cliente-1.jpg"
+            "image": "shopify://shop_images/cliente-1.jpg",
+            "link": ""
           }
         },
         "image_JETnim": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cliente-2.jpg"
+            "image": "shopify://shop_images/cliente-2.jpg",
+            "link": ""
           }
         },
         "image_K7DN6M": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cliente-3.jpg"
+            "image": "shopify://shop_images/cliente-3.jpg",
+            "link": ""
           }
         },
         "image_LgDhDb": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cliente-4.jpg"
+            "image": "shopify://shop_images/cliente-4.jpg",
+            "link": ""
           }
         },
         "image_hQEjNL": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cliente-5.jpg"
+            "image": "shopify://shop_images/cliente-5.jpg",
+            "link": ""
           }
         },
         "image_xp9Adq": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cliente-6.jpg"
+            "image": "shopify://shop_images/cliente-6.jpg",
+            "link": ""
           }
         }
       },
@@ -597,10 +603,10 @@
         "heading": "<h3><strong>Clientes del Sector Público y Privado:</strong></h3>",
         "header_margin": 32,
         "background_color": "#ffffff",
-        "speed": 35,
-        "speed_mobile": 35,
         "direction": "left",
         "fade_edges": true,
+        "speed": 35,
+        "speed_mobile": 35,
         "logo_height": 140,
         "logo_height_mobile": 75,
         "gap": 60,
@@ -740,49 +746,57 @@
         "image_etnUQD": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/WhatsApp_Image_2026-05-08_at_1.49.33_PM_2.jpg"
+            "image": "shopify://shop_images/WhatsApp_Image_2026-05-08_at_1.49.33_PM_2.jpg",
+            "link": ""
           }
         },
         "image_wmatgU": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cer-1.jpg"
+            "image": "shopify://shop_images/cer-1.jpg",
+            "link": ""
           }
         },
         "image_RRd4pj": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cer-2.jpg"
+            "image": "shopify://shop_images/cer-2.jpg",
+            "link": ""
           }
         },
         "image_QmhDqc": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cer-3.jpg"
+            "image": "shopify://shop_images/WhatsApp_Image_2026-09-23_at_11.54.05_AM.jpg",
+            "link": ""
           }
         },
         "image_rtTKAD": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cer-4.jpg"
+            "image": "shopify://shop_images/WhatsApp_Image_2026-09-23_at_11.53.57_AM.jpg",
+            "link": ""
           }
         },
         "image_BpapQJ": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cer-5.jpg"
+            "image": "shopify://shop_images/WhatsApp_Image_2026-09-23_at_11.54.51_AM.jpg",
+            "link": ""
           }
         },
         "image_nhAiEP": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cer-6.jpg"
+            "image": "shopify://shop_images/cer-6.jpg",
+            "link": ""
           }
         },
         "image_ymp8k9": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/cer-7.jpg"
+            "image": "shopify://shop_images/cer-7.jpg",
+            "link": ""
           }
         }
       },
@@ -802,10 +816,10 @@
         "heading": "<h3><strong>Certificaciones</strong></h3>",
         "header_margin": 32,
         "background_color": "rgba(0,0,0,0)",
-        "speed": 40,
-        "speed_mobile": 40,
         "direction": "left",
         "fade_edges": true,
+        "speed": 40,
+        "speed_mobile": 40,
         "logo_height": 80,
         "logo_height_mobile": 55,
         "gap": 70,
