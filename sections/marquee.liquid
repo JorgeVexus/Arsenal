@@ -13,9 +13,9 @@
     background-color: {{ section.settings.background_color }};
 
     /* Variables Responsivas para Celular (Mobile First) */
-    --marquee-speed: {{ section.settings.speed_mobile | default: section.settings.speed | default: 30 }}s;
-    --marquee-gap: {{ section.settings.gap_mobile | default: 35 }}px;
-    --marquee-logo-height: {{ section.settings.logo_height_mobile | default: 55 }}px;
+    --marquee-speed: {{ section.settings.speed_mobile | default: section.settings.speed | default: 35 }}s;
+    --marquee-gap: {{ section.settings.gap_mobile | default: 36 }}px;
+    --marquee-logo-height: {{ section.settings.logo_height_mobile | default: 44 }}px;
     --marquee-fade-width: 10%;
   }
 
@@ -23,9 +23,9 @@
   @media screen and (min-width: 750px) {
     #shopify-section-{{ section.id }},
     #shopify-section-{{ section.id }}.shopify-section {
-      --marquee-speed: {{ section.settings.speed | default: 30 }}s;
-      --marquee-gap: {{ section.settings.gap | default: 70 }}px;
-      --marquee-logo-height: {{ section.settings.logo_height | default: 80 }}px;
+      --marquee-speed: {{ section.settings.speed | default: 35 }}s;
+      --marquee-gap: {{ section.settings.gap | default: 56 }}px;
+      --marquee-logo-height: {{ section.settings.logo_height | default: 58 }}px;
       --marquee-fade-width: 7%;
     }
   }
@@ -132,30 +132,40 @@
 
   .arsenal-marquee-item-{{ section.id }} {
     flex: 0 0 auto;
-    display: flex;
+    width: auto;
+    height: var(--marquee-logo-height);
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
   }
 
   .arsenal-marquee-link-{{ section.id }} {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: auto;
+    height: 100%;
     text-decoration: none;
     color: inherit;
   }
 
   .arsenal-marquee-item-{{ section.id }} img, 
   .arsenal-marquee-item-{{ section.id }} svg {
-    height: var(--marquee-logo-height);
-    max-height: var(--marquee-logo-height);
-    width: auto;
+    height: calc(var(--marquee-logo-height) * var(--item-scale, 1));
+    max-height: calc(var(--marquee-logo-height) * 1.35);
     max-width: none;
+    width: auto;
     object-fit: contain;
     filter: {{ section.settings.logo_filter }};
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease, opacity 0.3s ease;
     display: block;
     pointer-events: auto;
+    {% if section.settings.background_color == blank or section.settings.background_color == 'rgba(0,0,0,0)' or section.settings.background_color == '#ffffff' or section.settings.background_color == '#fff' %}
+      mix-blend-mode: multiply;
+    {% endif %}
   }
 
   {% if section.settings.hover_effect %}
@@ -223,12 +233,26 @@
       {%- for i in (1..repeat_count) -%}
         <div class="arsenal-marquee-group-{{ section.id }}" {% if i > 1 %}aria-hidden="true"{% endif %}>
           {%- for block in section.blocks -%}
-            <div class="arsenal-marquee-item-{{ section.id }}" {{ block.shopify_attributes }}>
+            {%- assign item_scale = block.settings.scale | default: 100 | divided_by: 100.0 -%}
+            <div 
+              class="arsenal-marquee-item-{{ section.id }}" 
+              {{ block.shopify_attributes }}
+              style="--item-scale: {{ item_scale }};"
+            >
               {%- if block.settings.link != blank -%}
                 <a href="{{ block.settings.link }}" class="arsenal-marquee-link-{{ section.id }}" target="_blank" rel="noopener">
               {%- endif -%}
 
-              {%- if block.settings.image != blank -%}
+              {%- if block.settings.asset_image != blank -%}
+                <img 
+                  src="{{ block.settings.asset_image | asset_url }}" 
+                  alt="{{ block.settings.asset_image | split: '.' | first | escape }}"
+                  class="arsenal-marquee-logo"
+                  loading="eager"
+                  width="auto"
+                  height="auto"
+                >
+              {%- elsif block.settings.image != blank -%}
                 {%- assign logo_alt = block.settings.image.alt | default: 'Logo' | escape -%}
                 {{ block.settings.image | image_url: width: 400 | image_tag: 
                   loading: 'eager',
@@ -351,13 +375,35 @@
     },
     {
       "type": "range",
+      "id": "slot_width",
+      "min": 100,
+      "max": 300,
+      "step": 5,
+      "unit": "px",
+      "label": "Ancho uniforme de cada logo en Escritorio",
+      "info": "Garantiza una distribución rítmica y espaciado idéntico de centro a centro.",
+      "default": 175
+    },
+    {
+      "type": "range",
+      "id": "slot_width_mobile",
+      "min": 80,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Ancho uniforme de cada logo en Celular",
+      "info": "Distribuye el espacio de forma uniforme en pantallas táctiles.",
+      "default": 130
+    },
+    {
+      "type": "range",
       "id": "logo_height",
       "min": 20,
       "max": 200,
       "step": 5,
       "unit": "px",
       "label": "Altura máx. de logos en Escritorio",
-      "default": 80
+      "default": 75
     },
     {
       "type": "range",
@@ -377,18 +423,18 @@
       "step": 5,
       "unit": "px",
       "label": "Espacio entre logos en Escritorio",
-      "default": 70
+      "default": 50
     },
     {
       "type": "range",
       "id": "gap_mobile",
       "min": 10,
       "max": 100,
-      "step": 5,
+      "step": 2,
       "unit": "px",
       "label": "Espacio entre logos en Celular",
-      "info": "Recomendado 30-45px para evitar huecos vacíos en móviles.",
-      "default": 35
+      "info": "Recomendado 20-35px para un ritmo visual balanceado.",
+      "default": 28
     },
     {
       "type": "header",
@@ -490,9 +536,37 @@
           "label": "Imagen del Logo"
         },
         {
+          "type": "text",
+          "id": "asset_image",
+          "label": "Archivo PNG recortado en Assets (Opcional)",
+          "info": "Ejemplo: cert-anab.png. Elimina márgenes blancos automáticos y asegura máxima nitidez."
+        },
+        {
           "type": "url",
           "id": "link",
           "label": "Enlace (Opcional)"
+        },
+        {
+          "type": "range",
+          "id": "scale",
+          "min": 50,
+          "max": 160,
+          "step": 5,
+          "unit": "%",
+          "label": "Escala visual del logo",
+          "default": 100,
+          "info": "Ajusta el tamaño óptico si este logo se ve más pequeño o más grande que los demás."
+        },
+        {
+          "type": "range",
+          "id": "custom_slot_width",
+          "min": 0,
+          "max": 300,
+          "step": 10,
+          "unit": "px",
+          "label": "Ancho de slot personalizado (Opcional)",
+          "default": 0,
+          "info": "Déjalo en 0 para usar el ancho uniforme automático de la sección."
         }
       ]
     }
