@@ -953,7 +953,7 @@
             "year": "2018",
             "title": "Certificación ISO 9001:2015",
             "description": "",
-            "image": "shopify://shop_images/89312c21-a666-4ad8-b0c5-14c5ac8f34bc_1.jpg",
+            "image": "shopify://shop_images/WhatsApp_Image_2026-09-23_at_11.53.57_AM-removebg.png",
             "link": "",
             "link_text": "Leer más"
           }
@@ -1155,56 +1155,80 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/WhatsApp_Image_2026-05-12_at_11.13.28_AM.jpg",
-            "link": ""
+            "asset_image": "",
+            "link": "",
+            "scale": 100,
+            "custom_slot_width": 0
           }
         },
         "image_A98WLw": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/WhatsApp_Image_2026-05-12_at_11.13.33_AM.jpg",
-            "link": ""
+            "asset_image": "",
+            "link": "",
+            "scale": 100,
+            "custom_slot_width": 0
           }
         },
         "image_zgTUiG": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/cliente-1.jpg",
-            "link": ""
+            "asset_image": "",
+            "link": "",
+            "scale": 100,
+            "custom_slot_width": 0
           }
         },
         "image_eQBr9c": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/cliente-2.jpg",
-            "link": ""
+            "asset_image": "",
+            "link": "",
+            "scale": 100,
+            "custom_slot_width": 0
           }
         },
         "image_7e4U9q": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/cliente-3.jpg",
-            "link": ""
+            "asset_image": "",
+            "link": "",
+            "scale": 100,
+            "custom_slot_width": 0
           }
         },
         "image_hNmAWN": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/cliente-4.jpg",
-            "link": ""
+            "asset_image": "",
+            "link": "",
+            "scale": 100,
+            "custom_slot_width": 0
           }
         },
         "image_GkcUbU": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/cliente-5.jpg",
-            "link": ""
+            "asset_image": "",
+            "link": "",
+            "scale": 100,
+            "custom_slot_width": 0
           }
         },
         "image_84F9LH": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/cliente-6.jpg",
-            "link": ""
+            "asset_image": "",
+            "link": "",
+            "scale": 100,
+            "custom_slot_width": 0
           }
         }
       },
@@ -1228,6 +1252,8 @@
         "fade_edges": true,
         "speed": 35,
         "speed_mobile": 35,
+        "slot_width": 175,
+        "slot_width_mobile": 130,
         "logo_height": 130,
         "logo_height_mobile": 75,
         "gap": 80,
