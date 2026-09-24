@@ -302,6 +302,29 @@
     padding-left: 2px !important;
   }
 
+  /* Submenu lists inside footer menus (e.g. under Productos) */
+  #footer-nav > [class*="width-"]:not(:first-child) ul li ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0 !important;
+  }
+
+  /* Submenu items: reset vertical margin and padding to match title-to-first-item spacing */
+  #footer-nav > [class*="width-"]:not(:first-child) ul li ul li,
+  #footer-nav > [class*="width-"]:not(:first-child) ul li ul li + li {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  #footer-nav > [class*="width-"]:not(:first-child) ul li ul li a {
+    margin: 0 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
   /* Bottom Copyright Bar */
   #footer-nav + div.cols,
   #content > .shopify-section-group-footer-group > div.cols {
