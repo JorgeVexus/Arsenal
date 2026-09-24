@@ -767,7 +767,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/logos_BA9000-new.jpg",
-            "asset_image": "cert-anab.png",
+            "asset_image": "",
             "link": "",
             "scale": 102,
             "custom_slot_width": 0
@@ -823,16 +823,6 @@
             "custom_slot_width": 0
           }
         },
-        "image_nhAiEP": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/cer-6.jpg",
-            "asset_image": "cert-normex-triangle.png",
-            "link": "",
-            "scale": 98,
-            "custom_slot_width": 0
-          }
-        },
         "image_ymp8k9": {
           "type": "image",
           "settings": {
@@ -851,7 +841,6 @@
         "image_QmhDqc",
         "image_rtTKAD",
         "image_BpapQJ",
-        "image_nhAiEP",
         "image_ymp8k9"
       ],
       "name": "Arsenal Marquee",
