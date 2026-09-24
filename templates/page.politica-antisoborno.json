@@ -14,7 +14,9 @@
       "disabled": true,
       "settings": {
         "hide_mobile": false,
-        "back_button": false
+        "back_button": false,
+        "margin_top": 50,
+        "margin_top_mobile": 25
       }
     },
     "main-page": {
@@ -50,12 +52,13 @@
         "title_qByfz3": {
           "type": "title",
           "settings": {
-            "title": "<h3><strong>Política-antisoborno</strong></h3>",
+            "title": "<h5>POLÍTICA DEL SISTEMA GESTIÓN ANTISOBORNO (SGAS)</h5>",
             "title_underline_style": "none"
           }
         },
         "text_xhCQF6": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<h4><strong>A todos nuestros socios de negocio...</strong></h4>",
             "font": "secondary",
@@ -66,7 +69,7 @@
         "text_cFC7PX": {
           "type": "text",
           "settings": {
-            "text": "<p>ARSENAL PROTECTION MEXICO, es una organización que prohíbe cualquier situación de soborno relacionadas con las actividades del negocio, apegándonos a los requisitos del SGAS y legales aplicables, en cumplimiento de los objetivos y la mejora continua, asegurando no existir ninguna represalia al reportar actos de soborno por cualquier parte interesada y en su caso aplicar las sanciones y reportar con las autoridades competentes por parte de la función de cumplimientos y con la debida diligencia.</p>",
+            "text": "<p>ARSENAL PROTECTION MEXICO, es una organización que prohíbe cualquier situación de soborno relacionada con las actividades del negocio, apegándonos a los requisitos del SGAS y legales aplicables, en cumplimiento de los objetivos y la mejora continua, siendo conscientes del cambio climático que vivimos en cada uno de nuestros procesos nos hacemos responsables de la optimización de los recursos asegurando no existir ninguna represalia al reportar actos de soborno por cualquier parte interesada y en su caso aplicar las sanciones y reportar con las autoridades competentes por parte de la función de cumplimientos y con la debida diligencia.</p>",
             "font": "secondary",
             "enable_custom_text_styling": false,
             "font_size": "16px"
@@ -74,6 +77,7 @@
         },
         "text_chAHEM": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<h4><strong>Estamos para escucharte</strong></h4>",
             "font": "secondary",
@@ -83,6 +87,7 @@
         },
         "text_CBWgTN": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "<p>Si tienes conocimiento de alguna irregularidad que esté dañando el patrimonio de ARSENAL, o a ti como empleado, proveedor, consumidor, o relacionado con la empresa; repórtalo de forma anónima y se investigará.</p>",
             "font": "secondary",
@@ -129,6 +134,11 @@
         "color_palette": "",
         "overlay_opacity": 100,
         "layout": "image-left",
+        "align_image_flush": true,
+        "image_content_gap": 40,
+        "image_content_gap_mobile": 20,
+        "content_padding_outer": 40,
+        "content_padding_outer_mobile": 20,
         "text_position": "text-start",
         "background_color_palette": "scheme-2",
         "background_overlay_opacity": 75,
