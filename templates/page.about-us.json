@@ -948,7 +948,7 @@
           "settings": {
             "year": "2020",
             "title": "Certificación NIJ 0101.06",
-            "description": "Modelos: GR301 y GR501",
+            "description": "Modelos: GR301",
             "image": "shopify://shop_images/0fbe8c68-ceed-4871-b139-1487d57411b1.png",
             "link": "",
             "link_text": "Leer más"
@@ -961,6 +961,17 @@
             "title": "Registro de marca ante el IMPI",
             "description": "",
             "image": "shopify://shop_images/IMPI.avif",
+            "link": "",
+            "link_text": "Leer más"
+          }
+        },
+        "milestone_HPCqn6": {
+          "type": "milestone",
+          "settings": {
+            "year": "2022",
+            "title": "Certificación NIJ 0101.06",
+            "description": "Modelos: GR501",
+            "image": "shopify://shop_images/0fbe8c68-ceed-4871-b139-1487d57411b1.png",
             "link": "",
             "link_text": "Leer más"
           }
@@ -1036,6 +1047,7 @@
         "milestone_bgj4WA",
         "milestone_w3raRm",
         "milestone_zMzz3w",
+        "milestone_HPCqn6",
         "milestone_hKK6Pz",
         "milestone_jftCpC",
         "milestone_kUtznY",
