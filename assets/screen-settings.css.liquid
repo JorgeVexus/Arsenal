@@ -802,92 +802,207 @@ picture.img-multiply-bg:before {
 }
 
 /* ==========================================================================
-   APPLE DESIGN & ANIMATE: High-Fidelity Menu Dropdown & Submenus
+   APPLE DESIGN: High-Fidelity Menu Dropdown & Submenus (Hover & Motion)
    ========================================================================== */
 
-/* Dropdown Containers: Frosted Glass, Apple Curves & Layered Shadows */
-#header-inner #nav > ul > li.sub-static > ul,
-#nav > ul > li.sub-static > ul,
-#header-inner #nav > ul > li.sub-static ul ul:not(:first-child),
-#nav > ul > li.sub-static ul ul:not(:first-child) {
-  background: rgba(255, 255, 255, 0.92) !important;
-  backdrop-filter: blur(28px) saturate(190%) !important;
-  -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
-  border: 1px solid rgba(255, 255, 255, 0.8) !important;
-  border-radius: 18px !important;
-  box-shadow: 
-    0 24px 48px -12px rgba(0, 0, 0, 0.18),
-    0 12px 24px -8px rgba(0, 0, 0, 0.08),
-    0 0 0 1px rgba(0, 0, 0, 0.05),
-    0 1px 0 0 rgba(255, 255, 255, 0.8) inset !important;
-  padding: 8px !important;
-  min-width: 275px !important;
-  margin-top: 6px !important;
-  transform-origin: top left !important;
+/* Top-Level Navigation Chevron: Apple Fluid Physics Smooth Rotation */
+#nav > ul > li.sub > a .icon-chevron-down {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: absolute !important;
+  right: 0 !important;
+  left: auto !important;
+  top: 50% !important;
+  margin-top: 0 !important;
+  width: 14px !important;
+  height: 14px !important;
+  font-size: 10px !important;
+  line-height: 1 !important;
+  opacity: 0.8 !important;
+  transform: translateY(-50%) rotate(0deg) !important;
+  transform-origin: center center !important;
+  transition: transform 260ms cubic-bezier(0.16, 1, 0.3, 1), opacity 180ms ease, color 180ms ease !important;
+  pointer-events: none !important;
 }
 
-/* Remove default solid background pseudo-element from theme */
-#nav > ul > li.sub-static ul ul:before,
-#nav > ul > li.sub-static > ul:before {
-  display: none !important;
+#nav > ul > li.sub > a .icon-chevron-down:before {
+  content: "\e969" !important;
+  display: block !important;
+  line-height: 1 !important;
 }
 
+/* Rotate Chevron 180° on Hover, is-hovered, or Toggle */
+#nav > ul > li.sub:hover > a .icon-chevron-down,
+#nav > ul > li.sub.is-hovered > a .icon-chevron-down,
+#nav > ul > li.sub.toggle > a .icon-chevron-down,
+#header-inner #nav > ul > li.sub:hover > a .icon-chevron-down,
+#header-inner #nav > ul > li.sub.is-hovered > a .icon-chevron-down,
+#header-inner #nav > ul > li.sub.toggle > a .icon-chevron-down {
+  transform: translateY(-50%) rotate(180deg) !important;
+  opacity: 1 !important;
+  color: var(--top_nav_fg_hover, #ea5c10) !important;
+}
+
+/* Prevent icon font glyph replacement on hover to keep smooth rotation */
+#nav > ul > li.sub:hover > a .icon-chevron-down:before,
+#nav > ul > li.sub.toggle > a .icon-chevron-down:before,
+#nav > ul > li.sub.is-hovered > a .icon-chevron-down:before {
+  content: "\e969" !important;
+}
+
+/* Desktop Dropdown Containers (Apple Glassmorphism & Spring Easing) */
+@media only screen and (min-width: 1001px) {
+  #header-inner #nav > ul > li.sub,
+  #nav > ul > li.sub,
+  #header-inner #nav > ul > li.sub-static,
+  #nav > ul > li.sub-static {
+    position: relative !important;
+  }
+
+  /* Dropdown Window */
+  #header-inner #nav > ul > li.sub-static > ul,
+  #nav > ul > li.sub-static > ul,
+  #header-inner #nav > ul > li.sub > ul,
+  #nav > ul > li.sub > ul {
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+    z-index: 100 !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+    backdrop-filter: blur(28px) saturate(190%) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    border-radius: 18px !important;
+    box-shadow: 
+      0 24px 48px -12px rgba(0, 0, 0, 0.18),
+      0 12px 24px -8px rgba(0, 0, 0, 0.08),
+      0 0 0 1px rgba(0, 0, 0, 0.05),
+      0 1px 0 0 rgba(255, 255, 255, 0.9) inset !important;
+    padding: 8px !important;
+    min-width: 275px !important;
+    margin-top: 6px !important;
+    transform-origin: top left !important;
+    display: block !important;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px) scale(0.97);
+    transition: 
+      opacity 220ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+      visibility 220ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  /* Unbroken Hit-Test Bridge: Prevents gap dismissal between navbar link and dropdown */
+  #header-inner #nav > ul > li.sub-static > ul::before,
+  #nav > ul > li.sub-static > ul::before,
+  #header-inner #nav > ul > li.sub > ul::before,
+  #nav > ul > li.sub > ul::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: -24px !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 28px !important;
+    background: transparent !important;
+    z-index: 10 !important;
+    pointer-events: auto !important;
+  }
+
+  /* Open Dropdown on Hover, Script .is-hovered, or Click/Toggle */
+  #nav > ul > li.sub:hover > ul,
+  #nav > ul > li.sub.is-hovered > ul,
+  #nav > ul > li.sub.toggle > ul,
+  #nav > ul > li.sub-static:hover > ul,
+  #nav > ul > li.sub-static.is-hovered > ul,
+  #nav > ul > li.sub-static.toggle > ul,
+  #header-inner #nav > ul > li.sub:hover > ul,
+  #header-inner #nav > ul > li.sub.is-hovered > ul,
+  #header-inner #nav > ul > li.sub.toggle > ul,
+  #header-inner #nav > ul > li.sub-static:hover > ul,
+  #header-inner #nav > ul > li.sub-static.is-hovered > ul,
+  #header-inner #nav > ul > li.sub-static.toggle > ul,
+  [data-whatin="mouse"] #nav > ul > li.sub-static:hover > ul,
+  [data-whatin="mouse"] #nav > ul > li.sub-static.toggle > ul {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateY(0) scale(1) !important;
+  }
+
+  /* Nested Flyout Submenu Container (3rd level) */
+  #header-inner #nav > ul > li.sub-static ul ul:not(:first-child),
+  #nav > ul > li.sub-static ul ul:not(:first-child) {
+    position: absolute !important;
+    top: -8px !important;
+    left: 100% !important;
+    margin-left: 8px !important;
+    margin-top: 0 !important;
+    z-index: 101 !important;
+    background: rgba(255, 255, 255, 0.94) !important;
+    backdrop-filter: blur(28px) saturate(190%) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.8) !important;
+    border-radius: 18px !important;
+    box-shadow: 
+      0 24px 48px -12px rgba(0, 0, 0, 0.18),
+      0 12px 24px -8px rgba(0, 0, 0, 0.08),
+      0 0 0 1px rgba(0, 0, 0, 0.05),
+      0 1px 0 0 rgba(255, 255, 255, 0.8) inset !important;
+    padding: 8px !important;
+    min-width: 260px !important;
+    transform-origin: top left !important;
+    display: block !important;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-8px) scale(0.97);
+    transition: 
+      opacity 200ms cubic-bezier(0.16, 1, 0.3, 1),
+      transform 200ms cubic-bezier(0.16, 1, 0.3, 1),
+      visibility 200ms cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  /* Hit-Test Bridge for Nested Flyout Submenus */
+  #header-inner #nav > ul > li.sub-static ul ul:not(:first-child)::before,
+  #nav > ul > li.sub-static ul ul:not(:first-child)::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -20px !important;
+    width: 25px !important;
+    bottom: 0 !important;
+    background: transparent !important;
+    z-index: 10 !important;
+    pointer-events: auto !important;
+  }
+
+  /* Open Nested Flyout on Hover or Toggle */
+  #nav > ul > li.sub-static li:hover > ul:not(:first-child),
+  #nav > ul > li.sub-static li.is-hovered > ul:not(:first-child),
+  #nav > ul > li.sub-static li.toggle > ul:not(:first-child),
+  #header-inner #nav > ul > li.sub-static li:hover > ul:not(:first-child),
+  #header-inner #nav > ul > li.sub-static li.is-hovered > ul:not(:first-child),
+  #header-inner #nav > ul > li.sub-static li.toggle > ul:not(:first-child),
+  [data-whatin="mouse"] #nav > ul > li.sub-static li:hover > ul:not(:first-child),
+  [data-whatin="mouse"] #nav > ul > li.sub-static li.toggle > ul:not(:first-child) {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    transform: translateX(0) scale(1) !important;
+  }
+}
+
+/* Inner structure reset */
 #nav > ul > li.sub-static > ul > li > ul {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
   padding: 0 !important;
   width: 100% !important;
-}
-
-/* Fluid Entrance Animations */
-@keyframes appleDropdownEnter {
-  0% {
-    opacity: 0;
-    transform: translateY(-8px) scale(0.97);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes appleSubmenuEnter {
-  0% {
-    opacity: 0;
-    transform: translateX(-8px) scale(0.97);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0) scale(1);
-  }
-}
-
-@keyframes appleItemStagger {
-  0% {
-    opacity: 0;
-    transform: translateY(-4px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Open Dropdown on Hover/Toggle with Apple Spring Curve */
-[data-whatin="mouse"] #nav > ul > li.sub-static:hover > ul,
-#nav > ul > li.sub-static.toggle > ul {
-  display: block !important;
-  animation: appleDropdownEnter 220ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
-}
-
-/* Open Nested Submenu Flyout with Fluid Spring Slide */
-[data-whatin="mouse"] #nav > ul > li.sub-static li:hover > ul:not(:first-child),
-#nav > ul > li.sub-static li.toggle > ul:not(:first-child) {
-  display: block !important;
-  animation: appleSubmenuEnter 200ms cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
-  margin-left: 8px !important;
-  top: -8px !important;
 }
 
 /* Dropdown Item Styling */
@@ -901,20 +1016,7 @@ picture.img-multiply-bg:before {
   margin-top: 3px !important;
 }
 
-/* Micro-stagger on Children Items */
-#nav > ul > li.sub-static > ul > li > ul > li {
-  animation: appleItemStagger 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-#nav > ul > li.sub-static > ul > li > ul > li:nth-child(1) { animation-delay: 20ms; }
-#nav > ul > li.sub-static > ul > li > ul > li:nth-child(2) { animation-delay: 45ms; }
-#nav > ul > li.sub-static > ul > li > ul > li:nth-child(3) { animation-delay: 70ms; }
-#nav > ul > li.sub-static > ul > li > ul > li:nth-child(4) { animation-delay: 95ms; }
-#nav > ul > li.sub-static > ul > li > ul > li:nth-child(5) { animation-delay: 120ms; }
-#nav > ul > li.sub-static > ul > li > ul > li:nth-child(6) { animation-delay: 145ms; }
-#nav > ul > li.sub-static > ul > li > ul > li:nth-child(7) { animation-delay: 170ms; }
-#nav > ul > li.sub-static > ul > li > ul > li:nth-child(8) { animation-delay: 195ms; }
-
-/* Interactive Link Pill & Typography */
+/* Interactive Link Pill & Typography (Apple Design Spec) */
 #nav > ul > li.sub-static li > a {
   position: relative !important;
   display: flex !important;
@@ -933,8 +1035,8 @@ picture.img-multiply-bg:before {
     transform 160ms cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
-/* Hover Pill Highlight */
-[data-whatin="mouse"] #nav > ul > li.sub-static li > a:hover {
+/* Universal Hover Pill Highlight */
+#nav > ul > li.sub-static li > a:hover {
   background-color: rgba(0, 0, 0, 0.05) !important;
   color: #ea5c10 !important;
   transform: translateX(4px) !important;
@@ -959,12 +1061,12 @@ picture.img-multiply-bg:before {
   flex-shrink: 0 !important;
 }
 
-[data-whatin="mouse"] #nav > ul > li.sub-static li > a:hover img,
-[data-whatin="mouse"] #nav > ul > li.sub-static li > a:hover .img {
+#nav > ul > li.sub-static li > a:hover img,
+#nav > ul > li.sub-static li > a:hover .img {
   transform: scale(1.08) !important;
 }
 
-/* Submenu Indicator Chevron */
+/* Submenu Indicator Chevron for Nested Items */
 #nav > ul > li.sub-static li.sub > a {
   padding-right: 34px !important;
 }
@@ -986,23 +1088,56 @@ picture.img-multiply-bg:before {
   transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), color 200ms ease !important;
 }
 
-[data-whatin="mouse"] #nav > ul > li.sub-static li.sub:hover > a:before {
+#nav > ul > li.sub-static li.sub:hover > a:before {
   color: #ea5c10 !important;
   transform: translateY(-50%) translateX(3px) !important;
 }
 
+/* Dark Mode Apple Frosted Glass */
+.day-switched #header-inner #nav > ul > li.sub-static > ul,
+.day-switched #nav > ul > li.sub-static > ul,
+.day-switched #header-inner #nav > ul > li.sub > ul,
+.day-switched #nav > ul > li.sub > ul,
+.day-switched #header-inner #nav > ul > li.sub-static ul ul:not(:first-child),
+.day-switched #nav > ul > li.sub-static ul ul:not(:first-child) {
+  background: rgba(24, 24, 27, 0.92) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  box-shadow: 
+    0 24px 48px -12px rgba(0, 0, 0, 0.6),
+    0 12px 24px -8px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 1px 0 0 rgba(255, 255, 255, 0.15) inset !important;
+}
+
+.day-switched #nav > ul > li.sub-static li > a {
+  color: #f3f4f6 !important;
+}
+
+.day-switched #nav > ul > li.sub-static li > a:hover {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #ea5c10 !important;
+}
+
+.day-switched #nav > ul > li.sub-static li.sub > a:before {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.day-switched #nav > ul > li.sub-static li.sub:hover > a:before {
+  color: #ea5c10 !important;
+}
+
 /* Accessible Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
-  [data-whatin="mouse"] #nav > ul > li.sub-static:hover > ul,
-  #nav > ul > li.sub-static.toggle > ul,
-  [data-whatin="mouse"] #nav > ul > li.sub-static li:hover > ul:not(:first-child),
-  #nav > ul > li.sub-static li.toggle > ul:not(:first-child) {
-    animation: none !important;
+  #nav > ul > li.sub-static > ul,
+  #nav > ul > li.sub > ul,
+  #nav > ul > li.sub-static ul ul:not(:first-child),
+  #nav > ul > li.sub > a .icon-chevron-down {
     transition: opacity 150ms ease !important;
     transform: none !important;
   }
-  #nav > ul > li.sub-static > ul > li > ul > li {
-    animation: none !important;
+  #nav > ul > li.sub:hover > a .icon-chevron-down,
+  #nav > ul > li.sub.toggle > a .icon-chevron-down {
+    transform: none !important;
   }
   #nav > ul > li.sub-static li > a:hover,
   #nav > ul > li.sub-static li > a:active {
@@ -1129,7 +1264,7 @@ picture.img-multiply-bg:before {
   letter-spacing: 0.5px !important;
 }
 
-[data-whatin="mouse"] #nav > ul > li.sub-static ul .dropdown-catalog-link:hover {
+#nav > ul > li.sub-static ul .dropdown-catalog-link:hover {
   background: rgba(234, 92, 16, 0.18) !important;
   border-color: #ea5c10 !important;
   color: #ea5c10 !important;

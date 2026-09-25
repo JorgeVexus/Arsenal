@@ -2049,3 +2049,46 @@ window.lazyVideo = function () {
 document.addEventListener("DOMContentLoaded", function() {
 	lazyVideo();
 });
+
+/* ==========================================================================
+   APPLE DESIGN: Desktop Navigation Submenu Hover Intent Controller
+   ========================================================================== */
+(function initAppleNavHover() {
+	function setupNavHover() {
+		var nav = document.getElementById('nav');
+		if (!nav) return;
+
+		var isDesktop = window.matchMedia('(min-width: 1001px)');
+		var subItems = nav.querySelectorAll('li.sub, li.sub-static');
+
+		subItems.forEach(function(item) {
+			var closeTimer = null;
+
+			item.addEventListener('mouseenter', function() {
+				if (!isDesktop.matches) return;
+				if (closeTimer) {
+					clearTimeout(closeTimer);
+					closeTimer = null;
+				}
+				if (typeof window.new_css === 'function' && window.a_css_menu) {
+					window.new_css('css-menu', window.a_css_menu);
+				}
+				item.classList.add('is-hovered');
+			});
+
+			item.addEventListener('mouseleave', function() {
+				if (!isDesktop.matches) return;
+				closeTimer = setTimeout(function() {
+					item.classList.remove('is-hovered');
+					closeTimer = null;
+				}, 180);
+			});
+		});
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', setupNavHover);
+	} else {
+		setupNavHover();
+	}
+})();

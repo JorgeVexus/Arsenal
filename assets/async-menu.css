@@ -213,10 +213,10 @@
 
 
 	/*#root .shopify-section-header .l4cl { margin-bottom: var(--main_mr); margin-left: calc(0px - var(--dist_a)); --dist_b: 0; --maw: 10%; }*/
-	[data-whatin="mouse"] #nav > ul > li.sub-static:hover > ul, #nav > ul > li.sub-static.toggle > ul { display: block; }
-	[data-whatin="mouse"] #nav > ul > li:not(.sub-static):hover > ul, #nav > ul > li:not(.sub-static).toggle > ul { display: flex; flex-wrap: wrap; }
+	#nav > ul > li.sub-static:hover > ul, #nav > ul > li.sub-static.is-hovered > ul, #nav > ul > li.sub-static.toggle > ul, [data-whatin="mouse"] #nav > ul > li.sub-static:hover > ul { display: block; }
+	#nav > ul > li:not(.sub-static):hover > ul, #nav > ul > li:not(.sub-static).is-hovered > ul, #nav > ul > li:not(.sub-static).toggle > ul, [data-whatin="mouse"] #nav > ul > li:not(.sub-static):hover > ul { display: flex; flex-wrap: wrap; }
 	#root > .overlay-close { z-index: 7; }
-	[data-whatin="mouse"] #nav > ul > li:hover > a .icon-chevron-down:before, #nav > ul > li.toggle > a .icon-chevron-down:before { content: "\e968"; }
+	#nav > ul > li:hover > a .icon-chevron-down:before, #nav > ul > li.toggle > a .icon-chevron-down:before { content: "\e969"; }
 	.nav-hover #root > .overlay-close { visibility: visible; opacity: var(--overlay_opacity); }
 }
 
