@@ -35,9 +35,18 @@
     assign og_url = shop.url
     assign og_description = shop.description | default: shop.name
   endif
-  if og_image_tag == '' and page_image
-    assign image = page_image | image_url: width: 600, height: 500, crop: 'center'
-    assign og_image_tag = '<meta property="og:image" content="' | append: image | append: '">'
+  if og_image_tag == ''
+    if page_image
+      assign image = page_image | image_url: width: 1200, height: 630, crop: 'center'
+      assign og_image_tag = '<meta property="og:image" content="https:' | append: image | append: '">'
+      assign og_image_secure_url_tag = '<meta property="og:image:secure_url" content="https:' | append: image | append: '">'
+      assign twitter_image_tag = '<meta property="twitter:image" content="https:' | append: image | append: '">'
+    else
+      assign default_og_image = 'arsenal-opengraph-image.jpg' | asset_url
+      assign og_image_tag = '<meta property="og:image" content="https:' | append: default_og_image | append: '">'
+      assign og_image_secure_url_tag = '<meta property="og:image:secure_url" content="https:' | append: default_og_image | append: '">'
+      assign twitter_image_tag = '<meta property="twitter:image" content="https:' | append: default_og_image | append: '">'
+    endif
   endif
 -%}
 <meta name="msapplication-config" content="{{ 'browserconfig.xml' | asset_url }}">
@@ -55,12 +64,10 @@
 {% endif %}
 {% if og_image_tag %}{{ og_image_tag }}{% endif %}
 {% if og_image_secure_url_tag %}{{ og_image_secure_url_tag }}{% endif %}
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ og_title }}">
 <meta name="twitter:description" content="{{ og_description }}">
 <meta name="twitter:site" content="{{ shop.name }}">
-{% if settings.logo %}
-  <meta name="twitter:card" content="{{ settings.logo | image_url }}">
-{% endif %}
 {% if twitter_image_tag %}{{ twitter_image_tag }}{% endif %}
 <script type="application/ld+json">
   [
