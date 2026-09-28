@@ -259,8 +259,25 @@
               assign show_quote = section.settings.enable_quote_button
               assign quote_method = section.settings.quote_method
               assign whatsapp_number = section.settings.whatsapp_number | remove: '+' | remove: ' ' | remove: '-' | remove: '(' | remove: ')'
-              assign email_address = section.settings.email_address
-              assign quote_button_text = section.settings.quote_button_text | default: 'Solicitar Cotización'
+              assign is_en = false
+              if request.locale.iso_code == 'en'
+                assign is_en = true
+              endif
+
+              if is_en
+                assign default_quote_btn = 'Request Quote'
+                assign default_quote_msg = 'Hello, I would like to request a quote for the following products:'
+                assign default_email_subj = 'Quote Request'
+              else
+                assign default_quote_btn = 'Solicitar Cotización'
+                assign default_quote_msg = 'Hola, me interesa solicitar cotización para los siguientes productos:'
+                assign default_email_subj = 'Solicitud de Cotización'
+              endif
+
+              assign quote_button_text = section.settings.quote_button_text | default: default_quote_btn
+              if is_en and quote_button_text == 'Solicitar Cotización'
+                assign quote_button_text = default_quote_btn
+              endif
               
               assign cart_items_list = ''
               for item in cart.items
@@ -276,11 +293,17 @@
                 endif
               endfor
               
-              assign quote_message = section.settings.quote_message | default: 'Hola, me interesa solicitar cotización para los siguientes productos:'
+              assign quote_message = section.settings.quote_message | default: default_quote_msg
+              if is_en and quote_message contains 'Hola, me interesa solicitar'
+                assign quote_message = default_quote_msg
+              endif
               assign full_message = quote_message | append: ' ' | append: cart_items_list
               assign encoded_message = full_message | url_encode
               
-              assign email_subject = section.settings.email_subject | default: 'Solicitud de Cotización'
+              assign email_subject = section.settings.email_subject | default: default_email_subj
+              if is_en and email_subject == 'Solicitud de Cotización'
+                assign email_subject = default_email_subj
+              endif
               assign encoded_subject = email_subject | url_encode
               assign encoded_body = full_message | url_encode
             -%}

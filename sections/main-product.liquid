@@ -145,7 +145,7 @@
             data-featured_media_position={{ featured_media_position }}>
             {%- if media_images.size == 0 -%}
                 <li>
-                    {%- render 'product-labels' -%}
+                    {%- render 'product-labels', product: product -%}
                     <picture>
                         {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
                     </picture>
@@ -178,7 +178,7 @@
                         {% endunless %}
                         <figure>
                             {%- if forloop.first -%}
-                                {%- render 'product-labels' -%}
+                                {%- render 'product-labels', product: product -%}
                                 {%- assign fill = fill_first_image -%}
                             {%- else -%}
                                 {%- assign fill = fill_images -%}
@@ -969,10 +969,82 @@
                     {%- endform -%}
                 {%- when 'quote_button' -%}
                     {%- liquid
+                        assign is_en = false
+                        if request.locale.iso_code == 'en'
+                            assign is_en = true
+                        endif
+
+                        if is_en
+                            assign default_quote_btn = 'Request Quote'
+                            assign default_quote_msg = 'Hello, I would like to request a quote for the following product:'
+                            assign default_email_subj = 'Quote Request'
+                            assign default_form_title = 'Request Quote'
+                            assign default_contact_legend = 'Contact information'
+                            assign default_name_label = 'Full name'
+                            assign default_name_placeholder = 'Your name'
+                            assign default_email_label = 'Email address'
+                            assign default_phone_label = 'Phone'
+                            assign default_org_label = 'Department / Organization'
+                            assign default_org_select = 'Select an option'
+                            assign default_org_other = 'Other / Specify'
+                            assign default_org_other_placeholder = 'Specify your organization'
+                            assign default_org_placeholder = 'e.g. State Government, XYZ Company'
+                            assign default_dob_label = 'Date of birth'
+                            assign default_dob_month = 'Month'
+                            assign default_dob_year = 'Year'
+                            assign default_dob_hint = 'Required to verify legal age (18+)'
+                            assign default_msg_label = 'Additional message'
+                            assign default_msg_placeholder = 'Any special requirements?'
+                            assign default_submit_text = 'Send request'
+                            assign default_age_alert = 'Sorry, you must be of legal age to request quotes.'
+                            assign default_unspecified = 'Not specified'
+                            assign default_age_text = 'years old'
+                            assign default_lbl_name = 'Name'
+                            assign default_lbl_phone = 'Phone'
+                            assign default_lbl_org = 'Organization'
+                            assign default_lbl_dob = 'Date of birth'
+                            assign default_lbl_prod = 'Product'
+                            assign default_lbl_msg = 'Message'
+                        else
+                            assign default_quote_btn = 'Solicitar Cotización'
+                            assign default_quote_msg = 'Hola, me interesa solicitar cotización para el siguiente producto:'
+                            assign default_email_subj = 'Solicitud de Cotización'
+                            assign default_form_title = 'Solicitar Cotización'
+                            assign default_contact_legend = 'Información de contacto'
+                            assign default_name_label = 'Nombre completo'
+                            assign default_name_placeholder = 'Tu nombre'
+                            assign default_email_label = 'Correo electrónico'
+                            assign default_phone_label = 'Teléfono'
+                            assign default_org_label = 'Dependencia / Organización'
+                            assign default_org_select = 'Selecciona una opción'
+                            assign default_org_other = 'Otro / Especificar'
+                            assign default_org_other_placeholder = 'Especifica tu organización'
+                            assign default_org_placeholder = 'Ej: Gobierno del Estado, Empresa XYZ'
+                            assign default_dob_label = 'Fecha de nacimiento'
+                            assign default_dob_month = 'Mes'
+                            assign default_dob_year = 'Año'
+                            assign default_dob_hint = 'Necesario para verificar mayoría de edad'
+                            assign default_msg_label = 'Mensaje adicional'
+                            assign default_msg_placeholder = '¿Algún requerimiento especial?'
+                            assign default_submit_text = 'Enviar solicitud'
+                            assign default_age_alert = 'Lo sentimos, debes ser mayor de edad para solicitar cotizaciones.'
+                            assign default_unspecified = 'No especificada'
+                            assign default_age_text = 'años'
+                            assign default_lbl_name = 'Nombre'
+                            assign default_lbl_phone = 'Teléfono'
+                            assign default_lbl_org = 'Organización'
+                            assign default_lbl_dob = 'Fecha de nacimiento'
+                            assign default_lbl_prod = 'Producto'
+                            assign default_lbl_msg = 'Mensaje'
+                        endif
+
                         assign quote_method = block.settings.quote_method
                         assign whatsapp_number = block.settings.whatsapp_number | remove: '+' | remove: ' ' | remove: '-' | remove: '(' | remove: ')'
                         assign email_address = block.settings.email_address
-                        assign button_text = block.settings.button_text | default: 'Solicitar Cotización'
+                        assign button_text = block.settings.button_text | default: default_quote_btn
+                        if is_en and button_text == 'Solicitar Cotización'
+                            assign button_text = default_quote_btn
+                        endif
                         assign button_icon = block.settings.button_icon
 
                         assign product_info = product.title
@@ -983,10 +1055,31 @@
                             assign product_info = product_info | append: ' (SKU: ' | append: current_variant.sku | append: ')'
                         endif
                         
-                        assign quote_message = block.settings.quote_message | default: 'Hola, me interesa solicitar cotización para el siguiente producto:'
-                        assign email_subject = block.settings.email_subject | default: 'Solicitud de Cotización'
+                        assign quote_message = block.settings.quote_message | default: default_quote_msg
+                        if is_en and quote_message contains 'Hola, me interesa solicitar'
+                            assign quote_message = default_quote_msg
+                        endif
+                        assign email_subject = block.settings.email_subject | default: default_email_subj
+                        if is_en and email_subject == 'Solicitud de Cotización'
+                            assign email_subject = default_email_subj
+                        endif
                         
                         assign organization_options = block.settings.organization_options | newline_to_br | strip_newlines | replace: '<br />', ',' | split: ','
+
+                        assign form_title_display = block.settings.form_title | default: default_form_title
+                        if is_en and form_title_display == 'Solicitar Cotización'
+                            assign form_title_display = default_form_title
+                        endif
+
+                        assign org_label_display = block.settings.org_label | default: default_org_label
+                        if is_en and org_label_display == 'Dependencia / Organización'
+                            assign org_label_display = default_org_label
+                        endif
+
+                        assign form_submit_text_display = block.settings.form_submit_text | default: default_submit_text
+                        if is_en and form_submit_text_display == 'Enviar solicitud'
+                            assign form_submit_text_display = default_submit_text
+                        endif
                     -%}
                     <div class="f8pr-quote-button" {{ block.shopify_attributes }} data-quote-section-id="{{ section.id }}">
                         <p class="link-btn compact margin-0{% if block.settings.full_width %} wide{% endif %}">
@@ -1015,72 +1108,82 @@
                         </p>
                         
                         {%- comment -%} Modal Form {%- endcomment -%}
-                        <aside class="m6pn quote-form-panel" id="quote-form-{{ section.id }}-{{ block.id }}" aria-hidden="true">
+                        <aside class="m6pn quote-form-panel" id="quote-form-{{ section.id }}-{{ block.id }}" aria-hidden="true"
+                            data-alert-age="{{ default_age_alert | escape }}"
+                            data-lbl-name="{{ default_lbl_name | escape }}"
+                            data-lbl-phone="{{ default_lbl_phone | escape }}"
+                            data-lbl-org="{{ default_lbl_org | escape }}"
+                            data-lbl-unspecified="{{ default_unspecified | escape }}"
+                            data-lbl-dob="{{ default_lbl_dob | escape }}"
+                            data-lbl-age="{{ default_age_text | escape }}"
+                            data-lbl-prod="{{ default_lbl_prod | escape }}"
+                            data-lbl-msg="{{ default_lbl_msg | escape }}"
+                        >
                             <div class="container">
-                                <h2>{{ block.settings.form_title | default: 'Solicitar Cotización' }}</h2>
+                                <h2>{{ form_title_display }}</h2>
                                 <form class="quote-form f8cm f8vl w940 m30" data-quote-form>
                                     <fieldset>
-                                        <legend>Información de contacto</legend>
+                                        <legend>{{ default_contact_legend }}</legend>
                                         
                                         {%- comment -%} Nombre {%- endcomment -%}
                                         <p class="form-field">
-                                            <label for="quote-name-{{ block.id }}">Nombre completo <span class="overlay-theme">*</span></label>
-                                            <input type="text" id="quote-name-{{ block.id }}" name="name" required placeholder="Tu nombre">
+                                            <label for="quote-name-{{ block.id }}">{{ default_name_label }} <span class="overlay-theme">*</span></label>
+                                            <input type="text" id="quote-name-{{ block.id }}" name="name" required placeholder="{{ default_name_placeholder }}">
                                         </p>
                                         
                                         {%- comment -%} Email {%- endcomment -%}
                                         <p class="form-field">
-                                            <label for="quote-email-{{ block.id }}">Correo electrónico <span class="overlay-theme">*</span></label>
+                                            <label for="quote-email-{{ block.id }}">{{ default_email_label }} <span class="overlay-theme">*</span></label>
                                             <input type="email" id="quote-email-{{ block.id }}" name="email" required placeholder="tu@email.com">
                                         </p>
                                         
                                         {%- comment -%} Teléfono {%- endcomment -%}
                                         <p class="form-field">
-                                            <label for="quote-phone-{{ block.id }}">Teléfono</label>
+                                            <label for="quote-phone-{{ block.id }}">{{ default_phone_label }}</label>
                                             <input type="tel" id="quote-phone-{{ block.id }}" name="phone" placeholder="+52 123 456 7890">
                                         </p>
                                         
                                         {%- comment -%} Organización/Dependencia {%- endcomment -%}
                                         <p class="form-field">
-                                            <label for="quote-org-{{ block.id }}">{{ block.settings.org_label | default: 'Dependencia / Organización' }}</label>
+                                            <label for="quote-org-{{ block.id }}">{{ org_label_display }}</label>
                                             {%- if block.settings.organization_options != blank -%}
                                                 <select id="quote-org-{{ block.id }}" name="organization">
-                                                    <option value="">Selecciona una opción</option>
+                                                    <option value="">{{ default_org_select }}</option>
                                                     {%- for option in organization_options -%}
                                                         {%- assign option_clean = option | strip -%}
                                                         {%- if option_clean != blank -%}
                                                             <option value="{{ option_clean }}">{{ option_clean }}</option>
                                                         {%- endif -%}
                                                     {%- endfor -%}
-                                                    <option value="otro">Otro / Especificar</option>
+                                                    <option value="otro">{{ default_org_other }}</option>
                                                 </select>
-                                                <input type="text" id="quote-org-other-{{ block.id }}" name="organization_other" placeholder="Especifica tu organización" style="display: none; margin-top: 10px;">
+                                                <input type="text" id="quote-org-other-{{ block.id }}" name="organization_other" placeholder="{{ default_org_other_placeholder }}" style="display: none; margin-top: 10px;">
                                             {%- else -%}
-                                                <input type="text" id="quote-org-{{ block.id }}" name="organization" placeholder="Ej: Gobierno del Estado, Empresa XYZ">
+                                                <input type="text" id="quote-org-{{ block.id }}" name="organization" placeholder="{{ default_org_placeholder }}">
                                             {%- endif -%}
                                         </p>
                                         
                                         {%- comment -%} Fecha de nacimiento (Mes y Año) {%- endcomment -%}
                                         <p class="form-field">
-                                            <label>Fecha de nacimiento <span class="overlay-theme">*</span></label>
+                                            <label>{{ default_dob_label }} <span class="overlay-theme">*</span></label>
                                             <span class="dob-fields" style="display: flex; gap: 10px;">
                                                 <select id="quote-dob-month-{{ block.id }}" name="dob_month" required style="flex: 1;">
-                                                    <option value="">Mes</option>
-                                                    <option value="01">Enero</option>
-                                                    <option value="02">Febrero</option>
-                                                    <option value="03">Marzo</option>
-                                                    <option value="04">Abril</option>
-                                                    <option value="05">Mayo</option>
-                                                    <option value="06">Junio</option>
-                                                    <option value="07">Julio</option>
-                                                    <option value="08">Agosto</option>
-                                                    <option value="09">Septiembre</option>
-                                                    <option value="10">Octubre</option>
-                                                    <option value="11">Noviembre</option>
-                                                    <option value="12">Diciembre</option>
+                                                    <option value="">{{ default_dob_month }}</option>
+                                                    <option value="01">{% if is_en %}January{% else %}Enero{% endif %}</option>
+                                                    <option value="02">{% if is_en %}February{% else %}Febrero{% endif %}</option>
+                                                    <option value="03">{% if is_en %}March{% else %}Marzo{% endif %}</option>
+                                                    <option value="04">{% if is_en %}April{% else %}Abril{% endif %}</option>
+                                                    <option value="05">{% if is_en %}May{% else %}Mayo{% endif %}</option>
+                                                    <option value="06">{% if is_en %}June{% else %}Junio{% endif %}</option>
+                                                    <option value="07">{% if is_en %}July{% else %}Julio{% endif %}</option>
+                                                    <option value="08">{% if is_en %}August{% else %}Agosto{% endif %}</option>
+                                                    <option value="09">{% if is_en %}September{% else %}Septiembre{% endif %}</option>
+                                                    <option value="10">{% if is_en %}October{% else %}Octubre{% endif %}</option>
+                                                    <option value="11">{% if is_en %}November{% else %}Noviembre{% endif %}</option>
+                                                    <option value="12">{% if is_en %}December{% else %}Diciembre{% endif %}</option>
                                                 </select>
                                                 <select id="quote-dob-year-{{ block.id }}" name="dob_year" required style="flex: 1;">
-                                                    <option value="">Año</option>
+                                                    <option value="">{{ default_dob_year }}</option>
                                                     {%- assign current_year = 'now' | date: '%Y' -%}
                                                     {%- assign start_year = current_year | minus: 100 -%}
                                                     {%- for year in (start_year..current_year) reversed -%}
@@ -1088,13 +1191,13 @@
                                                     {%- endfor -%}
                                                 </select>
                                             </span>
-                                            <small class="form-hint" style="color: var(--color-text-muted); font-size: 12px; margin-top: 5px; display: block;">Necesario para verificar mayoría de edad</small>
+                                            <small class="form-hint" style="color: var(--color-text-muted); font-size: 12px; margin-top: 5px; display: block;">{{ default_dob_hint }}</small>
                                         </p>
                                         
                                         {%- comment -%} Mensaje adicional {%- endcomment -%}
                                         <p class="form-field">
-                                            <label for="quote-message-{{ block.id }}">Mensaje adicional</label>
-                                            <textarea id="quote-message-{{ block.id }}" name="message" rows="3" placeholder="¿Algún requerimiento especial?"></textarea>
+                                            <label for="quote-message-{{ block.id }}">{{ default_msg_label }}</label>
+                                            <textarea id="quote-message-{{ block.id }}" name="message" rows="3" placeholder="{{ default_msg_placeholder }}"></textarea>
                                         </p>
                                         
                                         {%- comment -%} Producto (hidden) {%- endcomment -%}
@@ -1105,7 +1208,7 @@
                                     </fieldset>
                                     
                                     <p class="submit m0">
-                                        <button type="submit" class="overlay-buy_button solid">{{ block.settings.form_submit_text | default: 'Enviar solicitud' }}</button>
+                                        <button type="submit" class="overlay-buy_button solid">{{ form_submit_text_display }}</button>
                                     </p>
                                 </form>
                             </div>
@@ -1146,9 +1249,19 @@
                             let age = currentYear - dobYear;
                             if (currentMonth < dobMonth) age--;
                             
+                            const alertAge = formPanel.dataset.alertAge || 'Lo sentimos, debes ser mayor de edad para solicitar cotizaciones.';
+                            const lblName = formPanel.dataset.lblName || 'Nombre';
+                            const lblPhone = formPanel.dataset.lblPhone || 'Teléfono';
+                            const lblOrg = formPanel.dataset.lblOrg || 'Organización';
+                            const lblUnspecified = formPanel.dataset.lblUnspecified || 'No especificada';
+                            const lblDob = formPanel.dataset.lblDob || 'Fecha de nacimiento';
+                            const lblAge = formPanel.dataset.lblAge || 'años';
+                            const lblProd = formPanel.dataset.lblProd || 'Producto';
+                            const lblMsg = formPanel.dataset.lblMsg || 'Mensaje';
+
                             // Check if minor
                             if (age < 18) {
-                                alert('Lo sentimos, debes ser mayor de edad para solicitar cotizaciones.');
+                                alert(alertAge);
                                 return;
                             }
                             
@@ -1165,13 +1278,13 @@
                             const quoteMessage = quoteBtn.dataset.quoteMessage;
                             
                             const fullMessage = quoteMessage + '\n\n' +
-                                '*Nombre:* ' + data.name + '\n' +
+                                '*' + lblName + ':* ' + data.name + '\n' +
                                 '*Email:* ' + data.email + '\n' +
-                                (data.phone ? '*Teléfono:* ' + data.phone + '\n' : '') +
-                                '*Organizacion:* ' + (organization || 'No especificada') + '\n' +
-                                '*Fecha de nacimiento:* ' + data.dob_month + '/' + data.dob_year + ' (Edad: ' + age + ' años)\n' +
-                                '\n*Producto:* ' + productInfo + '\n' +
-                                (data.message ? '\n*Mensaje:* ' + data.message : '');
+                                (data.phone ? '*' + lblPhone + ':* ' + data.phone + '\n' : '') +
+                                '*' + lblOrg + ':* ' + (organization || lblUnspecified) + '\n' +
+                                '*' + lblDob + ':* ' + data.dob_month + '/' + data.dob_year + ' (Edad: ' + age + ' ' + lblAge + ')\n' +
+                                '\n*' + lblProd + ':* ' + productInfo + '\n' +
+                                (data.message ? '\n*' + lblMsg + ':* ' + data.message : '');
                             
                             if (method === 'whatsapp' || method === 'both') {
                                 const whatsappNumber = quoteBtn.dataset.whatsappNumber;

@@ -777,51 +777,141 @@
                 >
               </div>
               <div class="form-field">
+                {%- liquid
+                  assign is_en = false
+                  if request.locale.iso_code == 'en'
+                    assign is_en = true
+                  endif
+
+                  if is_en
+                    assign ms_search_placeholder = 'Search by product name...'
+                    assign ms_zero_selected = '0 selected'
+                    assign ms_empty_text = 'No products available'
+                    assign ms_no_results = 'No products found matching your search.'
+                    assign ms_selected_singular = 'selected'
+                    assign ms_selected_plural = 'selected'
+                    assign ms_remove_aria = 'Remove '
+                    assign optgroup_na = 'North America'
+                    assign optgroup_ca = 'Central America'
+                    assign optgroup_car = 'The Caribbean'
+                    assign optgroup_sa = 'South America'
+                    assign optgroup_other = 'Other'
+                    assign country_canada = 'Canada'
+                    assign country_usa = 'United States'
+                    assign country_mexico = 'Mexico'
+                    assign country_belize = 'Belize'
+                    assign country_costa_rica = 'Costa Rica'
+                    assign country_el_salvador = 'El Salvador'
+                    assign country_guatemala = 'Guatemala'
+                    assign country_honduras = 'Honduras'
+                    assign country_nicaragua = 'Nicaragua'
+                    assign country_panama = 'Panama'
+                    assign country_cuba = 'Cuba'
+                    assign country_puerto_rico = 'Puerto Rico'
+                    assign country_dom_rep = 'Dominican Republic'
+                    assign country_other_caribbean = 'Other Caribbean countries'
+                    assign country_argentina = 'Argentina'
+                    assign country_bolivia = 'Bolivia'
+                    assign country_brazil = 'Brazil'
+                    assign country_chile = 'Chile'
+                    assign country_colombia = 'Colombia'
+                    assign country_ecuador = 'Ecuador'
+                    assign country_guyana = 'Guyana'
+                    assign country_paraguay = 'Paraguay'
+                    assign country_peru = 'Peru'
+                    assign country_suriname = 'Suriname'
+                    assign country_uruguay = 'Uruguay'
+                    assign country_venezuela = 'Venezuela'
+                    assign country_spain = 'Spain'
+                    assign country_other = 'Other country'
+                  else
+                    assign ms_search_placeholder = 'Buscar por nombre de producto...'
+                    assign ms_zero_selected = '0 seleccionados'
+                    assign ms_empty_text = 'No hay productos disponibles'
+                    assign ms_no_results = 'No se encontraron productos que coincidan con la búsqueda.'
+                    assign ms_selected_singular = 'seleccionado'
+                    assign ms_selected_plural = 'seleccionados'
+                    assign ms_remove_aria = 'Quitar '
+                    assign optgroup_na = 'América del Norte'
+                    assign optgroup_ca = 'América Central'
+                    assign optgroup_car = 'El Caribe'
+                    assign optgroup_sa = 'América del Sur'
+                    assign optgroup_other = 'Otros'
+                    assign country_canada = 'Canadá'
+                    assign country_usa = 'Estados Unidos'
+                    assign country_mexico = 'México'
+                    assign country_belize = 'Belice'
+                    assign country_costa_rica = 'Costa Rica'
+                    assign country_el_salvador = 'El Salvador'
+                    assign country_guatemala = 'Guatemala'
+                    assign country_honduras = 'Honduras'
+                    assign country_nicaragua = 'Nicaragua'
+                    assign country_panama = 'Panamá'
+                    assign country_cuba = 'Cuba'
+                    assign country_puerto_rico = 'Puerto Rico'
+                    assign country_dom_rep = 'República Dominicana'
+                    assign country_other_caribbean = 'Otros países del Caribe'
+                    assign country_argentina = 'Argentina'
+                    assign country_bolivia = 'Bolivia'
+                    assign country_brazil = 'Brasil'
+                    assign country_chile = 'Chile'
+                    assign country_colombia = 'Colombia'
+                    assign country_ecuador = 'Ecuador'
+                    assign country_guyana = 'Guyana'
+                    assign country_paraguay = 'Paraguay'
+                    assign country_peru = 'Perú'
+                    assign country_suriname = 'Surinam'
+                    assign country_uruguay = 'Uruguay'
+                    assign country_venezuela = 'Venezuela'
+                    assign country_spain = 'España'
+                    assign country_other = 'Otro país'
+                  endif
+                -%}
                 <label for="ContactForm-country">{{ section.settings.label_country }}</label>
                 <select id="ContactForm-country" name="contact[country]">
                   <option value="" disabled selected>{{ section.settings.placeholder_country }}</option>
                   
-                  <optgroup label="América del Norte">
-                    <option value="Canada">Canadá</option>
-                    <option value="USA">Estados Unidos</option>
-                    <option value="Mexico">México</option>
+                  <optgroup label="{{ optgroup_na }}">
+                    <option value="Canada">{{ country_canada }}</option>
+                    <option value="USA">{{ country_usa }}</option>
+                    <option value="Mexico">{{ country_mexico }}</option>
                   </optgroup>
 
-                  <optgroup label="América Central">
-                    <option value="Belize">Belice</option>
-                    <option value="Costa Rica">Costa Rica</option>
-                    <option value="El Salvador">El Salvador</option>
-                    <option value="Guatemala">Guatemala</option>
-                    <option value="Honduras">Honduras</option>
-                    <option value="Nicaragua">Nicaragua</option>
-                    <option value="Panama">Panamá</option>
+                  <optgroup label="{{ optgroup_ca }}">
+                    <option value="Belize">{{ country_belize }}</option>
+                    <option value="Costa Rica">{{ country_costa_rica }}</option>
+                    <option value="El Salvador">{{ country_el_salvador }}</option>
+                    <option value="Guatemala">{{ country_guatemala }}</option>
+                    <option value="Honduras">{{ country_honduras }}</option>
+                    <option value="Nicaragua">{{ country_nicaragua }}</option>
+                    <option value="Panama">{{ country_panama }}</option>
                   </optgroup>
 
-                  <optgroup label="El Caribe">
-                    <option value="Cuba">Cuba</option>
-                    <option value="Puerto Rico">Puerto Rico</option>
-                    <option value="Republica Dominicana">República Dominicana</option>
-                    <option value="Other Caribbean">Otros países del Caribe</option>
+                  <optgroup label="{{ optgroup_car }}">
+                    <option value="Cuba">{{ country_cuba }}</option>
+                    <option value="Puerto Rico">{{ country_puerto_rico }}</option>
+                    <option value="Republica Dominicana">{{ country_dom_rep }}</option>
+                    <option value="Other Caribbean">{{ country_other_caribbean }}</option>
                   </optgroup>
 
-                  <optgroup label="América del Sur">
-                    <option value="Argentina">Argentina</option>
-                    <option value="Bolivia">Bolivia</option>
-                    <option value="Brazil">Brasil</option>
-                    <option value="Chile">Chile</option>
-                    <option value="Colombia">Colombia</option>
-                    <option value="Ecuador">Ecuador</option>
-                    <option value="Guyana">Guyana</option>
-                    <option value="Paraguay">Paraguay</option>
-                    <option value="Peru">Perú</option>
-                    <option value="Suriname">Surinam</option>
-                    <option value="Uruguay">Uruguay</option>
-                    <option value="Venezuela">Venezuela</option>
+                  <optgroup label="{{ optgroup_sa }}">
+                    <option value="Argentina">{{ country_argentina }}</option>
+                    <option value="Bolivia">{{ country_bolivia }}</option>
+                    <option value="Brazil">{{ country_brazil }}</option>
+                    <option value="Chile">{{ country_chile }}</option>
+                    <option value="Colombia">{{ country_colombia }}</option>
+                    <option value="Ecuador">{{ country_ecuador }}</option>
+                    <option value="Guyana">{{ country_guyana }}</option>
+                    <option value="Paraguay">{{ country_paraguay }}</option>
+                    <option value="Peru">{{ country_peru }}</option>
+                    <option value="Suriname">{{ country_suriname }}</option>
+                    <option value="Uruguay">{{ country_uruguay }}</option>
+                    <option value="Venezuela">{{ country_venezuela }}</option>
                   </optgroup>
 
-                  <optgroup label="Otros">
-                    <option value="Spain">España</option>
-                    <option value="Other">Otro país</option>
+                  <optgroup label="{{ optgroup_other }}">
+                    <option value="Spain">{{ country_spain }}</option>
+                    <option value="Other">{{ country_other }}</option>
                   </optgroup>
                 </select>
               </div>
@@ -853,7 +943,12 @@
                   {% if section.settings.products_required %}required{% endif %}
                 >
 
-                <div class="arsenal-multiselect" id="multiselect-{{ section.id }}">
+                <div class="arsenal-multiselect" id="multiselect-{{ section.id }}"
+                  data-zero-selected="{{ ms_zero_selected | escape }}"
+                  data-selected-singular="{{ ms_selected_singular | escape }}"
+                  data-selected-plural="{{ ms_selected_plural | escape }}"
+                  data-remove-aria="{{ ms_remove_aria | escape }}"
+                >
                   <!-- Trigger Button -->
                   <div
                     class="arsenal-ms-trigger"
@@ -888,10 +983,10 @@
                         type="text"
                         class="arsenal-ms-search-input"
                         id="ms-search-{{ section.id }}"
-                        placeholder="Buscar por nombre de producto..."
+                        placeholder="{{ ms_search_placeholder }}"
                         autocomplete="off"
                       >
-                      <span class="arsenal-ms-count" id="ms-count-{{ section.id }}">0 seleccionados</span>
+                      <span class="arsenal-ms-count" id="ms-count-{{ section.id }}">{{ ms_zero_selected }}</span>
                     </div>
 
                     <!-- List of Product Options -->
@@ -939,10 +1034,10 @@
                           </div>
                         </div>
                       {%- else -%}
-                        <div class="arsenal-ms-empty">No hay productos disponibles</div>
+                        <div class="arsenal-ms-empty">{{ ms_empty_text }}</div>
                       {%- endfor -%}
                       <div class="arsenal-ms-no-results is-hidden" id="ms-no-results-{{ section.id }}">
-                        No se encontraron productos que coincidan con la búsqueda.
+                        {{ ms_no_results }}
                       </div>
                     </div>
                   </div>
@@ -1019,15 +1114,20 @@
       }
     };
 
+    const zeroSelectedText = container.dataset.zeroSelected || '0 seleccionados';
+    const selectedSingular = container.dataset.selectedSingular || 'seleccionado';
+    const selectedPlural = container.dataset.selectedPlural || 'seleccionados';
+    const removeAria = container.dataset.removeAria || 'Quitar ';
+
     const updateUI = () => {
       tagsWrap.innerHTML = '';
 
       if (selectedValues.length === 0) {
         tagsWrap.appendChild(placeholder);
-        if (countLabel) countLabel.textContent = '0 seleccionados';
+        if (countLabel) countLabel.textContent = zeroSelectedText;
         hiddenInput.value = '';
       } else {
-        if (countLabel) countLabel.textContent = selectedValues.length + ' seleccionado' + (selectedValues.length > 1 ? 's' : '');
+        if (countLabel) countLabel.textContent = selectedValues.length + ' ' + (selectedValues.length === 1 ? selectedSingular : selectedPlural);
         hiddenInput.value = selectedValues.join(', ');
 
         selectedValues.forEach(val => {
@@ -1044,7 +1144,7 @@
           removeBtn.innerHTML = '<svg viewBox="0 0 12 12" fill="none"><line x1="2" y1="2" x2="10" y2="10"/><line x1="10" y1="2" x2="2" y2="10"/></svg>';
           removeBtn.setAttribute('role', 'button');
           removeBtn.setAttribute('tabindex', '0');
-          removeBtn.setAttribute('aria-label', 'Quitar ' + val);
+          removeBtn.setAttribute('aria-label', removeAria + val);
           removeBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             deselectValue(val);

@@ -342,16 +342,24 @@
             </div>
 
             {%- comment -%} ¿Anónimo? {%- endcomment -%}
+            {%- liquid
+              assign yes_label = 'Sí'
+              assign no_label = 'No'
+              if request.locale.iso_code == 'en'
+                assign yes_label = 'Yes'
+                assign no_label = 'No'
+              endif
+            -%}
             <div class="form-field">
               <label>{{ section.settings.label_anonymous }} <span class="required">*</span></label>
               <div class="radio-group">
                 <div class="radio-option">
                   <input type="radio" id="EthicsForm-anonymous-yes" name="contact[¿Desea ser anónimo?]" value="Sí" required>
-                  <label for="EthicsForm-anonymous-yes">Sí</label>
+                  <label for="EthicsForm-anonymous-yes">{{ yes_label }}</label>
                 </div>
                 <div class="radio-option">
                   <input type="radio" id="EthicsForm-anonymous-no" name="contact[¿Desea ser anónimo?]" value="No" required>
-                  <label for="EthicsForm-anonymous-no">No</label>
+                  <label for="EthicsForm-anonymous-no">{{ no_label }}</label>
                 </div>
               </div>
             </div>
@@ -362,11 +370,11 @@
               <div class="radio-group">
                 <div class="radio-option">
                   <input type="radio" id="EthicsForm-contact-yes" name="contact[¿Dispuesto a ser contactado?]" value="Sí" required>
-                  <label for="EthicsForm-contact-yes">Sí</label>
+                  <label for="EthicsForm-contact-yes">{{ yes_label }}</label>
                 </div>
                 <div class="radio-option">
                   <input type="radio" id="EthicsForm-contact-no" name="contact[¿Dispuesto a ser contactado?]" value="No" required>
-                  <label for="EthicsForm-contact-no">No</label>
+                  <label for="EthicsForm-contact-no">{{ no_label }}</label>
                 </div>
               </div>
             </div>

@@ -361,7 +361,17 @@
                       <line x1="12" y1="15" x2="12" y2="3"></line>
                     </svg>
                   </span>
-                  <span class="nav-catalog-text">{{ section.settings.catalog_button_text | default: 'Descargar Catálogo' }}</span>
+                  {%- liquid
+                    assign catalog_btn_default = 'Descargar Catálogo'
+                    if request.locale.iso_code == 'en'
+                      assign catalog_btn_default = 'Download Catalog'
+                    endif
+                    assign catalog_btn_display = section.settings.catalog_button_text | default: catalog_btn_default
+                    if request.locale.iso_code == 'en' and catalog_btn_display == 'Descargar Catálogo'
+                      assign catalog_btn_display = 'Download Catalog'
+                    endif
+                  -%}
+                  <span class="nav-catalog-text">{{ catalog_btn_display }}</span>
                 </a>
               </li>
             {%- endif -%}

@@ -550,60 +550,42 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/cliente-1.jpg",
-            "asset_image": "",
-            "link": "",
-            "scale": 100,
-            "custom_slot_width": 0
+            "link": ""
           }
         },
         "image_JETnim": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/cliente-2.jpg",
-            "asset_image": "",
-            "link": "",
-            "scale": 100,
-            "custom_slot_width": 0
+            "link": ""
           }
         },
         "image_K7DN6M": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/cliente-3.jpg",
-            "asset_image": "",
-            "link": "",
-            "scale": 100,
-            "custom_slot_width": 0
+            "link": ""
           }
         },
         "image_LgDhDb": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/cliente-4.jpg",
-            "asset_image": "",
-            "link": "",
-            "scale": 100,
-            "custom_slot_width": 0
+            "link": ""
           }
         },
         "image_hQEjNL": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/cliente-5.jpg",
-            "asset_image": "",
-            "link": "",
-            "scale": 100,
-            "custom_slot_width": 0
+            "link": ""
           }
         },
         "image_xp9Adq": {
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/cliente-6.jpg",
-            "asset_image": "",
-            "link": "",
-            "scale": 100,
-            "custom_slot_width": 0
+            "link": ""
           }
         }
       },
@@ -625,8 +607,6 @@
         "fade_edges": true,
         "speed": 35,
         "speed_mobile": 35,
-        "slot_width": 175,
-        "slot_width_mobile": 130,
         "logo_height": 140,
         "logo_height_mobile": 75,
         "gap": 60,
@@ -766,11 +746,10 @@
         "image_etnUQD": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/logos_BA9000-new.jpg",
-            "asset_image": "",
-            "link": "",
+            "image": "shopify://shop_images/WhatsApp_Image_2026-05-08_at_1.49.33_PM_2.jpg",
+            "asset_image": "cert-anab.png",
             "scale": 102,
-            "custom_slot_width": 0
+            "link": ""
           }
         },
         "image_wmatgU": {
@@ -778,9 +757,8 @@
           "settings": {
             "image": "shopify://shop_images/cer-1.jpg",
             "asset_image": "cert-impi.png",
-            "link": "",
             "scale": 84,
-            "custom_slot_width": 0
+            "link": ""
           }
         },
         "image_RRd4pj": {
@@ -788,9 +766,8 @@
           "settings": {
             "image": "shopify://shop_images/cer-2.jpg",
             "asset_image": "cert-iso37001.png",
-            "link": "",
             "scale": 108,
-            "custom_slot_width": 0
+            "link": ""
           }
         },
         "image_QmhDqc": {
@@ -798,9 +775,8 @@
           "settings": {
             "image": "shopify://shop_images/WhatsApp_Image_2026-09-23_at_11.54.05_AM-remover-bg.png",
             "asset_image": "cert-normex-286.png",
-            "link": "",
             "scale": 122,
-            "custom_slot_width": 0
+            "link": ""
           }
         },
         "image_rtTKAD": {
@@ -808,9 +784,8 @@
           "settings": {
             "image": "shopify://shop_images/WhatsApp_Image_2026-09-23_at_11.53.57_AM.jpg",
             "asset_image": "cert-normex-035.png",
-            "link": "",
             "scale": 122,
-            "custom_slot_width": 0
+            "link": ""
           }
         },
         "image_BpapQJ": {
@@ -818,9 +793,17 @@
           "settings": {
             "image": "shopify://shop_images/WhatsApp_Image_2026-09-23_at_11.54.51_AM.jpg",
             "asset_image": "cert-nij.png",
-            "link": "",
             "scale": 96,
-            "custom_slot_width": 0
+            "link": ""
+          }
+        },
+        "image_nhAiEP": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/cer-6.jpg",
+            "asset_image": "cert-normex-triangle.png",
+            "scale": 98,
+            "link": ""
           }
         },
         "image_ymp8k9": {
@@ -828,9 +811,8 @@
           "settings": {
             "image": "shopify://shop_images/cer-7.jpg",
             "asset_image": "cert-hecho-en-mexico.png",
-            "link": "",
             "scale": 90,
-            "custom_slot_width": 0
+            "link": ""
           }
         }
       },
@@ -841,6 +823,7 @@
         "image_QmhDqc",
         "image_rtTKAD",
         "image_BpapQJ",
+        "image_nhAiEP",
         "image_ymp8k9"
       ],
       "name": "Arsenal Marquee",
@@ -853,8 +836,6 @@
         "fade_edges": true,
         "speed": 35,
         "speed_mobile": 35,
-        "slot_width": 175,
-        "slot_width_mobile": 130,
         "logo_height": 60,
         "logo_height_mobile": 44,
         "gap": 56,

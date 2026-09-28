@@ -211,7 +211,7 @@
           "settings": {
             "icon": "mission",
             "title": "Nuestra Misión",
-            "description": "Diseñar, Fabricar y Comercializar Sistemas Integrales de Protección Balística derivados de las operaciones de\nproducción a través de un excelente equipo y tecnología de punta, con el fin de satisfacer las necesidades de\nnuestros clientes dentro de los parámetros de calidad y en cumplimiento con las normativas reglamentarias,\ngarantizando nuestros productos.",
+            "description": "Diseñar soluciones para proteger vidas.\n<br><br>\n\nDiseñar, fabricar y comercializar sistemas integrales de protección balística y equipos de seguridad, apoyándonos en un equipo especializado, tecnología de vanguardia y procesos orientados a la calidad.\n<br><br>\nNuestro compromiso es satisfacer las necesidades de nuestros clientes mediante soluciones confiables que cumplan con los estándares y normativas aplicables, contribuyendo a la protección de quienes realizan labores de seguridad pública y privada.",
             "text_alignment": "justify"
           }
         },
@@ -220,7 +220,7 @@
           "settings": {
             "icon": "vision",
             "title": "Nuestra Visión",
-            "description": "Convertirnos en la primera opción de nuestros clientes actuales y futuros en Sistemas Integrales de\nProtección Balística y equipamiento para fuerzas del orden público y privado; satisfaciendo sus necesidades y\nrequerimientos, proyectándonos en el mercado nacional e internacional, siempre comprometidos con el\nbienestar de nuestro equipo humano.",
+            "description": "Liderazgo en protección balística.\n<br><br>\nSer una empresa referente en protección balística y equipamiento para fuerzas de seguridad, reconocida por la calidad de sus productos, innovación, capacidad de respuesta y compromiso con sus clientes.\n<br><br>\nBuscamos consolidarnos como una de las principales opciones para instituciones y organizaciones que requieren chalecos balísticos, placas balísticas y soluciones integrales de protección, fortaleciendo nuestra presencia en México y en mercados internacionales.",
             "text_alignment": "justify"
           }
         }
@@ -481,7 +481,31 @@
           "type": "content",
           "settings": {
             "page": "",
-            "text": "<p>En Arsenal Protection México S. de R.L. de C.V. fabricamos y comercializamos la más alta calidad de chalecos y placas balísticas, así como equipos de protección con los cuales custodiamos la integridad física de los distintos cuerpos de seguridad que brindan protección pública y privada a la sociedad, siendo conscientes del cambio climático que vivimos en cada uno de nuestros procesos nos hacemos responsables de la optimización de los recursos, asegurándonos del cumplimiento de la normatividad aplicable, la satisfacción de nuestros clientes e impulsando la mejora continua en nuestros procesos.</p>",
+            "text": "<p>En Arsenal Protection Mexico S. de R.L. de C.V. nos comprometemos con la fabricación y comercialización de productos de protección balística y equipos de seguridad que cumplan con los requisitos de calidad y las necesidades de nuestros clientes.<br/></p>",
+            "text_alignment": "center",
+            "font": "secondary",
+            "enable_custom_text_styling": false,
+            "font_weight": "400",
+            "font_size": "16px"
+          }
+        },
+        "content_9bzeLn": {
+          "type": "content",
+          "settings": {
+            "page": "",
+            "text": "<p>Trabajamos bajo principios de calidad, mejora continua y responsabilidad ambiental, procurando prevenir y reducir los impactos ambientales asociados a nuestras actividades y procesos.</p>",
+            "text_alignment": "center",
+            "font": "secondary",
+            "enable_custom_text_styling": false,
+            "font_weight": "400",
+            "font_size": "16px"
+          }
+        },
+        "content_9ffbzD": {
+          "type": "content",
+          "settings": {
+            "page": "",
+            "text": "<p>Nuestro compromiso incluye el cumplimiento de la normatividad aplicable, la satisfacción de nuestros clientes, el uso responsable de los recursos y la mejora continua de nuestro sistema de gestión y de nuestros procesos.</p>",
             "text_alignment": "center",
             "font": "secondary",
             "enable_custom_text_styling": false,
@@ -492,7 +516,9 @@
       },
       "block_order": [
         "template--19595896848705__7b233bd0-c26a-462b-98bb-a47fcde2f1c7-title-1",
-        "33b82370-c3de-495d-8fd9-d76b7918df2f"
+        "33b82370-c3de-495d-8fd9-d76b7918df2f",
+        "content_9bzeLn",
+        "content_9ffbzD"
       ],
       "settings": {
         "width": "boxed",
@@ -883,7 +909,7 @@
             "year": "2012",
             "title": "Certificación ISO 9001:2008",
             "description": "",
-            "image": "shopify://shop_images/logo_ISO_generico.png",
+            "image": "shopify://shop_images/89312c21-a666-4ad8-b0c5-14c5ac8f34bc_1.jpg",
             "link": "",
             "link_text": "Leer más"
           }
@@ -948,7 +974,7 @@
           "settings": {
             "year": "2020",
             "title": "Certificación NIJ 0101.06",
-            "description": "Modelos: GR301",
+            "description": "Modelos: GR301 y GR501",
             "image": "shopify://shop_images/0fbe8c68-ceed-4871-b139-1487d57411b1.png",
             "link": "",
             "link_text": "Leer más"
@@ -961,17 +987,6 @@
             "title": "Registro de marca ante el IMPI",
             "description": "",
             "image": "shopify://shop_images/IMPI.avif",
-            "link": "",
-            "link_text": "Leer más"
-          }
-        },
-        "milestone_HPCqn6": {
-          "type": "milestone",
-          "settings": {
-            "year": "2022",
-            "title": "Certificación NIJ 0101.06",
-            "description": "Modelos: GR501",
-            "image": "shopify://shop_images/0fbe8c68-ceed-4871-b139-1487d57411b1.png",
             "link": "",
             "link_text": "Leer más"
           }
@@ -1016,7 +1031,7 @@
             "year": "2026",
             "title": "Certificación BA9000",
             "description": "",
-            "image": "shopify://shop_images/logos_BA9000-new.jpg",
+            "image": "shopify://shop_images/logos_BA9000_jpg.jpg",
             "link": "",
             "link_text": "Leer más"
           }
@@ -1047,7 +1062,6 @@
         "milestone_bgj4WA",
         "milestone_w3raRm",
         "milestone_zMzz3w",
-        "milestone_HPCqn6",
         "milestone_hKK6Pz",
         "milestone_jftCpC",
         "milestone_kUtznY",
@@ -1080,7 +1094,7 @@
             "heading_font": "inter_n7",
             "description": "<p>En Arsenal Protection Mexico, nos orgullece anunciar este certificado en BA9000:2016.</p><p>Design, Manufacture, and Marketing of Ballistic Vest and Plates, Multipurpose Vests (Bulletproof and Anti-Point), as well as Personal Protective Equipment<br/><br/>Diseño, Fabricación y Comercialización de Chalecos y Placas balísticas, chalecos multipropósito (antibalas y anti-puntas), así como Equipos de Protección Personal</p>",
             "text_alignment": "left",
-            "image": "shopify://shop_images/logos_BA9000-new.jpg",
+            "image": "shopify://shop_images/logos_BA9000_jpg.jpg",
             "image_max_width": 380,
             "image_max_height": 240,
             "image_alignment": "center",
