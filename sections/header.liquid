@@ -351,9 +351,27 @@
         <ul data-type="horizontal-nav" {% if has_images %}class="category-img"{% endif %}>
           {%- render 'header-menu', menu: menu, show_dropdown_images: section.settings.show_dropdown_images, show_dropdown_images_autofill: section.settings.show_dropdown_images_autofill, show_dropdown_images_rounded: section.settings.show_dropdown_images_rounded, show_dropdown_images_fill: section.settings.show_dropdown_images_fill, has_images: has_images, layout: menu_layout, main_menu_items_clickable: section.settings.main_menu_items_clickable, menubar_caps: section.settings.menubar_caps, sale_highlight: section.settings.sale_highlight, sale_highlight_item: section.settings.sale_highlight_item, manual_collapse: false, menu_items_limit: section.settings.menu_items_limit, menu_recently_viewed_products: section.settings.menu_recently_viewed_products, menu_subs_font: section.settings.menu_subs_font, blocks: section.blocks, header_width: section.settings.width -%}
           {%- if section.settings.enable_catalog_button and section.settings.catalog_button_position != 'inside_dropdown' -%}
-            {%- if section.settings.catalog_pdf_file != blank or request.design_mode -%}
+            {%- liquid
+              assign catalog_file = section.settings.catalog_pdf_file
+              if request.locale.iso_code == 'en' and section.settings.catalog_pdf_file_en != blank
+                assign catalog_file = section.settings.catalog_pdf_file_en
+              endif
+
+              assign catalog_btn_default = 'Descargar Catálogo'
+              if request.locale.iso_code == 'en'
+                assign catalog_btn_default = 'Download Catalog'
+                if section.settings.catalog_button_text_en != blank
+                  assign catalog_btn_display = section.settings.catalog_button_text_en
+                else
+                  assign catalog_btn_display = 'Download Catalog'
+                endif
+              else
+                assign catalog_btn_display = section.settings.catalog_button_text | default: catalog_btn_default
+              endif
+            -%}
+            {%- if catalog_file != blank or request.design_mode -%}
               <li class="nav-catalog-item">
-                <a href="{{ section.settings.catalog_pdf_file | default: '#' }}" class="nav-catalog-btn" target="_blank" rel="noopener noreferrer"{% if section.settings.catalog_pdf_file != blank %} download{% endif %}>
+                <a href="{{ catalog_file | default: '#' }}" class="nav-catalog-btn" target="_blank" rel="noopener noreferrer"{% if catalog_file != blank %} download{% endif %}>
                   <span class="nav-catalog-icon">
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
@@ -361,16 +379,6 @@
                       <line x1="12" y1="15" x2="12" y2="3"></line>
                     </svg>
                   </span>
-                  {%- liquid
-                    assign catalog_btn_default = 'Descargar Catálogo'
-                    if request.locale.iso_code == 'en'
-                      assign catalog_btn_default = 'Download Catalog'
-                    endif
-                    assign catalog_btn_display = section.settings.catalog_button_text | default: catalog_btn_default
-                    if request.locale.iso_code == 'en' and catalog_btn_display == 'Descargar Catálogo'
-                      assign catalog_btn_display = 'Download Catalog'
-                    endif
-                  -%}
                   <span class="nav-catalog-text">{{ catalog_btn_display }}</span>
                 </a>
               </li>
@@ -1706,14 +1714,26 @@
     {
       "type": "url",
       "id": "catalog_pdf_file",
-      "label": "Enlace del archivo PDF del Catálogo",
+      "label": "Enlace del archivo PDF del Catálogo (Español)",
       "info": "Sube tu archivo PDF en Shopify Admin > Contenido > Archivos y selecciona o pega aquí la URL."
     },
     {
       "type": "text",
       "id": "catalog_button_text",
-      "label": "Texto del botón",
+      "label": "Texto del botón (Español)",
       "default": "Descargar Catálogo"
+    },
+    {
+      "type": "url",
+      "id": "catalog_pdf_file_en",
+      "label": "Enlace del archivo PDF del Catálogo (Inglés)",
+      "info": "Sube el PDF en inglés a Shopify Admin > Contenido > Archivos y pega aquí la URL. Si se deja vacío, descargará el catálogo en español."
+    },
+    {
+      "type": "text",
+      "id": "catalog_button_text_en",
+      "label": "Texto del botón (Inglés)",
+      "default": "Download Catalog"
     },
     {
       "type": "select",

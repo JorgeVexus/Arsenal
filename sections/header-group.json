@@ -211,6 +211,8 @@
         "enable_catalog_button": true,
         "catalog_pdf_file": "https://cdn.shopify.com/s/files/1/0725/6585/0278/files/CATALOGO_ARSENAL_MIN.pdf?v=1790103859",
         "catalog_button_text": "Descargar Catálogo",
+        "catalog_pdf_file_en": "",
+        "catalog_button_text_en": "Download Catalog",
         "catalog_button_position": "navbar_end",
         "enable_menu_subs_font_size": false,
         "menu_subs_font_size": 16,
