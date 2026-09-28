@@ -1,11 +1,42 @@
 <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_1_68)">
-<path d="M0 25C0 28.058 0.550098 30.9873 1.55498 33.6956L25 35.8696L48.4451 33.6956C49.45 30.9873 50.0001 28.058 50.0001 25C50.0001 21.942 49.45 19.0127 48.4451 16.3044L25 14.1305L1.55498 16.3044C0.550098 19.0127 0 21.942 0 25Z" fill="#FFDA44"/>
-<path d="M48.445 16.3044C44.9127 6.78448 35.7491 0 25 0C14.2508 0 5.08726 6.78448 1.55493 16.3044H48.445Z" fill="#D80027"/>
-<path d="M1.55493 33.6956C5.08726 43.2155 14.2508 50 25 50C35.7491 50 44.9127 43.2155 48.445 33.6956H1.55493Z" fill="#D80027"/>
+<g clip-path="url(#clip0_1_mx_es)">
+<path d="M25 50C38.8071 50 50 38.8071 50 25C50 11.1929 38.8071 0 25 0C11.1929 0 0 11.1929 0 25C0 38.8071 11.1929 50 25 50Z" fill="#F4F4F4"/>
+<path d="M0 25C0 35.7491 6.78447 44.9127 16.3044 48.445V1.55499C6.78447 5.08731 0 14.2509 0 25Z" fill="#006847"/>
+<path d="M50 25C50 14.2509 43.2156 5.08732 33.6956 1.55499V48.4451C43.2156 44.9127 50 35.7491 50 25Z" fill="#CE1126"/>
+<!-- Mexican Coat of Arms (Escudo Nacional) -->
+<g transform="translate(25, 25)">
+  <!-- Laurel and Oak wreath -->
+  <path d="M-5.8 3.5C-4.5 5.5 -2.2 6.5 0 6.5C2.2 6.5 4.5 5.5 5.8 3.5C5 -0.5 4.2 -1.8 3.5 -2.5C3.2 0.8 1.8 2.2 0 2.2C-1.8 2.2 -3.2 0.8 -3.5 -2.5C-4.2 -1.8 -5 -0.5 -5.8 3.5Z" fill="#2E7D32" opacity="0.85"/>
+  <path d="M-0.8 6.2C0 6.6 0.8 6.6 1.6 6.2C1.2 5.5 0.4 5.5 0 5.5C-0.4 5.5 -1.2 5.5 -0.8 6.2Z" fill="#C62828"/>
+  <!-- Rock / Lake Base -->
+  <path d="M-3.5 3C-3.5 1.5 -1.5 1.2 0 1.2C1.5 1.2 3.5 1.5 3.5 3C3 4.2 -3 4.2 -3.5 3Z" fill="#78909C"/>
+  <!-- Nopal (Cactus) -->
+  <ellipse cx="0" cy="0.5" rx="1.5" ry="2.2" fill="#388E3C"/>
+  <ellipse cx="-2.2" cy="0" rx="1.3" ry="1.6" transform="rotate(-25 -2.2 0)" fill="#2E7D32"/>
+  <ellipse cx="2.2" cy="0" rx="1.3" ry="1.6" transform="rotate(25 2.2 0)" fill="#2E7D32"/>
+  <circle cx="-1.5" cy="-1.8" r="0.6" fill="#D32F2F"/>
+  <circle cx="1.5" cy="-1.8" r="0.6" fill="#D32F2F"/>
+  <circle cx="0" cy="-1.8" r="0.6" fill="#D32F2F"/>
+  <!-- Serpent -->
+  <path d="M1.2 -4.8C2.8 -4.8 3.2 -3.5 2.2 -2.8C1.5 -2.2 2 -1.2 2.8 -0.8" stroke="#4CAF50" stroke-width="0.75" stroke-linecap="round" fill="none"/>
+  <!-- Eagle -->
+  <!-- Left wing -->
+  <path d="M-0.5 -3.2C-2.5 -5.8 -4.8 -5.5 -5.2 -3.2C-5.5 -1.5 -3.5 -0.8 -1.2 -1.2Z" fill="#6D4C41"/>
+  <!-- Right wing raised -->
+  <path d="M-0.2 -3.5C0.8 -6.2 3.2 -6.5 4.5 -4.8C5.2 -3.8 3.5 -2.2 1.5 -1.8Z" fill="#8D6E63"/>
+  <!-- Body and legs -->
+  <path d="M-1.5 -3.5C-1.8 -1.8 -1.5 1.2 -0.8 1.8C0 2.2 0.8 2.2 1.2 1.8C1.8 1.2 1.5 -1.8 1.2 -3.5Z" fill="#5D4037"/>
+  <!-- Head with beak holding snake -->
+  <path d="M-0.8 -3.8C-1.2 -4.8 -0.5 -5.8 0.5 -5.8C1.5 -5.8 2.2 -5.2 2.5 -4.2C2 -3.8 1 -3.5 0.2 -3.5L-0.8 -3.8Z" fill="#8D6E63"/>
+  <path d="M1.8 -4.5L2.8 -4.2L2 -3.6Z" fill="#FFB300"/>
+  <!-- Tail feathers -->
+  <path d="M-1.2 1.5L-2 3.8L-0.5 3.2L0 4L0.5 3.2L2 3.8L1.2 1.5Z" fill="#4E342E"/>
+  <!-- Golden accents / Talons -->
+  <path d="M-1.2 1.5L-1.8 2.2M1 1.5L1.6 2.2" stroke="#FFB300" stroke-width="0.6" stroke-linecap="round"/>
+</g>
 </g>
 <defs>
-<clipPath id="clip0_1_68">
+<clipPath id="clip0_1_mx_es">
 <rect width="50" height="50" fill="white"/>
 </clipPath>
 </defs>

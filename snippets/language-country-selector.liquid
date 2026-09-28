@@ -1,20 +1,28 @@
 {% assign display = display | default: 'language' %}
 
 {% if display == 'language' %}
-  {%- assign supported_language_flags = 'cn,cz,de,dk,en,en-gb,en-us,es,fi,fr,gr,it,ja,ko,nl,no,pl,pt,se,th,tr,us,vi,ar,he,pt-br,ru' | split: ',' %}
+  {%- assign supported_language_flags = 'cn,cz,de,dk,en,en-gb,en-us,es,fi,fr,gr,it,ja,ko,nl,no,pl,pt,se,th,tr,us,vi,ar,he,pt-br,ru,mx' | split: ',' %}
+  {%- liquid
+    assign current_flag = localization.language.iso_code
+    if current_flag == 'es'
+      assign current_flag = 'mx'
+    elsif current_flag == 'en'
+      assign current_flag = 'us'
+    endif
+  -%}
   <li class="sub lang {{ extra_classes }}{% if hide %} mobile-only{% endif %}" data-title="{{ 'header.language' | t }}">
     {%- if origin == 'footer' -%}
       <a class="toggle mobile-hide" href="./">
-        {%- if supported_language_flags contains localization.language.iso_code -%}
-          <img src="{{ 'flag-' | append: localization.language.iso_code | append: '.svg' | asset_url }}"
+        {%- if supported_language_flags contains current_flag -%}
+          <img src="{{ 'flag-' | append: current_flag | append: '.svg' | asset_url }}"
                alt="{{ 'header.flag_of' | t: country: localization.language.name }}" width="24" height="24">
         {% else %}
           <span>{{ localization.language.iso_code | upcase }}</span>
         {%- endif -%}
       </a>
       <a class="toggle mobile-only" href="./" aria-controls="nav">
-        {%- if supported_language_flags contains localization.language.iso_code -%}
-          <img src="{{ 'flag-' | append: localization.language.iso_code | append: '.svg' | asset_url }}"
+        {%- if supported_language_flags contains current_flag -%}
+          <img src="{{ 'flag-' | append: current_flag | append: '.svg' | asset_url }}"
                alt="{{ 'header.flag_of' | t: country: localization.language.name }}" width="24" height="24">
         {% else %}
           <span>{{ localization.language.iso_code | upcase }}</span>
@@ -22,8 +30,8 @@
       </a>
     {%- else -%}
       <a class="toggle" href="./">
-        {%- if supported_language_flags contains localization.language.iso_code -%}
-          <img src="{{ 'flag-' | append: localization.language.iso_code | append: '.svg' | asset_url }}"
+        {%- if supported_language_flags contains current_flag -%}
+          <img src="{{ 'flag-' | append: current_flag | append: '.svg' | asset_url }}"
                alt="{{ 'header.flag_of' | t: country: localization.language.name }}" width="24" height="24">
         {% else %}
           <span>{{ localization.language.iso_code | upcase }}</span>
@@ -33,10 +41,18 @@
     {%- form 'localization', class: 'localization-form' -%}
       <ul>
         {%- for language in localization.available_languages -%}
+          {%- liquid
+            assign item_flag = language.iso_code
+            if item_flag == 'es'
+              assign item_flag = 'mx'
+            elsif item_flag == 'en'
+              assign item_flag = 'us'
+            endif
+          -%}
           <li>
-            {%- if supported_language_flags contains language.iso_code -%}
+            {%- if supported_language_flags contains item_flag -%}
               <img
-                      src="{{ 'flag-' | append: language.iso_code | append: '.svg' | asset_url }}"
+                      src="{{ 'flag-' | append: item_flag | append: '.svg' | asset_url }}"
                       alt="{{ 'header.flag_of' | t: country: language.endonym_name }}"
                       width="24"
                       height="24"
