@@ -613,16 +613,22 @@ span.overlay-gradient:not(.s1bx)::selection, .overlay-img[style*="background"]:n
 
   /*[data-whatin="mouse"] #nav > ul > li:not(.disabled, .inactive):hover > a, [data-whatin="mouse"] #nav > ul > li:not(.disabled, .inactive) > a:hover { color: var(--top_nav_fg_hover); }*/
   [data-whatin="mouse"] #nav > ul > li > a.s1bx:hover { color: var(--theme_btn_text); }
-  #nav > ul > li:not(.show-all) > a:not(.toggle, .has-s1bx):after {
+  #nav > ul > li:not(.show-all, .nav-catalog-item) > a:not(.toggle, .has-s1bx, .nav-catalog-btn):after {
     content: ""; display: block; position: absolute; left: var(--l0ra); right: var(--lar0); bottom: calc(var(--nav_height) * 0.25); z-index: -1; width: var(--w); height: 2px; background: var(--top_nav_fg);
     transform-origin: var(--text_align_end) center; transform: scale(0,1);
   }
   /*[data-whatin="mouse"] #nav > ul > li:not(.disabled, .inactive, .show-all):hover > a:not(:has(.s1bx)):after, [data-whatin="mouse"] #nav > ul > li:not(.disabled, .inactive, .show-all) > a:not(:has(.s1bx)):hover:after { */
-  [data-whatin="mouse"] #nav > ul > li:not(.disabled, .inactive, .show-all):hover > a:after, [data-whatin="mouse"] #nav > ul > li:not(.disabled, .inactive, .show-all) > a:hover:after {
+  [data-whatin="mouse"] #nav > ul > li:not(.disabled, .inactive, .show-all, .nav-catalog-item):hover > a:not(.nav-catalog-btn):after, [data-whatin="mouse"] #nav > ul > li:not(.disabled, .inactive, .show-all, .nav-catalog-item) > a:not(.nav-catalog-btn):hover:after {
     transform-origin: var(--text_align_start) center; transform: scale(1,1);
   }
   #nav > ul > li > a.has-s1bx:after { --top_nav_fg: rgba(0,0,0,0); }
   #nav > ul > li > a:has(.s1bx):after { --top_nav_fg: rgba(0,0,0,0); }
+  #nav > ul > li.nav-catalog-item > a:after,
+  #nav > ul > li.nav-catalog-item .nav-catalog-btn:after,
+  .nav-catalog-btn:after {
+    display: none !important;
+    content: none !important;
+  }
 }
 @media only screen and (max-width: 1000px) {
   .m6cl > header, .m6cl > aside { transition-property: transform, visibility, opacity; transition-duration: 0.4s; transition-timing-function: cubic-bezier(.4,0,.2,1); transition-delay: 0s; }
