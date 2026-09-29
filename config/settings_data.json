@@ -9,6 +9,7 @@
  */
 {
   "current": {
+    "favicon": "shopify://shop_images/favicon.png",
     "logo": "shopify://shop_images/arsenal_logo_svg.svg",
     "width": 1600,
     "everything_rounded": true,
