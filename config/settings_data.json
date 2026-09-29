@@ -111,6 +111,7 @@
     "social_facebook": "https://www.facebook.com/arsenalinternational",
     "social_twitter": "https://x.com/mexico_arsenal",
     "social_tiktok": "https://www.tiktok.com/@arsenalprotectionmexico?_t=8oRC6RylJYL&_r=1",
+    "show_cookiebanner": true,
     "checkout_logo_size": "small",
     "checkout_body_background_color": "#f6f6f6",
     "checkout_sidebar_background_color": "#ffffff",
