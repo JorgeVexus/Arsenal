@@ -795,7 +795,7 @@ div.stl-profile-card-{{ section.id }}.is-active {
       position: relative !important;
       overflow: hidden !important;
       isolation: isolate !important;
-      background: #0e0e12 !important;
+      background: rgba(14, 14, 18, 0.8) !important;
       background-color: #0e0e12 !important;
       border: 1.5px solid {{ accent_color }} !important;
       border-radius: 16px !important;
@@ -858,7 +858,7 @@ div.stl-profile-card-{{ section.id }}.is-active {
         id="stl-card-{{ section.id }}-{{ forloop.index0 }}"
         data-index="{{ forloop.index0 }}"
         data-block-id="{{ block.id }}"
-        style="position: relative !important; overflow: hidden !important; isolation: isolate !important; background: #0e0e12 !important; background-color: #0e0e12 !important; border: 1.5px solid {{ accent_color }} !important; border-radius: 16px !important; color: #ffffff !important; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8) !important;"
+        style="position: relative !important; overflow: hidden !important; isolation: isolate !important; background: rgba(14, 14, 18, 0.8) !important; background-color: rgba(14, 14, 18, 0.8) !important; border: 1.5px solid {{ accent_color }} !important; border-radius: 16px !important; color: #ffffff !important; box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8) !important;"
       >
         <div class="stl-card-header-row" style="display: flex !important; align-items: center !important; justify-content: space-between !important; margin-bottom: 6px !important;">
           {%- if block.settings.tagline != blank -%}
