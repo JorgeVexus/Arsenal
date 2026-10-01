@@ -536,7 +536,7 @@
         "title": "Equipamiento Táctico por Perfil",
         "bg_color": "#09090b",
         "accent_color": "#ea5c10",
-        "card_position": "bottom-right",
+        "card_position": "floating",
         "auto_play": false,
         "auto_play_speed": 5,
         "padding_top": 36,
