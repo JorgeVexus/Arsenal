@@ -193,7 +193,7 @@
         "menu": "main",
         "menubar_height": "55px",
         "menu_layout": "dropdown",
-        "show_dropdown_images": true,
+        "show_dropdown_images": false,
         "show_dropdown_images_autofill": true,
         "show_dropdown_images_rounded": true,
         "show_dropdown_images_fill": true,
