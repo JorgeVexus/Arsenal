@@ -32,7 +32,7 @@
     "enable_color_swatches": true,
     "color_swatch_name": "Color",
     "color_swatch_hexes": "Black: #494949\nSilver: #A3A3A3\nGold: #C3A67A\nBlue: #5E789D\nGrey: #C4C4C4\nWood: #E4DBCB\nBrown: #998787\nAluminum: #C4C4C4\nGold tone: #C3A67A\nBronze tone: #998787\nAntharacite: #3E3E3E\nWalnut: #543928\nOak: #E4DBCB\nNordic ice: #DCDAE4\nNordic weave: #B8A381\nDark oak: #19323C",
-    "primary_font": "sans_serif_n4",
+    "primary_font": "sans_serif_n7",
     "secondary_font": "sans_serif_n4",
     "custom_primary_font_name": "",
     "custom_primary_font_file": "",
