@@ -153,6 +153,9 @@
         "e32d1582-d771-4b1f-b77d-7a48610c4f5d",
         "9f1cee36-d28c-48b4-af2d-8fed4e191be8"
       ],
+      "custom_css": [
+        "#nav > ul > li > ul a {font-weight: 400 !important;}"
+      ],
       "settings": {
         "logo_height": 28,
         "layout": "layout_1",
