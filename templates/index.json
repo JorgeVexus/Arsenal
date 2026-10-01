@@ -486,8 +486,8 @@
             "description": "Protección balística y equipamiento táctico para servicios de custodia, traslado y resguardo de valores.",
             "cta_text": "SOLICITAR ASESORÍA",
             "cta_link": "/pages/contacto",
-            "pos_x": 49,
-            "pos_y": 7,
+            "pos_x": 50,
+            "pos_y": 29,
             "pos_x_mobile": 49,
             "pos_y_mobile": 10
           }
