@@ -14,7 +14,9 @@
       "disabled": true,
       "settings": {
         "hide_mobile": true,
-        "back_button": false
+        "back_button": false,
+        "margin_top": 50,
+        "margin_top_mobile": 25
       }
     },
     "main-product": {
@@ -154,7 +156,7 @@
         "images_vertical_position": 0,
         "enable_custom_font_size": false,
         "font_size": "14px",
-        "show_product_description": false,
+        "show_product_description": true,
         "title_size": "h2",
         "show_product_description_drawer": true,
         "product_description_enable_read_more": true,

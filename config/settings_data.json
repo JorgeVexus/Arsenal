@@ -88,6 +88,7 @@
     "search_drawer_popular_products_title": "Popular products",
     "stock_label_qty": 5,
     "show_product_stock": true,
+    "product_short_description": "product_description",
     "layout_productcard": "quickshop",
     "quickshop_behavior": "on_hover",
     "cart_icon_no_text": true,
