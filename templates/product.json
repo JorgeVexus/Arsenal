@@ -158,7 +158,7 @@
         "font_size": "14px",
         "show_product_description": true,
         "title_size": "h2",
-        "show_product_description_drawer": true,
+        "show_product_description_drawer": false,
         "product_description_enable_read_more": true,
         "product_description_mobile_collapse": true,
         "images_layout_mobile": "full_width",
