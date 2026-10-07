@@ -40,6 +40,7 @@
         },
         "short_description": {
           "type": "short_description",
+          "disabled": true,
           "settings": {
             "show_read_more": true
           }
@@ -63,6 +64,12 @@
             "show_selected_variant_images": true,
             "selected_variant_images_source": "default",
             "variant_images_metafield": "custom.images"
+          }
+        },
+        "custom_liquid_kgjkfc": {
+          "type": "custom_liquid",
+          "settings": {
+            "custom_liquid": "<div class=\"rte\">\n  {{ product.description }}\n</div>"
           }
         },
         "90724a70-740a-4cc9-984c-764e1d76a5bd": {
@@ -138,6 +145,7 @@
         "short_description",
         "300dd8ed-65d7-4403-a78c-0f22925cfb25",
         "variant_selection",
+        "custom_liquid_kgjkfc",
         "90724a70-740a-4cc9-984c-764e1d76a5bd",
         "inventory",
         "b021209e-de1b-4192-868f-19ef66228ad9",
@@ -156,7 +164,7 @@
         "images_vertical_position": 0,
         "enable_custom_font_size": false,
         "font_size": "14px",
-        "show_product_description": true,
+        "show_product_description": false,
         "title_size": "h2",
         "show_product_description_drawer": false,
         "product_description_enable_read_more": true,
