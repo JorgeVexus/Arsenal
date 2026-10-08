@@ -172,7 +172,7 @@
         "show_product_description": false,
         "title_size": "h2",
         "show_product_description_drawer": false,
-        "product_description_enable_read_more": true,
+        "product_description_enable_read_more": false,
         "product_description_mobile_collapse": true,
         "images_layout_mobile": "full_width",
         "tabs_title_size": "h2"
