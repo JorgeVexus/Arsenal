@@ -153,6 +153,11 @@
         "2a042ced-92d5-47ef-a7fe-11174f24efcb",
         "27aa4d7c-5003-431c-b837-f6b3936b3b75"
       ],
+      "custom_css": [
+        ".check.box:has(input[name*=\"Talla del calzado\"]){gap:6px!important}",
+        ".check.box:has(input[name*=\"Talla del calzado\"])>li{margin:0!important;border:0!important;flex:0 0 auto!important}",
+        ".check.box input[name*=\"Talla del calzado\"]+label{min-width:34px!important;min-height:36px!important;height:36px!important;padding:0 8px!important;font-size:13px!important;border-radius:0!important}"
+      ],
       "settings": {
         "width": "boxed",
         "images_layout": "grid",
