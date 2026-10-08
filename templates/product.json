@@ -167,7 +167,7 @@
         "fill_not_first": false,
         "images_padding": 0,
         "images_vertical_position": 0,
-        "enable_custom_font_size": false,
+        "enable_custom_font_size": true,
         "font_size": "14px",
         "show_product_description": false,
         "title_size": "h2",
