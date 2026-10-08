@@ -159,8 +159,8 @@
         ".check.box input + label {box-sizing: border-box !important; width: auto !important; min-width: 29px !important; height: 29px !important; min-height: 29px !important; padding: 0 4px !important; font-size: 12px !important; border-radius: 0 !important; display: grid !important; place-items: center !important; white-space: nowrap !important;}"
       ],
       "settings": {
-        "width": "boxed",
-        "images_layout": "grid",
+        "width": "wide",
+        "images_layout": "rows",
         "images_grid_spacing": 30,
         "custom_product_image_ratio": 115,
         "fill_images": false,
