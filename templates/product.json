@@ -132,8 +132,8 @@
           "settings": {
             "share_whatsapp": true,
             "share_facebook": true,
-            "share_twitter": true,
-            "share_pinterest": true,
+            "share_twitter": false,
+            "share_pinterest": false,
             "share_messenger": true,
             "share_email": true
           }

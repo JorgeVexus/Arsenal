@@ -167,6 +167,11 @@
           "predictive_body_selector": ".predictive-search-form__content-wrapper,.predictive-search",
           "predictive_body_selector_mobile": ""
         }
+      },
+      "16160716078332068383": {
+        "type": "shopify://apps/rubik-variant-images/blocks/rubik-variant-images/e684282e-1343-4a60-8fa2-6393aded15f6",
+        "disabled": false,
+        "settings": {}
       }
     },
     "color_schemes": {
