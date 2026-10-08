@@ -116,7 +116,7 @@
             "layout": "drawer",
             "collapse": false,
             "title_size": "h2",
-            "title": "Sizes",
+            "title": "Guía de tallas",
             "icon": "none",
             "header_image_width": 25,
             "text": "",
@@ -154,9 +154,9 @@
         "27aa4d7c-5003-431c-b837-f6b3936b3b75"
       ],
       "custom_css": [
-        ".check.box{gap:6px!important}",
-        ".check.box>li{margin:0!important;border:0!important;flex:0 0 auto!important}",
-        ".check.box input+label{box-sizing:border-box!important;width:auto!important;min-width:29px!important;height:29px!important;min-height:29px!important;padding:0 4px!important;font-size:12px!important;border-radius:0!important;display:grid!important;place-items:center!important;white-space:nowrap!important}"
+        ".check.box {gap: 6px !important;}",
+        ".check.box > li {margin: 0 !important; border: 0 !important; flex: 0 0 auto !important;}",
+        ".check.box input + label {box-sizing: border-box !important; width: auto !important; min-width: 29px !important; height: 29px !important; min-height: 29px !important; padding: 0 4px !important; font-size: 12px !important; border-radius: 0 !important; display: grid !important; place-items: center !important; white-space: nowrap !important;}"
       ],
       "settings": {
         "width": "boxed",
