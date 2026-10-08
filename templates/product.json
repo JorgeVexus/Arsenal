@@ -163,7 +163,7 @@
         "images_layout": "collage",
         "images_grid_spacing": 0,
         "custom_product_image_ratio": 100,
-        "fill_images": false,
+        "fill_images": true,
         "fill_not_first": false,
         "images_padding": 0,
         "images_vertical_position": 0,
