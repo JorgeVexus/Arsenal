@@ -156,7 +156,7 @@
       "custom_css": [
         ".check.box{gap:6px!important}",
         ".check.box>li{margin:0!important;border:0!important;flex:0 0 auto!important}",
-        ".check.box input+label{box-sizing:border-box!important;min-width:34px!important;width:auto!important;min-height:36px!important;height:36px!important;padding:0 8px!important;font-size:13px!important;border-radius:0!important}"
+        ".check.box input+label{box-sizing:border-box!important;width:29px!important;min-width:29px!important;height:29px!important;min-height:29px!important;padding:0!important;font-size:12px!important;border-radius:0!important;display:flex!important;align-items:center!important;justify-content:center!important}"
       ],
       "settings": {
         "width": "boxed",
