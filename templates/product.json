@@ -162,7 +162,7 @@
         "width": "wide",
         "images_layout": "collage",
         "images_grid_spacing": 11,
-        "custom_product_image_ratio": 115,
+        "custom_product_image_ratio": 75,
         "fill_images": false,
         "fill_not_first": false,
         "images_padding": 0,
