@@ -160,7 +160,7 @@
       ],
       "settings": {
         "width": "boxed",
-        "images_layout": "grid",
+        "images_layout": "rows",
         "images_grid_spacing": 30,
         "custom_product_image_ratio": 115,
         "fill_images": false,
