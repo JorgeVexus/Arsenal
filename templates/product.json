@@ -120,7 +120,7 @@
             "icon": "pencil",
             "header_image_width": 25,
             "text": "<p><br/><br/></p>",
-            "page": "size-chart",
+            "page": "{{ product.metafields.custom.guia_de_tallas.value }}",
             "image_width": 465,
             "liquid": "",
             "html": "",
