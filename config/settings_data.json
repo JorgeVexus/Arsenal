@@ -86,6 +86,7 @@
     "search_drawer_enable_articles": true,
     "search_drawer_popular_collections_title": "Popular collections",
     "search_drawer_popular_products_title": "Popular products",
+    "show_stock_label": false,
     "stock_label_qty": 5,
     "show_product_stock": true,
     "product_short_description": "product_description",
