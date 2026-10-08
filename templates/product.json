@@ -160,8 +160,8 @@
       ],
       "settings": {
         "width": "wide",
-        "images_layout": "rows",
-        "images_grid_spacing": 30,
+        "images_layout": "collage",
+        "images_grid_spacing": 11,
         "custom_product_image_ratio": 115,
         "fill_images": false,
         "fill_not_first": false,
