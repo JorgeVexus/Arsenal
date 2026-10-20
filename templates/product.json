@@ -141,7 +141,7 @@
         "complementary_products_GwmiLa": {
           "type": "complementary_products",
           "settings": {
-            "layout": "tab",
+            "layout": "accordion",
             "collapse": true,
             "title_size": "h2",
             "title": "Pairs well with",
