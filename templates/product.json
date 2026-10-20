@@ -137,6 +137,23 @@
             "share_messenger": true,
             "share_email": true
           }
+        },
+        "complementary_products_GwmiLa": {
+          "type": "complementary_products",
+          "settings": {
+            "layout": "tab",
+            "collapse": true,
+            "title_size": "h2",
+            "title": "Pairs well with",
+            "icon": "none",
+            "header_image_width": 20,
+            "products_show_image": true,
+            "products_show_vendor": false,
+            "products_show_title": true,
+            "products_show_rating": false,
+            "products_show_price": true,
+            "products_show_stock": false
+          }
         }
       },
       "block_order": [
@@ -151,7 +168,8 @@
         "b021209e-de1b-4192-868f-19ef66228ad9",
         "quote_button_rVkGMM",
         "2a042ced-92d5-47ef-a7fe-11174f24efcb",
-        "27aa4d7c-5003-431c-b837-f6b3936b3b75"
+        "27aa4d7c-5003-431c-b837-f6b3936b3b75",
+        "complementary_products_GwmiLa"
       ],
       "custom_css": [
         ".check.box {gap: 6px !important;}",
