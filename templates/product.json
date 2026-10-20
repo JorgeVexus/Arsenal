@@ -137,23 +137,6 @@
             "share_messenger": true,
             "share_email": true
           }
-        },
-        "complementary_products_GwmiLa": {
-          "type": "complementary_products",
-          "settings": {
-            "layout": "none",
-            "collapse": true,
-            "title_size": "h1",
-            "title": "Completa tu equipamiento",
-            "icon": "none",
-            "header_image_width": 20,
-            "products_show_image": true,
-            "products_show_vendor": false,
-            "products_show_title": true,
-            "products_show_rating": false,
-            "products_show_price": false,
-            "products_show_stock": false
-          }
         }
       },
       "block_order": [
@@ -168,8 +151,7 @@
         "b021209e-de1b-4192-868f-19ef66228ad9",
         "quote_button_rVkGMM",
         "2a042ced-92d5-47ef-a7fe-11174f24efcb",
-        "27aa4d7c-5003-431c-b837-f6b3936b3b75",
-        "complementary_products_GwmiLa"
+        "27aa4d7c-5003-431c-b837-f6b3936b3b75"
       ],
       "custom_css": [
         ".check.box {gap: 6px !important;}",
@@ -337,6 +319,16 @@
         "spacing_mobile": 0,
         "fix_zindex": 0
       }
+    },
+    "section_custom_liquid_kiH88U": {
+      "type": "section-custom-liquid",
+      "name": "t:sections.custom_liquid.presets.name",
+      "settings": {
+        "custom_liquid": "",
+        "spacing_desktop": 50,
+        "spacing_mobile": 30,
+        "fix_zindex": 0
+      }
     }
   },
   "order": [
@@ -345,6 +337,7 @@
     "abe883bc-bf09-4d60-91c5-c8adbae0b6d4",
     "304b71b0-1b35-4db8-843c-d1a362e59230",
     "dff5d02d-d189-4dbe-8dd1-a9089b67d6dd",
-    "recommendations"
+    "recommendations",
+    "section_custom_liquid_kiH88U"
   ]
 }
