@@ -141,9 +141,9 @@
         "complementary_products_GwmiLa": {
           "type": "complementary_products",
           "settings": {
-            "layout": "accordion",
+            "layout": "none",
             "collapse": true,
-            "title_size": "h2",
+            "title_size": "h1",
             "title": "Completa tu equipamiento",
             "icon": "none",
             "header_image_width": 20,
@@ -151,7 +151,7 @@
             "products_show_vendor": false,
             "products_show_title": true,
             "products_show_rating": false,
-            "products_show_price": true,
+            "products_show_price": false,
             "products_show_stock": false
           }
         }
