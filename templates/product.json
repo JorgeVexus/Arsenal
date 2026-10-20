@@ -295,6 +295,7 @@
     },
     "recommendations": {
       "type": "product-recommendations",
+      "disabled": true,
       "settings": {
         "limit": 8,
         "number_of_items": 5,
