@@ -11,30 +11,36 @@
     assign image = product.featured_image | image_url: width: 600, height: 500, crop: 'center'
     assign og_image_tag = '<meta property="og:image" content="' | append: image | append: '">'
     assign twitter_image_tag = '<meta property="twitter:image" content="' | append: image | append: '">'
+
   elsif request.page_type == 'article'
     assign og_title = article.title | strip_html
     assign og_type = 'article'
     assign og_description = article.excerpt_or_content | strip_html
+
     if article.image
       assign image = article.image | image_url: width: 600, height: 500, crop: 'center'
       assign og_image_tag = '<meta property="og:image" content="http:' | append: image | append: '">'
       assign og_image_secure_url_tag = '<meta property="og:image:secure_url" content="https:' | append: image | append: '">'
       assign twitter_image_tag = '<meta property="twitter:image" content="http:' | append: image | append: '">'
     endif
+
   elsif request.page_type == 'collection'
     assign og_title = collection.title | strip_html
     assign og_type = 'product.group'
+
     if collection.image
       assign image = collection.image | image_url: width: 600, height: 500, crop: 'center'
       assign og_image_tag = '<meta property="og:image" content="http:' | append: image | append: '">'
       assign og_image_secure_url_tag = '<meta property="og:image:secure_url" content="https:' | append: image | append: '">'
       assign twitter_image_tag = '<meta property="twitter:image" content="http:' | append: image | append: '">'
     endif
+
   elsif request.page_type == 'password'
     assign og_title = shop.name
     assign og_url = shop.url
     assign og_description = shop.description | default: shop.name
   endif
+
   if og_image_tag == ''
     if page_image
       assign image = page_image | image_url: width: 1200, height: 630, crop: 'center'
@@ -48,27 +54,57 @@
       assign twitter_image_tag = '<meta property="twitter:image" content="https:' | append: default_og_image | append: '">'
     endif
   endif
+
+  comment
+    Vista previa exclusiva de la landing NIJ 0101.07.
+  endcomment
+
+  if request.page_type == 'page' and page.handle == 'nij-0101-07'
+    assign og_title = 'NIJ 0101.07 | Arsenal Protection Mexico'
+    assign og_type = 'website'
+    assign og_description = 'Conoce los cambios de la norma NIJ 0101.07 y explora los paneles balísticos de Arsenal Protection Mexico. Solicita asesoría para tu institución.'
+
+    assign nij_social_image = images['Paneles_balisticos_con_reflejo_sutil.png']
+
+    if nij_social_image != blank
+      assign nij_social_image_url = nij_social_image | image_url: width: 1200
+
+      unless nij_social_image_url contains '://'
+        assign nij_social_image_url = 'https:' | append: nij_social_image_url
+      endunless
+
+      assign og_image_tag = '<meta property="og:image" content="' | append: nij_social_image_url | append: '">'
+      assign og_image_secure_url_tag = '<meta property="og:image:secure_url" content="' | append: nij_social_image_url | append: '">'
+      assign twitter_image_tag = '<meta property="twitter:image" content="' | append: nij_social_image_url | append: '">'
+    endif
+  endif
 -%}
+
 <meta name="msapplication-config" content="{{ 'browserconfig.xml' | asset_url }}">
-<meta property="og:title" content="{{ og_title }}">
+<meta property="og:title" content="{{ og_title | escape }}">
 <meta property="og:type" content="{{ og_type }}">
-<meta property="og:description" content="{{ og_description }}">
-<meta property="og:site_name" content="{{ shop.name }}">
-<meta property="og:url" content="{{ og_url }}">
+<meta property="og:description" content="{{ og_description | escape }}">
+<meta property="og:site_name" content="{{ shop.name | escape }}">
+<meta property="og:url" content="{{ og_url | escape }}">
+
 {% if request.page_type == 'product' %}
   {% assign current_variant = product.selected_or_first_available_variant %}
   <meta property="product:price:amount" content="{{ current_variant.price | divided_by: 100.00 }}">
   <meta property="og:price:amount" content="{{ current_variant.price | divided_by: 100.00 }}">
   <meta property="og:price:currency" content="{{ cart.currency.iso_code }}">
-  <meta property="og:availability" content="{% if product.available %}instock{% else %}out of stock{% endif %}" />
+  <meta property="og:availability" content="{% if product.available %}instock{% else %}out of stock{% endif %}">
 {% endif %}
+
 {% if og_image_tag %}{{ og_image_tag }}{% endif %}
 {% if og_image_secure_url_tag %}{{ og_image_secure_url_tag }}{% endif %}
+
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ og_title }}">
-<meta name="twitter:description" content="{{ og_description }}">
-<meta name="twitter:site" content="{{ shop.name }}">
+<meta name="twitter:title" content="{{ og_title | escape }}">
+<meta name="twitter:description" content="{{ og_description | escape }}">
+<meta name="twitter:site" content="{{ shop.name | escape }}">
+
 {% if twitter_image_tag %}{{ twitter_image_tag }}{% endif %}
+
 <script type="application/ld+json">
   [
     {%- if request.page_type == 'product' -%}
@@ -77,18 +113,32 @@
         "@type": "Product",
         "name": "{{ product.title }}",
         "url": "{{ shop.url }}{{ product.url }}",
-        {%- if product.vendor != "" and product.vendor != "vendor-unknown" -%}"brand": { "@type": "Brand", "name": "{{ product.vendor }}" },{%- endif -%}
-        {%- if product.description != "" or product.descripton != blank or product.descripton != null -%}"description": {{ product.description | strip_html | json }},{%- endif -%}
-        {%- if product.featured_image -%}"image": "{{ product.featured_image | image_url: width: 600, height: 500 }}",{%- endif -%}
-        {%- if current_variant.barcode != "" -%}"gtin8": "{{ current_variant.barcode }}",{%- endif -%}
-        {%- if current_variant.sku != "" -%}"sku": "{{ current_variant.sku }}",{%- endif -%}
+        {%- if product.vendor != "" and product.vendor != "vendor-unknown" -%}
+          "brand": {
+            "@type": "Brand",
+            "name": "{{ product.vendor }}"
+          },
+        {%- endif -%}
+        {%- if product.description != "" or product.descripton != blank or product.descripton != null -%}
+          "description": {{ product.description | strip_html | json }},
+        {%- endif -%}
+        {%- if product.featured_image -%}
+          "image": "{{ product.featured_image | image_url: width: 600, height: 500 }}",
+        {%- endif -%}
+        {%- if current_variant.barcode != "" -%}
+          "gtin8": "{{ current_variant.barcode }}",
+        {%- endif -%}
+        {%- if current_variant.sku != "" -%}
+          "sku": "{{ current_variant.sku }}",
+        {%- endif -%}
         "offers": {
           "@type": "Offer",
           "price": "{{ current_variant.price | divided_by: 100.00 }}",
           "url": "{{ shop.url }}{{ product.url }}",
-          {%- assign date = 'now' | date: "%s" | plus : 31556926 %}
+          {%- assign date = 'now' | date: "%s" | plus: 31556926 %}
           "priceValidUntil": "{{ date | date: '%Y-%m-%d' }}",
-          "priceCurrency": "{{ cart.currency.iso_code }}"{%- if current_variant.inventory_quantity > 0 and current_variant.available -%},
+          "priceCurrency": "{{ cart.currency.iso_code }}"
+          {%- if current_variant.inventory_quantity > 0 and current_variant.available -%},
             "availability": "https://schema.org/InStock",
             "inventoryLevel": "{{ current_variant.inventory_quantity }}"
           {%- endif -%}
@@ -96,33 +146,33 @@
       },
     {%- elsif request.page_type == 'article' -%}
       {
-          "@context": "https://schema.org",
-          "@type": "Article",
-          "articleBody": {{ article.content | strip_html | json }},
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": {{ request.origin | append: page.url | json }}
-          },
-          "headline": {{ article.title | json }},
-          {% if article.excerpt != blank %}
-            "description": {{ article.excerpt | strip_html | json }},
-          {% endif %}
-      {% if article.image %}
-            "image": [
-               {{ article | image_url: width: 1920 | prepend: "https:" | json }}
-            ],
-          {% endif %}
-          "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
-          "dateCreated": {{ article.created_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
-          "author": {
-            "@type": "Person",
-            "name": {{ article.author | json }}
-          },
-          "publisher": {
-            "@type": "Organization",
-            "name": {{ shop.name | json }}
-          }
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "articleBody": {{ article.content | strip_html | json }},
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": {{ request.origin | append: page.url | json }}
         },
+        "headline": {{ article.title | json }},
+        {% if article.excerpt != blank %}
+          "description": {{ article.excerpt | strip_html | json }},
+        {% endif %}
+        {% if article.image %}
+          "image": [
+            {{ article | image_url: width: 1920 | prepend: "https:" | json }}
+          ],
+        {% endif %}
+        "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+        "dateCreated": {{ article.created_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+        "author": {
+          "@type": "Person",
+          "name": {{ article.author | json }}
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": {{ shop.name | json }}
+        }
+      },
     {% endif %}
     {
       "@context": "https://schema.org/",
