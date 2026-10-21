@@ -1163,36 +1163,7 @@
                                             {%- endif -%}
                                         </p>
                                         
-                                        {%- comment -%} Fecha de nacimiento (Mes y Año) {%- endcomment -%}
-                                        <p class="form-field">
-                                            <label>{{ default_dob_label }} <span class="overlay-theme">*</span></label>
-                                            <span class="dob-fields" style="display: flex; gap: 10px;">
-                                                <select id="quote-dob-month-{{ block.id }}" name="dob_month" required style="flex: 1;">
-                                                    <option value="">{{ default_dob_month }}</option>
-                                                    <option value="01">{% if is_en %}January{% else %}Enero{% endif %}</option>
-                                                    <option value="02">{% if is_en %}February{% else %}Febrero{% endif %}</option>
-                                                    <option value="03">{% if is_en %}March{% else %}Marzo{% endif %}</option>
-                                                    <option value="04">{% if is_en %}April{% else %}Abril{% endif %}</option>
-                                                    <option value="05">{% if is_en %}May{% else %}Mayo{% endif %}</option>
-                                                    <option value="06">{% if is_en %}June{% else %}Junio{% endif %}</option>
-                                                    <option value="07">{% if is_en %}July{% else %}Julio{% endif %}</option>
-                                                    <option value="08">{% if is_en %}August{% else %}Agosto{% endif %}</option>
-                                                    <option value="09">{% if is_en %}September{% else %}Septiembre{% endif %}</option>
-                                                    <option value="10">{% if is_en %}October{% else %}Octubre{% endif %}</option>
-                                                    <option value="11">{% if is_en %}November{% else %}Noviembre{% endif %}</option>
-                                                    <option value="12">{% if is_en %}December{% else %}Diciembre{% endif %}</option>
-                                                </select>
-                                                <select id="quote-dob-year-{{ block.id }}" name="dob_year" required style="flex: 1;">
-                                                    <option value="">{{ default_dob_year }}</option>
-                                                    {%- assign current_year = 'now' | date: '%Y' -%}
-                                                    {%- assign start_year = current_year | minus: 100 -%}
-                                                    {%- for year in (start_year..current_year) reversed -%}
-                                                        <option value="{{ year }}">{{ year }}</option>
-                                                    {%- endfor -%}
-                                                </select>
-                                            </span>
-                                            <small class="form-hint" style="color: var(--color-text-muted); font-size: 12px; margin-top: 5px; display: block;">{{ default_dob_hint }}</small>
-                                        </p>
+                                      
                                         
                                         {%- comment -%} Mensaje adicional {%- endcomment -%}
                                         <p class="form-field">
