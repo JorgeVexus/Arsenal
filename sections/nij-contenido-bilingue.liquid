@@ -1,0 +1,4219 @@
+{% comment %}Arsenal NIJ: Spanish/English storefront content. Native section locale keys. {% endcomment %}
+<style>
+  #shopify-section-{{ section.id }} { z-index: {{ section.settings.fix_zindex }} !important; }
+  @media only screen and (min-width: 47.5em) {
+    #shopify-section-{{ section.id }} { margin-bottom: {{ section.settings.spacing_desktop }}px; }
+    {% if section.settings.spacing_desktop < 0 %}
+    #shopify-section-{{ section.id }} + *.has-kinetic-text { pointer-events: none; }
+    {% endif %}
+  }
+  @media only screen and (max-width: 47.5em) {
+    #shopify-section-{{ section.id }} { margin-bottom: {{ section.settings.spacing_mobile }}px; }
+    {% if section.settings.spacing_mobile < 0 %}
+    #shopify-section-{{ section.id }} + *.has-kinetic-text { pointer-events: none; }
+    {% endif %}
+  }
+</style>
+{% case section.settings.nij_part %}
+{% when 'p01' %}
+<style>
+  .ars-nij-intro {
+    background: #fff;
+    color: #1d2426;
+    padding: 40px 24px;
+    font-family: var(--font-body-family, inherit);
+    font-style: var(--font-body-style, normal);
+    font-weight: var(--font-body-weight, 400);
+    line-height: 1.5;
+    scroll-margin-top: 100px;
+  }
+
+  .ars-nij-intro,
+  .ars-nij-intro * {
+    box-sizing: border-box;
+  }
+
+  .ars-nij-intro__inner {
+    max-width: 1250px;
+    margin: 0 auto;
+  }
+
+  .ars-nij-intro .ars-nij-intro__label {
+    margin: 0 0 20px;
+    color: #dd5409;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .ars-nij-intro__heading {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    align-items: end;
+    gap: 40px;
+    margin-bottom: 32px;
+  }
+
+  .ars-nij-intro h2,
+  .ars-nij-intro h3 {
+    font-family: var(--font-heading-family, inherit);
+    font-style: var(--font-heading-style, normal);
+    font-weight: var(--font-heading-weight, 700);
+    color: #1d2426;
+    line-height: 1;
+    text-transform: none;
+  }
+
+  .ars-nij-intro h2 {
+    margin: 0;
+    font-size: 64px;
+    letter-spacing: -1.5px;
+  }
+
+  .ars-nij-intro .ars-nij-intro__summary {
+    max-width: 430px;
+    margin: 0;
+    color: #626c70;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .ars-nij-intro__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-top: 1px solid #d9ddde;
+    border-bottom: 1px solid #d9ddde;
+  }
+
+  .ars-nij-intro__item {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    align-items: start;
+    gap: 18px;
+    padding: 28px 32px 28px 0;
+  }
+
+  .ars-nij-intro__item + .ars-nij-intro__item {
+    border-left: 1px solid #d9ddde;
+    padding-left: 32px;
+    padding-right: 0;
+  }
+
+  .ars-nij-intro__number {
+    color: #b9bfc1;
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  .ars-nij-intro .ars-nij-intro__standard {
+    margin: 0 0 12px;
+    color: #dd5409;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    line-height: 1;
+  }
+
+  .ars-nij-intro h3 {
+    margin: 0 0 16px;
+    font-size: clamp(24px, 2.3vw, 30px);
+    letter-spacing: -0.5px;
+  }
+
+  .ars-nij-intro .ars-nij-intro__copy {
+    margin: 0 0 16px;
+    color: #626c70;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .ars-nij-intro a {
+    display: inline-block;
+    padding: 4px 0;
+    color: #1d2426;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 1.5;
+    text-transform: none;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .ars-nij-intro a:hover {
+    color: #dd5409;
+  }
+
+  .ars-nij-intro a:focus-visible {
+    outline: 2px solid #dd5409;
+    outline-offset: 5px;
+  }
+
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    .ars-nij-intro__heading {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .ars-nij-intro h2 {
+      font-size: 56px;
+    }
+
+    .ars-nij-intro .ars-nij-intro__summary {
+      max-width: 580px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ars-nij-intro {
+      padding: 28px 20px;
+    }
+
+    .ars-nij-intro .ars-nij-intro__label {
+      margin-bottom: 16px;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .ars-nij-intro__heading {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .ars-nij-intro h2 {
+      font-size: 40px;
+      letter-spacing: -1px;
+    }
+
+    .ars-nij-intro .ars-nij-intro__summary {
+      font-size: 15px;
+    }
+
+    .ars-nij-intro__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ars-nij-intro__item,
+    .ars-nij-intro__item + .ars-nij-intro__item {
+      grid-template-columns: 30px minmax(0, 1fr);
+      gap: 12px;
+      padding: 22px 0;
+      border-left: none;
+    }
+
+    .ars-nij-intro__item + .ars-nij-intro__item {
+      border-top: 1px solid #d9ddde;
+    }
+
+    .ars-nij-intro__number {
+      font-size: 28px;
+    }
+
+    .ars-nij-intro .ars-nij-intro__standard {
+      margin-bottom: 10px;
+      font-size: 12px;
+    }
+
+    .ars-nij-intro h3 {
+      margin-bottom: 12px;
+      font-size: 24px;
+    }
+
+    .ars-nij-intro .ars-nij-intro__copy {
+      margin-bottom: 14px;
+      font-size: 15px;
+    }
+
+    .ars-nij-intro a {
+      font-size: 11px;
+    }
+  }
+</style>
+
+<section
+  class="ars-nij-intro"
+  id="entender-actualizacion"
+  aria-labelledby="ars-nij-intro-title"
+>
+  <div class="ars-nij-intro__inner">
+
+    <p class="ars-nij-intro__label">
+      {{ 'nij.p01.text_0dc098a9e1' | t | escape }}
+    </p>
+
+    <div class="ars-nij-intro__heading">
+      <h2 id="ars-nij-intro-title">{{ 'nij.p01.heading_html' | t }}</h2>
+
+      <p class="ars-nij-intro__summary">
+        {{ 'nij.p01.text_fa3b7daf98' | t | escape }}
+      </p>
+    </div>
+
+    <div class="ars-nij-intro__grid">
+
+      <article class="ars-nij-intro__item">
+        <span class="ars-nij-intro__number" aria-hidden="true">01</span>
+
+        <div>
+          <p class="ars-nij-intro__standard">NIJ 0101.07</p>
+          <h3>{{ 'nij.p01.text_e86a48a4ea' | t | escape }}</h3>
+
+          <p class="ars-nij-intro__copy">
+            {{ 'nij.p01.text_e2266a9ddb' | t | escape }}
+          </p>
+
+          <a
+            href="https://nij.ojp.gov/topics/equipment-and-technology/ballistic-resistance-body-armor-nij-standard-010107"
+            target="_blank"
+            rel="noopener noreferrer"
+          >{{ 'nij.p01.text_033add5aba' | t | escape }}</a>
+        </div>
+      </article>
+
+      <article class="ars-nij-intro__item">
+        <span class="ars-nij-intro__number" aria-hidden="true">02</span>
+
+        <div>
+          <p class="ars-nij-intro__standard">NIJ 0123.00</p>
+          <h3>{{ 'nij.p01.text_a2c1711c03' | t | escape }}</h3>
+
+          <p class="ars-nij-intro__copy">
+            {{ 'nij.p01.text_4814564cd3' | t | escape }}
+          </p>
+
+          <a
+            href="https://nij.ojp.gov/topics/equipment-and-technology/specification-nij-ballistic-protection-levels-and-associated-test-threats-nij-standard-012300"
+            target="_blank"
+            rel="noopener noreferrer"
+          >{{ 'nij.p01.text_36fa6dbc99' | t | escape }}</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+{% when 'p02' %}
+<style>
+  .ars-compare {
+    background: #f3f4f1;
+    color: #1d2426;
+    padding: 40px 24px;
+    font-family: var(--font-body-family, inherit);
+    font-style: var(--font-body-style, normal);
+    font-weight: var(--font-body-weight, 400);
+    line-height: 1.5;
+    scroll-margin-top: 100px;
+  }
+
+  .ars-compare,
+  .ars-compare * {
+    box-sizing: border-box;
+  }
+
+  .ars-compare__inner {
+    max-width: 1250px;
+    margin: 0 auto;
+  }
+
+  .ars-compare .ars-compare__eyebrow {
+    color: #dd5409;
+    margin: 0 0 20px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  .ars-compare__heading {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 40px;
+    align-items: end;
+    margin-bottom: 32px;
+  }
+
+  .ars-compare h2 {
+    margin: 0;
+    color: #1d2426;
+    font-family: var(--font-heading-family, inherit);
+    font-style: var(--font-heading-style, normal);
+    font-weight: var(--font-heading-weight, 700);
+    font-size: 64px;
+    line-height: 1;
+    letter-spacing: -1.5px;
+    text-transform: none;
+  }
+
+  .ars-compare .ars-compare__intro {
+    max-width: 430px;
+    margin: 0;
+    color: #626c70;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  .ars-compare__radio {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .ars-compare__toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+
+  .ars-compare__filters {
+    display: inline-flex;
+    overflow: hidden;
+    border: 1px solid #cdd2d3;
+    border-radius: 3px;
+  }
+
+  .ars-compare__filters label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 22px;
+    margin: 0;
+    color: #626c70;
+    background: transparent;
+    font-size: 14px;
+    line-height: 1;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  .ars-compare__filters label + label {
+    border-left: 1px solid #cdd2d3;
+  }
+
+  .ars-compare__all:checked ~ .ars-compare__toolbar
+  .ars-compare__filter-all,
+  .ars-compare__handgun:checked ~ .ars-compare__toolbar
+  .ars-compare__filter-handgun,
+  .ars-compare__rifle:checked ~ .ars-compare__toolbar
+  .ars-compare__filter-rifle {
+    background: #dd5409;
+    color: #fff;
+  }
+
+  .ars-compare__all:focus-visible ~ .ars-compare__toolbar
+  .ars-compare__filter-all,
+  .ars-compare__handgun:focus-visible ~ .ars-compare__toolbar
+  .ars-compare__filter-handgun,
+  .ars-compare__rifle:focus-visible ~ .ars-compare__toolbar
+  .ars-compare__filter-rifle {
+    outline: 2px solid #1d2426;
+    outline-offset: -4px;
+  }
+
+  .ars-compare__handgun:checked ~ .ars-compare__table-wrap
+  tr[data-category="rifle"],
+  .ars-compare__rifle:checked ~ .ars-compare__table-wrap
+  tr[data-category="handgun"] {
+    display: none;
+  }
+
+  .ars-compare .ars-compare__units {
+    margin: 0;
+    font-size: 12px;
+    color: #626c70;
+    line-height: 1.5;
+  }
+
+  .ars-compare__table-wrap {
+    width: 100%;
+  }
+
+  .ars-compare table {
+    width: 100%;
+    margin: 0;
+    border-collapse: collapse;
+    table-layout: fixed;
+    background: #fff;
+    box-shadow: none;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .ars-compare th,
+  .ars-compare td {
+    padding: 22px 14px;
+    border: 1px solid #d9ddde;
+    text-align: left;
+    vertical-align: middle;
+    color: #1d2426;
+    overflow-wrap: break-word;
+  }
+
+  .ars-compare thead th {
+    font-family: var(--font-body-family, inherit);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-transform: none;
+  }
+
+  .ars-compare thead .ars-compare__before,
+  .ars-compare thead .ars-compare__changes {
+    background: #242b2d;
+    color: #fff;
+  }
+
+  .ars-compare thead .ars-compare__now {
+    background: #dd5409;
+    color: #fff;
+  }
+
+  .ars-compare thead .ars-compare__subhead {
+    background: #e8ece9;
+    color: #1d2426;
+  }
+
+  .ars-compare tbody th {
+    font-weight: inherit;
+    background: #fff;
+  }
+
+  .ars-compare .ars-compare__level {
+    display: block;
+    font-family: var(--font-heading-family, inherit);
+    font-style: var(--font-heading-style, normal);
+    font-weight: var(--font-heading-weight, 700);
+    font-size: 28px;
+    line-height: 1;
+    color: #1d2426;
+  }
+
+  .ars-compare td.ars-compare__old-ammo {
+    border-right: 3px solid #b9c1bf;
+  }
+
+  .ars-compare .ars-compare__new-badge {
+    display: inline-block;
+    margin-top: 9px;
+    padding: 4px 6px;
+    background: #fbe9de;
+    color: #b54106;
+    font-family: var(--font-body-family, inherit);
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.5px;
+  }
+
+  .ars-compare .ars-compare__ammo-list {
+    display: grid;
+    gap: 14px;
+  }
+
+  .ars-compare .ars-compare__ammo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .ars-compare .ars-compare__ammo-name {
+    display: block;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #1d2426;
+  }
+
+  .ars-compare .ars-compare__ammo--new
+  .ars-compare__ammo-name {
+    color: #c44805;
+    font-weight: 700;
+  }
+
+  .ars-compare .ars-compare__speed {
+    display: block;
+    color: #626c70;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .ars-compare .ars-compare__cartridge {
+    display: block;
+    flex: 0 0 16px;
+    width: 16px;
+    height: 36px;
+    overflow: visible;
+  }
+
+  .ars-compare .ars-compare__empty {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .ars-compare td.ars-compare__change-copy {
+    color: #566166;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .ars-compare .ars-compare__note {
+    margin: 20px 0 0;
+    color: #626c70;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .ars-compare details {
+    margin-top: 24px;
+    padding: 0;
+    border-top: 1px solid #d9ddde;
+    border-bottom: 1px solid #d9ddde;
+    background: transparent;
+  }
+
+  .ars-compare summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 0;
+    color: #1d2426;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+    list-style: none;
+    cursor: pointer;
+  }
+
+  .ars-compare summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .ars-compare summary::after {
+    content: "+";
+    flex-shrink: 0;
+    color: #dd5409;
+    font-size: 24px;
+    line-height: 1;
+  }
+
+  .ars-compare details[open] summary::after {
+    content: "−";
+  }
+
+  .ars-compare .ars-compare__technical {
+    padding-bottom: 18px;
+  }
+
+  .ars-compare .ars-compare__technical p {
+    margin: 0 0 12px;
+    color: #626c70;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .ars-compare .ars-compare__technical p:last-child {
+    margin-bottom: 0;
+  }
+
+  .ars-compare .ars-compare__technical a {
+    color: #1d2426;
+    font-size: 12px;
+    line-height: 1.5;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    .ars-compare__heading {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .ars-compare h2 {
+      font-size: 56px;
+    }
+
+    .ars-compare th,
+    .ars-compare td {
+      padding: 18px 10px;
+    }
+
+    .ars-compare .ars-compare__level {
+      font-size: 24px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .ars-compare {
+      padding: 28px 20px;
+    }
+
+    .ars-compare .ars-compare__eyebrow {
+      font-size: 11px;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+
+    .ars-compare__heading {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .ars-compare h2 {
+      font-size: 40px;
+      letter-spacing: -1px;
+    }
+
+    .ars-compare .ars-compare__intro {
+      font-size: 15px;
+    }
+
+    .ars-compare__toolbar {
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .ars-compare__filters {
+      width: 100%;
+    }
+
+    .ars-compare__filters label {
+      flex: 1;
+      padding: 10px 8px;
+      font-size: 13px;
+    }
+
+    .ars-compare table,
+    .ars-compare tbody {
+      display: block;
+      width: 100%;
+    }
+
+    .ars-compare thead,
+    .ars-compare colgroup {
+      display: none;
+    }
+
+    .ars-compare tbody tr {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-bottom: 16px;
+      border: 1px solid #d9ddde;
+      background: #fff;
+    }
+
+    .ars-compare tbody th,
+    .ars-compare tbody td {
+      display: block;
+      min-width: 0;
+      padding: 14px 10px;
+      border: 0;
+    }
+
+    .ars-compare tbody th:nth-child(1) {
+      grid-column: 1;
+      grid-row: 1;
+      background: #242b2d;
+    }
+
+    .ars-compare tbody th:nth-child(3) {
+      grid-column: 2;
+      grid-row: 1;
+      background: #dd5409;
+    }
+
+    .ars-compare tbody th:nth-child(1)::before,
+    .ars-compare tbody th:nth-child(3)::before {
+      display: block;
+      margin-bottom: 10px;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .ars-compare tbody th:nth-child(1)::before {
+      content: {{ 'nij.p02.mobile_before' | t | json }};
+    }
+
+    .ars-compare tbody th:nth-child(3)::before {
+      content: {{ 'nij.p02.mobile_now' | t | json }};
+    }
+
+    .ars-compare tbody th .ars-compare__level {
+      color: #fff;
+      font-size: 26px;
+    }
+
+    .ars-compare tbody td:nth-child(2) {
+      grid-column: 1;
+      grid-row: 2;
+      border-right: 1px solid #d9ddde;
+    }
+
+    .ars-compare tbody td:nth-child(4) {
+      grid-column: 2;
+      grid-row: 2;
+    }
+
+    .ars-compare tbody td:nth-child(5) {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      border-top: 1px solid #d9ddde;
+      background: #f9faf8;
+      font-size: 13px;
+    }
+
+    .ars-compare tbody td:nth-child(5)::before {
+      content: "QUÉ CAMBIÓ";
+      display: block;
+      margin-bottom: 6px;
+      color: #c44805;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.8px;
+    }
+
+    .ars-compare .ars-compare__ammo {
+      gap: 7px;
+      align-items: flex-start;
+    }
+
+    .ars-compare .ars-compare__ammo-name,
+    .ars-compare .ars-compare__empty {
+      font-size: 12px;
+    }
+
+    .ars-compare .ars-compare__speed {
+      font-size: 11px;
+    }
+
+    .ars-compare .ars-compare__cartridge {
+      flex-basis: 13px;
+      width: 13px;
+      height: 32px;
+    }
+
+    .ars-compare .ars-compare__note {
+      font-size: 11px;
+      margin-top: 16px;
+    }
+
+    .ars-compare summary {
+      font-size: 13px;
+    }
+
+    .ars-compare .ars-compare__technical p {
+      font-size: 12px;
+    }
+  }
+</style>
+
+{% capture ars_compare_rows %}
+IIA|—|9 mm FMJ RN^373^round;.40 S&W FMJ^352^flat|none|{{ 'nij.p02.text_9a977d8cb2' | t | escape }}|handgun~
+II|HG1|9 mm FMJ RN^398^round;.357 Magnum JSP^436^flat|9 mm FMJ RN^398^round;.357 Magnum JSP^436^flat|{{ 'nij.p02.text_0ec74ae744' | t | escape }}|handgun~
+IIIA|HG2|.357 SIG FMJ FN^448^sig;.44 Magnum SJHP^436^flat|9 mm FMJ RN^448^round^new;.44 Magnum JHP^436^flat|{{ 'nij.p02.text_9064dcf31d' | t | escape }}|handgun~
+III|RF1|7.62 × 51 mm M80^847^rifle|7.62 × 51 mm M80^847^rifle;7.62 × 39 mm MSC^732^rifle^new;5.56 mm M193^990^rifle^new|{{ 'nij.p02.text_9caf6ecd0a' | t | escape }}|rifle~
+—|RF2|none|7.62 × 51 mm M80^847^rifle;7.62 × 39 mm MSC^732^rifle;5.56 mm M193^990^rifle;5.56 mm M855^950^green^new|{{ 'nij.p02.text_9f5bf68397' | t | escape }}|rifle~
+IV|RF3|.30-06 M2 AP^878^ap|.30-06 M2 AP^878^ap|{{ 'nij.p02.text_fa1627b84b' | t | escape }}|rifle
+{% endcapture %}
+
+<section class="ars-compare" id="comparativa-nij"
+  aria-labelledby="ars-compare-title-{{ section.id }}">
+  <div class="ars-compare__inner">
+
+    <p class="ars-compare__eyebrow">{{ 'nij.p02.text_b48094c679' | t | escape }}</p>
+
+    <div class="ars-compare__heading">
+      <h2 id="ars-compare-title-{{ section.id }}">{{ 'nij.p02.heading_html' | t }}</h2>
+      <p class="ars-compare__intro">
+        {{ 'nij.p02.text_9fd6405a9e' | t | escape }}
+      </p>
+    </div>
+
+    <input class="ars-compare__radio ars-compare__all"
+      type="radio"
+      name="ars-filter-{{ section.id }}"
+      id="ars-all-{{ section.id }}"
+      aria-label="{{ 'nij.p02.text_059c4cbe4c' | t | escape }}"
+      checked>
+
+    <input class="ars-compare__radio ars-compare__handgun"
+      type="radio"
+      name="ars-filter-{{ section.id }}"
+      id="ars-handgun-{{ section.id }}"
+      aria-label="{{ 'nij.p02.text_1c107a9007' | t | escape }}">
+
+    <input class="ars-compare__radio ars-compare__rifle"
+      type="radio"
+      name="ars-filter-{{ section.id }}"
+      id="ars-rifle-{{ section.id }}"
+      aria-label="{{ 'nij.p02.text_03f3b18b1b' | t | escape }}">
+
+    <div class="ars-compare__toolbar">
+      <div class="ars-compare__filters">
+        <label class="ars-compare__filter-all"
+          for="ars-all-{{ section.id }}">{{ 'nij.p02.text_bd02b9a7d7' | t | escape }}</label>
+        <label class="ars-compare__filter-handgun"
+          for="ars-handgun-{{ section.id }}">{{ 'nij.p02.text_26430a896a' | t | escape }}</label>
+        <label class="ars-compare__filter-rifle"
+          for="ars-rifle-{{ section.id }}">Rifle</label>
+      </div>
+      <p class="ars-compare__units">
+        {{ 'nij.p02.text_ae9aaeb419' | t | escape }}
+      </p>
+    </div>
+
+    <div class="ars-compare__table-wrap">
+      <table aria-label="{{ 'nij.p02.text_475d0066c5' | t | escape }}">
+        <colgroup>
+          <col style="width:12%">
+          <col style="width:26%">
+          <col style="width:12%">
+          <col style="width:28%">
+          <col style="width:22%">
+        </colgroup>
+
+        <thead>
+          <tr>
+            <th colspan="2" scope="colgroup"
+              class="ars-compare__before">
+              {{ 'nij.p02.text_aa769de13a' | t | escape }}
+            </th>
+            <th colspan="2" scope="colgroup"
+              class="ars-compare__now">
+              {{ 'nij.p02.text_d8359ae31e' | t | escape }}
+            </th>
+            <th rowspan="2" scope="col"
+              class="ars-compare__changes">
+              {{ 'nij.p02.text_ba8ae5fc30' | t | escape }}
+            </th>
+          </tr>
+          <tr>
+            <th scope="col" class="ars-compare__subhead">{{ 'nij.p02.text_ee50666c45' | t | escape }}</th>
+            <th scope="col" class="ars-compare__subhead">
+              {{ 'nij.p02.text_58c26b6bae' | t | escape }}
+            </th>
+            <th scope="col" class="ars-compare__subhead">{{ 'nij.p02.text_ee50666c45' | t | escape }}</th>
+            <th scope="col" class="ars-compare__subhead">
+              {{ 'nij.p02.text_58c26b6bae' | t | escape }}
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% assign ars_rows = ars_compare_rows | strip | split: '~' %}
+          {% for ars_row in ars_rows %}
+            {% assign ars_fields = ars_row | strip | split: '|' %}
+
+            <tr data-category="{{ ars_fields[5] | strip }}">
+              {% for ars_side in (0..1) %}
+                {% assign ars_ammo_index = ars_side | plus: 2 %}
+
+                <th scope="row">
+                  <span class="ars-compare__level">
+                    {{ ars_fields[ars_side] | strip }}
+                  </span>
+                  {% if ars_side == 1 and ars_fields[1] == 'RF2' %}
+                    <span class="ars-compare__new-badge">{{ 'nij.p02.text_4f68d58956' | t | escape }}</span>
+                  {% endif %}
+                </th>
+
+                <td {% if ars_side == 0 %}
+                  class="ars-compare__old-ammo"
+                {% endif %}>
+
+                  {% if ars_fields[ars_ammo_index] == 'none' %}
+                    <p class="ars-compare__empty">
+                      {% if ars_side == 0 %}
+                        {{ 'nij.p02.text_611b814552' | t | escape }}
+                      {% else %}
+                        {{ 'nij.p02.text_cd13792fd2' | t | escape }}
+                      {% endif %}
+                    </p>
+                  {% else %}
+                    <div class="ars-compare__ammo-list">
+                      {% assign ars_ammo_list = ars_fields[ars_ammo_index] | split: ';' %}
+
+                      {% for ars_ammo in ars_ammo_list %}
+                        {% assign ars_round = ars_ammo | split: '^' %}
+
+                        <div class="ars-compare__ammo{% if ars_round[3] == 'new' %} ars-compare__ammo--new{% endif %}">
+
+                          <svg class="ars-compare__cartridge"
+                            viewBox="0 0 20 48"
+                            aria-hidden="true" focusable="false">
+
+                            {% case ars_round[2] %}
+                              {% when 'round' %}
+                                <path d="M6 18V11Q6 5 10 2Q14 5 14 11V18Z"
+                                  fill="#b67c4b" stroke="#87613f" stroke-width=".7"/>
+                                <path d="M6 15H14V44H6Z"
+                                  fill="#d6b65c" stroke="#a78b40" stroke-width=".8"/>
+                                <path d="M8 17V41" stroke="#f4df91"/>
+                                <path d="M4 44H16V47H4Z" fill="#b99a45"/>
+
+                              {% when 'flat' %}
+                                <path d="M6 11H14L15 18H5Z"
+                                  fill="#b67c4b" stroke="#87613f" stroke-width=".7"/>
+                                <path d="M5 18H15V44H5Z"
+                                  fill="#d6b65c" stroke="#a78b40" stroke-width=".8"/>
+                                <path d="M8 20V41" stroke="#f4df91"/>
+                                <path d="M3 44H17V47H3Z" fill="#b99a45"/>
+
+                              {% when 'sig' %}
+                                <path d="M8 9H12V17H8Z"
+                                  fill="#b67c4b" stroke="#87613f" stroke-width=".7"/>
+                                <path d="M7 17H13V23L15 27V44H5V27L7 23Z"
+                                  fill="#d6b65c" stroke="#a78b40" stroke-width=".8"/>
+                                <path d="M8 28V41" stroke="#f4df91"/>
+                                <path d="M3 44H17V47H3Z" fill="#b99a45"/>
+
+                              {% else %}
+                                <path d="M7 19V12L10 1L13 12V19Z"
+                                  fill="#b67c4b" stroke="#87613f" stroke-width=".7"/>
+                                {% if ars_round[2] == 'green' %}
+                                  <path d="M8.1 8L10 1L11.9 8Z" fill="#546a3c"/>
+                                {% elsif ars_round[2] == 'ap' %}
+                                  <path d="M8.1 8L10 1L11.9 8Z" fill="#262b2c"/>
+                                {% endif %}
+                                <path d="M7 17H13V23L16 27V44H4V27L7 23Z"
+                                  fill="#d6b65c" stroke="#a78b40" stroke-width=".8"/>
+                                <path d="M8 27V41" stroke="#f4df91"/>
+                                <path d="M2 44H18V47H2Z" fill="#b99a45"/>
+                            {% endcase %}
+                          </svg>
+
+                          <div>
+                            <span class="ars-compare__ammo-name">
+                              {{ ars_round[0] }}
+                            </span>
+                            <span class="ars-compare__speed">
+                              {{ ars_round[1] }} m/s
+                            </span>
+                          </div>
+                        </div>
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                </td>
+              {% endfor %}
+
+              <td class="ars-compare__change-copy">
+                {{ ars_fields[4] }}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <p class="ars-compare__note">
+      {{ 'nij.p02.text_668d86d71b' | t | escape }}
+    </p>
+
+    <details>
+      <summary>{{ 'nij.p02.text_540f43d5bd' | t | escape }}</summary>
+
+      <div class="ars-compare__technical">
+        <p>
+          <strong>FMJ:</strong> {{ 'nij.p02.text_eac3cece2f' | t | escape }}
+          <strong>RN:</strong> {{ 'nij.p02.text_bafff04a36' | t | escape }}
+          <strong>FN:</strong> {{ 'nij.p02.text_9455878f70' | t | escape }}
+          <strong>JSP:</strong> {{ 'nij.p02.text_3c87666be1' | t | escape }}
+          <strong>SJHP:</strong> {{ 'nij.p02.text_bd68108d88' | t | escape }}
+          <strong>JHP:</strong> {{ 'nij.p02.text_49c2465a24' | t | escape }}
+          <strong>MSC:</strong> {{ 'nij.p02.text_250efd0774' | t | escape }}
+          <strong>AP:</strong> {{ 'nij.p02.text_22d840c11a' | t | escape }}
+          <strong>gr:</strong> {{ 'nij.p02.text_346fa4b80a' | t | escape }}
+        </p>
+
+        <p>
+          {{ 'nij.p02.text_470dff77a4' | t | escape }}
+        </p>
+
+        <p>
+          {{ 'nij.p02.text_0966138929' | t | escape }}
+        </p>
+
+        <p>
+          {{ 'nij.p02.text_02f4413ccf' | t | escape }}
+          <a href="https://www.ojp.gov/pdffiles1/nij/223054.pdf"
+            target="_blank" rel="noopener noreferrer">NIJ 0101.06 ↗</a>
+          ·
+          <a href="https://nij.ojp.gov/topics/equipment-and-technology/specification-nij-ballistic-protection-levels-and-associated-test-threats-nij-standard-012300"
+            target="_blank" rel="noopener noreferrer">{{ 'nij.p02.text_3fb5ff7099' | t | escape }}</a>
+        </p>
+      </div>
+    </details>
+
+  </div>
+</section>
+{% when 'p03' %}
+<style>
+  #pruebas-evaluacion {
+    background: #141a1b;
+    color: #fff;
+    padding: 40px 24px;
+    font-family: var(--font-body-family, inherit);
+    font-style: var(--font-body-style, normal);
+    font-weight: var(--font-body-weight, 400);
+    line-height: 1.5;
+    scroll-margin-top: 100px;
+  }
+
+  #pruebas-evaluacion,
+  #pruebas-evaluacion * {
+    box-sizing: border-box;
+  }
+
+  #pruebas-evaluacion h2,
+  #pruebas-evaluacion h3,
+  #pruebas-evaluacion p,
+  #pruebas-evaluacion h2 *,
+  #pruebas-evaluacion h3 *,
+  #pruebas-evaluacion p * {
+    -webkit-hyphens: none !important;
+    hyphens: none !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+  }
+
+  #pruebas-evaluacion .ars-tests__word {
+    display: inline-block;
+    white-space: nowrap !important;
+  }
+
+  #pruebas-evaluacion .ars-tests__inner {
+    max-width: 1250px;
+    margin: 0 auto;
+  }
+
+  #pruebas-evaluacion .ars-tests__label {
+    margin: 0 0 20px;
+    color: #dd5409;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  #pruebas-evaluacion .ars-tests__heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    align-items: end;
+    gap: 40px;
+    margin-bottom: 36px;
+  }
+
+  #pruebas-evaluacion .ars-tests__heading > * {
+    min-width: 0;
+  }
+
+  #pruebas-evaluacion h2,
+  #pruebas-evaluacion h3 {
+    font-family: var(--font-heading-family, inherit);
+    font-style: var(--font-heading-style, normal);
+    font-weight: var(--font-heading-weight, 700);
+    color: #fff;
+    line-height: 1;
+    text-transform: none;
+  }
+
+  #pruebas-evaluacion h2 {
+    margin: 0;
+    font-size: 64px;
+    letter-spacing: -1.5px;
+  }
+
+  #pruebas-evaluacion .ars-tests__intro {
+    max-width: 430px;
+    margin: 0;
+    color: #aeb7b8;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  #pruebas-evaluacion .ars-tests__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  #pruebas-evaluacion .ars-tests__card {
+    min-width: 0;
+    padding: 0 20px;
+  }
+
+  #pruebas-evaluacion .ars-tests__card + .ars-tests__card {
+    border-left: 1px solid #394345;
+  }
+
+  #pruebas-evaluacion .ars-tests__visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 220px;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, #252d2f, #1b2223);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  #pruebas-evaluacion .ars-tests__diagram {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    height: 100%;
+  }
+
+  #pruebas-evaluacion .ars-tests__outline {
+    fill: none;
+    stroke: #939fa1;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  #pruebas-evaluacion .ars-tests__fine {
+    fill: none;
+    stroke: #626e71;
+    stroke-width: 1;
+    stroke-linecap: round;
+  }
+
+  #pruebas-evaluacion .ars-tests__accent {
+    fill: none;
+    stroke: #dd5409;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  #pruebas-evaluacion .ars-tests__dot {
+    fill: #a4afb0;
+    stroke: none;
+  }
+
+  #pruebas-evaluacion .ars-tests__svg-text {
+    fill: #dd5409;
+    stroke: none;
+    font-family: var(--font-body-family, inherit);
+    font-weight: 400;
+    font-size: 15px;
+  }
+
+  #pruebas-evaluacion .ars-tests__svg-angle {
+    font-size: 24px;
+  }
+
+  #pruebas-evaluacion .ars-tests__category {
+    margin: 0 0 14px;
+    color: #dd5409;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+  }
+
+  #pruebas-evaluacion h3 {
+    margin: 0 0 16px;
+    font-size: 28px;
+    letter-spacing: -0.6px;
+  }
+
+  #pruebas-evaluacion .ars-tests__copy {
+    margin: 0;
+    color: #aeb7b8;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  #pruebas-evaluacion .ars-tests__note {
+    margin: 28px 0 0;
+    padding-top: 18px;
+    border-top: 1px solid #394345;
+    color: #96a2a4;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    #pruebas-evaluacion .ars-tests__heading {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 20px;
+    }
+
+    #pruebas-evaluacion h2 {
+      font-size: 56px;
+    }
+
+    #pruebas-evaluacion .ars-tests__card {
+      padding: 0 12px;
+    }
+
+    #pruebas-evaluacion .ars-tests__visual {
+      height: 180px;
+    }
+
+    #pruebas-evaluacion h3 {
+      font-size: 24px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #pruebas-evaluacion {
+      padding: 28px 20px;
+    }
+
+    #pruebas-evaluacion .ars-tests__label {
+      margin-bottom: 16px;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    #pruebas-evaluacion .ars-tests__heading {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    #pruebas-evaluacion h2 {
+      font-size: 40px;
+      letter-spacing: -1px;
+    }
+
+    #pruebas-evaluacion .ars-tests__intro {
+      font-size: 15px;
+    }
+
+    #pruebas-evaluacion .ars-tests__grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    #pruebas-evaluacion .ars-tests__card {
+      padding: 0;
+    }
+
+    #pruebas-evaluacion .ars-tests__card + .ars-tests__card {
+      padding-top: 24px;
+      border-left: none;
+      border-top: 1px solid #394345;
+    }
+
+    #pruebas-evaluacion .ars-tests__visual {
+      height: 190px;
+      margin-bottom: 18px;
+    }
+
+    #pruebas-evaluacion .ars-tests__category {
+      margin-bottom: 12px;
+    }
+
+    #pruebas-evaluacion h3 {
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+
+    #pruebas-evaluacion .ars-tests__copy {
+      font-size: 15px;
+    }
+
+    #pruebas-evaluacion .ars-tests__note {
+      margin-top: 24px;
+      font-size: 10px;
+    }
+  }
+</style>
+
+<section
+  class="ars-tests"
+  id="pruebas-evaluacion"
+  aria-labelledby="ars-tests-title"
+>
+  <div class="ars-tests__inner">
+
+    <p class="ars-tests__label">
+      {{ 'nij.p03.text_58149e2998' | t | escape }}
+    </p>
+
+    <div class="ars-tests__heading">
+      <h2 id="ars-tests-title">{{ 'nij.p03.heading_html' | t }}</h2>
+
+      <p class="ars-tests__intro">
+        {{ 'nij.p03.text_d59fb95b47' | t | escape }}
+      </p>
+    </div>
+
+    <div class="ars-tests__grid">
+
+      <article class="ars-tests__card">
+        <div class="ars-tests__visual">
+          <svg
+            class="ars-tests__diagram"
+            viewBox="0 0 360 220"
+            preserveAspectRatio="xMidYMid meet"
+            role="img"
+            aria-label="{{ 'nij.p03.text_a83e5b7b77' | t | escape }}"
+          >
+            <path
+              class="ars-tests__outline"
+              d="M131 28 Q180 61 229 28
+                 L251 73 L278 94 L266 197
+                 H94 L82 94 L109 73 Z"
+            />
+
+            <circle class="ars-tests__dot" cx="137" cy="96" r="4.5"/>
+            <circle class="ars-tests__dot" cx="217" cy="102" r="4.5"/>
+            <circle class="ars-tests__dot" cx="176" cy="133" r="4.5"/>
+            <circle class="ars-tests__dot" cx="127" cy="165" r="4.5"/>
+            <circle class="ars-tests__dot" cx="224" cy="167" r="4.5"/>
+            <circle class="ars-tests__dot" cx="190" cy="181" r="4.5"/>
+
+            <circle class="ars-tests__accent" cx="180" cy="53" r="10"/>
+
+            <path
+              class="ars-tests__accent"
+              d="M91 138 L180 53"
+              stroke-dasharray="5 6"
+            />
+
+            <path
+              class="ars-tests__accent"
+              d="M169 56 L180 53 L176 65"
+            />
+
+            <text
+              class="ars-tests__svg-text ars-tests__svg-angle"
+              x="77"
+              y="102"
+            >45°</text>
+          </svg>
+        </div>
+
+        <p class="ars-tests__category">{{ 'nij.p03.text_447be3ea8c' | t | escape }}</p>
+
+        <h3>{{ 'nij.p03.text_a990e838bc' | t | escape }}</h3>
+
+        <p class="ars-tests__copy">
+          {{ 'nij.p03.text_a4e36ceb41' | t | escape }}
+        </p>
+      </article>
+
+      <article class="ars-tests__card">
+        <div class="ars-tests__visual">
+          <svg
+            class="ars-tests__diagram"
+            viewBox="0 0 360 220"
+            preserveAspectRatio="xMidYMid meet"
+            role="img"
+            aria-label="{{ 'nij.p03.text_2777cb32c8' | t | escape }}"
+          >
+            <path
+              class="ars-tests__outline"
+              d="M89 194
+                 Q97 83 180 34
+                 Q263 83 271 194 Z"
+            />
+
+            <path
+              class="ars-tests__fine"
+              d="M117 187 Q145 89 180 34
+                 M243 187 Q215 89 180 34"
+            />
+
+            <circle
+              class="ars-tests__accent"
+              cx="180"
+              cy="34"
+              r="10"
+            />
+
+            <path
+              class="ars-tests__accent"
+              d="M195 33 H264"
+            />
+
+            <text
+              class="ars-tests__svg-text"
+              x="235"
+              y="20"
+            >{{ 'nij.p03.text_22b9b5980e' | t | escape }}</text>
+          </svg>
+        </div>
+
+        <p class="ars-tests__category">{{ 'nij.p03.text_a5bc2b8d49' | t | escape }}</p>
+
+        <h3>{{ 'nij.p03.text_082240a0af' | t | escape }}</h3>
+
+        <p class="ars-tests__copy">
+          {{ 'nij.p03.text_09344b5fb9' | t | escape }}
+        </p>
+      </article>
+
+      <article class="ars-tests__card">
+        <div class="ars-tests__visual">
+          <svg
+            class="ars-tests__diagram"
+            viewBox="0 0 360 220"
+            preserveAspectRatio="xMidYMid meet"
+            role="img"
+            aria-label="{{ 'nij.p03.text_743d3a3d10' | t | escape }}"
+          >
+            <circle
+              class="ars-tests__outline"
+              cx="180"
+              cy="26"
+              r="16"
+            />
+
+            <path
+              class="ars-tests__outline"
+              d="M168 47 V55 L143 65
+                 Q126 72 121 91
+                 L108 132 L122 138
+                 L137 105 L148 151
+                 L132 201 H228
+                 L212 151 L223 105
+                 L238 138 L252 132
+                 L239 91 Q234 72 217 65
+                 L192 55 V47"
+            />
+
+            <path
+              class="ars-tests__accent"
+              d="M154 78
+                 Q180 95 206 78
+                 L218 105 L205 151
+                 L215 178 H145
+                 L155 151 L142 105 Z"
+            />
+
+            <path
+              class="ars-tests__outline"
+              d="M153 110 Q166 99 178 113
+                 M183 113 Q195 99 207 110
+                 M155 140 Q180 150 205 140"
+            />
+
+            <path
+              class="ars-tests__fine"
+              d="M180 122 V141"
+            />
+          </svg>
+        </div>
+
+        <p class="ars-tests__category">{{ 'nij.p03.text_7e9ec44599' | t | escape }}</p>
+
+        <h3>{{ 'nij.p03.text_721def8d2f' | t | escape }}</h3>
+
+        <p class="ars-tests__copy">
+          {{ 'nij.p03.text_c79dfa3d40' | t | escape }}
+        </p>
+      </article>
+
+    </div>
+
+    <p class="ars-tests__note">
+      {{ 'nij.p03.text_72c702b60e' | t | escape }}
+    </p>
+
+  </div>
+</section>
+{% when 'p04' %}
+{% liquid
+  assign nij_locale_root = routes.root_url
+  if nij_locale_root == '/'
+    assign nij_locale_root = ''
+  endif
+%}
+{% liquid
+  assign panel_gr507 = all_products['panel-balistico-gr-507']
+  assign panel_gr407 = all_products['panel-balistico-gr-407']
+%}
+
+<style>
+  #ars-paneles-{{ section.id }} {
+    --ars-orange: #DD5409;
+    --ars-dark: #1d2426;
+    --ars-gray: #626c70;
+
+    background: #ffffff;
+    color: var(--ars-dark);
+    padding: 40px 24px;
+
+    font-family: var(--font-body-family, inherit);
+    font-style: var(--font-body-style, normal);
+    font-weight: var(--font-body-weight, 400);
+  }
+
+  #ars-paneles-{{ section.id }},
+  #ars-paneles-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #ars-paneles-{{ section.id }} h2,
+  #ars-paneles-{{ section.id }} h3,
+  #ars-paneles-{{ section.id }} p,
+  #ars-paneles-{{ section.id }} h2 *,
+  #ars-paneles-{{ section.id }} h3 *,
+  #ars-paneles-{{ section.id }} p * {
+    -webkit-hyphens: none !important;
+    hyphens: none !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__word {
+    display: inline-block;
+    white-space: nowrap !important;
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__inner {
+    max-width: 1250px;
+    margin: 0 auto;
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__eyebrow {
+    margin: 0 0 24px;
+    color: var(--ars-orange);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__header {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    align-items: end;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__header > * {
+    min-width: 0;
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__title {
+    margin: 0;
+    color: var(--ars-dark);
+
+    font-family: var(--font-heading-family, inherit);
+    font-style: var(--font-heading-style, normal);
+    font-weight: var(--font-heading-weight, 700);
+
+    font-size: 64px;
+    line-height: 1;
+    letter-spacing: -1.5px;
+    text-transform: none;
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__intro {
+    max-width: 440px;
+    margin: 0;
+    color: var(--ars-gray);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 32px;
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__card {
+    min-width: 0;
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__media {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin: 0 0 24px;
+    overflow: hidden;
+    border-radius: 3px;
+    background: #e9eae7;
+    color: var(--ars-dark);
+    text-decoration: none;
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    object-fit: contain;
+    object-position: center;
+    transition: transform 220ms ease;
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__media:hover
+  .ars-paneles__image {
+    transform: scale(1.025);
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+
+    padding: 10px 12px;
+    background: #ffffff;
+    color: var(--ars-dark);
+
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__placeholder {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    text-align: center;
+    color: var(--ars-gray);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__category {
+    margin: 0 0 14px;
+    color: var(--ars-orange);
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__model-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__model {
+    margin: 0;
+
+    font-family: var(--font-heading-family, inherit);
+    font-style: var(--font-heading-style, normal);
+    font-weight: var(--font-heading-weight, 700);
+
+    font-size: 44px;
+    line-height: 1;
+    letter-spacing: -1px;
+    text-transform: none;
+    white-space: nowrap;
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__model a {
+    color: var(--ars-dark);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__arrow {
+    display: flex;
+    flex: 0 0 48px;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid #d9ddde;
+    border-radius: 50%;
+    color: var(--ars-dark);
+    background: transparent;
+    text-decoration: none;
+
+    transition:
+      color 180ms ease,
+      background-color 180ms ease,
+      border-color 180ms ease;
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__arrow:hover {
+    background: var(--ars-orange);
+    border-color: var(--ars-orange);
+    color: #ffffff;
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__arrow svg {
+    display: block;
+    width: 22px;
+    height: 22px;
+  }
+
+  #ars-paneles-{{ section.id }} .ars-paneles__description {
+    max-width: 490px;
+    margin: 0;
+    color: var(--ars-gray);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  #ars-paneles-{{ section.id }} a:focus-visible {
+    outline: 2px solid var(--ars-orange);
+    outline-offset: 4px;
+  }
+
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    #ars-paneles-{{ section.id }} .ars-paneles__title {
+      font-size: 56px;
+    }
+
+    #ars-paneles-{{ section.id }} .ars-paneles__header {
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    #ars-paneles-{{ section.id }} .ars-paneles__grid {
+      gap: 24px;
+    }
+
+    #ars-paneles-{{ section.id }} .ars-paneles__model {
+      font-size: 38px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #ars-paneles-{{ section.id }} {
+      padding: 28px 20px;
+    }
+
+    #ars-paneles-{{ section.id }} .ars-paneles__eyebrow {
+      margin-bottom: 18px;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+    }
+
+    #ars-paneles-{{ section.id }} .ars-paneles__header {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+
+    #ars-paneles-{{ section.id }} .ars-paneles__title {
+      font-size: 40px;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    #ars-paneles-{{ section.id }} .ars-paneles__intro {
+      max-width: none;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    #ars-paneles-{{ section.id }} .ars-paneles__grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 32px;
+    }
+
+    #ars-paneles-{{ section.id }} .ars-paneles__media {
+      margin-bottom: 20px;
+    }
+
+    #ars-paneles-{{ section.id }} .ars-paneles__badge {
+      top: 14px;
+      left: 14px;
+      padding: 9px 10px;
+      font-size: 10px;
+    }
+
+    #ars-paneles-{{ section.id }} .ars-paneles__category {
+      margin-bottom: 12px;
+      font-size: 10px;
+    }
+
+    #ars-paneles-{{ section.id }} .ars-paneles__model-row {
+      margin-bottom: 12px;
+    }
+
+    #ars-paneles-{{ section.id }} .ars-paneles__model {
+      font-size: 36px;
+    }
+
+    #ars-paneles-{{ section.id }} .ars-paneles__arrow {
+      flex-basis: 44px;
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #ars-paneles-{{ section.id }} .ars-paneles__image,
+    #ars-paneles-{{ section.id }} .ars-paneles__arrow {
+      transition: none;
+    }
+  }
+</style>
+
+<section
+  id="ars-paneles-{{ section.id }}"
+  aria-labelledby="ars-paneles-title-{{ section.id }}"
+>
+  <div class="ars-paneles__inner">
+
+    <p class="ars-paneles__eyebrow">
+      04 / Arsenal Protection Mexico
+    </p>
+
+    <div class="ars-paneles__header">
+      <h2
+        id="ars-paneles-title-{{ section.id }}"
+        class="ars-paneles__title"
+      >{{ 'nij.p04.heading_html' | t }}</h2>
+
+      <p class="ars-paneles__intro">
+        {{ 'nij.p04.text_58a2a2c3da' | t | escape }}
+      </p>
+    </div>
+
+    <div class="ars-paneles__grid">
+
+      {% for numero in (1..2) %}
+        {% liquid
+          if numero == 1
+            assign panel = panel_gr507
+            assign modelo = 'GR507'
+            assign destino = nij_locale_root | append: '/products/panel-balistico-gr-507'
+            assign descripcion = 'nij.p04.text_6e008cf1b4' | t
+          else
+            assign panel = panel_gr407
+            assign modelo = 'GR407'
+            assign destino = nij_locale_root | append: '/products/panel-balistico-gr-407'
+            assign descripcion = 'nij.p04.text_9ad586da33' | t
+          endif
+
+          assign imagen_panel = panel.featured_image
+          assign texto_alternativo = 'nij.p04.panel_alt' | t: model: modelo
+        %}
+
+        <article class="ars-paneles__card">
+          <a
+            class="ars-paneles__media"
+            href="{{ destino }}"
+            aria-label="{{ 'nij.p04.panel_link' | t: model: modelo | escape }}"
+          >
+            <span class="ars-paneles__badge">
+              NIJ 0101.07
+            </span>
+
+            {% if imagen_panel != blank %}
+              {{
+                imagen_panel
+                | image_url: width: 1400
+                | image_tag:
+                  class: 'ars-paneles__image',
+                  loading: 'lazy',
+                  widths: '360, 540, 720, 960, 1200, 1400',
+                  sizes: '(max-width: 749px) calc(100vw - 40px), (max-width: 1298px) calc((100vw - 80px) / 2), 609px',
+                  alt: texto_alternativo
+              }}
+            {% else %}
+              <div class="ars-paneles__placeholder">
+                {{ 'nij.p04.panel_missing' | t: model: modelo | escape }}
+              </div>
+            {% endif %}
+          </a>
+
+          <p class="ars-paneles__category">
+            {{ 'nij.p04.text_3c8caafcff' | t | escape }}
+          </p>
+
+          <div class="ars-paneles__model-row">
+            <h3 class="ars-paneles__model">
+              <a href="{{ destino }}">
+                {{ modelo }}
+              </a>
+            </h3>
+
+            <a
+              class="ars-paneles__arrow"
+              href="{{ destino }}"
+              aria-label="{{ 'nij.p04.panel_link' | t: model: modelo | escape }}"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M6 18 18 6M6 6h12v12"/>
+              </svg>
+            </a>
+          </div>
+
+          <p class="ars-paneles__description">
+            {{ descripcion }}
+          </p>
+        </article>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+{% when 'p05' %}
+{% liquid
+  assign panel_femenino = all_products['panel-balistico-femenino']
+
+  assign archivo_con_funda = panel_femenino.metafields.custom.nij_con_funda.value
+  assign archivo_sin_funda = panel_femenino.metafields.custom.nij_sin_funda.value
+  assign imagen_con_funda = archivo_con_funda.preview_image | default: archivo_con_funda
+  assign imagen_sin_funda = archivo_sin_funda.preview_image | default: archivo_sin_funda
+
+  comment
+    Campos de imagen del producto, si existen. Como respaldo se utiliza
+    la galería actual: imagen 1 con funda, imagen 2 sin funda.
+    No hay direcciones de archivo fijas: las imágenes se leen del producto.
+  endcomment
+
+  if imagen_con_funda == blank or imagen_con_funda == nil
+    assign imagen_con_funda = panel_femenino.images[0]
+  endif
+  if imagen_sin_funda == blank or imagen_sin_funda == nil
+    assign imagen_sin_funda = panel_femenino.images[1]
+  endif
+%}
+
+<style>
+  #ars-componentes-{{ section.id }} {
+    --ars-orange: #DD5409;
+    --ars-dark: #1d2426;
+    --ars-gray: #626c70;
+
+    padding: 40px 24px;
+    background: #ffffff;
+    color: var(--ars-dark);
+
+    font-family: var(--font-body-family, inherit);
+    font-style: var(--font-body-style, normal);
+    font-weight: var(--font-body-weight, 400);
+  }
+
+  #ars-componentes-{{ section.id }},
+  #ars-componentes-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #ars-componentes-{{ section.id }} h2,
+  #ars-componentes-{{ section.id }} p,
+  #ars-componentes-{{ section.id }} label,
+  #ars-componentes-{{ section.id }} h2 *,
+  #ars-componentes-{{ section.id }} p * {
+    -webkit-hyphens: none !important;
+    hyphens: none !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+  }
+
+  #ars-componentes-{{ section.id }} .ars-componentes__inner {
+    position: relative;
+    max-width: 1250px;
+    margin: 0 auto;
+  }
+
+  #ars-componentes-{{ section.id }} .ars-componentes__radio {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  #ars-componentes-{{ section.id }} .ars-componentes__layout {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    background: #f3f4f1;
+  }
+
+  #ars-componentes-{{ section.id }} .ars-componentes__media {
+    min-width: 0;
+    aspect-ratio: 4 / 5;
+    background: #e5e5e5;
+    overflow: hidden;
+  }
+
+  #ars-componentes-{{ section.id }} .ars-componentes__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  #ars-componentes-{{ section.id }} .ars-componentes__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    padding: 40px;
+  }
+
+  #ars-componentes-{{ section.id }} .ars-componentes__label {
+    margin: 0 0 24px;
+    color: var(--ars-gray);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+  }
+
+  #ars-componentes-{{ section.id }} .ars-componentes__title {
+    margin: 0 0 24px;
+    color: var(--ars-dark);
+
+    font-family: var(--font-heading-family, inherit);
+    font-style: var(--font-heading-style, normal);
+    font-weight: var(--font-heading-weight, 700);
+
+    font-size: 48px;
+    line-height: 1;
+    letter-spacing: -1px;
+    text-transform: none;
+  }
+
+  #ars-componentes-{{ section.id }} .ars-componentes__word {
+    display: inline-block;
+    white-space: nowrap !important;
+  }
+
+  #ars-componentes-{{ section.id }} .ars-componentes__intro {
+    margin: 0 0 20px;
+    color: var(--ars-gray);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  #ars-componentes-{{ section.id }} .ars-componentes__controls {
+    display: inline-flex;
+    align-self: flex-start;
+    max-width: 100%;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid #cfd5d5;
+    border-radius: 3px;
+  }
+
+  #ars-componentes-{{ section.id }} .ars-componentes__option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 12px 18px;
+    margin: 0;
+    cursor: pointer;
+
+    color: var(--ars-gray);
+    background: transparent;
+
+    font-family: var(--font-body-family, inherit);
+    font-size: 14px;
+    font-weight: var(--font-body-weight, 400);
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+
+    transition: background-color 180ms ease, color 180ms ease;
+  }
+
+  #ars-componentes-{{ section.id }} .ars-componentes__option + label {
+    border-left: 1px solid #cfd5d5;
+  }
+
+  #ars-componentes-{{ section.id }} .ars-componentes__details {
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 1px solid #cfd5d5;
+  }
+
+  #ars-componentes-{{ section.id }} .ars-componentes__description {
+    margin: 0;
+    color: var(--ars-gray);
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  #ars-componentes-{{ section.id }} .ars-componentes__note {
+    margin: 28px 0 0;
+    color: var(--ars-gray);
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  #ars-componentes-{{ section.id }} .ars-componentes__sin {
+    display: none;
+  }
+
+  #ars-con-{{ section.id }}:checked
+  ~ .ars-componentes__layout .ars-componentes__option--con,
+  #ars-sin-{{ section.id }}:checked
+  ~ .ars-componentes__layout .ars-componentes__option--sin {
+    color: #ffffff;
+    background: var(--ars-orange);
+  }
+
+  #ars-sin-{{ section.id }}:checked
+  ~ .ars-componentes__layout .ars-componentes__con {
+    display: none;
+  }
+
+  #ars-sin-{{ section.id }}:checked
+  ~ .ars-componentes__layout .ars-componentes__sin {
+    display: block;
+  }
+
+  #ars-con-{{ section.id }}:focus-visible
+  ~ .ars-componentes__layout .ars-componentes__option--con,
+  #ars-sin-{{ section.id }}:focus-visible
+  ~ .ars-componentes__layout .ars-componentes__option--sin {
+    outline: 2px solid var(--ars-dark);
+    outline-offset: -4px;
+  }
+
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    #ars-componentes-{{ section.id }} .ars-componentes__content {
+      padding: 28px;
+    }
+
+    #ars-componentes-{{ section.id }} .ars-componentes__title {
+      font-size: 40px;
+    }
+
+    #ars-componentes-{{ section.id }} .ars-componentes__intro {
+      font-size: 15px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #ars-componentes-{{ section.id }} {
+      padding: 28px 20px;
+    }
+
+    #ars-componentes-{{ section.id }} .ars-componentes__layout {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    #ars-componentes-{{ section.id }} .ars-componentes__content {
+      padding: 24px 16px;
+    }
+
+    #ars-componentes-{{ section.id }} .ars-componentes__label {
+      margin-bottom: 18px;
+      font-size: 10px;
+      letter-spacing: 1.3px;
+    }
+
+    #ars-componentes-{{ section.id }} .ars-componentes__title {
+      margin-bottom: 18px;
+      font-size: 40px;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    #ars-componentes-{{ section.id }} .ars-componentes__intro {
+      margin-bottom: 18px;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    #ars-componentes-{{ section.id }} .ars-componentes__option {
+      padding: 12px 14px;
+      font-size: 13px;
+    }
+
+    #ars-componentes-{{ section.id }} .ars-componentes__details {
+      margin-top: 22px;
+      padding-top: 20px;
+    }
+
+    #ars-componentes-{{ section.id }} .ars-componentes__note {
+      margin-top: 22px;
+      font-size: 10px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #ars-componentes-{{ section.id }} .ars-componentes__option {
+      transition: none;
+    }
+  }
+</style>
+
+<section
+  id="ars-componentes-{{ section.id }}"
+  aria-labelledby="ars-componentes-title-{{ section.id }}"
+>
+  <div class="ars-componentes__inner">
+
+    <input
+      class="ars-componentes__radio"
+      type="radio"
+      id="ars-con-{{ section.id }}"
+      name="ars-vista-{{ section.id }}"
+      aria-label="{{ 'nij.p05.text_afa9298d17' | t | escape }}"
+      checked
+    >
+
+    <input
+      class="ars-componentes__radio"
+      type="radio"
+      id="ars-sin-{{ section.id }}"
+      name="ars-vista-{{ section.id }}"
+      aria-label="{{ 'nij.p05.text_ceb9ab9635' | t | escape }}"
+    >
+
+    <div class="ars-componentes__layout">
+
+      <div class="ars-componentes__media">
+        {% if imagen_con_funda != blank and imagen_con_funda != nil %}
+<img
+          class="ars-componentes__image ars-componentes__con"
+          src="{{ imagen_con_funda | image_url: width: 1400 | escape }}"
+          alt="{{ 'nij.p05.text_9a3f09810a' | t | escape }}"
+          width="{{ imagen_con_funda.width }}"
+          height="{{ imagen_con_funda.height }}"
+          loading="lazy"
+        >
+{% else %}
+<p class="ars-componentes__image ars-componentes__con">{{ 'nij.p05.image_missing' | t | escape }}</p>
+{% endif %}
+
+        {% if imagen_sin_funda != blank and imagen_sin_funda != nil %}
+<img
+          class="ars-componentes__image ars-componentes__sin"
+          src="{{ imagen_sin_funda | image_url: width: 1400 | escape }}"
+          alt="{{ 'nij.p05.text_886e42587a' | t | escape }}"
+          width="{{ imagen_sin_funda.width }}"
+          height="{{ imagen_sin_funda.height }}"
+          loading="lazy"
+        >
+{% else %}
+<p class="ars-componentes__image ars-componentes__sin">{{ 'nij.p05.image_missing' | t | escape }}</p>
+{% endif %}
+      </div>
+
+      <div class="ars-componentes__content">
+
+        <p class="ars-componentes__label">
+          {{ 'nij.p05.text_3b3d747833' | t | escape }}
+        </p>
+
+        <h2
+          class="ars-componentes__title"
+          id="ars-componentes-title-{{ section.id }}"
+        >{{ 'nij.p05.heading_html' | t }}</h2>
+
+        <p class="ars-componentes__intro">
+          {{ 'nij.p05.text_0717af5f2f' | t | escape }}
+        </p>
+
+        <div class="ars-componentes__controls">
+          <label
+            class="ars-componentes__option ars-componentes__option--con"
+            for="ars-con-{{ section.id }}"
+          >
+            {{ 'nij.p05.text_b130129879' | t | escape }}
+          </label>
+
+          <label
+            class="ars-componentes__option ars-componentes__option--sin"
+            for="ars-sin-{{ section.id }}"
+          >
+            {{ 'nij.p05.text_cfc3df4e99' | t | escape }}
+          </label>
+        </div>
+
+        <div class="ars-componentes__details">
+          <p class="ars-componentes__description ars-componentes__con">
+            {{ 'nij.p05.text_fcb4f2c6aa' | t | escape }}
+          </p>
+
+          <p class="ars-componentes__description ars-componentes__sin">
+            {{ 'nij.p05.text_781fd0c648' | t | escape }}
+          </p>
+        </div>
+
+        <p class="ars-componentes__note">
+          {{ 'nij.p05.text_f0eab58f66' | t | escape }}
+        </p>
+
+      </div>
+    </div>
+  </div>
+</section>
+{% when 'p06' %}
+<style>
+  #ars-verificacion-{{ section.id }} {
+    background: #e9eee8;
+    color: #1d2426;
+    padding: 48px 24px;
+
+    font-family: var(--font-body-family, inherit);
+    font-style: var(--font-body-style, normal);
+    font-weight: var(--font-body-weight, 400);
+  }
+
+  #ars-verificacion-{{ section.id }},
+  #ars-verificacion-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #ars-verificacion-{{ section.id }} h2,
+  #ars-verificacion-{{ section.id }} h3,
+  #ars-verificacion-{{ section.id }} p,
+  #ars-verificacion-{{ section.id }} a,
+  #ars-verificacion-{{ section.id }} h2 *,
+  #ars-verificacion-{{ section.id }} h3 * {
+    -webkit-hyphens: none !important;
+    hyphens: none !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+  }
+
+  #ars-verificacion-{{ section.id }} .ars-verificacion__inner {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 64px;
+
+    max-width: 1250px;
+    margin: 0 auto;
+  }
+
+  #ars-verificacion-{{ section.id }} .ars-verificacion__content {
+    min-width: 0;
+  }
+
+  #ars-verificacion-{{ section.id }} .ars-verificacion__label {
+    margin: 0 0 24px;
+    color: #626c70;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+  }
+
+  #ars-verificacion-{{ section.id }} .ars-verificacion__title {
+    margin: 0 0 26px;
+    color: #1d2426;
+
+    font-family: var(--font-heading-family, inherit);
+    font-style: var(--font-heading-style, normal);
+    font-weight: var(--font-heading-weight, 700);
+
+    font-size: 64px;
+    line-height: 1;
+    letter-spacing: -1.5px;
+    text-transform: none;
+  }
+
+  #ars-verificacion-{{ section.id }} .ars-verificacion__word {
+    display: inline-block;
+    white-space: nowrap !important;
+  }
+
+  #ars-verificacion-{{ section.id }} .ars-verificacion__intro {
+    max-width: 510px;
+    margin: 0 0 22px;
+    color: #626c70;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  #ars-verificacion-{{ section.id }} .ars-verificacion__link {
+    display: inline-block;
+    max-width: 100%;
+    padding-bottom: 5px;
+
+    border-bottom: 1px solid currentColor;
+    color: #1d2426;
+
+    font-size: 12px;
+    line-height: 1.5;
+    text-decoration: none;
+    transition: color 180ms ease;
+  }
+
+  #ars-verificacion-{{ section.id }} .ars-verificacion__link:hover {
+    color: #DD5409;
+  }
+
+  #ars-verificacion-{{ section.id }} .ars-verificacion__link:focus-visible {
+    outline: 2px solid #DD5409;
+    outline-offset: 5px;
+  }
+
+  #ars-verificacion-{{ section.id }} .ars-verificacion__steps {
+    min-width: 0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  #ars-verificacion-{{ section.id }} .ars-verificacion__step {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 18px;
+
+    padding: 26px 0;
+    margin: 0;
+    border-top: 1px solid #c7d0c8;
+  }
+
+  #ars-verificacion-{{ section.id }} .ars-verificacion__number {
+    display: block;
+    padding-top: 2px;
+    color: #7e8d81;
+    font-size: 32px;
+    line-height: 1;
+    letter-spacing: -0.5px;
+  }
+
+  #ars-verificacion-{{ section.id }} .ars-verificacion__step-title {
+    margin: 0 0 12px;
+    color: #1d2426;
+
+    font-family: var(--font-heading-family, inherit);
+    font-style: var(--font-heading-style, normal);
+    font-weight: var(--font-heading-weight, 700);
+
+    font-size: 26px;
+    line-height: 1;
+    letter-spacing: -0.5px;
+    text-transform: none;
+  }
+
+  #ars-verificacion-{{ section.id }} .ars-verificacion__step-copy {
+    margin: 0;
+    color: #626c70;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    #ars-verificacion-{{ section.id }} .ars-verificacion__inner {
+      gap: 32px;
+    }
+
+    #ars-verificacion-{{ section.id }} .ars-verificacion__title {
+      font-size: 56px;
+    }
+
+    #ars-verificacion-{{ section.id }} .ars-verificacion__step {
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 14px;
+    }
+
+    #ars-verificacion-{{ section.id }} .ars-verificacion__step-title {
+      font-size: 24px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #ars-verificacion-{{ section.id }} {
+      padding: 28px 20px;
+    }
+
+    #ars-verificacion-{{ section.id }} .ars-verificacion__inner {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 28px;
+    }
+
+    #ars-verificacion-{{ section.id }} .ars-verificacion__label {
+      margin-bottom: 18px;
+      font-size: 10px;
+      letter-spacing: 1.3px;
+    }
+
+    #ars-verificacion-{{ section.id }} .ars-verificacion__title {
+      margin-bottom: 20px;
+      font-size: 40px;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    #ars-verificacion-{{ section.id }} .ars-verificacion__intro {
+      margin-bottom: 18px;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    #ars-verificacion-{{ section.id }} .ars-verificacion__link {
+      font-size: 11px;
+    }
+
+    #ars-verificacion-{{ section.id }} .ars-verificacion__step {
+      grid-template-columns: 32px minmax(0, 1fr);
+      gap: 14px;
+      padding: 22px 0;
+    }
+
+    #ars-verificacion-{{ section.id }} .ars-verificacion__step:last-child {
+      padding-bottom: 0;
+    }
+
+    #ars-verificacion-{{ section.id }} .ars-verificacion__number {
+      font-size: 28px;
+    }
+
+    #ars-verificacion-{{ section.id }} .ars-verificacion__step-title {
+      margin-bottom: 10px;
+      font-size: 24px;
+      line-height: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #ars-verificacion-{{ section.id }} .ars-verificacion__link {
+      transition: none;
+    }
+  }
+</style>
+
+<section
+  id="ars-verificacion-{{ section.id }}"
+  aria-labelledby="ars-verificacion-title-{{ section.id }}"
+>
+  <div class="ars-verificacion__inner">
+
+    <div class="ars-verificacion__content">
+
+      <p class="ars-verificacion__label">
+        {{ 'nij.p06.text_d80aa503b3' | t | escape }}
+      </p>
+
+      <h2
+        class="ars-verificacion__title"
+        id="ars-verificacion-title-{{ section.id }}"
+      >{{ 'nij.p06.heading_html' | t }}</h2>
+
+      <p class="ars-verificacion__intro">
+        {{ 'nij.p06.text_95a398de22' | t | escape }}
+      </p>
+
+      <a
+        class="ars-verificacion__link"
+        href="https://cjttec.org/cpl-ballistic-armor-07/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {{ 'nij.p06.text_3d833ba526' | t | escape }}
+        <span aria-hidden="true">↗</span>
+        <span class="visually-hidden">
+          {{ 'nij.p06.text_0ff0bedb06' | t | escape }}
+        </span>
+      </a>
+
+    </div>
+
+    <ol class="ars-verificacion__steps">
+
+      <li class="ars-verificacion__step">
+        <span class="ars-verificacion__number" aria-hidden="true">
+          01
+        </span>
+
+        <div>
+          <h3 class="ars-verificacion__step-title">
+            {{ 'nij.p06.text_ab6a1f8eae' | t | escape }}
+          </h3>
+
+          <p class="ars-verificacion__step-copy">
+            {{ 'nij.p06.text_ce9367c6b0' | t | escape }}
+          </p>
+        </div>
+      </li>
+
+      <li class="ars-verificacion__step">
+        <span class="ars-verificacion__number" aria-hidden="true">
+          02
+        </span>
+
+        <div>
+          <h3 class="ars-verificacion__step-title">
+            {{ 'nij.p06.text_bae826306a' | t | escape }}
+          </h3>
+
+          <p class="ars-verificacion__step-copy">
+            {{ 'nij.p06.text_e75a19bdbb' | t | escape }}
+          </p>
+        </div>
+      </li>
+
+      <li class="ars-verificacion__step">
+        <span class="ars-verificacion__number" aria-hidden="true">
+          03
+        </span>
+
+        <div>
+          <h3 class="ars-verificacion__step-title">
+            {{ 'nij.p06.text_57047fc295' | t | escape }}
+          </h3>
+
+          <p class="ars-verificacion__step-copy">
+            {{ 'nij.p06.text_2f71a2857d' | t | escape }}
+          </p>
+        </div>
+      </li>
+
+    </ol>
+
+  </div>
+</section>
+{% when 'p07' %}
+<style>
+  #ars-faq-{{ section.id }} {
+    padding: 40px 24px;
+    background: #ffffff;
+    color: #1d2426;
+    font-family: var(--font-body-family, inherit);
+    font-style: var(--font-body-style, normal);
+    font-weight: var(--font-body-weight, 400);
+  }
+
+  #ars-faq-{{ section.id }},
+  #ars-faq-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #ars-faq-{{ section.id }} h2,
+  #ars-faq-{{ section.id }} p,
+  #ars-faq-{{ section.id }} a,
+  #ars-faq-{{ section.id }} summary,
+  #ars-faq-{{ section.id }} summary *,
+  #ars-faq-{{ section.id }} h2 * {
+    -webkit-hyphens: none !important;
+    hyphens: none !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__container {
+    max-width: 1250px;
+    margin: 0 auto;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.45fr);
+    align-items: start;
+    gap: 64px;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__header {
+    min-width: 0;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__label {
+    margin: 0 0 24px;
+    color: #DD5409;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__title {
+    margin: 0;
+    color: #1d2426;
+    font-family: var(--font-heading-family, inherit);
+    font-style: var(--font-heading-style, normal);
+    font-weight: var(--font-heading-weight, 700);
+    font-size: 64px;
+    line-height: 1;
+    letter-spacing: -1.5px;
+    text-transform: none;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__word {
+    display: inline-block;
+    white-space: nowrap !important;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__list {
+    min-width: 0;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__item {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid #d9ddde;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__question {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 24px 0;
+    margin: 0;
+    color: #1d2426;
+    background: transparent;
+    font-family: var(--font-body-family, inherit);
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: normal;
+    text-transform: none;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__question::-webkit-details-marker {
+    display: none;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__question::marker {
+    content: "";
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__question::before,
+  #ars-faq-{{ section.id }} .ars-faq__question::after {
+    content: none;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__question-text {
+    display: block;
+    min-width: 0;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__icon {
+    position: relative;
+    display: block;
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    color: #DD5409;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__icon::before,
+  #ars-faq-{{ section.id }} .ars-faq__icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: block;
+    background: currentColor;
+    transform: translate(-50%, -50%);
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__icon::before {
+    width: 14px;
+    height: 3px;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__icon::after {
+    width: 3px;
+    height: 14px;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__item[open] .ars-faq__icon {
+    transform: rotate(45deg);
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__answer {
+    padding: 0 30px 26px 0;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__answer p {
+    margin: 0;
+    color: #626c70;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__question:focus-visible {
+    outline: 2px solid #DD5409;
+    outline-offset: 3px;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__sources {
+    margin-top: 48px;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__sources-label {
+    margin: 0 0 24px;
+    color: #626c70;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__sources-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 16px 28px;
+    padding: 0;
+    margin: 0 0 24px;
+    list-style: none;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__sources-links li {
+    padding: 0;
+    margin: 0;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__source-link {
+    display: inline-block;
+    padding-bottom: 4px;
+    border-bottom: 1px solid currentColor;
+    color: #1d2426;
+    font-size: 12px;
+    line-height: 1.5;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 180ms ease;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__source-link:hover {
+    color: #DD5409;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__source-link:focus-visible {
+    outline: 2px solid #DD5409;
+    outline-offset: 5px;
+  }
+
+  #ars-faq-{{ section.id }} .ars-faq__sources-note {
+    margin: 0;
+    color: #626c70;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    #ars-faq-{{ section.id }} .ars-faq__inner {
+      gap: 32px;
+    }
+
+    #ars-faq-{{ section.id }} .ars-faq__title {
+      font-size: 56px;
+    }
+
+    #ars-faq-{{ section.id }} .ars-faq__question {
+      font-size: 16px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #ars-faq-{{ section.id }} {
+      padding: 28px 20px;
+    }
+
+    #ars-faq-{{ section.id }} .ars-faq__inner {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    #ars-faq-{{ section.id }} .ars-faq__label {
+      margin-bottom: 18px;
+      font-size: 10px;
+      letter-spacing: 1.3px;
+    }
+
+    #ars-faq-{{ section.id }} .ars-faq__title {
+      font-size: 40px;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    #ars-faq-{{ section.id }} .ars-faq__question {
+      gap: 14px;
+      padding: 20px 0;
+      font-size: 16px;
+      line-height: 1.35;
+    }
+
+    #ars-faq-{{ section.id }} .ars-faq__answer {
+      padding: 0 0 22px;
+    }
+
+    #ars-faq-{{ section.id }} .ars-faq__answer p {
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    #ars-faq-{{ section.id }} .ars-faq__sources {
+      margin-top: 32px;
+    }
+
+    #ars-faq-{{ section.id }} .ars-faq__sources-label {
+      margin-bottom: 20px;
+      font-size: 9px;
+      letter-spacing: 1.3px;
+    }
+
+    #ars-faq-{{ section.id }} .ars-faq__sources-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px 12px;
+      margin-bottom: 20px;
+    }
+
+    #ars-faq-{{ section.id }} .ars-faq__source-link {
+      max-width: 100%;
+      font-size: 11px;
+      white-space: normal;
+    }
+
+    #ars-faq-{{ section.id }} .ars-faq__sources-note {
+      font-size: 10px;
+      line-height: 1.5;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #ars-faq-{{ section.id }} .ars-faq__source-link {
+      transition: none;
+    }
+  }
+</style>
+
+<section
+  id="ars-faq-{{ section.id }}"
+  aria-labelledby="ars-faq-title-{{ section.id }}"
+>
+  <div class="ars-faq__container">
+
+    <div class="ars-faq__inner">
+
+      <div class="ars-faq__header">
+        <p class="ars-faq__label">
+          {{ 'nij.p07.text_823f38be06' | t | escape }}
+        </p>
+
+        <h2
+          class="ars-faq__title"
+          id="ars-faq-title-{{ section.id }}"
+        >{{ 'nij.p07.heading_html' | t }}</h2>
+      </div>
+
+      <div class="ars-faq__list">
+
+        <details class="ars-faq__item" open>
+          <summary class="ars-faq__question">
+            <span class="ars-faq__question-text">
+              {{ 'nij.p07.text_ca248b2ab4' | t | escape }}
+            </span>
+            <span class="ars-faq__icon" aria-hidden="true"></span>
+          </summary>
+
+          <div class="ars-faq__answer">
+            <p>
+              {{ 'nij.p07.text_c382947ebf' | t | escape }}
+            </p>
+          </div>
+        </details>
+
+        <details class="ars-faq__item">
+          <summary class="ars-faq__question">
+            <span class="ars-faq__question-text">
+              {{ 'nij.p07.text_80fb04f409' | t | escape }}
+            </span>
+            <span class="ars-faq__icon" aria-hidden="true"></span>
+          </summary>
+
+          <div class="ars-faq__answer">
+            <p>
+              {{ 'nij.p07.text_5e72a4baf1' | t | escape }}
+            </p>
+          </div>
+        </details>
+
+        <details class="ars-faq__item">
+          <summary class="ars-faq__question">
+            <span class="ars-faq__question-text">
+              {{ 'nij.p07.text_6e0cb0a5fe' | t | escape }}
+            </span>
+            <span class="ars-faq__icon" aria-hidden="true"></span>
+          </summary>
+
+          <div class="ars-faq__answer">
+            <p>
+              {{ 'nij.p07.text_e803e5b029' | t | escape }}
+            </p>
+          </div>
+        </details>
+
+        <details class="ars-faq__item">
+          <summary class="ars-faq__question">
+            <span class="ars-faq__question-text">
+              {{ 'nij.p07.text_b7c482df44' | t | escape }}
+            </span>
+            <span class="ars-faq__icon" aria-hidden="true"></span>
+          </summary>
+
+          <div class="ars-faq__answer">
+            <p>
+              {{ 'nij.p07.text_9968dc8975' | t | escape }}
+            </p>
+          </div>
+        </details>
+
+        <details class="ars-faq__item">
+          <summary class="ars-faq__question">
+            <span class="ars-faq__question-text">
+              {{ 'nij.p07.text_d33e4c6eab' | t | escape }}
+            </span>
+            <span class="ars-faq__icon" aria-hidden="true"></span>
+          </summary>
+
+          <div class="ars-faq__answer">
+            <p>
+              {{ 'nij.p07.text_80e077a551' | t | escape }}
+            </p>
+          </div>
+        </details>
+
+      </div>
+    </div>
+
+    <footer
+      class="ars-faq__sources"
+      aria-label="{{ 'nij.p07.text_abaf846ec7' | t | escape }}"
+    >
+      <p class="ars-faq__sources-label">
+        {{ 'nij.p07.text_990500cb51' | t | escape }}
+      </p>
+
+      <ul class="ars-faq__sources-links">
+
+        <li>
+          <a
+            class="ars-faq__source-link"
+            href="https://www.ojp.gov/pdffiles1/nij/223054.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="{{ 'nij.p07.text_3e816aae45' | t | escape }}"
+          >
+            NIJ 0101.06 <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+
+        <li>
+          <a
+            class="ars-faq__source-link"
+            href="https://nij.ojp.gov/topics/equipment-and-technology/ballistic-resistance-body-armor-nij-standard-010107"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="{{ 'nij.p07.text_56b7c81412' | t | escape }}"
+          >
+            {{ 'nij.p07.text_419f8ba064' | t | escape }} <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+
+        <li>
+          <a
+            class="ars-faq__source-link"
+            href="https://nij.ojp.gov/topics/equipment-and-technology/specification-nij-ballistic-protection-levels-and-associated-test-threats-nij-standard-012300"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="{{ 'nij.p07.text_d360dedeb9' | t | escape }}"
+          >
+            {{ 'nij.p07.text_16bae4774f' | t | escape }} <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+
+        <li>
+          <a
+            class="ars-faq__source-link"
+            href="https://cjttec.org/compliance-testing-program/ballistic-resistant-body-armor/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="{{ 'nij.p07.text_ecceae51d4' | t | escape }}"
+          >
+            {{ 'nij.p07.text_6f165404be' | t | escape }} <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+
+      </ul>
+
+      <p class="ars-faq__sources-note">
+        {{ 'nij.p07.text_b2828923a7' | t | escape }}
+      </p>
+    </footer>
+
+  </div>
+</section>
+{% when 'p08' %}
+{% liquid
+  assign asesoria_form_id = 'ArsenalAsesoria-' | append: section.id
+  assign asesoria_return = request.path | append: '?contact_posted=true'
+
+  if theme.role != 'main'
+    assign asesoria_return = asesoria_return | append: '&view=nij-0101-07&preview_theme_id=' | append: theme.id
+  endif
+
+  assign asesoria_return = asesoria_return | append: '#' | append: asesoria_form_id
+%}
+
+<style>
+  #ars-asesoria-{{ section.id }} {
+    background: #DD5409;
+    box-shadow: 0 0 0 100vmax #DD5409;
+    clip-path: inset(0 -100vmax);
+    color: #ffffff;
+    padding: 40px 24px;
+    scroll-margin-top: 100px;
+
+    font-family: var(--font-body-family, inherit);
+    font-style: var(--font-body-style, normal);
+    font-weight: var(--font-body-weight, 400);
+  }
+
+  #ars-asesoria-{{ section.id }},
+  #ars-asesoria-{{ section.id }} * {
+    box-sizing: border-box;
+  }
+
+  #ars-asesoria-{{ section.id }} h2,
+  #ars-asesoria-{{ section.id }} h2 *,
+  #ars-asesoria-{{ section.id }} p,
+  #ars-asesoria-{{ section.id }} label,
+  #ars-asesoria-{{ section.id }} a {
+    -webkit-hyphens: none !important;
+    hyphens: none !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__inner {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 56px;
+    max-width: 1250px;
+    margin: 0 auto;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__content {
+    min-width: 0;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__label {
+    margin: 0 0 24px;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__title {
+    margin: 0 0 28px;
+    color: #ffffff;
+
+    font-family: var(--font-heading-family, inherit);
+    font-style: var(--font-heading-style, normal);
+    font-weight: var(--font-heading-weight, 700);
+
+    font-size: 64px;
+    line-height: 1;
+    letter-spacing: -1.5px;
+    text-transform: none;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__word {
+    display: inline-block;
+    white-space: nowrap !important;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__intro {
+    max-width: 470px;
+    margin: 0 0 24px;
+    color: #ffffff;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__email {
+    display: inline-block;
+    max-width: 100%;
+    padding-bottom: 4px;
+    border-bottom: 1px solid currentColor;
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.5;
+    text-decoration: none;
+    overflow-wrap: anywhere !important;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__note {
+    margin: 22px 0 0;
+    color: #ffffff;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__box {
+    min-width: 0;
+    padding: 30px;
+    border-radius: 5px;
+    background: #ffffff;
+    color: #1d2426;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__form {
+    margin: 0;
+    scroll-margin-top: 100px;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 16px;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__field {
+    position: relative;
+    min-width: 0;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__field--full {
+    grid-column: 1 / -1;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__field-label {
+    display: block;
+    margin: 0 0 9px;
+    color: #1d2426;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: normal;
+    text-transform: none;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__input {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    padding: 12px;
+    margin: 0;
+
+    border: 1px solid #cbd2d0;
+    border-radius: 2px;
+    background: #f8faf8;
+    color: #1d2426;
+    box-shadow: none;
+
+    font-family: var(--font-body-family, inherit);
+    font-style: var(--font-body-style, normal);
+    font-weight: var(--font-body-weight, 400);
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: normal;
+  }
+
+  #ars-asesoria-{{ section.id }} select.ars-asesoria__input {
+    appearance: auto;
+  }
+
+  #ars-asesoria-{{ section.id }} textarea.ars-asesoria__input {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__input::placeholder {
+    color: #737d7a;
+    opacity: 1;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__input:focus {
+    outline: 2px solid #DD5409;
+    outline-offset: 2px;
+    border-color: #DD5409;
+  }
+
+  /*
+    El tema genera su propio selector.
+    Conservamos el campo original para enviar su valor.
+  */
+  #ars-asesoria-{{ section.id }} select.ars-asesoria__input {
+    position: absolute !important;
+    width: 1px !important;
+    min-width: 0 !important;
+    height: 1px !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__privacy {
+    margin: 20px 0 16px;
+    color: #626c70;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__privacy a {
+    color: #1d2426;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__submit {
+    display: flex !important;
+    flex-flow: row nowrap !important;
+    align-items: center !important;
+    justify-content: space-between;
+    gap: 10px !important;
+
+    width: 100%;
+    max-width: 100%;
+    height: auto !important;
+    min-height: 54px;
+    padding: 16px 20px;
+    margin: 0;
+
+    border: 0;
+    border-radius: 3px;
+    background: #DD5409;
+    color: #ffffff;
+    box-shadow: none;
+
+    font-family: var(--font-body-family, inherit);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: normal;
+    text-align: left;
+    text-transform: none;
+    white-space: normal;
+    cursor: pointer;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__submit > span:first-child {
+    flex: 1;
+    min-width: 0;
+    white-space: normal;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__submit:hover {
+    background: #bd4506;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__submit::before,
+  #ars-asesoria-{{ section.id }} .ars-asesoria__submit::after {
+    content: none;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__arrow {
+    display: block;
+    flex: 0 0 20px !important;
+    width: 20px;
+    margin: 0 !important;
+    font-size: 25px;
+    line-height: 1;
+    text-align: right;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__status {
+    padding: 14px;
+    margin: 0 0 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    border-radius: 3px;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__status--success {
+    background: #edf5ee;
+    color: #24512d;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__status--error {
+    background: #fff0ed;
+    color: #8d271b;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__status p {
+    margin: 0;
+    color: inherit;
+  }
+
+  #ars-asesoria-{{ section.id }} .ars-asesoria__status ul {
+    padding-left: 20px;
+    margin: 8px 0 0;
+  }
+
+  #ars-asesoria-{{ section.id }} a:focus-visible,
+  #ars-asesoria-{{ section.id }} button:focus-visible {
+    outline: 2px solid #1d2426;
+    outline-offset: 4px;
+  }
+
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    #ars-asesoria-{{ section.id }} .ars-asesoria__inner {
+      gap: 28px;
+    }
+
+    #ars-asesoria-{{ section.id }} .ars-asesoria__title {
+      font-size: 56px;
+    }
+
+    #ars-asesoria-{{ section.id }} .ars-asesoria__box {
+      padding: 24px;
+    }
+
+    #ars-asesoria-{{ section.id }} .ars-asesoria__fields {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    #ars-asesoria-{{ section.id }} {
+      padding: 28px 20px;
+    }
+
+    #ars-asesoria-{{ section.id }} .ars-asesoria__inner {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 26px;
+    }
+
+    #ars-asesoria-{{ section.id }} .ars-asesoria__label {
+      margin-bottom: 18px;
+      font-size: 10px;
+      letter-spacing: 1.3px;
+    }
+
+    #ars-asesoria-{{ section.id }} .ars-asesoria__title {
+      margin-bottom: 20px;
+      font-size: 40px;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    #ars-asesoria-{{ section.id }} .ars-asesoria__intro {
+      margin-bottom: 18px;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    #ars-asesoria-{{ section.id }} .ars-asesoria__email {
+      font-size: 14px;
+    }
+
+    #ars-asesoria-{{ section.id }} .ars-asesoria__note {
+      margin-top: 18px;
+      font-size: 10px;
+    }
+
+    #ars-asesoria-{{ section.id }} .ars-asesoria__box {
+      padding: 22px 16px;
+    }
+
+    #ars-asesoria-{{ section.id }} .ars-asesoria__fields {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    #ars-asesoria-{{ section.id }} .ars-asesoria__privacy {
+      font-size: 10px;
+    }
+
+    #ars-asesoria-{{ section.id }} .ars-asesoria__submit {
+      padding: 14px !important;
+    }
+  }
+</style>
+
+<section
+  id="ars-asesoria-{{ section.id }}"
+  aria-labelledby="ars-asesoria-title-{{ section.id }}"
+>
+  <div class="ars-asesoria__inner">
+
+    <div class="ars-asesoria__content">
+      <p class="ars-asesoria__label">
+        {{ 'nij.p08.text_6fc24e2993' | t | escape }}
+      </p>
+
+      <h2
+        class="ars-asesoria__title"
+        id="ars-asesoria-title-{{ section.id }}"
+      >{{ 'nij.p08.heading_html' | t }}</h2>
+
+      <p class="ars-asesoria__intro">
+        {{ 'nij.p08.text_fc092e8937' | t | escape }}
+      </p>
+
+      <a
+        class="ars-asesoria__email"
+        href="mailto:cotizaciones@arsenalprotect.com"
+      >
+        cotizaciones@arsenalprotect.com
+        <span aria-hidden="true">↗</span>
+      </a>
+
+      <p class="ars-asesoria__note">
+        {{ 'nij.p08.text_b7b917753d' | t | escape }}
+      </p>
+    </div>
+
+    <div class="ars-asesoria__box">
+
+      {% form 'contact',
+        id: asesoria_form_id,
+        class: 'ars-asesoria__form',
+        return_to: asesoria_return
+      %}
+
+        {% if form.posted_successfully? %}
+          <p
+            class="ars-asesoria__status ars-asesoria__status--success"
+            role="status"
+          >
+            {{ 'nij.p08.text_b9f89ca48a' | t | escape }}
+          </p>
+        {% endif %}
+
+        {% if form.errors %}
+          <div
+            class="ars-asesoria__status ars-asesoria__status--error"
+            role="alert"
+          >
+            <p>{{ 'nij.p08.text_5aaa9d597d' | t | escape }}</p>
+            {{ form.errors | default_errors }}
+          </div>
+        {% endif %}
+
+        <input
+          type="hidden"
+          name="contact[Origen]"
+          value="Landing NIJ 0101.07 — {{ localization.language.iso_code | escape }}"
+        >
+
+        <div class="ars-asesoria__fields">
+
+          <div class="ars-asesoria__field">
+            <label
+              class="ars-asesoria__field-label"
+              for="ars-nombre-{{ section.id }}"
+            >
+              {{ 'nij.p08.text_15d38639ee' | t | escape }}
+            </label>
+
+            <input
+              class="ars-asesoria__input"
+              type="text"
+              id="ars-nombre-{{ section.id }}"
+              name="contact[name]"
+              autocomplete="name"
+              value="{{ form.name | escape }}"
+              required
+            >
+          </div>
+
+          <div class="ars-asesoria__field">
+            <label
+              class="ars-asesoria__field-label"
+              for="ars-empresa-{{ section.id }}"
+            >
+              {{ 'nij.p08.text_1a928a29a5' | t | escape }}
+            </label>
+
+            <input
+              class="ars-asesoria__input"
+              type="text"
+              id="ars-empresa-{{ section.id }}"
+              name="contact[Empresa o dependencia]"
+              autocomplete="organization"
+              value="{{ form['Empresa o dependencia'] | escape }}"
+              required
+            >
+          </div>
+
+          <div class="ars-asesoria__field">
+            <label
+              class="ars-asesoria__field-label"
+              for="ars-correo-{{ section.id }}"
+            >
+              {{ 'nij.p08.text_49f37f515c' | t | escape }}
+            </label>
+
+            <input
+              class="ars-asesoria__input"
+              type="email"
+              id="ars-correo-{{ section.id }}"
+              name="contact[email]"
+              autocomplete="email"
+              autocapitalize="off"
+              spellcheck="false"
+              value="{{ form.email | escape }}"
+              {% if form.errors contains 'email' %}
+                aria-invalid="true"
+              {% endif %}
+              required
+            >
+          </div>
+
+          <div class="ars-asesoria__field">
+            <label
+              class="ars-asesoria__field-label"
+              for="ars-telefono-{{ section.id }}"
+            >
+              {{ 'nij.p08.text_408019c9f6' | t | escape }}
+            </label>
+
+            <input
+              class="ars-asesoria__input"
+              type="tel"
+              id="ars-telefono-{{ section.id }}"
+              name="contact[phone]"
+              autocomplete="tel"
+              value="{{ form.phone | escape }}"
+              required
+            >
+          </div>
+
+          <div class="ars-asesoria__field ars-asesoria__field--full">
+            <label
+              class="ars-asesoria__field-label"
+              for="ars-producto-{{ section.id }}"
+            >
+              {{ 'nij.p08.text_f8a95e81b8' | t | escape }}
+            </label>
+
+            <select
+              class="ars-asesoria__input"
+              id="ars-producto-{{ section.id }}"
+              name="contact[Producto de interés]"
+              required
+            >
+              <option
+                value=""
+                disabled
+                {% if form['Producto de interés'] == blank %}
+                  selected
+                {% endif %}
+              >
+                {{ 'nij.p08.text_a150d4a325' | t | escape }}
+              </option>
+
+              <option value="Panel balístico GR507" {% if form['Producto de interés'] == 'Panel balístico GR507' %}selected{% endif %}>{{ 'nij.p08.text_09e5ae652f' | t | escape }}</option>
+<option value="Panel balístico GR407" {% if form['Producto de interés'] == 'Panel balístico GR407' %}selected{% endif %}>{{ 'nij.p08.text_12277648c2' | t | escape }}</option>
+<option value="Panel balístico femenino" {% if form['Producto de interés'] == 'Panel balístico femenino' %}selected{% endif %}>{{ 'nij.p08.text_02de5cf09d' | t | escape }}</option>
+<option value="Chalecos y configuraciones" {% if form['Producto de interés'] == 'Chalecos y configuraciones' %}selected{% endif %}>{{ 'nij.p08.text_e3842f57c7' | t | escape }}</option>
+<option value="Otro equipamiento" {% if form['Producto de interés'] == 'Otro equipamiento' %}selected{% endif %}>{{ 'nij.p08.text_1e862c3020' | t | escape }}</option>
+<option value="Asesoría sobre NIJ 0101.07" {% if form['Producto de interés'] == 'Asesoría sobre NIJ 0101.07' %}selected{% endif %}>{{ 'nij.p08.text_dffb8597e6' | t | escape }}</option>
+            </select>
+          </div>
+
+          <div class="ars-asesoria__field ars-asesoria__field--full">
+            <label
+              class="ars-asesoria__field-label"
+              for="ars-mensaje-{{ section.id }}"
+            >
+              {{ 'nij.p08.text_f8494badc9' | t | escape }}
+            </label>
+
+            <textarea
+              class="ars-asesoria__input"
+              id="ars-mensaje-{{ section.id }}"
+              name="contact[body]"
+              rows="4"
+              placeholder="{{ 'nij.p08.text_90d010e771' | t | escape }}"
+              required
+            >{{ form.body | escape }}</textarea>
+          </div>
+
+        </div>
+
+        <p class="ars-asesoria__privacy">
+          {{ 'nij.p08.text_29ceb3833a' | t | escape }}
+          {% if shop.privacy_policy.url != blank %}
+            <a href="{{ shop.privacy_policy.url }}">
+              {{ 'nij.p08.text_6c678902b8' | t | escape }}
+            </a>
+          {% endif %}
+        </p>
+
+        <button
+          class="ars-asesoria__submit"
+          type="submit"
+        >
+          <span>{{ 'nij.p08.text_065d3702c0' | t | escape }}</span>
+          <span class="ars-asesoria__arrow" aria-hidden="true">↗</span>
+        </button>
+
+      {% endform %}
+
+    </div>
+  </div>
+</section>
+{% endcase %}
+{% schema %}
+{
+  "name": "NIJ · Contenido bilingüe",
+  "settings": [
+    {
+      "type": "select",
+      "id": "nij_part",
+      "label": "Apartado",
+      "default": "p01",
+      "options": [
+        {
+          "value": "p01",
+          "label": "01 · Introducción"
+        },
+        {
+          "value": "p02",
+          "label": "02 · Comparativa"
+        },
+        {
+          "value": "p03",
+          "label": "03 · Pruebas"
+        },
+        {
+          "value": "p04",
+          "label": "04 · Paneles"
+        },
+        {
+          "value": "p05",
+          "label": "Panel femenino"
+        },
+        {
+          "value": "p06",
+          "label": "05 · Verificación"
+        },
+        {
+          "value": "p07",
+          "label": "06 · Preguntas frecuentes"
+        },
+        {
+          "value": "p08",
+          "label": "Formulario"
+        }
+      ]
+    },
+    {
+      "type": "range",
+      "id": "spacing_desktop",
+      "label": "Margen inferior en escritorio",
+      "min": -300,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "spacing_mobile",
+      "label": "Margen inferior en móvil",
+      "min": -300,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "fix_zindex",
+      "label": "Orden de superposición",
+      "min": 0,
+      "max": 25,
+      "step": 1,
+      "default": 0
+    }
+  ],
+  "locales": {
+    "es": {
+      "nij": {
+        "p01": {
+          "heading_html": "\n        Dos normas.<br>Funciones distintas.\n      ",
+          "text_0dc098a9e1": "01 / Entender la actualización",
+          "text_fa3b7daf98": "Para entender la nueva clasificación, hay que leer\n        estos dos documentos de forma conjunta.",
+          "text_e86a48a4ea": "Cómo se evalúa",
+          "text_e2266a9ddb": "Establece requisitos de desempeño y métodos de\n            ensayo para la protección balística del torso.",
+          "text_033add5aba": "Consultar la norma y sus adendas ↗",
+          "text_a2c1711c03": "Contra qué se evalúa",
+          "text_4814564cd3": "Define niveles de protección, proyectiles y\n            velocidades de referencia. No establece por sí\n            sola los métodos de ensayo.",
+          "text_36fa6dbc99": "Consultar niveles y amenazas ↗"
+        },
+        "p02": {
+          "heading_html": "\n        El antes y el ahora,<br>frente a frente.\n      ",
+          "text_9a977d8cb2": "IIA no se incluye en la nueva clasificación.",
+          "text_0ec74ae744": "Se conservan las amenazas y velocidades nominales.",
+          "text_9064dcf31d": "El 9 mm sustituye al .357 SIG. El .44 Magnum mantiene 240 gr; cambia la especificación de SJHP a JHP.",
+          "text_9caf6ecd0a": "Se amplía de una a tres amenazas de rifle.",
+          "text_9f5bf68397": "Nuevo nivel intermedio: todas las amenazas RF1 más M855.",
+          "text_fa1627b84b": "Se mantiene M2 AP como amenaza de ensayo.",
+          "text_b48094c679": "02 / Comparativa",
+          "text_9fd6405a9e": "Cada norma tiene su propia columna de munición.\n        Así puedes identificar lo que se conserva,\n        se sustituye o se incorpora.",
+          "text_059c4cbe4c": "Mostrar todos los niveles",
+          "text_1c107a9007": "Mostrar niveles de arma corta",
+          "text_03f3b18b1b": "Mostrar niveles de rifle",
+          "text_bd02b9a7d7": "Todos",
+          "text_26430a896a": "Arma corta",
+          "text_ae9aaeb419": "Velocidad de referencia en m/s",
+          "text_475d0066c5": "Comparativa NIJ 0101.06 y NIJ 0101.07 con NIJ 0123.00",
+          "text_aa769de13a": "ANTES · NIJ 0101.06",
+          "text_d8359ae31e": "AHORA · NIJ 0101.07 + NIJ 0123.00",
+          "text_ba8ae5fc30": "Qué cambió",
+          "text_ee50666c45": "Nivel",
+          "text_58c26b6bae": "Munición de prueba · velocidad",
+          "text_4f68d58956": "NUEVO",
+          "text_611b814552": "Sin antecedente directo.",
+          "text_cd13792fd2": "Sin nivel sucesor en la nueva clasificación.",
+          "text_668d86d71b": "Las correspondencias de nomenclatura no implican equivalencia\n      automática de certificación. En NIJ 0101.06 se muestran las\n      velocidades de blindaje nuevo para IIA, II y IIIA; se omiten\n      las velocidades reducidas de muestras acondicionadas.\n      Los iconos son ilustrativos y no están a escala.",
+          "text_540f43d5bd": "Leer las precisiones técnicas y abreviaturas",
+          "text_eac3cece2f": "proyectil encamisado.",
+          "text_bafff04a36": "punta redonda.",
+          "text_9455878f70": "punta plana.",
+          "text_3c87666be1": "punta blanda encamisada.",
+          "text_bd68108d88": "punta hueca semiencamisada.",
+          "text_49c2465a24": "punta hueca encamisada.",
+          "text_250efd0774": "núcleo de acero dulce.",
+          "text_22d840c11a": "perforante.",
+          "text_346fa4b80a": "grains, unidad de masa.",
+          "text_470dff77a4": "El .44 Magnum mantiene una masa de 240 gr.\n          Para M80 en RF1/RF2, la adenda 1 de NIJ 0123.00\n          especifica 149 +0/−3 gr; para M193, 56 +0/−2 gr;\n          para M855, 61.8 ±1.5 gr.\n          Las velocidades son referencias de ensayo,\n          no velocidades máximas de protección.",
+          "text_0966138929": "El número y distribución de impactos dependen del ensayo\n          y de la configuración. Esta tabla no representa por sí\n          sola el protocolo completo de certificación ni una\n          garantía frente a cualquier munición del mismo calibre.",
+          "text_02f4413ccf": "Fuentes oficiales:",
+          "text_3fb5ff7099": "NIJ 0123.00 y adendas ↗",
+          "mobile_before": "ANTES · NIJ 0101.06",
+          "mobile_now": "AHORA · NIJ 0101.07 + NIJ 0123.00"
+        },
+        "p03": {
+          "heading_html": "\n        <span class=\"ars-tests__word\">También</span>\n        <span class=\"ars-tests__word\">cambia</span><br>\n        <span class=\"ars-tests__word\">la</span>\n        <span class=\"ars-tests__word\">forma</span>\n        <span class=\"ars-tests__word\">de</span>\n        <span class=\"ars-tests__word\">evaluar.</span>\n      ",
+          "text_58149e2998": "03 / Pruebas y evaluación",
+          "text_d59fb95b47": "La actualización explora zonas y geometrías relevantes\n        del blindaje e incorpora métodos de ensayo ASTM.",
+          "text_a83e5b7b77": "Panel flexible con seis puntos y un séptimo impacto cerca del borde superior, con trayectoria punteada ascendente.",
+          "text_447be3ea8c": "Paneles flexibles",
+          "text_a990e838bc": "Un séptimo impacto",
+          "text_a4e36ceb41": "Se incorpora un disparo a 45° cerca del centro\n          del borde superior en la evaluación P-BFD,\n          en paneles planos y no planos.",
+          "text_2777cb32c8": "Esquema conceptual de placa curva con la corona señalada en naranja.",
+          "text_22b9b5980e": "CORONA",
+          "text_a5bc2b8d49": "Placas multicurvas",
+          "text_082240a0af": "Evaluar la corona",
+          "text_09344b5fb9": "La distribución de impactos incluye la corona,\n          un punto alto de la superficie de impacto\n          definido por la geometría de la placa.",
+          "text_743d3a3d10": "Figura femenina con panel de protección delineado en naranja.",
+          "text_7e9ec44599": "Diseños femeninos",
+          "text_721def8d2f": "La forma también cuenta",
+          "text_c79dfa3d40": "Se mejora el soporte de los paneles no planos\n          sobre el respaldo de ensayo y la evaluación\n          de sus características de conformación.",
+          "text_72c702b60e": "Esquemas conceptuales para explicar los cambios;\n      no reproducen el montaje completo de un ensayo.\n      P-BFD: evaluación de perforación y deformación posterior."
+        },
+        "p04": {
+          "heading_html": "\n        <span class=\"ars-paneles__word\">Conoce</span>\n        <span class=\"ars-paneles__word\">nuestros</span><br>\n        <span class=\"ars-paneles__word\">paneles</span>\n        <span class=\"ars-paneles__word\">certificados.</span>\n      ",
+          "text_6e008cf1b4": "Consulta la documentación del modelo y las opciones de integración para tu institución.",
+          "text_9ad586da33": "Solicita asesoría sobre el nivel certificado y la configuración correspondiente al modelo.",
+          "panel_alt": "Panel balístico {{ model }} de Arsenal Protection Mexico",
+          "panel_link": "Consultar el panel {{ model }}",
+          "panel_missing": "Imagen del panel {{ model }} no disponible.",
+          "text_58a2a2c3da": "GR507 y GR407: modelos con certificación bajo\n        NIJ 0101.07, de acuerdo con la información de\n        Arsenal Protection Mexico.",
+          "text_3c8caafcff": "Panel balístico"
+        },
+        "p05": {
+          "heading_html": "\n          <span class=\"ars-componentes__word\">Cada</span>\n          <span class=\"ars-componentes__word\">componente</span>\n          <span class=\"ars-componentes__word\">tiene</span>\n          <span class=\"ars-componentes__word\">una</span>\n          <span class=\"ars-componentes__word\">función.</span>\n        ",
+          "text_afa9298d17": "Mostrar panel con funda YUMA",
+          "text_ceb9ab9635": "Mostrar panel sin funda",
+          "text_9a3f09810a": "Panel femenino con funda negra YUMA sobre maniquí.",
+          "text_886e42587a": "Panel femenino sin funda, con material amarillo visible sobre maniquí.",
+          "text_3b3d747833": "Del panel a su funda",
+          "text_0717af5f2f": "Explora las fotografías del panel femenino y de su\n          funda de YUMA de 200 deniers, respetando la forma\n          y los acabados del producto.",
+          "text_b130129879": "Con funda YUMA",
+          "text_cfc3df4e99": "Sin funda",
+          "text_fcb4f2c6aa": "Funda de YUMA de 200 deniers: tejido negro mate\n            y acabado perimetral visible.",
+          "text_781fd0c648": "Panel sin funda: vista de su conformación\n            y de los acabados visibles del conjunto.",
+          "text_f0eab58f66": "Estas vistas no asignan un modelo ni un nivel\n          de protección al panel femenino mostrado.",
+          "image_missing": "Imagen no disponible."
+        },
+        "p06": {
+          "heading_html": "\n        <span class=\"ars-verificacion__word\">Una</span>\n        <span class=\"ars-verificacion__word\">prueba</span>\n        <span class=\"ars-verificacion__word\">y</span>\n        <span class=\"ars-verificacion__word\">una</span>\n        <span class=\"ars-verificacion__word\">certificación</span>\n        <span class=\"ars-verificacion__word\">tienen</span>\n        <span class=\"ars-verificacion__word\">alcances</span>\n        <span class=\"ars-verificacion__word\">distintos.</span>\n      ",
+          "text_d80aa503b3": "05 / Información verificable",
+          "text_95a398de22": "La certificación corresponde a un modelo específico\n        e incluye la evaluación y el seguimiento del\n        programa NIJ CTP.",
+          "text_3d833ba526": "Consultar la lista oficial NIJ",
+          "text_0ff0bedb06": "(se abre en una pestaña nueva)",
+          "text_ab6a1f8eae": "Identifica el modelo",
+          "text_ce9367c6b0": "Revisa la designación exacta del producto\n            y su etiqueta.",
+          "text_bae826306a": "Consulta la lista CPL",
+          "text_e75a19bdbb": "Verifica fabricante, norma, nivel y estado\n            del modelo.",
+          "text_57047fc295": "Revisa la configuración",
+          "text_2f71a2857d": "Solicita la documentación aplicable al sistema\n            que vas a adquirir."
+        },
+        "p07": {
+          "heading_html": "\n          <span class=\"ars-faq__word\">Respuestas</span><br>\n          <span class=\"ars-faq__word\">para</span>\n          <span class=\"ars-faq__word\">decidir</span><br>\n          <span class=\"ars-faq__word\">con</span>\n          <span class=\"ars-faq__word\">claridad.</span>\n        ",
+          "text_823f38be06": "06 / Preguntas frecuentes",
+          "text_ca248b2ab4": "¿Mi equipo NIJ 0101.06 queda obsoleto?",
+          "text_c382947ebf": "No automáticamente. NIJ prevé mantener la lista\n              NIJ 0101.06 al menos hasta finales de 2029. Esa fecha\n              no determina la vida útil de cada equipo:\n              revisa su condición, las indicaciones del fabricante\n              y las políticas de tu institución.",
+          "text_80fb04f409": "¿HG2 es exactamente lo mismo que IIIA?",
+          "text_5e72a4baf1": "No es una equivalencia automática. HG2 es la nueva\n              designación asociada al anterior IIIA, pero cambian\n              amenazas y métodos de ensayo. Un modelo certificado\n              bajo NIJ 0101.06 no obtiene por ello certificación\n              bajo NIJ 0101.07.",
+          "text_6e0cb0a5fe": "¿Qué incorpora el nuevo nivel RF2?",
+          "text_e803e5b029": "RF2 incluye las tres amenazas de RF1:\n              7.62 × 51 mm M80, 7.62 × 39 mm MSC y\n              5.56 mm M193. Añade la munición 5.56 mm M855,\n              con velocidad de referencia de 950 m/s.",
+          "text_b7c482df44": "¿NIJ 0101.07 también certifica cascos y escudos?",
+          "text_9968dc8975": "No. NIJ 0101.07 establece requisitos y métodos\n              de ensayo para blindaje corporal del torso.\n              Su certificación no se extiende a cascos ni escudos;\n              esos productos requieren normas y evaluaciones\n              aplicables a su categoría.",
+          "text_d33e4c6eab": "¿RF3 se prueba contra todas las amenazas anteriores?",
+          "text_80e077a551": "No dentro de la clasificación RF3 por sí sola.\n              Su amenaza de ensayo es .30-06 M2 AP,\n              con velocidad de referencia de 878 m/s.\n              Para confirmar evaluaciones frente a otras\n              municiones, consulta la documentación\n              específica del modelo.",
+          "text_abaf846ec7": "Fuentes y actualizaciones",
+          "text_990500cb51": "Fuentes y actualizaciones · Revisión: octubre de 2026",
+          "text_3e816aae45": "NIJ 0101.06, PDF en una pestaña nueva",
+          "text_56b7c81412": "NIJ 0101.07 y adendas, en una pestaña nueva",
+          "text_419f8ba064": "NIJ 0101.07 y adendas",
+          "text_d360dedeb9": "NIJ 0123.00 y adendas, en una pestaña nueva",
+          "text_16bae4774f": "NIJ 0123.00 y adendas",
+          "text_ecceae51d4": "Programa NIJ CTP, en una pestaña nueva",
+          "text_6f165404be": "Programa NIJ CTP",
+          "text_b2828923a7": "Resumen informativo. Para especificaciones de adquisición\n        y ensayos, consulta los documentos completos y sus adendas."
+        },
+        "p08": {
+          "heading_html": "\n        <span class=\"ars-asesoria__word\">Define</span>\n        <span class=\"ars-asesoria__word\">la</span>\n        <span class=\"ars-asesoria__word\">protección</span>\n        <span class=\"ars-asesoria__word\">que</span>\n        <span class=\"ars-asesoria__word\">necesita</span>\n        <span class=\"ars-asesoria__word\">tu</span>\n        <span class=\"ars-asesoria__word\">institución.</span>\n      ",
+          "text_09e5ae652f": "Panel balístico GR507",
+          "text_12277648c2": "Panel balístico GR407",
+          "text_02de5cf09d": "Panel balístico femenino",
+          "text_e3842f57c7": "Chalecos y configuraciones",
+          "text_1e862c3020": "Otro equipamiento",
+          "text_dffb8597e6": "Asesoría sobre NIJ 0101.07",
+          "text_6fc24e2993": "Asesoría para instituciones",
+          "text_fc092e8937": "Cuéntanos qué equipamiento buscas. Te ayudamos\n        a revisar niveles, configuraciones y documentación.",
+          "text_b7b917753d": "Atención a instituciones públicas y privadas.",
+          "text_b9f89ca48a": "Tu solicitud se ha enviado correctamente.\n            Gracias por contactar a Arsenal Protection Mexico.",
+          "text_5aaa9d597d": "Revisa los siguientes datos:",
+          "text_15d38639ee": "Nombre completo *",
+          "text_1a928a29a5": "Empresa o dependencia *",
+          "text_49f37f515c": "Correo electrónico *",
+          "text_408019c9f6": "Teléfono *",
+          "text_f8a95e81b8": "Producto de interés *",
+          "text_a150d4a325": "Selecciona una opción",
+          "text_f8494badc9": "¿Qué necesita tu institución? *",
+          "text_90d010e771": "Cantidad estimada, configuración o documentación que necesitas",
+          "text_29ceb3833a": "Los campos marcados con * son obligatorios.\n          Utilizaremos tus datos para atender tu solicitud.",
+          "text_6c678902b8": "Consulta nuestro aviso de privacidad.",
+          "text_065d3702c0": "Enviar solicitud de asesoría"
+        }
+      }
+    },
+    "en": {
+      "nij": {
+        "p01": {
+          "heading_html": "Two standards.<br>Different roles.",
+          "text_0dc098a9e1": "01 / Understanding the update",
+          "text_fa3b7daf98": "To understand the new classification, these two documents need to be read together.",
+          "text_e86a48a4ea": "How it is tested",
+          "text_e2266a9ddb": "Sets performance requirements and test methods for ballistic protection of the torso.",
+          "text_033add5aba": "Read the standard and its addenda ↗",
+          "text_a2c1711c03": "What it is tested against",
+          "text_4814564cd3": "Defines protection levels, projectiles and reference velocities. It does not establish test methods on its own.",
+          "text_36fa6dbc99": "View protection levels and test threats ↗"
+        },
+        "p02": {
+          "heading_html": "Before and now,<br>side by side.",
+          "text_9a977d8cb2": "IIA is not included in the new classification.",
+          "text_0ec74ae744": "The test threats and nominal velocities are retained.",
+          "text_9064dcf31d": "9 mm replaces .357 SIG. The .44 Magnum retains its 240 gr mass; the specification changes from SJHP to JHP.",
+          "text_9caf6ecd0a": "Expanded from one to three rifle test threats.",
+          "text_9f5bf68397": "A new intermediate level: all RF1 threats plus M855.",
+          "text_fa1627b84b": "M2 AP remains the test threat.",
+          "text_b48094c679": "02 / Comparison",
+          "text_9fd6405a9e": "Each standard has its own ammunition column, making it easier to see what stays, what changes and what is added.",
+          "text_059c4cbe4c": "Show all levels",
+          "text_1c107a9007": "Show handgun levels",
+          "text_03f3b18b1b": "Show rifle levels",
+          "text_bd02b9a7d7": "All",
+          "text_26430a896a": "Handgun",
+          "text_ae9aaeb419": "Reference velocity in m/s",
+          "text_475d0066c5": "Comparison of NIJ 0101.06 and NIJ 0101.07 with NIJ 0123.00",
+          "text_aa769de13a": "BEFORE · NIJ 0101.06",
+          "text_d8359ae31e": "NOW · NIJ 0101.07 + NIJ 0123.00",
+          "text_ba8ae5fc30": "What changed",
+          "text_ee50666c45": "Level",
+          "text_58c26b6bae": "Test ammunition · velocity",
+          "text_4f68d58956": "NEW",
+          "text_611b814552": "No direct predecessor.",
+          "text_cd13792fd2": "No successor level in the new classification.",
+          "text_668d86d71b": "Corresponding level names do not imply automatic certification equivalence. For NIJ 0101.06, the velocities shown for IIA, II and IIIA apply to new armor; reduced velocities for conditioned samples are omitted. Icons are illustrative and not to scale.",
+          "text_540f43d5bd": "Read technical notes and abbreviations",
+          "text_eac3cece2f": "full metal jacket.",
+          "text_bafff04a36": "round nose.",
+          "text_9455878f70": "flat nose.",
+          "text_3c87666be1": "jacketed soft point.",
+          "text_bd68108d88": "semi-jacketed hollow point.",
+          "text_49c2465a24": "jacketed hollow point.",
+          "text_250efd0774": "mild steel core.",
+          "text_22d840c11a": "armor piercing.",
+          "text_346fa4b80a": "grains, a unit of mass.",
+          "text_470dff77a4": "The .44 Magnum retains a mass of 240 gr. For M80 in RF1/RF2, Addendum 1 to NIJ 0123.00 specifies 149 +0/−3 gr; for M193, 56 +0/−2 gr; and for M855, 61.8 ±1.5 gr. These are test reference velocities, not maximum protection velocities.",
+          "text_0966138929": "The number and placement of shots depend on the test and configuration. This table alone does not represent the full certification protocol or guarantee protection against every round of the same caliber.",
+          "text_02f4413ccf": "Official sources:",
+          "text_3fb5ff7099": "NIJ 0123.00 and addenda ↗",
+          "mobile_before": "BEFORE · NIJ 0101.06",
+          "mobile_now": "NOW · NIJ 0101.07 + NIJ 0123.00"
+        },
+        "p03": {
+          "heading_html": "<span class=\"ars-tests__word\">The</span> <span class=\"ars-tests__word\">way</span> <span class=\"ars-tests__word\">we</span> <span class=\"ars-tests__word\">test</span> <br> <span class=\"ars-tests__word\">is</span> <span class=\"ars-tests__word\">changing</span> <span class=\"ars-tests__word\">too.</span>",
+          "text_58149e2998": "03 / Testing and evaluation",
+          "text_d59fb95b47": "The update examines relevant armor areas and geometries and incorporates ASTM test methods.",
+          "text_a83e5b7b77": "Soft armor panel with six points and a seventh shot near the top edge, with a dotted upward trajectory.",
+          "text_447be3ea8c": "Soft armor panels",
+          "text_a990e838bc": "A seventh shot",
+          "text_a4e36ceb41": "A shot at 45° near the center of the top edge is added to P-BFD testing of planar and nonplanar panels.",
+          "text_2777cb32c8": "Conceptual diagram of a curved plate with its crown marked in orange.",
+          "text_22b9b5980e": "CROWN",
+          "text_a5bc2b8d49": "Multi-curve plates",
+          "text_082240a0af": "Testing the crown",
+          "text_09344b5fb9": "Shot placement includes the crown, a high point on the strike face defined by the plate's geometry.",
+          "text_743d3a3d10": "Female figure with a protective panel outlined in orange.",
+          "text_7e9ec44599": "Female armor designs",
+          "text_721def8d2f": "Shape matters too",
+          "text_c79dfa3d40": "Support for nonplanar panels on the test backing is improved, along with evaluation of their shaping features.",
+          "text_72c702b60e": "Conceptual diagrams explaining the changes; they do not reproduce a complete test setup. P-BFD: perforation and backface deformation testing."
+        },
+        "p04": {
+          "heading_html": "<span class=\"ars-paneles__word\">Explore</span> <span class=\"ars-paneles__word\">our</span> <br> <span class=\"ars-paneles__word\">certified</span> <span class=\"ars-paneles__word\">panels.</span>",
+          "text_6e008cf1b4": "Review the model's documentation and integration options for your institution.",
+          "text_9ad586da33": "Request guidance on the model's certified protection level and configuration.",
+          "panel_alt": "Arsenal Protection Mexico {{ model }} ballistic panel",
+          "panel_link": "View the {{ model }} panel",
+          "panel_missing": "Image unavailable for panel {{ model }}.",
+          "text_58a2a2c3da": "GR507 and GR407: models certified to NIJ 0101.07, according to information from Arsenal Protection Mexico.",
+          "text_3c8caafcff": "Ballistic panel"
+        },
+        "p05": {
+          "heading_html": "<span class=\"ars-componentes__word\">Every</span> <span class=\"ars-componentes__word\">component</span> <span class=\"ars-componentes__word\">has</span> <span class=\"ars-componentes__word\">a</span> <span class=\"ars-componentes__word\">purpose.</span>",
+          "text_afa9298d17": "Show panel with YUMA cover",
+          "text_ceb9ab9635": "Show panel without cover",
+          "text_9a3f09810a": "Female armor panel with a black YUMA cover on a mannequin.",
+          "text_886e42587a": "Female armor panel without its cover, showing yellow material on a mannequin.",
+          "text_3b3d747833": "From panel to cover",
+          "text_0717af5f2f": "Explore photographs of the female armor panel and its 200-denier YUMA cover, preserving the product's shape and finishes.",
+          "text_b130129879": "With YUMA cover",
+          "text_cfc3df4e99": "Without cover",
+          "text_fcb4f2c6aa": "200-denier YUMA cover: matte black fabric with a visible perimeter finish.",
+          "text_781fd0c648": "Panel without cover: a view of its shape and visible assembly finishes.",
+          "text_f0eab58f66": "These views do not assign a model or protection level to the female armor panel shown.",
+          "image_missing": "Image unavailable."
+        },
+        "p06": {
+          "heading_html": "<span class=\"ars-verificacion__word\">Testing</span> <span class=\"ars-verificacion__word\">and</span> <span class=\"ars-verificacion__word\">certification</span> <span class=\"ars-verificacion__word\">have</span> <span class=\"ars-verificacion__word\">different</span> <span class=\"ars-verificacion__word\">scopes.</span>",
+          "text_d80aa503b3": "05 / Verifiable information",
+          "text_95a398de22": "Certification applies to a specific model and includes evaluation and ongoing oversight under the NIJ CTP.",
+          "text_3d833ba526": "View the official NIJ list",
+          "text_0ff0bedb06": "(opens in a new tab)",
+          "text_ab6a1f8eae": "Identify the model",
+          "text_ce9367c6b0": "Check the exact product designation and its label.",
+          "text_bae826306a": "Check the CPL",
+          "text_e75a19bdbb": "Verify the manufacturer, standard, protection level and model status.",
+          "text_57047fc295": "Review the configuration",
+          "text_2f71a2857d": "Request the documentation applicable to the system you intend to purchase."
+        },
+        "p07": {
+          "heading_html": "<span class=\"ars-faq__word\">Answers</span> <span class=\"ars-faq__word\">for</span> <br> <span class=\"ars-faq__word\">clear</span> <span class=\"ars-faq__word\">decisions.</span>",
+          "text_823f38be06": "06 / Frequently asked questions",
+          "text_ca248b2ab4": "Is my NIJ 0101.06 equipment now obsolete?",
+          "text_c382947ebf": "Not automatically. NIJ plans to maintain the NIJ 0101.06 list until at least the end of 2029. That date does not determine the service life of individual equipment: check its condition, the manufacturer's instructions and your institution's policies.",
+          "text_80fb04f409": "Is HG2 exactly the same as IIIA?",
+          "text_5e72a4baf1": "There is no automatic equivalence. HG2 is the new designation associated with the former IIIA level, but test threats and methods change. A model certified to NIJ 0101.06 does not automatically receive NIJ 0101.07 certification.",
+          "text_6e0cb0a5fe": "What does the new RF2 level add?",
+          "text_e803e5b029": "RF2 includes the three RF1 threats: 7.62 × 51 mm M80, 7.62 × 39 mm MSC and 5.56 mm M193. It adds 5.56 mm M855 ammunition at a reference velocity of 950 m/s.",
+          "text_b7c482df44": "Does NIJ 0101.07 also certify helmets and shields?",
+          "text_9968dc8975": "No. NIJ 0101.07 sets requirements and test methods for torso body armor. Its certification does not extend to helmets or shields; those products require standards and evaluations applicable to their category.",
+          "text_d33e4c6eab": "Is RF3 tested against all the preceding threats?",
+          "text_80e077a551": "Not under the RF3 classification alone. Its test threat is .30-06 M2 AP at a reference velocity of 878 m/s. To confirm testing against other ammunition, consult the documentation for the specific model.",
+          "text_abaf846ec7": "Sources and updates",
+          "text_990500cb51": "Sources and updates · Reviewed: October 2026",
+          "text_3e816aae45": "NIJ 0101.06, PDF in a new tab",
+          "text_56b7c81412": "NIJ 0101.07 and addenda, in a new tab",
+          "text_419f8ba064": "NIJ 0101.07 and addenda",
+          "text_d360dedeb9": "NIJ 0123.00 and addenda, in a new tab",
+          "text_16bae4774f": "NIJ 0123.00 and addenda",
+          "text_ecceae51d4": "NIJ CTP program, in a new tab",
+          "text_6f165404be": "NIJ CTP program",
+          "text_b2828923a7": "Informational overview. For procurement and testing specifications, consult the complete documents and their addenda."
+        },
+        "p08": {
+          "heading_html": "<span class=\"ars-asesoria__word\">Define</span> <span class=\"ars-asesoria__word\">the</span> <span class=\"ars-asesoria__word\">protection</span> <span class=\"ars-asesoria__word\">your</span> <span class=\"ars-asesoria__word\">institution</span> <span class=\"ars-asesoria__word\">needs.</span>",
+          "text_09e5ae652f": "GR507 ballistic panel",
+          "text_12277648c2": "GR407 ballistic panel",
+          "text_02de5cf09d": "Female armor panel",
+          "text_e3842f57c7": "Vests and configurations",
+          "text_1e862c3020": "Other equipment",
+          "text_dffb8597e6": "NIJ 0101.07 guidance",
+          "text_6fc24e2993": "Guidance for institutions",
+          "text_fc092e8937": "Tell us what equipment you need. We can help you review protection levels, configurations and documentation.",
+          "text_b7b917753d": "Serving public and private institutions.",
+          "text_b9f89ca48a": "Your request has been sent successfully. Thank you for contacting Arsenal Protection Mexico.",
+          "text_5aaa9d597d": "Please check the following details:",
+          "text_15d38639ee": "Full name *",
+          "text_1a928a29a5": "Company or agency *",
+          "text_49f37f515c": "Email address *",
+          "text_408019c9f6": "Phone number *",
+          "text_f8a95e81b8": "Product of interest *",
+          "text_a150d4a325": "Select an option",
+          "text_f8494badc9": "What does your institution need? *",
+          "text_90d010e771": "Estimated quantity, configuration or documentation required",
+          "text_29ceb3833a": "Fields marked with * are required. We will use your information to respond to your request.",
+          "text_6c678902b8": "Read our privacy notice.",
+          "text_065d3702c0": "Send consultation request"
+        }
+      }
+    }
+  },
+  "presets": [
+    {
+      "name": "NIJ · Contenido bilingüe"
+    }
+  ]
+}
+{% endschema %}
