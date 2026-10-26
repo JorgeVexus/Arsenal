@@ -1,3 +1,10 @@
+{% liquid
+  assign nij_hero_language = localization.language.iso_code | downcase | split: '-' | first
+  assign nij_hero_is_english = false
+  if nij_hero_language == 'en'
+    assign nij_hero_is_english = true
+  endif
+%}
 {% comment %}
   Hero Certificación NIJ - Arsenal
   Sección Hero destacada de Certificación Balística NIJ 0101.07 con insignias y pilares de marca.
@@ -745,7 +752,7 @@
 
         {%- if section.settings.cert_badge != blank -%}
           <div class="hero-nij-cert-badge-{{ section.id }}">
-            {{ section.settings.cert_badge }}
+            {% if nij_hero_is_english %}{{ 'nij_hero.cert_badge' | t | escape }}{% else %}{{ section.settings.cert_badge }}{% endif %}
           </div>
         {%- endif -%}
 
@@ -763,7 +770,7 @@
 
         {%- if section.settings.subtitle != blank -%}
           <div class="hero-nij-subtitle-{{ section.id }}">
-            {{ section.settings.subtitle }}
+            {% if nij_hero_is_english %}{{ 'nij_hero.subtitle' | t | escape }}{% else %}{{ section.settings.subtitle }}{% endif %}
           </div>
         {%- endif -%}
 
@@ -778,7 +785,7 @@
 
         {%- if section.settings.description != blank -%}
           <div class="hero-nij-description-{{ section.id }}">
-            {{ section.settings.description }}
+            {% if nij_hero_is_english %}{{ 'nij_hero.description' | t | escape }}{% else %}{{ section.settings.description }}{% endif %}
           </div>
         {%- endif -%}
 
@@ -787,7 +794,7 @@
           <div class="hero-nij-actions-{{ section.id }}">
             {%- if section.settings.btn_primary_label != blank -%}
               <a href="{{ section.settings.btn_primary_link | default: '#' }}" class="hero-nij-btn-primary-{{ section.id }}">
-                <span>{{ section.settings.btn_primary_label }}</span>
+                <span>{% if nij_hero_is_english %}{{ 'nij_hero.btn_primary_label' | t | escape }}{% else %}{{ section.settings.btn_primary_label }}{% endif %}</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </a>
             {%- endif -%}
@@ -900,9 +907,9 @@
 {%- endcase -%}
               </div>
               <div class="hero-nij-pillar-info-{{ section.id }}">
-                <span class="hero-nij-pillar-title-{{ section.id }}">{{ block.settings.title }}</span>
+                <span class="hero-nij-pillar-title-{{ section.id }}">{% if nij_hero_is_english %}{% assign nij_hero_key = 'nij_hero.' | append: block.settings.icon | append: '_title' %}{{ nij_hero_key | t | escape }}{% else %}{{ block.settings.title }}{% endif %}</span>
                 {%- if block.settings.description != blank -%}
-                  <span class="hero-nij-pillar-desc-{{ section.id }}">{{ block.settings.description }}</span>
+                  <span class="hero-nij-pillar-desc-{{ section.id }}">{% if nij_hero_is_english %}{% assign nij_hero_key = 'nij_hero.' | append: block.settings.icon | append: '_description' %}{{ nij_hero_key | t | escape }}{% else %}{{ block.settings.description }}{% endif %}</span>
                 {%- endif -%}
               </div>
             </div>
@@ -916,11 +923,14 @@
 
 {% schema %}
 {
-  "name": "Hero Certificación NIJ",
+  "name": "NIJ · Cabecera bilingüe",
   "tag": "section",
   "class": "section-hero-nij",
   "disabled_on": {
-    "groups": ["header", "footer"]
+    "groups": [
+      "header",
+      "footer"
+    ]
   },
   "settings": [
     {
@@ -939,8 +949,14 @@
       "id": "image_position",
       "label": "Posición de la Imagen",
       "options": [
-        { "value": "right", "label": "Derecha" },
-        { "value": "left", "label": "Izquierda" }
+        {
+          "value": "right",
+          "label": "Derecha"
+        },
+        {
+          "value": "left",
+          "label": "Izquierda"
+        }
       ],
       "default": "right"
     },
@@ -1193,10 +1209,22 @@
           "id": "icon",
           "label": "Icono",
           "options": [
-            { "value": "shield", "label": "Protección / Escudo" },
-            { "value": "target", "label": "Desempeño / Mira Balística" },
-            { "value": "tech", "label": "Tecnología / Red Avanzada" },
-            { "value": "trust", "label": "Compromiso / Confianza" }
+            {
+              "value": "shield",
+              "label": "Protección / Escudo"
+            },
+            {
+              "value": "target",
+              "label": "Desempeño / Mira Balística"
+            },
+            {
+              "value": "tech",
+              "label": "Tecnología / Red Avanzada"
+            },
+            {
+              "value": "trust",
+              "label": "Compromiso / Confianza"
+            }
           ],
           "default": "shield"
         },
@@ -1217,7 +1245,7 @@
   ],
   "presets": [
     {
-      "name": "Hero Certificación NIJ",
+      "name": "NIJ · Cabecera bilingüe",
       "blocks": [
         {
           "type": "feature_pillar",
@@ -1253,6 +1281,40 @@
         }
       ]
     }
-  ]
+  ],
+  "locales": {
+    "es": {
+      "nij_hero": {
+        "cert_badge": "NUEVA CERTIFICACIÓN",
+        "subtitle": "La protección balística evoluciona.",
+        "description": "Comprende qué cambia en los niveles, las municiones de prueba y la evaluación del blindaje en los paneles y placas.",
+        "btn_primary_label": "Explorar los cambios",
+        "shield_title": "NIVELES DE PROTECCIÓN",
+        "shield_description": "HG1, HG2, RF1, RF2 y RF3",
+        "target_title": "MUNICIONES DE PRUEBA",
+        "target_description": "Compara las amenazas evaluadas.",
+        "tech_title": "MÉTODOS DE ENSAYO",
+        "tech_description": "Descubre qué cambia en las pruebas.",
+        "trust_title": "MODELOS CERTIFICADOS",
+        "trust_description": "Conoce los paneles GR407 y GR507"
+      }
+    },
+    "en": {
+      "nij_hero": {
+        "cert_badge": "NEW CERTIFICATION",
+        "subtitle": "Ballistic protection evolves.",
+        "description": "Understand the changes to protection levels, test ammunition and armor evaluation for panels and plates.",
+        "btn_primary_label": "Explore the changes",
+        "shield_title": "PROTECTION LEVELS",
+        "shield_description": "HG1, HG2, RF1, RF2 and RF3",
+        "target_title": "TEST AMMUNITION",
+        "target_description": "Compare the tested threats.",
+        "tech_title": "TEST METHODS",
+        "tech_description": "Discover what changes in testing.",
+        "trust_title": "CERTIFIED MODELS",
+        "trust_description": "Explore GR407 and GR507 panels"
+      }
+    }
+  }
 }
 {% endschema %}
