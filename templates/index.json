@@ -72,7 +72,7 @@
         "btn_secondary_link": "",
         "hero_image": "shopify://shop_images/imagen_main.webp",
         "image_radius": 16,
-        "show_seal_badge": true,
+        "show_seal_badge": false,
         "seal_tag": "CERTIFICADO",
         "seal_title": "NIJ 0101.07",
         "seal_subtitle": "CALIDAD Y CONFIANZA",
