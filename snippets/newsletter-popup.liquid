@@ -23,7 +23,7 @@
   </article>
 
   <style>
-    /* La capa ocupa toda la pantalla para centrar el anuncio. */
+    /* Capa del pop-up. */
     .popup-a.arsenal-promo-popup {
       width: 100% !important;
       max-width: none !important;
@@ -33,6 +33,18 @@
       box-shadow: none !important;
       --width: 620px;
       --imgw: 0px;
+    }
+
+    /* Fondo oscuro y desenfocado, debajo de la imagen. */
+    .arsenal-promo-popup::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      pointer-events: none;
     }
 
     .arsenal-promo-popup .box-outer {
@@ -47,7 +59,7 @@
       margin: auto !important;
     }
 
-    /* Este es el contenedor blanco que agrega el tema. */
+    /* Elimina el marco blanco del tema. */
     .arsenal-promo-popup .box-inset {
       padding: 0 !important;
       border: 0 !important;
@@ -76,6 +88,7 @@
       padding: 0;
     }
 
+    /* Imagen completa con sombra. */
     .arsenal-promo-popup__image img {
       display: block;
       position: static;
@@ -86,9 +99,12 @@
       margin: 0;
       border-radius: 10px;
       object-fit: contain;
+      filter: drop-shadow(
+        0 16px 35px rgba(0, 0, 0, 0.65)
+      );
     }
 
-    /* Cierre visible sobre la imagen. */
+    /* Botón de cierre. */
     .arsenal-promo-popup .box-inset > a.close {
       top: 8px !important;
       right: 8px !important;
