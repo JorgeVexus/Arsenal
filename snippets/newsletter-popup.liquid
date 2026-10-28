@@ -15,7 +15,7 @@
           src="{{ settings.newsletter_popup_image | image_url }}"
           width="{{ settings.newsletter_popup_image.width }}"
           height="{{ settings.newsletter_popup_image.height }}"
-          alt="{{ settings.newsletter_popup_image.alt | default: 'Conoce las botas tácticas SPIDER de Arsenal Protection Mexico' | escape }}"
+          alt="{{ settings.newsletter_popup_image.alt | default: 'Botas tácticas SPIDER de Arsenal Protection Mexico' | escape }}"
           loading="eager"
         >
       </a>
@@ -23,13 +23,40 @@
   </article>
 
   <style>
+    /* La capa ocupa toda la pantalla para centrar el anuncio. */
     .popup-a.arsenal-promo-popup {
-      width: min(620px, calc(100vw - 32px)) !important;
-      max-width: calc(100vw - 32px) !important;
+      width: 100% !important;
+      max-width: none !important;
+      padding: 0 !important;
+      background: transparent !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      --width: 620px;
+      --imgw: 0px;
+    }
+
+    .arsenal-promo-popup .box-outer {
+      padding: 24px !important;
+      justify-content: center !important;
+      align-items: center !important;
+    }
+
+    .arsenal-promo-popup .box-inner {
+      width: 100% !important;
+      max-width: 620px !important;
+      margin: auto !important;
+    }
+
+    /* Este es el contenedor blanco que agrega el tema. */
+    .arsenal-promo-popup .box-inset {
       padding: 0 !important;
       border: 0 !important;
       background: transparent !important;
       box-shadow: none !important;
+    }
+
+    .arsenal-promo-popup .box-inset::before {
+      display: none !important;
     }
 
     .arsenal-promo-popup .arsenal-promo-popup__image {
@@ -37,7 +64,6 @@
       position: static !important;
       float: none !important;
       width: 100% !important;
-      max-width: none !important;
       height: auto !important;
       margin: 0 !important;
       padding: 0 !important;
@@ -55,11 +81,23 @@
       position: static;
       width: 100%;
       height: auto;
-      max-height: 85vh;
-      max-height: 85dvh;
+      max-height: calc(100vh - 48px);
+      max-height: calc(100dvh - 48px);
       margin: 0;
       border-radius: 10px;
       object-fit: contain;
+    }
+
+    /* Cierre visible sobre la imagen. */
+    .arsenal-promo-popup .box-inset > a.close {
+      top: 8px !important;
+      right: 8px !important;
+      left: auto !important;
+      width: 36px !important;
+      height: 36px !important;
+      border-radius: 50%;
+      background: #111 !important;
+      color: #fff !important;
     }
   </style>
 {% endif %}
