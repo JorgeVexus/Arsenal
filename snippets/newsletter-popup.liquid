@@ -24,25 +24,30 @@
 
   <style>
     .popup-a.arsenal-promo-popup {
-      width: min(620px, calc(100vw - 32px));
-      max-width: calc(100vw - 32px);
-      padding: 0;
-      background: transparent;
+      width: min(620px, calc(100vw - 32px)) !important;
+      max-width: calc(100vw - 32px) !important;
+      padding: 0 !important;
+      border: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
     }
 
     .arsenal-promo-popup .arsenal-promo-popup__image {
-      display: block;
-      position: static;
-      float: none;
-      width: 100%;
-      max-width: none;
-      height: auto;
-      margin: 0;
-      padding: 0;
+      display: block !important;
+      position: static !important;
+      float: none !important;
+      width: 100% !important;
+      max-width: none !important;
+      height: auto !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      background: transparent !important;
     }
 
     .arsenal-promo-popup__image a {
       display: block;
+      margin: 0;
+      padding: 0;
     }
 
     .arsenal-promo-popup__image img {
@@ -52,6 +57,8 @@
       height: auto;
       max-height: 85vh;
       max-height: 85dvh;
+      margin: 0;
+      border-radius: 10px;
       object-fit: contain;
     }
   </style>
