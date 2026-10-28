@@ -1,25 +1,50 @@
 {% if settings.newsletter_popup_image != blank %}
+
+  {% capture arsenal_product_url %}
+    {{ routes.root_url }}{% unless routes.root_url == '/' %}/{% endunless %}products/botas-tacticas-spider
+  {% endcapture %}
+
+  <script>
+    /*
+      Permite mostrar la promoción nuevamente
+      en cada carga o recarga de la página.
+    */
+    document.cookie =
+      'has-newsletter=; Max-Age=0; path=/; SameSite=Lax';
+  </script>
+
   <article
     class="popup-a arsenal-promo-popup"
     data-title="newsletter-popup"
-    {% unless settings.show_cookiebanner %}
-      data-popup-delay="{{ settings.newsletter_popup_seconds | minus: 0.5 | times: 1000 | round }}"
-    {% endunless %}
+    data-popup-delay="{{ settings.newsletter_popup_seconds | times: 1000 | round }}"
   >
-    <figure class="arsenal-promo-popup__image">
-      <a
-        href="{{ routes.root_url }}{% unless routes.root_url == '/' %}/{% endunless %}products/botas-tacticas-spider"
-        aria-label="Ver botas tácticas SPIDER"
-      >
-        <img
-          src="{{ settings.newsletter_popup_image | image_url }}"
-          width="{{ settings.newsletter_popup_image.width }}"
-          height="{{ settings.newsletter_popup_image.height }}"
-          alt="{{ settings.newsletter_popup_image.alt | default: 'Botas tácticas SPIDER de Arsenal Protection Mexico' | escape }}"
-          loading="eager"
+    <div class="arsenal-promo-popup__card">
+
+      <figure class="arsenal-promo-popup__image">
+        <a
+          href="{{ arsenal_product_url | strip | escape }}"
+          aria-label="Ver botas tácticas SPIDER"
         >
-      </a>
-    </figure>
+          <img
+            src="{{ settings.newsletter_popup_image | image_url }}"
+            width="{{ settings.newsletter_popup_image.width }}"
+            height="{{ settings.newsletter_popup_image.height }}"
+            alt="{{ settings.newsletter_popup_image.alt | default: 'Botas tácticas SPIDER de Arsenal Protection Mexico' | escape }}"
+            loading="eager"
+          >
+        </a>
+      </figure>
+
+      <div class="arsenal-promo-popup__actions">
+        <a
+          class="arsenal-promo-popup__button"
+          href="{{ arsenal_product_url | strip | escape }}"
+        >
+          Ver producto
+        </a>
+      </div>
+
+    </div>
   </article>
 
   <style>
@@ -28,14 +53,15 @@
       width: 100% !important;
       max-width: none !important;
       padding: 0 !important;
-      background: transparent !important;
       border: 0 !important;
+      background: transparent !important;
       box-shadow: none !important;
+
       --width: 620px;
       --imgw: 0px;
     }
 
-    /* Fondo oscuro y desenfocado, debajo de la imagen. */
+    /* Fondo oscuro y desenfocado. */
     .arsenal-promo-popup::before {
       content: "";
       position: fixed;
@@ -47,6 +73,7 @@
       pointer-events: none;
     }
 
+    /* Centrado del anuncio. */
     .arsenal-promo-popup .box-outer {
       padding: 24px !important;
       justify-content: center !important;
@@ -71,6 +98,16 @@
       display: none !important;
     }
 
+    /* Sombra del anuncio. */
+    .arsenal-promo-popup__card {
+      margin: 0;
+      padding: 0;
+      filter: drop-shadow(
+        0 16px 35px rgba(0, 0, 0, 0.65)
+      );
+    }
+
+    /* Contenedor de la imagen. */
     .arsenal-promo-popup .arsenal-promo-popup__image {
       display: block !important;
       position: static !important;
@@ -88,20 +125,54 @@
       padding: 0;
     }
 
-    /* Imagen completa con sombra. */
+    /* Imagen completa, sin recortar. */
     .arsenal-promo-popup__image img {
       display: block;
       position: static;
       width: 100%;
       height: auto;
-      max-height: calc(100vh - 48px);
-      max-height: calc(100dvh - 48px);
+      max-height: calc(100vh - 140px);
+      max-height: calc(100dvh - 140px);
       margin: 0;
       border-radius: 10px;
       object-fit: contain;
-      filter: drop-shadow(
-        0 16px 35px rgba(0, 0, 0, 0.65)
-      );
+    }
+
+    /* Espacio del botón. */
+    .arsenal-promo-popup__actions {
+      display: flex;
+      justify-content: center;
+      margin: 16px 0 0;
+      padding: 0;
+    }
+
+    /* Botón Ver producto. */
+    .arsenal-promo-popup a.arsenal-promo-popup__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 32px;
+      border: 0;
+      border-radius: 999px;
+      background: #ff6500;
+      color: #ffffff;
+      font: inherit;
+      font-weight: 700;
+      line-height: 1.2;
+      text-align: center;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .arsenal-promo-popup a.arsenal-promo-popup__button:hover {
+      background: #d95000;
+      color: #ffffff;
+    }
+
+    .arsenal-promo-popup a.arsenal-promo-popup__button:focus-visible {
+      outline: 3px solid #ffffff;
+      outline-offset: 4px;
     }
 
     /* Botón de cierre. */
@@ -112,8 +183,9 @@
       width: 36px !important;
       height: 36px !important;
       border-radius: 50%;
-      background: #111 !important;
-      color: #fff !important;
+      background: #111111 !important;
+      color: #ffffff !important;
     }
   </style>
+
 {% endif %}
