@@ -2288,9 +2288,16 @@ var loadPopup = function (id) {
 					Cookies.set('has-newsletter', 'no', { sameSite: 'none', secure: true });
 				});
 			});
-			newsletter_popup.querySelector('form').addEventListener("submit", function(event) {
-				Cookies.set('has-newsletter', 'no', { sameSite: 'none', secure: true });
-			});
+			var newsletterForm = newsletter_popup.querySelector('form');
+
+if (newsletterForm) {
+  newsletterForm.addEventListener('submit', function () {
+    Cookies.set('has-newsletter', 'no', {
+      sameSite: 'none',
+      secure: true
+    });
+  });
+}
 		}
 		if (document.getElementById(id).classList.contains('popup-blocker')) {
 			html_tag.classList.add('page-blocked');
