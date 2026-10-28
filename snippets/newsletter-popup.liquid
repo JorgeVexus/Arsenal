@@ -1,22 +1,11 @@
 {% if settings.newsletter_popup_image != blank %}
 
-  {% capture arsenal_product_url %}
-    {{ routes.root_url }}{% unless routes.root_url == '/' %}/{% endunless %}products/botas-tacticas-spider
-  {% endcapture %}
-
-  <script>
-    /*
-      Permite mostrar la promoción nuevamente
-      en cada carga o recarga de la página.
-    */
-    document.cookie =
-      'has-newsletter=; Max-Age=0; path=/; SameSite=Lax';
-  </script>
+  {% capture arsenal_product_url %}{{ routes.root_url }}{% unless routes.root_url == '/' %}/{% endunless %}products/botas-tacticas-spider{% endcapture %}
 
   <article
     class="popup-a arsenal-promo-popup"
     data-title="newsletter-popup"
-    data-popup-delay="{{ settings.newsletter_popup_seconds | times: 1000 | round }}"
+    data-arsenal-delay="{{ settings.newsletter_popup_seconds | times: 1000 | round }}"
   >
     <div class="arsenal-promo-popup__card">
 
@@ -48,7 +37,6 @@
   </article>
 
   <style>
-    /* Capa del pop-up. */
     .popup-a.arsenal-promo-popup {
       width: 100% !important;
       max-width: none !important;
@@ -56,12 +44,10 @@
       border: 0 !important;
       background: transparent !important;
       box-shadow: none !important;
-
       --width: 620px;
       --imgw: 0px;
     }
 
-    /* Fondo oscuro y desenfocado. */
     .arsenal-promo-popup::before {
       content: "";
       position: fixed;
@@ -73,7 +59,6 @@
       pointer-events: none;
     }
 
-    /* Centrado del anuncio. */
     .arsenal-promo-popup .box-outer {
       padding: 24px !important;
       justify-content: center !important;
@@ -86,7 +71,6 @@
       margin: auto !important;
     }
 
-    /* Elimina el marco blanco del tema. */
     .arsenal-promo-popup .box-inset {
       padding: 0 !important;
       border: 0 !important;
@@ -98,7 +82,6 @@
       display: none !important;
     }
 
-    /* Sombra del anuncio. */
     .arsenal-promo-popup__card {
       margin: 0;
       padding: 0;
@@ -107,7 +90,6 @@
       );
     }
 
-    /* Contenedor de la imagen. */
     .arsenal-promo-popup .arsenal-promo-popup__image {
       display: block !important;
       position: static !important;
@@ -125,7 +107,6 @@
       padding: 0;
     }
 
-    /* Imagen completa, sin recortar. */
     .arsenal-promo-popup__image img {
       display: block;
       position: static;
@@ -138,7 +119,6 @@
       object-fit: contain;
     }
 
-    /* Espacio del botón. */
     .arsenal-promo-popup__actions {
       display: flex;
       justify-content: center;
@@ -146,7 +126,6 @@
       padding: 0;
     }
 
-    /* Botón Ver producto. */
     .arsenal-promo-popup a.arsenal-promo-popup__button {
       display: inline-flex;
       align-items: center;
@@ -156,26 +135,24 @@
       border: 0;
       border-radius: 999px;
       background: #ff6500;
-      color: #ffffff;
+      color: #fff;
       font: inherit;
       font-weight: 700;
       line-height: 1.2;
       text-align: center;
       text-decoration: none;
-      transition: background 0.2s ease;
     }
 
     .arsenal-promo-popup a.arsenal-promo-popup__button:hover {
       background: #d95000;
-      color: #ffffff;
+      color: #fff;
     }
 
     .arsenal-promo-popup a.arsenal-promo-popup__button:focus-visible {
-      outline: 3px solid #ffffff;
+      outline: 3px solid #fff;
       outline-offset: 4px;
     }
 
-    /* Botón de cierre. */
     .arsenal-promo-popup .box-inset > a.close {
       top: 8px !important;
       right: 8px !important;
@@ -183,9 +160,113 @@
       width: 36px !important;
       height: 36px !important;
       border-radius: 50%;
-      background: #111111 !important;
-      color: #ffffff !important;
+      background: #111 !important;
+      color: #fff !important;
     }
   </style>
+
+  <script>
+    (function () {
+      function iniciarPromocion() {
+        var popup = document.querySelector(
+          '.arsenal-promo-popup'
+        );
+
+        if (!popup || popup.dataset.arsenalStarted === 'true') {
+          return;
+        }
+
+        popup.dataset.arsenalStarted = 'true';
+
+        var abiertoEnEstaCarga = popup.classList.contains('shown');
+        var tiempo = Number(
+          popup.getAttribute('data-arsenal-delay')
+        );
+
+        if (!Number.isFinite(tiempo) || tiempo < 0) {
+          tiempo = 2000;
+        }
+
+        /*
+          Si el tema lo abre al cerrar el aviso de cookies,
+          lo registramos para evitar una segunda apertura
+          durante esta misma carga.
+        */
+        var observador = new MutationObserver(function () {
+          if (popup.classList.contains('shown')) {
+            abiertoEnEstaCarga = true;
+            observador.disconnect();
+          }
+        });
+
+        observador.observe(popup, {
+          attributes: true,
+          attributeFilter: ['class']
+        });
+
+        var intentos = 0;
+
+        function abrirPromocion() {
+          if (
+            abiertoEnEstaCarga ||
+            !document.documentElement.contains(popup)
+          ) {
+            observador.disconnect();
+            return;
+          }
+
+          /*
+            Espera si hay otro pop-up abierto,
+            para no cerrar el aviso de cookies.
+          */
+          var otroPopup = document.querySelector(
+            '.popup-a.shown:not(.arsenal-promo-popup)'
+          );
+
+          if (
+            otroPopup ||
+            document.documentElement.classList.contains('page-blocked')
+          ) {
+            window.setTimeout(abrirPromocion, 500);
+            return;
+          }
+
+          /*
+            Usa la apertura y el cierre originales del tema,
+            sin consultar el recordatorio de cierre anterior.
+          */
+          if (typeof window.loadPopup === 'function') {
+            abiertoEnEstaCarga = true;
+            observador.disconnect();
+            window.loadPopup('newsletter-popup');
+            return;
+          }
+
+          intentos += 1;
+
+          if (intentos < 120) {
+            window.setTimeout(abrirPromocion, 250);
+          } else {
+            observador.disconnect();
+            console.warn(
+              'Arsenal: no se pudo cargar el controlador del pop-up.'
+            );
+          }
+        }
+
+        window.setTimeout(abrirPromocion, tiempo);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener(
+          'DOMContentLoaded',
+          iniciarPromocion,
+          { once: true }
+        );
+      } else {
+        iniciarPromocion();
+      }
+    })();
+  </script>
 
 {% endif %}
