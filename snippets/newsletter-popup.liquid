@@ -7,13 +7,18 @@
     {% endunless %}
   >
     <figure class="arsenal-promo-popup__image">
-      <img
-        src="{{ settings.newsletter_popup_image | image_url }}"
-        width="{{ settings.newsletter_popup_image.width }}"
-        height="{{ settings.newsletter_popup_image.height }}"
-        alt="{{ settings.newsletter_popup_image.alt | default: 'Promoción Arsenal Protection Mexico' | escape }}"
-        loading="eager"
+      <a
+        href="{{ routes.root_url }}{% unless routes.root_url == '/' %}/{% endunless %}products/botas-tacticas-spider"
+        aria-label="Ver botas tácticas SPIDER"
       >
+        <img
+          src="{{ settings.newsletter_popup_image | image_url }}"
+          width="{{ settings.newsletter_popup_image.width }}"
+          height="{{ settings.newsletter_popup_image.height }}"
+          alt="{{ settings.newsletter_popup_image.alt | default: 'Conoce las botas tácticas SPIDER de Arsenal Protection Mexico' | escape }}"
+          loading="eager"
+        >
+      </a>
     </figure>
   </article>
 
@@ -34,6 +39,10 @@
       height: auto;
       margin: 0;
       padding: 0;
+    }
+
+    .arsenal-promo-popup__image a {
+      display: block;
     }
 
     .arsenal-promo-popup__image img {
