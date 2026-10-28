@@ -1,4 +1,4 @@
-{% if settings.newsletter_popup_image != blank %}
+{% if request.page_type == 'index' and settings.newsletter_popup_image != blank %}
 
   {% capture arsenal_product_url %}{{ routes.root_url }}{% unless routes.root_url == '/' %}/{% endunless %}products/botas-tacticas-spider{% endcapture %}
 
