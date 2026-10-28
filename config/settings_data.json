@@ -114,7 +114,7 @@
     "social_twitter": "https://x.com/mexico_arsenal",
     "social_tiktok": "https://www.tiktok.com/@arsenalprotectionmexico?_t=8oRC6RylJYL&_r=1",
     "show_newsletterpopup": true,
-    "newsletter_popup_testmode": false,
+    "newsletter_popup_testmode": true,
     "newsletter_popup_image": "shopify://shop_images/Botas_Arsenal_Spider_en_laboratorio_Halloween.png",
     "show_age_verify_popup": false,
     "show_cookiebanner": true,
