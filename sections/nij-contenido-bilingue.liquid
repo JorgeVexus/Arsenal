@@ -1068,6 +1068,7 @@ IV|RF3|.30-06 M2 AP^878^ap|.30-06 M2 AP^878^ap|{{ 'nij.p02.text_fa1627b84b' | t 
   </div>
 </section>
 {% when 'p03' %}
+{% assign ars_nij_language = request.locale.iso_code | slice: 0, 2 %}
 <style>
   #pruebas-evaluacion {
     background: #141a1b;
@@ -1356,14 +1357,22 @@ IV|RF3|.30-06 M2 AP^878^ap|.30-06 M2 AP^878^ap|{{ 'nij.p02.text_fa1627b84b' | t 
   <div class="ars-tests__inner">
 
     <p class="ars-tests__label">
-      {{ 'nij.p03.text_58149e2998' | t | escape }}
+      {% if ars_nij_language == "en" %}03 / Testing and evaluation{% else %}03 / Pruebas y evaluación{% endif %}
     </p>
 
     <div class="ars-tests__heading">
-      <h2 id="ars-tests-title">{{ 'nij.p03.heading_html' | t }}</h2>
+      <h2 id="ars-tests-title">{% if ars_nij_language == "en" %}<span class="ars-tests__word">The</span> <span class="ars-tests__word">way</span> <span class="ars-tests__word">we</span> <span class="ars-tests__word">test</span> <br> <span class="ars-tests__word">is</span> <span class="ars-tests__word">changing</span> <span class="ars-tests__word">too.</span>{% else %}
+        <span class="ars-tests__word">También</span>
+        <span class="ars-tests__word">cambia</span><br>
+        <span class="ars-tests__word">la</span>
+        <span class="ars-tests__word">forma</span>
+        <span class="ars-tests__word">de</span>
+        <span class="ars-tests__word">evaluar.</span>
+      {% endif %}</h2>
 
       <p class="ars-tests__intro">
-        {{ 'nij.p03.text_d59fb95b47' | t | escape }}
+        {% if ars_nij_language == "en" %}The update examines relevant armor areas and geometries and incorporates ASTM test methods.{% else %}La actualización explora zonas y geometrías relevantes
+        del blindaje e incorpora métodos de ensayo ASTM.{% endif %}
       </p>
     </div>
 
@@ -1376,7 +1385,7 @@ IV|RF3|.30-06 M2 AP^878^ap|.30-06 M2 AP^878^ap|{{ 'nij.p02.text_fa1627b84b' | t 
             viewBox="0 0 360 220"
             preserveAspectRatio="xMidYMid meet"
             role="img"
-            aria-label="{{ 'nij.p03.text_a83e5b7b77' | t | escape }}"
+            aria-label="{% if ars_nij_language == "en" %}Soft armor panel with six points and a seventh shot near the top edge, with a dotted upward trajectory.{% else %}Panel flexible con seis puntos y un séptimo impacto cerca del borde superior, con trayectoria punteada ascendente.{% endif %}"
           >
             <path
               class="ars-tests__outline"
@@ -1413,63 +1422,26 @@ IV|RF3|.30-06 M2 AP^878^ap|.30-06 M2 AP^878^ap|{{ 'nij.p02.text_fa1627b84b' | t 
           </svg>
         </div>
 
-        <p class="ars-tests__category">{{ 'nij.p03.text_447be3ea8c' | t | escape }}</p>
+        <p class="ars-tests__category">{% if ars_nij_language == "en" %}Soft armor panels{% else %}Paneles flexibles{% endif %}</p>
 
-        <h3>{{ 'nij.p03.text_a990e838bc' | t | escape }}</h3>
+        <h3>{% if ars_nij_language == "en" %}An additional impact at 45°{% else %}Un impacto adicional a 45°{% endif %}</h3>
 
         <p class="ars-tests__copy">
-          {{ 'nij.p03.text_a4e36ceb41' | t | escape }}
+          {% if ars_nij_language == "en" %}Impact No. 7 evaluates the front panel’s neck scoop at 45°. In the test sequence, it follows impact No. 3.{% else %}El impacto identificado como n.º 7 evalúa la zona del escote del panel frontal a 45°. En la secuencia del ensayo se ejecuta después del impacto n.º 3.{% endif %}
         </p>
       </article>
 
       <article class="ars-tests__card">
         <div class="ars-tests__visual">
-          <svg
-            class="ars-tests__diagram"
-            viewBox="0 0 360 220"
-            preserveAspectRatio="xMidYMid meet"
-            role="img"
-            aria-label="{{ 'nij.p03.text_2777cb32c8' | t | escape }}"
-          >
-            <path
-              class="ars-tests__outline"
-              d="M89 194
-                 Q97 83 180 34
-                 Q263 83 271 194 Z"
-            />
-
-            <path
-              class="ars-tests__fine"
-              d="M117 187 Q145 89 180 34
-                 M243 187 Q215 89 180 34"
-            />
-
-            <circle
-              class="ars-tests__accent"
-              cx="180"
-              cy="34"
-              r="10"
-            />
-
-            <path
-              class="ars-tests__accent"
-              d="M195 33 H264"
-            />
-
-            <text
-              class="ars-tests__svg-text"
-              x="235"
-              y="20"
-            >{{ 'nij.p03.text_22b9b5980e' | t | escape }}</text>
-          </svg>
+          <svg class="ars-tests__diagram" viewBox="0 0 300 200" aria-label="Ángulos de incidencia de 0, 30 y 45 grados respecto a la normal al panel; esquema conceptual" role="img"><path d="M215 26V177" stroke="#8e9699" stroke-width="10"/><path d="M45 130H215" stroke="#8e9699" stroke-dasharray="4 4"/><g fill="none" stroke="#ff6b25" stroke-width="2.5"><path d="M50 130H207M195 124L207 130 195 136"/><path d="M69 46L207 126M193 112L207 126 190 125"/><path d="M113 28L207 122M202 105L207 122 190 117"/></g><g fill="#ff6b25" font-size="17"><text x="52" y="151">0°</text><text x="48" y="42">30°</text><text x="118" y="22">45°</text></g><text x="226" y="104" fill="#9ca4a5" font-size="12" transform="rotate(90 226 104)">PANEL</text></svg>
         </div>
 
-        <p class="ars-tests__category">{{ 'nij.p03.text_a5bc2b8d49' | t | escape }}</p>
+        <p class="ars-tests__category">{% if ars_nij_language == "en" %}Impact angles{% else %}Ángulos de impacto{% endif %}</p>
 
-        <h3>{{ 'nij.p03.text_082240a0af' | t | escape }}</h3>
+        <h3>{% if ars_nij_language == "en" %}Testing from different angles{% else %}Evaluar desde distintos ángulos{% endif %}</h3>
 
         <p class="ars-tests__copy">
-          {{ 'nij.p03.text_09344b5fb9' | t | escape }}
+          {% if ars_nij_language == "en" %}Impacts No. 1, 2, 3 and 6 are fired at 0°. Impacts No. 4 and 5 are fired at 30° and 45°, alternating the angle assignment between specimens.{% else %}Los impactos n.º 1, 2, 3 y 6 se realizan a 0°. Los n.º 4 y 5 se realizan a 30° y 45°, alternando la asignación de estos ángulos entre muestras.{% endif %}
         </p>
       </article>
 
@@ -1480,7 +1452,7 @@ IV|RF3|.30-06 M2 AP^878^ap|.30-06 M2 AP^878^ap|{{ 'nij.p02.text_fa1627b84b' | t 
             viewBox="0 0 360 220"
             preserveAspectRatio="xMidYMid meet"
             role="img"
-            aria-label="{{ 'nij.p03.text_743d3a3d10' | t | escape }}"
+            aria-label="{% if ars_nij_language == "en" %}Female figure with a protective panel outlined in orange.{% else %}Figura femenina con panel de protección delineado en naranja.{% endif %}"
           >
             <circle
               class="ars-tests__outline"
@@ -1525,23 +1497,26 @@ IV|RF3|.30-06 M2 AP^878^ap|.30-06 M2 AP^878^ap|{{ 'nij.p02.text_fa1627b84b' | t 
           </svg>
         </div>
 
-        <p class="ars-tests__category">{{ 'nij.p03.text_7e9ec44599' | t | escape }}</p>
+        <p class="ars-tests__category">{% if ars_nij_language == "en" %}Female armor designs{% else %}Diseños femeninos{% endif %}</p>
 
-        <h3>{{ 'nij.p03.text_721def8d2f' | t | escape }}</h3>
+        <h3>{% if ars_nij_language == "en" %}Shape matters too{% else %}La forma también cuenta{% endif %}</h3>
 
         <p class="ars-tests__copy">
-          {{ 'nij.p03.text_c79dfa3d40' | t | escape }}
+          {% if ars_nij_language == "en" %}Support for nonplanar panels on the test backing is improved, along with evaluation of their shaping features.{% else %}Se mejora el soporte de los paneles no planos
+          sobre el respaldo de ensayo y la evaluación
+          de sus características de conformación.{% endif %}
         </p>
       </article>
 
     </div>
 
     <p class="ars-tests__note">
-      {{ 'nij.p03.text_72c702b60e' | t | escape }}
+      {% if ars_nij_language == "en" %}P-BFD firing sequence for planar soft armor: 1 → 2 → 3 → 7 → 4 → 5 → 6. Numbers identify impacts in the test pattern. Angles are measured from the normal to the panel surface. Conceptual diagrams do not reproduce the complete test setup. P-BFD: penetration and backface deformation testing.{% else %}Secuencia de ejecución P-BFD para paneles flexibles planos: 1 → 2 → 3 → 7 → 4 → 5 → 6. Los números identifican los impactos del patrón de ensayo. Ángulos respecto a la normal a la superficie del panel. Esquemas conceptuales; no reproducen el montaje completo del ensayo. P-BFD: evaluación de perforación y deformación posterior.{% endif %}
     </p>
 
   </div>
 </section>
+
 {% when 'p04' %}
 {% liquid
   assign nij_locale_root = routes.root_url
@@ -1994,6 +1969,7 @@ IV|RF3|.30-06 M2 AP^878^ap|.30-06 M2 AP^878^ap|{{ 'nij.p02.text_fa1627b84b' | t 
   </div>
 </section>
 {% when 'p05' %}
+{% assign ars_nij_language = request.locale.iso_code | slice: 0, 2 %}
 {% liquid
   assign panel_femenino = all_products['panel-balistico-femenino']
 
@@ -2299,7 +2275,7 @@ IV|RF3|.30-06 M2 AP^878^ap|.30-06 M2 AP^878^ap|{{ 'nij.p02.text_fa1627b84b' | t 
       type="radio"
       id="ars-con-{{ section.id }}"
       name="ars-vista-{{ section.id }}"
-      aria-label="{{ 'nij.p05.text_afa9298d17' | t | escape }}"
+      aria-label="{% if ars_nij_language == "en" %}Show GR507 panel with cover{% else %}Mostrar panel GR507 con funda{% endif %}"
       checked
     >
 
@@ -2308,7 +2284,7 @@ IV|RF3|.30-06 M2 AP^878^ap|.30-06 M2 AP^878^ap|{{ 'nij.p02.text_fa1627b84b' | t 
       type="radio"
       id="ars-sin-{{ section.id }}"
       name="ars-vista-{{ section.id }}"
-      aria-label="{{ 'nij.p05.text_ceb9ab9635' | t | escape }}"
+      aria-label="{% if ars_nij_language == "en" %}Show panel without cover{% else %}Mostrar panel sin funda{% endif %}"
     >
 
     <div class="ars-componentes__layout">
@@ -2318,42 +2294,42 @@ IV|RF3|.30-06 M2 AP^878^ap|.30-06 M2 AP^878^ap|{{ 'nij.p02.text_fa1627b84b' | t 
 <img
           class="ars-componentes__image ars-componentes__con"
           src="{{ imagen_con_funda | image_url: width: 1400 | escape }}"
-          alt="{{ 'nij.p05.text_9a3f09810a' | t | escape }}"
+          alt="{% if ars_nij_language == "en" %}GR507 female ballistic panel with cover on a mannequin.{% else %}Panel balístico femenino GR507 con funda sobre maniquí.{% endif %}"
           width="{{ imagen_con_funda.width }}"
           height="{{ imagen_con_funda.height }}"
           loading="lazy"
         >
 {% else %}
-<p class="ars-componentes__image ars-componentes__con">{{ 'nij.p05.image_missing' | t | escape }}</p>
+<p class="ars-componentes__image ars-componentes__con">{% if ars_nij_language == "en" %}Image unavailable.{% else %}Imagen no disponible.{% endif %}</p>
 {% endif %}
 
         {% if imagen_sin_funda != blank and imagen_sin_funda != nil %}
 <img
           class="ars-componentes__image ars-componentes__sin"
           src="{{ imagen_sin_funda | image_url: width: 1400 | escape }}"
-          alt="{{ 'nij.p05.text_886e42587a' | t | escape }}"
+          alt="{% if ars_nij_language == "en" %}Female armor panel without its cover, showing yellow material on a mannequin.{% else %}Panel femenino sin funda, con material amarillo visible sobre maniquí.{% endif %}"
           width="{{ imagen_sin_funda.width }}"
           height="{{ imagen_sin_funda.height }}"
           loading="lazy"
         >
 {% else %}
-<p class="ars-componentes__image ars-componentes__sin">{{ 'nij.p05.image_missing' | t | escape }}</p>
+<p class="ars-componentes__image ars-componentes__sin">{% if ars_nij_language == "en" %}Image unavailable.{% else %}Imagen no disponible.{% endif %}</p>
 {% endif %}
       </div>
 
       <div class="ars-componentes__content">
 
         <p class="ars-componentes__label">
-          {{ 'nij.p05.text_3b3d747833' | t | escape }}
+          {% if ars_nij_language == "en" %}GR507 female ballistic panel{% else %}Panel balístico femenino GR507{% endif %}
         </p>
 
         <h2
           class="ars-componentes__title"
           id="ars-componentes-title-{{ section.id }}"
-        >{{ 'nij.p05.heading_html' | t }}</h2>
+        >{% if ars_nij_language == "en" %}Protection shaped<br>for the female body.{% else %}Protección que se adapta<br>a la forma femenina.{% endif %}</h2>
 
         <p class="ars-componentes__intro">
-          {{ 'nij.p05.text_0717af5f2f' | t | escape }}
+          {% if ars_nij_language == "en" %}A hybrid ballistic panel combining aramid and ultra-high-molecular-weight polyethylene (UHMWPE), developed in accordance with NIJ 0101.07, protection level HG2. Its encapsulated, ultrasonically sealed system helps protect the ballistic materials and support their durability.{% else %}Panel balístico de configuración híbrida de aramida y polietileno de ultra alto peso molecular (UHMWPE), desarrollado conforme a NIJ 0101.07, nivel HG2. Su sistema encapsulado y sellado por ultrasonido favorece la protección y durabilidad de los materiales balísticos.{% endif %}
         </p>
 
         <div class="ars-componentes__controls">
@@ -2361,35 +2337,36 @@ IV|RF3|.30-06 M2 AP^878^ap|.30-06 M2 AP^878^ap|{{ 'nij.p02.text_fa1627b84b' | t 
             class="ars-componentes__option ars-componentes__option--con"
             for="ars-con-{{ section.id }}"
           >
-            {{ 'nij.p05.text_b130129879' | t | escape }}
+            {% if ars_nij_language == "en" %}With cover{% else %}Con funda{% endif %}
           </label>
 
           <label
             class="ars-componentes__option ars-componentes__option--sin"
             for="ars-sin-{{ section.id }}"
           >
-            {{ 'nij.p05.text_cfc3df4e99' | t | escape }}
+            {% if ars_nij_language == "en" %}Without cover{% else %}Sin funda{% endif %}
           </label>
         </div>
 
         <div class="ars-componentes__details">
           <p class="ars-componentes__description ars-componentes__con">
-            {{ 'nij.p05.text_fcb4f2c6aa' | t | escape }}
+            {% if ars_nij_language == "en" %}GR507 female panel with cover: exterior view.{% else %}Panel femenino GR507 con funda: vista exterior del producto.{% endif %}
           </p>
 
           <p class="ars-componentes__description ars-componentes__sin">
-            {{ 'nij.p05.text_781fd0c648' | t | escape }}
+            {% if ars_nij_language == "en" %}GR507 female panel without cover: view of its shaping.{% else %}Panel femenino GR507 sin funda: vista de su conformación.{% endif %}
           </p>
         </div>
 
         <p class="ars-componentes__note">
-          {{ 'nij.p05.text_f0eab58f66' | t | escape }}
+          {% if ars_nij_language == "en" %}HG2 · NIJ 0101.07 · Aramid + UHMWPE · Ultrasonic sealing · 8-year warranty.{% else %}Nivel HG2 · NIJ 0101.07 · Aramida + UHMWPE · Sellado por ultrasonido · Garantía de 8 años.{% endif %}
         </p>
 
       </div>
     </div>
   </div>
 </section>
+
 {% when 'p06' %}
 <style>
   #ars-verificacion-{{ section.id }} {
@@ -3943,18 +3920,18 @@ IV|RF3|.30-06 M2 AP^878^ap|.30-06 M2 AP^878^ap|{{ 'nij.p02.text_fa1627b84b' | t 
           "text_d59fb95b47": "La actualización explora zonas y geometrías relevantes\n        del blindaje e incorpora métodos de ensayo ASTM.",
           "text_a83e5b7b77": "Panel flexible con seis puntos y un séptimo impacto cerca del borde superior, con trayectoria punteada ascendente.",
           "text_447be3ea8c": "Paneles flexibles",
-          "text_a990e838bc": "Un séptimo impacto",
-          "text_a4e36ceb41": "Se incorpora un disparo a 45° cerca del centro\n          del borde superior en la evaluación P-BFD,\n          en paneles planos y no planos.",
+          "text_a990e838bc": "Un impacto adicional a 45°",
+          "text_a4e36ceb41": "El impacto identificado como n.º 7 evalúa la zona del escote del panel frontal a 45°. En la secuencia del ensayo se ejecuta después del impacto n.º 3.",
           "text_2777cb32c8": "Esquema conceptual de placa curva con la corona señalada en naranja.",
           "text_22b9b5980e": "CORONA",
-          "text_a5bc2b8d49": "Placas multicurvas",
-          "text_082240a0af": "Evaluar la corona",
-          "text_09344b5fb9": "La distribución de impactos incluye la corona,\n          un punto alto de la superficie de impacto\n          definido por la geometría de la placa.",
+          "text_a5bc2b8d49": "Ángulos de impacto",
+          "text_082240a0af": "Evaluar desde distintos ángulos",
+          "text_09344b5fb9": "Los impactos n.º 1, 2, 3 y 6 se realizan a 0°. Los n.º 4 y 5 se realizan a 30° y 45°, alternando la asignación de estos ángulos entre muestras.",
           "text_743d3a3d10": "Figura femenina con panel de protección delineado en naranja.",
           "text_7e9ec44599": "Diseños femeninos",
           "text_721def8d2f": "La forma también cuenta",
           "text_c79dfa3d40": "Se mejora el soporte de los paneles no planos\n          sobre el respaldo de ensayo y la evaluación\n          de sus características de conformación.",
-          "text_72c702b60e": "Esquemas conceptuales para explicar los cambios;\n      no reproducen el montaje completo de un ensayo.\n      P-BFD: evaluación de perforación y deformación posterior."
+          "text_72c702b60e": "Secuencia de ejecución P-BFD para paneles flexibles planos: 1 → 2 → 3 → 7 → 4 → 5 → 6. Los números identifican los impactos del patrón de ensayo. Ángulos respecto a la normal a la superficie del panel. Esquemas conceptuales; no reproducen el montaje completo del ensayo. P-BFD: evaluación de perforación y deformación posterior."
         },
         "p04": {
           "heading_html": "\n        <span class=\"ars-paneles__word\">Conoce</span>\n        <span class=\"ars-paneles__word\">nuestros</span><br>\n        <span class=\"ars-paneles__word\">paneles</span>\n        <span class=\"ars-paneles__word\">certificados.</span>\n      ",
@@ -3967,18 +3944,18 @@ IV|RF3|.30-06 M2 AP^878^ap|.30-06 M2 AP^878^ap|{{ 'nij.p02.text_fa1627b84b' | t 
           "text_3c8caafcff": "Panel balístico"
         },
         "p05": {
-          "heading_html": "\n          <span class=\"ars-componentes__word\">Cada</span>\n          <span class=\"ars-componentes__word\">componente</span>\n          <span class=\"ars-componentes__word\">tiene</span>\n          <span class=\"ars-componentes__word\">una</span>\n          <span class=\"ars-componentes__word\">función.</span>\n        ",
-          "text_afa9298d17": "Mostrar panel con funda YUMA",
+          "heading_html": "Protección que se adapta<br>a la forma femenina.",
+          "text_afa9298d17": "Mostrar panel GR507 con funda",
           "text_ceb9ab9635": "Mostrar panel sin funda",
-          "text_9a3f09810a": "Panel femenino con funda negra YUMA sobre maniquí.",
+          "text_9a3f09810a": "Panel balístico femenino GR507 con funda sobre maniquí.",
           "text_886e42587a": "Panel femenino sin funda, con material amarillo visible sobre maniquí.",
-          "text_3b3d747833": "Del panel a su funda",
-          "text_0717af5f2f": "Explora las fotografías del panel femenino y de su\n          funda de YUMA de 200 deniers, respetando la forma\n          y los acabados del producto.",
-          "text_b130129879": "Con funda YUMA",
+          "text_3b3d747833": "Panel balístico femenino GR507",
+          "text_0717af5f2f": "Panel balístico de configuración híbrida de aramida y polietileno de ultra alto peso molecular (UHMWPE), desarrollado conforme a NIJ 0101.07, nivel HG2. Su sistema encapsulado y sellado por ultrasonido favorece la protección y durabilidad de los materiales balísticos.",
+          "text_b130129879": "Con funda",
           "text_cfc3df4e99": "Sin funda",
-          "text_fcb4f2c6aa": "Funda de YUMA de 200 deniers: tejido negro mate\n            y acabado perimetral visible.",
-          "text_781fd0c648": "Panel sin funda: vista de su conformación\n            y de los acabados visibles del conjunto.",
-          "text_f0eab58f66": "Estas vistas no asignan un modelo ni un nivel\n          de protección al panel femenino mostrado.",
+          "text_fcb4f2c6aa": "Panel femenino GR507 con funda: vista exterior del producto.",
+          "text_781fd0c648": "Panel femenino GR507 sin funda: vista de su conformación.",
+          "text_f0eab58f66": "Nivel HG2 · NIJ 0101.07 · Aramida + UHMWPE · Sellado por ultrasonido · Garantía de 8 años.",
           "image_missing": "Imagen no disponible."
         },
         "p06": {
@@ -4107,18 +4084,18 @@ IV|RF3|.30-06 M2 AP^878^ap|.30-06 M2 AP^878^ap|{{ 'nij.p02.text_fa1627b84b' | t 
           "text_d59fb95b47": "The update examines relevant armor areas and geometries and incorporates ASTM test methods.",
           "text_a83e5b7b77": "Soft armor panel with six points and a seventh shot near the top edge, with a dotted upward trajectory.",
           "text_447be3ea8c": "Soft armor panels",
-          "text_a990e838bc": "A seventh shot",
-          "text_a4e36ceb41": "A shot at 45° near the center of the top edge is added to P-BFD testing of planar and nonplanar panels.",
+          "text_a990e838bc": "An additional impact at 45°",
+          "text_a4e36ceb41": "Impact No. 7 evaluates the front panel’s neck scoop at 45°. In the test sequence, it follows impact No. 3.",
           "text_2777cb32c8": "Conceptual diagram of a curved plate with its crown marked in orange.",
           "text_22b9b5980e": "CROWN",
-          "text_a5bc2b8d49": "Multi-curve plates",
-          "text_082240a0af": "Testing the crown",
-          "text_09344b5fb9": "Shot placement includes the crown, a high point on the strike face defined by the plate's geometry.",
+          "text_a5bc2b8d49": "Impact angles",
+          "text_082240a0af": "Testing from different angles",
+          "text_09344b5fb9": "Impacts No. 1, 2, 3 and 6 are fired at 0°. Impacts No. 4 and 5 are fired at 30° and 45°, alternating the angle assignment between specimens.",
           "text_743d3a3d10": "Female figure with a protective panel outlined in orange.",
           "text_7e9ec44599": "Female armor designs",
           "text_721def8d2f": "Shape matters too",
           "text_c79dfa3d40": "Support for nonplanar panels on the test backing is improved, along with evaluation of their shaping features.",
-          "text_72c702b60e": "Conceptual diagrams explaining the changes; they do not reproduce a complete test setup. P-BFD: perforation and backface deformation testing."
+          "text_72c702b60e": "P-BFD firing sequence for planar soft armor: 1 → 2 → 3 → 7 → 4 → 5 → 6. Numbers identify impacts in the test pattern. Angles are measured from the normal to the panel surface. Conceptual diagrams do not reproduce the complete test setup. P-BFD: penetration and backface deformation testing."
         },
         "p04": {
           "heading_html": "<span class=\"ars-paneles__word\">Explore</span> <span class=\"ars-paneles__word\">our</span> <br> <span class=\"ars-paneles__word\">certified</span> <span class=\"ars-paneles__word\">panels.</span>",
@@ -4131,18 +4108,18 @@ IV|RF3|.30-06 M2 AP^878^ap|.30-06 M2 AP^878^ap|{{ 'nij.p02.text_fa1627b84b' | t 
           "text_3c8caafcff": "Ballistic panel"
         },
         "p05": {
-          "heading_html": "<span class=\"ars-componentes__word\">Every</span> <span class=\"ars-componentes__word\">component</span> <span class=\"ars-componentes__word\">has</span> <span class=\"ars-componentes__word\">a</span> <span class=\"ars-componentes__word\">purpose.</span>",
-          "text_afa9298d17": "Show panel with YUMA cover",
+          "heading_html": "Protection shaped<br>for the female body.",
+          "text_afa9298d17": "Show GR507 panel with cover",
           "text_ceb9ab9635": "Show panel without cover",
-          "text_9a3f09810a": "Female armor panel with a black YUMA cover on a mannequin.",
+          "text_9a3f09810a": "GR507 female ballistic panel with cover on a mannequin.",
           "text_886e42587a": "Female armor panel without its cover, showing yellow material on a mannequin.",
-          "text_3b3d747833": "From panel to cover",
-          "text_0717af5f2f": "Explore photographs of the female armor panel and its 200-denier YUMA cover, preserving the product's shape and finishes.",
-          "text_b130129879": "With YUMA cover",
+          "text_3b3d747833": "GR507 female ballistic panel",
+          "text_0717af5f2f": "A hybrid ballistic panel combining aramid and ultra-high-molecular-weight polyethylene (UHMWPE), developed in accordance with NIJ 0101.07, protection level HG2. Its encapsulated, ultrasonically sealed system helps protect the ballistic materials and support their durability.",
+          "text_b130129879": "With cover",
           "text_cfc3df4e99": "Without cover",
-          "text_fcb4f2c6aa": "200-denier YUMA cover: matte black fabric with a visible perimeter finish.",
-          "text_781fd0c648": "Panel without cover: a view of its shape and visible assembly finishes.",
-          "text_f0eab58f66": "These views do not assign a model or protection level to the female armor panel shown.",
+          "text_fcb4f2c6aa": "GR507 female panel with cover: exterior view.",
+          "text_781fd0c648": "GR507 female panel without cover: view of its shaping.",
+          "text_f0eab58f66": "HG2 · NIJ 0101.07 · Aramid + UHMWPE · Ultrasonic sealing · 8-year warranty.",
           "image_missing": "Image unavailable."
         },
         "p06": {
