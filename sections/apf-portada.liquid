@@ -9,6 +9,20 @@
     width: 100% !important;
     max-width: none !important;
     padding-inline: 0 !important;
+    background: #f8f6f1;
+  }
+
+  #root #content:has(.apf-hero-root) > .shopify-section:has(> .apf:not(.apf-hero-root)) {
+    box-sizing: border-box;
+    width: 100vw !important;
+    max-width: none !important;
+    margin-inline: calc(50% - 50vw) !important;
+    padding-inline: 0 !important;
+  }
+
+  #root #content:has(.apf-hero-root) > .shopify-section > .apf {
+    width: 100%;
+    max-width: none;
   }
 
   #shopify-section-{{ section.id }} {
@@ -121,7 +135,6 @@
     <div class="apf-hero-copy">
       <h1 id="titulo">{% if apf_en %}Women’s ballistic <span>armor panels</span>{% else %}Panel balístico <span>femenino</span>{% endif %}</h1>
       <p>{% if apf_en %}We designed a flexible panel that follows the contours of the female torso from bust to waist. Explore our two HG2 protection configurations.{% else %}Diseñamos un panel flexible que se adapta a la ergonomía del torso femenino, desde el busto hasta la cintura. Conoce nuestras dos configuraciones de protección HG2.{% endif %}</p>
-
       <div class="apf-actions">
         <a class="apf-button" href="#cotizacion">{% if apf_en %}Request a quote{% else %}Solicitar cotización{% endif %} <span aria-hidden="true">↗</span></a>
         <a class="apf-secondary" href="#modelos">{% if apf_en %}Compare models{% else %}Comparar modelos{% endif %} <span aria-hidden="true">↓</span></a>
