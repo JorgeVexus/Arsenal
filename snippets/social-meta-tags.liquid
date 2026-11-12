@@ -71,6 +71,19 @@
   endif
 -%}
 <meta name="msapplication-config" content="{{ 'browserconfig.xml' | asset_url }}">
+{% if request.page_type == 'page' and page.handle == 'panel-femenino' %}
+  {% assign apf_social_image = images['panel-femenino-social.jpg'] %}
+  {% if apf_social_image != blank %}
+    {% assign apf_social_url = apf_social_image | image_url: width: 1200 %}
+    {% assign apf_social_prefix = apf_social_url | slice: 0, 2 %}
+    {% if apf_social_prefix == '//' %}
+      {% assign apf_social_url = apf_social_url | prepend: 'https:' %}
+    {% endif %}
+    {% assign og_image_tag = apf_social_url %}
+    {% assign og_image_secure_url_tag = apf_social_url %}
+    {% assign twitter_image_tag = apf_social_url %}
+  {% endif %}
+{% endif %}
 <meta property="og:title" content="{{ og_title | escape }}">
 <meta property="og:type" content="{{ og_type }}">
 <meta property="og:description" content="{{ og_description | escape }}">
