@@ -1,0 +1,48 @@
+{% assign apf_locale = request.locale.iso_code | downcase | split: '-' | first %}
+{% assign apf_en = false %}
+{% if apf_locale == 'en' %}{% assign apf_en = true %}{% endif %}
+
+{{ 'arsenal-panel-femenino.css' | asset_url | stylesheet_tag }}
+
+<div class="apf">
+  <section class="apf-faq apf-section apf-wrap" aria-labelledby="preguntas">
+    <h2 id="preguntas">{% if apf_en %}Frequently asked questions{% else %}Preguntas frecuentes{% endif %}</h2>
+    <div>
+      <details>
+        <summary>{% if apf_en %}What is the NIJ certification status?{% else %}¿Cuál es el estado de la certificación NIJ?{% endif %}</summary>
+        <p>{% if apf_en %}We developed both models for HG2 protection. NIJ 0101.07 certification is in progress for the GR407F and GR507F.{% else %}Desarrollamos ambos modelos para el nivel HG2. La certificación bajo NIJ 0101.07 está en proceso para el GR407F y el GR507F.{% endif %}</p>
+      </details>
+
+      <details>
+        <summary>{% if apf_en %}How do I choose a panel size?{% else %}¿Cómo elijo la talla del panel?{% endif %}</summary>
+        <p>{% if apf_en %}We make both models in sizes C1 to C5. Tell us which carrier your personnel use and we’ll help you choose the panel sizes.{% else %}Fabricamos ambos modelos en tallas C1 a C5. Dinos qué chaleco usa tu personal y te orientamos para elegir el tallaje de los paneles.{% endif %}</p>
+      </details>
+
+      <details>
+        <summary>{% if apf_en %}Which carriers are compatible with these panels?{% else %}¿En qué chalecos puedo usar estos paneles?{% endif %}</summary>
+        <p>{% if apf_en %}The GR407F and GR507F are compatible with our traffic-duty, Two in One, Arsenal One, and Elite 360 carriers. If you already have a carrier, tell us the model so we can check compatibility.{% else %}El GR407F y el GR507F son compatibles con nuestros chalecos de tránsito, Two in One, Arsenal One y Elite 360. Si ya cuentas con un chaleco, indícanos el modelo para revisar la compatibilidad.{% endif %}</p>
+      </details>
+
+      <details>
+        <summary>{% if apf_en %}Can I get a quote for both models?{% else %}¿Pueden cotizarme los dos modelos?{% endif %}</summary>
+        <p>{% if apf_en %}Yes. Select “Both models” and share your estimated quantities and any sizes you already know. We can prepare a quote for both configurations.{% else %}Sí. Selecciona «Ambos modelos» y comparte la cantidad estimada y las tallas que ya tengas definidas. Así podemos preparar una cotización para las dos configuraciones.{% endif %}</p>
+      </details>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "APF - Preguntas",
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "limit": 1,
+  "settings": [],
+  "presets": [
+    {
+      "name": "APF - Preguntas"
+    }
+  ]
+}
+{% endschema %}
