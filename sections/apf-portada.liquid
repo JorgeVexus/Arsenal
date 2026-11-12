@@ -19,8 +19,6 @@
       {% capture apf_alt %}{% if apf_en %}Front view of the Arsenal women’s ballistic panel with black cover on a mannequin{% else %}Vista frontal del panel balístico femenino de Arsenal con funda negra sobre un maniquí{% endif %}{% endcapture %}
       {% if section.settings.hero_image != blank %}
         {{ section.settings.hero_image | image_url: width: 1500 | image_tag: widths: '480, 750, 920, 1200, 1500', sizes: '(max-width: 680px) 86vw, 50vw', alt: apf_alt, loading: 'eager', fetchpriority: 'high' }}
-      {% else %}
-        <img src="{{ 'arsenal-panel-femenino-hero.webp' | asset_url }}" width="920" height="1150" alt="{{ apf_alt | escape }}" loading="eager" fetchpriority="high">
       {% endif %}
 
       <div class="apf-patent-seal">
