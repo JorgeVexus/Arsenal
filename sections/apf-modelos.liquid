@@ -1,0 +1,144 @@
+{% assign apf_locale = request.locale.iso_code | downcase | split: '-' | first %}
+{% assign apf_en = false %}
+{% if apf_locale == 'en' %}{% assign apf_en = true %}{% endif %}
+{{ 'arsenal-panel-femenino.css' | asset_url | stylesheet_tag }}
+
+<arsenal-panel-models class="apf">
+  <section class="apf-wrap apf-section" id="modelos" aria-labelledby="modelos-titulo">
+    <div class="apf-section-head">
+      <h2 id="modelos-titulo">{% if apf_en %}Two HG2 protection configurations{% else %}Dos configuraciones de protección HG2{% endif %}</h2>
+      <p>{% if apf_en %}Choose between an aramid configuration and one that combines aramid with polyethylene. We make both models in sizes C1 to C5.{% else %}Elige entre una configuración de aramida y una que combina aramida con polietileno. Fabricamos ambos modelos en tallas C1 a C5.{% endif %}</p>
+    </div>
+
+    <div class="apf-cards">
+      <article class="apf-card">
+        <h3>GR407F</h3>
+        <p>{% if apf_en %}100% aramid{% else %}100 % aramida{% endif %}</p>
+        <p class="apf-card-detail">{% if apf_en %}Flexible ballistic aramid that follows the shape of the torso.{% else %}Aramida balística flexible que sigue la forma del torso.{% endif %}</p>
+        <div class="apf-card-links">
+          <a class="apf-model-link" href="#gr407f">{% if apf_en %}View GR407F{% else %}Ver GR407F{% endif %} <span aria-hidden="true">↓</span></a>
+          <a class="apf-product-link" href="{% if apf_en %}/en{% endif %}/products/panel-balistico-gr-407" aria-label="{% if apf_en %}View product details for GR407{% else %}Ver ficha del producto GR407{% endif %}">{% if apf_en %}View product details{% else %}Ver ficha del producto{% endif %} <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+
+      <article class="apf-card">
+        <h3>GR507F</h3>
+        <p>{% if apf_en %}Aramid + polyethylene{% else %}Aramida + polietileno{% endif %}</p>
+        <p class="apf-card-detail">{% if apf_en %}Combines the flexibility of aramid with lightweight UHMWPE.{% else %}Combina la flexibilidad de la aramida con el bajo peso del polietileno UHMWPE.{% endif %}</p>
+        <div class="apf-card-links">
+          <a class="apf-model-link" href="#gr507f">{% if apf_en %}View GR507F{% else %}Ver GR507F{% endif %} <span aria-hidden="true">↓</span></a>
+          <a class="apf-product-link" href="{% if apf_en %}/en{% endif %}/products/panel-balistico-gr-507" aria-label="{% if apf_en %}View product details for GR507{% else %}Ver ficha del producto GR507{% endif %}">{% if apf_en %}View product details{% else %}Ver ficha del producto{% endif %} <span aria-hidden="true">↗</span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="apf-wrap apf-ammo" aria-labelledby="municiones">
+    <div>
+      <h2 id="municiones">{% if apf_en %}Ammunition listed in our technical sheets{% else %}Municiones indicadas en nuestras fichas{% endif %}</h2>
+      <p>{% if apf_en %}Both loads are listed in our GR407F and GR507F technical sheets.{% else %}Ambas municiones figuran en nuestras fichas del GR407F y del GR507F.{% endif %}</p>
+    </div>
+    <ul aria-label="{% if apf_en %}Ammunition listed for both models{% else %}Municiones indicadas para ambos modelos{% endif %}">
+      <li>
+        <svg class="apf-ammo-icon" viewBox="0 0 24 42" aria-hidden="true" focusable="false">
+          <path class="apf-ammo-case" d="M5 39V21l3-5h8l3 5v18Z"/>
+          <path class="apf-ammo-tip" d="M8 16v-4c0-4 1-7 4-9 3 2 4 5 4 9v4Z"/>
+          <path class="apf-ammo-mark" d="M6 35h12"/>
+        </svg>
+        <span>.357 SIG FMI RN</span>
+      </li>
+      <li>
+        <svg class="apf-ammo-icon" viewBox="0 0 24 42" aria-hidden="true" focusable="false">
+          <path class="apf-ammo-case" d="M5 39v-3h1V16h12v20h1v3Z"/>
+          <path class="apf-ammo-tip" d="M6 16v-4l3-7h6l3 7v4Z"/>
+          <path class="apf-ammo-mark" d="M10 6l2 2 2-2M6 35h12"/>
+        </svg>
+        <span>.44 Magnum SJHP</span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="apf-comparison apf-wrap" id="cortes" aria-labelledby="cortes-titulo">
+    <div class="apf-comparison-head">
+      <h2 id="cortes-titulo">{% if apf_en %}Inside each panel{% else %}Conoce el interior de cada panel{% endif %}</h2>
+      <div class="apf-model-tabs" role="tablist" aria-label="{% if apf_en %}Select a model{% else %}Selecciona un modelo{% endif %}" hidden>
+        <button type="button" id="tab-gr407f" role="tab" aria-controls="gr407f">GR407F</button>
+        <button type="button" id="tab-gr507f" role="tab" aria-controls="gr507f">GR507F</button>
+      </div>
+    </div>
+
+    <div class="apf-comparison-slides">
+      <section class="apf-shape" id="gr407f" aria-labelledby="capas-gr407f">
+        <figure>
+          {% capture apf_alt %}{% if apf_en %}GR407F illustrative cutaway with black YUMA cover and yellow aramid{% else %}Corte ilustrativo del panel GR407F con funda negra YUMA y aramida amarilla{% endif %}{% endcapture %}
+          {% if section.settings.image_gr407f != blank %}
+            {{ section.settings.image_gr407f | image_url: width: 1500 | image_tag: widths: '480, 750, 920, 1200, 1500', sizes: '(max-width: 680px) 86vw, 50vw', alt: apf_alt, loading: 'lazy' }}
+          {% else %}
+            <img src="{{ 'arsenal-panel-femenino-gr407f.webp' | asset_url }}" width="920" height="1150" alt="{{ apf_alt | escape }}" loading="lazy">
+          {% endif %}
+          <figcaption>{% if apf_en %}Illustrative cutaway · GR407F{% else %}Corte ilustrativo · GR407F{% endif %}</figcaption>
+        </figure>
+        <div class="apf-shape-copy">
+          <p class="apf-kicker">GR407F</p>
+          <h2 id="capas-gr407f">{% if apf_en %}100% aramid{% else %}100 % aramida{% endif %}</h2>
+          <p>{% if apf_en %}Aramid is the only ballistic material in this panel. An ultrasonically sealed YUMA cover protects the assembly.{% else %}Usamos aramida como único material balístico. La funda YUMA protege el conjunto y se sella por ultrasonido.{% endif %}</p>
+          <ul class="apf-layers">
+            <li><span aria-hidden="true" class="apf-dot apf-black"></span>{% if apf_en %}YUMA outer cover{% else %}Funda exterior YUMA{% endif %}</li>
+            <li><span aria-hidden="true" class="apf-dot apf-gold"></span>{% if apf_en %}Ballistic aramid{% else %}Aramida balística{% endif %}</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="apf-shape" id="gr507f" aria-labelledby="capas-gr507f">
+        <figure>
+          {% capture apf_alt %}{% if apf_en %}GR507F illustrative cutaway with black cover, yellow aramid, and white polyethylene{% else %}Corte ilustrativo del panel GR507F, con funda negra, aramida amarilla y polietileno blanco{% endif %}{% endcapture %}
+          {% if section.settings.image_gr507f != blank %}
+            {{ section.settings.image_gr507f | image_url: width: 1500 | image_tag: widths: '480, 750, 920, 1200, 1500', sizes: '(max-width: 680px) 86vw, 50vw', alt: apf_alt, loading: 'lazy' }}
+          {% else %}
+            <img src="{{ 'arsenal-panel-femenino-gr507f.webp' | asset_url }}" width="900" height="1125" alt="{{ apf_alt | escape }}" loading="lazy">
+          {% endif %}
+          <figcaption>{% if apf_en %}Illustrative cutaway · GR507F{% else %}Corte ilustrativo · GR507F{% endif %}</figcaption>
+        </figure>
+        <div class="apf-shape-copy">
+          <p class="apf-kicker">GR507F</p>
+          <h2 id="capas-gr507f">{% if apf_en %}Aramid + polyethylene{% else %}Aramida + polietileno{% endif %}</h2>
+          <p>{% if apf_en %}We combine ballistic aramid with ultra-high-molecular-weight polyethylene (UHMWPE), a strong, lightweight material. An ultrasonically sealed YUMA cover protects the assembly.{% else %}Combinamos aramida balística con polietileno de ultra alto peso molecular (UHMWPE), un material de alta resistencia y bajo peso. Protegemos el conjunto con una funda YUMA sellada por ultrasonido.{% endif %}</p>
+          <ul class="apf-layers">
+            <li><span aria-hidden="true" class="apf-dot apf-black"></span>{% if apf_en %}YUMA outer cover{% else %}Funda exterior YUMA{% endif %}</li>
+            <li><span aria-hidden="true" class="apf-dot apf-gold"></span>{% if apf_en %}Ballistic aramid{% else %}Aramida balística{% endif %}</li>
+            <li><span aria-hidden="true" class="apf-dot apf-ivory"></span>{% if apf_en %}UHMWPE{% else %}Polietileno UHMWPE{% endif %}</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </section>
+</arsenal-panel-models>
+
+{{ 'arsenal-panel-femenino.js' | asset_url | script_tag }}
+
+{% schema %}
+{
+  "name": "Panel femenino · Modelos",
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "limit": 1,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image_gr407f",
+      "label": "Corte ilustrativo GR407F"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_gr507f",
+      "label": "Corte ilustrativo GR507F"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Panel femenino · Modelos"
+    }
+  ]
+}
+{% endschema %}
