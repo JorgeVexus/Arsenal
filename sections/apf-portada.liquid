@@ -1,0 +1,57 @@
+{% assign apf_locale = request.locale.iso_code | downcase | split: '-' | first %}
+{% assign apf_en = false %}
+{% if apf_locale == 'en' %}{% assign apf_en = true %}{% endif %}
+{{ 'arsenal-panel-femenino.css' | asset_url | stylesheet_tag }}
+<div class="apf">
+<section class="apf-hero apf-dark" aria-labelledby="titulo">
+  <div class="apf-hero-copy">
+   <h1 id="titulo">{% if apf_en %}Women’s ballistic <span>armor panels</span>{% else %}Panel balístico <span>femenino</span>{% endif %}</h1>
+   <p>{% if apf_en %}We designed a flexible panel that follows the contours of the female torso from bust to waist. Explore our two HG2 protection configurations.{% else %}Diseñamos un panel flexible que se adapta a la ergonomía del torso femenino, desde el busto hasta la cintura. Conoce nuestras dos configuraciones de protección HG2.{% endif %}</p>
+   <div class="apf-actions"><a class="apf-button" href="#cotizacion">{% if apf_en %}Request a quote{% else %}Solicitar cotización{% endif %} <span aria-hidden="true">↗</span></a><a class="apf-secondary" href="#modelos">{% if apf_en %}Compare models{% else %}Comparar modelos{% endif %} <span aria-hidden="true">↓</span></a></div>
+  </div>
+  <figure class="apf-hero-image">
+   {% capture apf_alt %}{% if apf_en %}Front view of the Arsenal women’s ballistic panel with black cover on a mannequin{% else %}Vista frontal del panel balístico femenino de Arsenal con funda negra sobre un maniquí{% endif %}{% endcapture %}
+   {% if section.settings.hero_image != blank %}
+     {{ section.settings.hero_image | image_url: width: 1500 | image_tag: widths: '480, 750, 920, 1200, 1500', sizes: '(max-width: 680px) 86vw, 50vw', alt: apf_alt, loading: 'eager', fetchpriority: 'high' }}
+   {% else %}
+     <img src="{{ 'arsenal-panel-femenino-hero.webp' | asset_url }}" width="920" height="1150" alt="{{ apf_alt | escape }}" loading="eager" fetchpriority="high">
+   {% endif %}
+   <div class="apf-patent-seal">
+    <span>{% if apf_en %}Design{% else %}Diseño{% endif %}</span>
+    <strong>{% if apf_en %}patented{% else %}patentado{% endif %}</strong>
+    <span>{% if apf_en %}by Arsenal{% else %}por Arsenal{% endif %}</span>
+   </div>
+   <figcaption>{% if apf_en %}Panel with YUMA outer cover{% else %}Panel con funda exterior YUMA{% endif %}</figcaption>
+  </figure>
+ </section>
+ <div class="apf-facts">
+  <dl class="apf-wrap">
+   <div><dt>{% if apf_en %}Protection level{% else %}Nivel de protección{% endif %}</dt><dd>HG2</dd></div>
+   <div><dt>{% if apf_en %}Sizes{% else %}Tallas{% endif %}</dt><dd>C1–C5</dd></div>
+   <div><dt>NIJ 0101.07</dt><dd>{% if apf_en %}Certification in progress{% else %}Certificación en proceso{% endif %}</dd><dd><a class="apf-nij-link" href="{% if apf_en %}https://arsenalprotect.com/en/pages/nij-0101-07{% else %}https://arsenalprotect.com/pages/nij-0101-07{% endif %}">{% if apf_en %}Learn about NIJ 0101.07{% else %}Conoce la norma NIJ 0101.07{% endif %}</a></dd></div>
+  </dl>
+ </div>
+</div>
+{% schema %}
+{
+  "name": "Panel femenino · Portada",
+  "enabled_on": {
+    "templates": [
+      "page"
+    ]
+  },
+  "limit": 1,
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Maniquí con panel frontal"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Panel femenino · Portada"
+    }
+  ]
+}
+{% endschema %}
