@@ -4,11 +4,124 @@
 
 {{ 'arsenal-panel-femenino.css' | asset_url | stylesheet_tag }}
 
-<div class="apf">
+{% style %}
+  #root #content:has(.apf-hero-root) {
+    width: 100% !important;
+    max-width: none !important;
+    padding-inline: 0 !important;
+  }
+
+  #shopify-section-{{ section.id }} {
+    width: 100vw !important;
+    max-width: none !important;
+    margin-inline: calc(50% - 50vw) !important;
+    padding-inline: 0 !important;
+  }
+
+  .apf.apf-hero-root {
+    width: 100%;
+    font-family: Inter, Arial, sans-serif;
+  }
+
+  .apf-hero-root .apf-hero {
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
+    overflow: hidden;
+  }
+
+  .apf-hero-root .apf-hero #titulo {
+    color: #f9f6ef !important;
+    font-family: inherit;
+    font-weight: 700;
+  }
+
+  .apf-hero-root .apf-hero #titulo span {
+    color: #e3c3af !important;
+  }
+
+  .apf-hero-root .apf-hero-copy > p {
+    font-weight: 400;
+  }
+
+  #shopify-section-{{ section.id }} .apf-hero-image {
+    position: relative;
+    align-self: stretch;
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+    isolation: isolate;
+  }
+
+  #shopify-section-{{ section.id }} .apf-hero-frame {
+    position: absolute;
+    inset-block: 0;
+    left: 50%;
+    width: min(100%, 600px);
+    transform: translateX(-50%);
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .apf-hero-frame :is(picture, img) {
+    position: static !important;
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    min-width: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    object-fit: contain !important;
+    object-position: center bottom !important;
+  }
+
+  #shopify-section-{{ section.id }} .apf-patent-seal,
+  #shopify-section-{{ section.id }} .apf-hero-image > figcaption {
+    z-index: 3;
+  }
+
+  #shopify-section-{{ section.id }} .apf-hero-image > figcaption {
+    left: auto;
+    right: 12px;
+    width: max-content;
+    max-width: calc(100% - 24px);
+    margin: 0;
+  }
+
+  #content:has(.apf-hero-root) .apf .apf-shape > figure {
+    justify-items: center !important;
+  }
+
+  #content:has(.apf-hero-root) .apf .apf-shape > figure > :is(img, picture) {
+    justify-self: center !important;
+    margin-inline: auto !important;
+  }
+
+  #content:has(.apf-hero-root) .apf .apf-shape > figure > picture {
+    display: grid;
+    justify-items: center;
+    width: 100%;
+  }
+
+  @media (max-width: 680px) {
+    .apf-hero-root .apf-hero {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    #shopify-section-{{ section.id }} .apf-hero-frame {
+      position: relative;
+      inset: auto;
+      width: min(80%, 336px);
+      margin-inline-start: clamp(8px, 4vw, 28px);
+      transform: none;
+      aspect-ratio: 4 / 5;
+    }
+  }
+{% endstyle %}
+
+<div class="apf apf-hero-root">
   <section class="apf-hero apf-dark" aria-labelledby="titulo">
     <div class="apf-hero-copy">
       <h1 id="titulo">{% if apf_en %}Women’s ballistic <span>armor panels</span>{% else %}Panel balístico <span>femenino</span>{% endif %}</h1>
       <p>{% if apf_en %}We designed a flexible panel that follows the contours of the female torso from bust to waist. Explore our two HG2 protection configurations.{% else %}Diseñamos un panel flexible que se adapta a la ergonomía del torso femenino, desde el busto hasta la cintura. Conoce nuestras dos configuraciones de protección HG2.{% endif %}</p>
+
       <div class="apf-actions">
         <a class="apf-button" href="#cotizacion">{% if apf_en %}Request a quote{% else %}Solicitar cotización{% endif %} <span aria-hidden="true">↗</span></a>
         <a class="apf-secondary" href="#modelos">{% if apf_en %}Compare models{% else %}Comparar modelos{% endif %} <span aria-hidden="true">↓</span></a>
@@ -18,7 +131,9 @@
     <figure class="apf-hero-image">
       {% capture apf_alt %}{% if apf_en %}Front view of the Arsenal women’s ballistic panel with black cover on a mannequin{% else %}Vista frontal del panel balístico femenino de Arsenal con funda negra sobre un maniquí{% endif %}{% endcapture %}
       {% if section.settings.hero_image != blank %}
-        {{ section.settings.hero_image | image_url: width: 1500 | image_tag: widths: '480, 750, 920, 1200, 1500', sizes: '(max-width: 680px) 86vw, 50vw', alt: apf_alt, loading: 'eager', fetchpriority: 'high' }}
+        <div class="apf-hero-frame">
+          {{ section.settings.hero_image | image_url: width: 1500 | image_tag: widths: '480, 750, 920, 1200, 1500', sizes: '(max-width: 680px) 86vw, 50vw', alt: apf_alt, loading: 'eager', fetchpriority: 'high' }}
+        </div>
       {% endif %}
 
       <div class="apf-patent-seal">
@@ -44,7 +159,9 @@
       <div>
         <dt>NIJ 0101.07</dt>
         <dd>{% if apf_en %}Certification in progress{% else %}Certificación en proceso{% endif %}</dd>
-        <dd><a class="apf-nij-link" href="{% if apf_en %}https://arsenalprotect.com/en/pages/nij-0101-07{% else %}https://arsenalprotect.com/pages/nij-0101-07{% endif %}">{% if apf_en %}Learn about NIJ 0101.07{% else %}Conoce la norma NIJ 0101.07{% endif %}</a></dd>
+        <dd>
+          <a class="apf-nij-link" href="{% if apf_en %}https://arsenalprotect.com/en/pages/nij-0101-07{% else %}https://arsenalprotect.com/pages/nij-0101-07{% endif %}">{% if apf_en %}Learn about NIJ 0101.07{% else %}Conoce la norma NIJ 0101.07{% endif %}</a>
+        </dd>
       </div>
     </dl>
   </div>
