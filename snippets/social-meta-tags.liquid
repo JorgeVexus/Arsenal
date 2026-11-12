@@ -79,9 +79,10 @@
     {% if apf_social_prefix == '//' %}
       {% assign apf_social_url = apf_social_url | prepend: 'https:' %}
     {% endif %}
-    {% assign og_image_tag = apf_social_url %}
-    {% assign og_image_secure_url_tag = apf_social_url %}
-    {% assign twitter_image_tag = apf_social_url %}
+    {% assign apf_social_url = apf_social_url | escape %}
+    {% assign og_image_tag = '<meta property="og:image" content="' | append: apf_social_url | append: '">' %}
+    {% assign og_image_secure_url_tag = '<meta property="og:image:secure_url" content="' | append: apf_social_url | append: '">' %}
+    {% assign twitter_image_tag = '<meta property="twitter:image" content="' | append: apf_social_url | append: '">' %}
   {% endif %}
 {% endif %}
 <meta property="og:title" content="{{ og_title | escape }}">
@@ -93,7 +94,7 @@
   {% assign current_variant = product.selected_or_first_available_variant %}
   <meta property="product:price:amount" content="{{ current_variant.price | divided_by: 100.00 }}">
   <meta property="og:price:amount" content="{{ current_variant.price | divided_by: 100.00 }}">
-  <meta property="og:price:currency" content="{{ cart.currency.iso_code }}">
+  <meta property="product:price:currency" content="{{ cart.currency.iso_code }}">
   <meta property="og:availability" content="{% if product.available %}instock{% else %}out of stock{% endif %}">
 {% endif %}
 {% if og_image_tag %}{{ og_image_tag }}{% endif %}
@@ -122,10 +123,13 @@
           "url": "{{ shop.url }}{{ product.url }}",
           {%- assign date = 'now' | date: "%s" | plus: 31556926 %}
           "priceValidUntil": "{{ date | date: '%Y-%m-%d' }}",
-          "priceCurrency": "{{ cart.currency.iso_code }}"{%- if current_variant.inventory_quantity > 0 and current_variant.available -%},
+          "priceCurrency": "{{ cart.currency.iso_code }}",
+          {%- if current_variant.inventory_quantity > 0 and current_variant.available -%}
             "availability": "https://schema.org/InStock",
-            "inventoryLevel": "{{ current_variant.inventory_quantity }}"
+          {%- else -%}
+            "availability": "https://schema.org/OutOfStock",
           {%- endif -%}
+          "itemCondition": "https://schema.org/NewCondition"
         }
       },
     {%- elsif request.page_type == 'article' -%}
@@ -168,11 +172,10 @@
       }
     },
     {
-      "@context": "https://schema.org",
+      "@context": "https://schema.org/",
       "@type": "WebSite",
       "url": "{{ og_url }}",
       "name": "{{ shop.name }}",
-      "description": "{{ og_description }}",
       "author": [
         {
           "@type": "Organization",
@@ -180,11 +183,10 @@
           "name": "Someoneyouknow",
           "address": {
             "@type": "PostalAddress",
-            "streetAddress": "Wilhelminaplein 25",
             "addressLocality": "Eindhoven",
-            "addressRegion": "NB",
+            "addressRegion": "NL",
             "postalCode": "5611 HG",
-            "addressCountry": "NL"
+            "streetAddress": "Wilhelminaplein 25"
           }
         }
       ]
