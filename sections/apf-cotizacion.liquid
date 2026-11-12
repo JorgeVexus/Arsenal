@@ -1,0 +1,87 @@
+{% assign apf_locale = request.locale.iso_code | downcase | split: '-' | first %}
+{% assign apf_en = false %}
+{% if apf_locale == 'en' %}{% assign apf_en = true %}{% endif %}
+
+{{ 'arsenal-panel-femenino.css' | asset_url | stylesheet_tag }}
+
+<div class="apf">
+  <section class="apf-quote apf-dark" id="cotizacion" aria-labelledby="solicitud">
+    <div class="apf-wrap apf-quote-inner">
+      <div class="apf-quote-copy">
+        <p class="apf-kicker">{% if apf_en %}For agencies and businesses{% else %}Atención a instituciones y empresas{% endif %}</p>
+        <h2 id="solicitud">{% if apf_en %}Request a quote for your team{% else %}Cotiza para tu personal{% endif %}</h2>
+        <p>{% if apf_en %}If you know which panel you need, tell us the model, quantity, and sizes. If you’re still deciding, we can help with the configuration, sizing, and compatible carriers.{% else %}Si ya sabes qué panel necesitas, indícanos el modelo, la cantidad y las tallas. Si aún estás definiendo tu compra, te orientamos sobre la configuración, el tallaje y el chaleco compatible.{% endif %}</p>
+      </div>
+
+      {% form 'contact', id: 'arsenal-cotizacion-femenino', class: 'apf-form' %}
+        {% if form.posted_successfully? %}
+          <p class="apf-quote-status" role="status">{% if apf_en %}We received your quote request.{% else %}Recibimos tu solicitud de cotización.{% endif %}</p>
+        {% else %}
+          {% if form.errors %}
+            <div class="apf-quote-status" role="alert">{{ form.errors | default_errors }}</div>
+          {% endif %}
+
+          <input type="hidden" name="contact[producto]" value="Panel balístico femenino">
+
+          <label>
+            {% if apf_en %}Full name{% else %}Nombre completo{% endif %}
+            <input name="contact[name]" autocomplete="name" value="{{ form.name | escape }}" required>
+          </label>
+
+          <label>
+            {% if apf_en %}Company or agency{% else %}Empresa o dependencia{% endif %}
+            <input name="contact[empresa]" autocomplete="organization" required>
+          </label>
+
+          <label>
+            {% if apf_en %}Email address{% else %}Correo electrónico{% endif %}
+            <input name="contact[email]" type="email" autocomplete="email" value="{{ form.email | escape }}" required>
+          </label>
+
+          <label>
+            {% if apf_en %}Phone{% else %}Teléfono{% endif %}
+            <input name="contact[phone]" type="tel" autocomplete="tel" value="{{ form.phone | escape }}" required>
+          </label>
+
+          <label class="apf-wide">
+            {% if apf_en %}Model of interest{% else %}Modelo de interés{% endif %}
+            <select name="contact[modelo]">
+              <option value="Asesoría / Guidance">{% if apf_en %}I need help choosing{% else %}Necesito asesoría{% endif %}</option>
+              <option value="GR407F">GR407F</option>
+              <option value="GR507F">GR507F</option>
+              <option value="GR407F + GR507F">{% if apf_en %}Both models{% else %}Ambos modelos{% endif %}</option>
+            </select>
+          </label>
+
+          <label class="apf-wide">
+            {% if apf_en %}Quantity, sizes, or carrier of interest (optional){% else %}Cantidad, tallas o chaleco de interés (opcional){% endif %}
+            <textarea name="contact[body]" rows="2">{{ form.body | escape }}</textarea>
+          </label>
+
+          <div class="apf-wide apf-form-end">
+            <button class="apf-button" type="submit">{% if apf_en %}Send request{% else %}Enviar solicitud{% endif %} <span aria-hidden="true">↗</span></button>
+            {% if shop.privacy_policy.url != blank %}
+              <a href="{{ shop.privacy_policy.url }}">{% if apf_en %}Privacy policy{% else %}Aviso de privacidad{% endif %}</a>
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endform %}
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "APF - Cotizar",
+  "enabled_on": {
+    "templates": ["page"]
+  },
+  "limit": 1,
+  "settings": [],
+  "presets": [
+    {
+      "name": "APF - Cotizar"
+    }
+  ]
+}
+{% endschema %}
