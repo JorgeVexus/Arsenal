@@ -2,6 +2,15 @@
 {% assign apf_en = false %}
 {% if apf_locale == 'en' %}{% assign apf_en = true %}{% endif %}
 
+{% assign apf_gr407f_default = '/products/panel-balistico-gr407f' %}
+{% assign apf_gr507f_default = '/products/panel-balistico-gr507f' %}
+{% if apf_locale == 'en' %}
+  {% assign apf_gr407f_default = '/en/products/panel-balistico-gr407f' %}
+  {% assign apf_gr507f_default = '/en/products/panel-balistico-gr507f' %}
+{% endif %}
+{% assign apf_gr407f_link = section.settings.product_link_gr407f | default: apf_gr407f_default %}
+{% assign apf_gr507f_link = section.settings.product_link_gr507f | default: apf_gr507f_default %}
+
 {{ 'arsenal-panel-femenino.css' | asset_url | stylesheet_tag }}
 
 <arsenal-panel-models class="apf">
@@ -18,7 +27,7 @@
         <p class="apf-card-detail">{% if apf_en %}Flexible ballistic aramid that follows the shape of the torso.{% else %}Aramida balística flexible que sigue la forma del torso.{% endif %}</p>
         <div class="apf-card-links">
           <a class="apf-model-link" href="#gr407f">{% if apf_en %}View GR407F{% else %}Ver GR407F{% endif %} <span aria-hidden="true">↓</span></a>
-          <a class="apf-product-link" href="{% if apf_en %}/en{% endif %}/products/panel-balistico-gr-407" aria-label="{% if apf_en %}View product details for GR407{% else %}Ver ficha del producto GR407{% endif %}">{% if apf_en %}View product details{% else %}Ver ficha del producto{% endif %} <span aria-hidden="true">↗</span></a>
+          <a class="apf-product-link" href="{{ apf_gr407f_link | escape }}" aria-label="{% if apf_en %}Learn more about GR407F{% else %}Conoce más sobre el GR407F{% endif %}">{% if apf_en %}Learn more{% else %}Conoce más{% endif %} <span aria-hidden="true">↗</span></a>
         </div>
       </article>
 
@@ -28,7 +37,7 @@
         <p class="apf-card-detail">{% if apf_en %}Combines the flexibility of aramid with lightweight UHMWPE.{% else %}Combina la flexibilidad de la aramida con el bajo peso del polietileno UHMWPE.{% endif %}</p>
         <div class="apf-card-links">
           <a class="apf-model-link" href="#gr507f">{% if apf_en %}View GR507F{% else %}Ver GR507F{% endif %} <span aria-hidden="true">↓</span></a>
-          <a class="apf-product-link" href="{% if apf_en %}/en{% endif %}/products/panel-balistico-gr-507" aria-label="{% if apf_en %}View product details for GR507{% else %}Ver ficha del producto GR507{% endif %}">{% if apf_en %}View product details{% else %}Ver ficha del producto{% endif %} <span aria-hidden="true">↗</span></a>
+          <a class="apf-product-link" href="{{ apf_gr507f_link | escape }}" aria-label="{% if apf_en %}Learn more about GR507F{% else %}Conoce más sobre el GR507F{% endif %}">{% if apf_en %}Learn more{% else %}Conoce más{% endif %} <span aria-hidden="true">↗</span></a>
         </div>
       </article>
     </div>
@@ -132,6 +141,16 @@
       "type": "image_picker",
       "id": "image_gr507f",
       "label": "Corte ilustrativo GR507F"
+    },
+    {
+      "type": "url",
+      "id": "product_link_gr407f",
+      "label": "Enlace de la ficha GR407F"
+    },
+    {
+      "type": "url",
+      "id": "product_link_gr507f",
+      "label": "Enlace de la ficha GR507F"
     }
   ],
   "presets": [
