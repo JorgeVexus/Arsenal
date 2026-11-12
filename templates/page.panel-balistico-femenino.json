@@ -11,11 +11,16 @@
   "sections": {
     "apf_portada": {
       "type": "apf-portada",
-      "settings": {}
+      "settings": {
+        "hero_image": "shopify://shop_images/arsenal-panel-femenino-hero.webp"
+      }
     },
     "apf_modelos": {
       "type": "apf-modelos",
-      "settings": {}
+      "settings": {
+        "image_gr407f": "shopify://shop_images/arsenal-panel-femenino-gr407f.webp",
+        "image_gr507f": "shopify://shop_images/arsenal-panel-femenino-gr507f.webp"
+      }
     },
     "apf_preguntas": {
       "type": "apf-preguntas",
