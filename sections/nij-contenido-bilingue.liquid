@@ -1034,17 +1034,397 @@ IV|RF3|.30-06 M2 AP^878^ap|.30-06 M2 AP^878^ap|{{ 'nij.p02.text_fa1627b84b' | t 
       <summary>{{ 'nij.p02.text_540f43d5bd' | t | escape }}</summary>
 
       <div class="ars-compare__technical">
-        <p>
-          <strong>FMJ:</strong> {{ 'nij.p02.text_eac3cece2f' | t | escape }}
-          <strong>RN:</strong> {{ 'nij.p02.text_bafff04a36' | t | escape }}
-          <strong>FN:</strong> {{ 'nij.p02.text_9455878f70' | t | escape }}
-          <strong>JSP:</strong> {{ 'nij.p02.text_3c87666be1' | t | escape }}
-          <strong>SJHP:</strong> {{ 'nij.p02.text_bd68108d88' | t | escape }}
-          <strong>JHP:</strong> {{ 'nij.p02.text_49c2465a24' | t | escape }}
-          <strong>MSC:</strong> {{ 'nij.p02.text_250efd0774' | t | escape }}
-          <strong>AP:</strong> {{ 'nij.p02.text_22d840c11a' | t | escape }}
-          <strong>gr:</strong> {{ 'nij.p02.text_346fa4b80a' | t | escape }}
-        </p>
+        {% assign idioma_glosario = request.locale.iso_code | slice: 0, 2 %}
+
+<style>
+  #shopify-section-{{ section.id }} .ars-glosario {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px 28px;
+    margin: 20px 0 24px;
+    padding: 0;
+    font-family: var(--font-body-family, inherit);
+  }
+
+  #shopify-section-{{ section.id }} .ars-glosario > div {
+    min-width: 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #d7dcdc;
+  }
+
+  #shopify-section-{{ section.id }} .ars-glosario dt {
+    margin: 0 0 6px;
+    color: #b64307;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  #shopify-section-{{ section.id }} .ars-glosario dd {
+    margin: 0;
+    color: inherit;
+    font-size: 14px;
+    line-height: 1.5;
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: none;
+  }
+
+  #shopify-section-{{ section.id }} .ars-glosario dd span {
+    display: block;
+    margin-bottom: 3px;
+    font-weight: 600;
+  }
+
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .ars-glosario {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 14px;
+    }
+  }
+</style>
+
+{% if idioma_glosario == 'en' %}
+
+  <dl class="ars-glosario">
+    <div>
+      <dt>NIJ</dt>
+      <dd>
+        <span>National Institute of Justice</span>
+        U.S. institute that publishes the referenced ballistic standards.
+      </dd>
+    </div>
+
+    <div>
+      <dt>HG</dt>
+      <dd>
+        <span>Handgun</span>
+        Identifies the handgun threat category: HG1 and HG2.
+      </dd>
+    </div>
+
+    <div>
+      <dt>RF</dt>
+      <dd>
+        <span>Rifle</span>
+        Identifies the rifle threat category: RF1, RF2 and RF3.
+      </dd>
+    </div>
+
+    <div>
+      <dt>FMJ</dt>
+      <dd>
+        <span>Full Metal Jacket</span>
+        A bullet with a metal jacket surrounding its core,
+        except for possible exposed areas at the base.
+      </dd>
+    </div>
+
+    <div>
+      <dt>RN</dt>
+      <dd>
+        <span>Round Nose</span>
+        A bullet with a rounded nose.
+      </dd>
+    </div>
+
+    <div>
+      <dt>FN</dt>
+      <dd>
+        <span>Flat Nose</span>
+        A bullet with a flat nose.
+      </dd>
+    </div>
+
+    <div>
+      <dt>JSP</dt>
+      <dd>
+        <span>Jacketed Soft Point</span>
+        A jacketed bullet with an exposed soft core at its tip.
+      </dd>
+    </div>
+
+    <div>
+      <dt>SJHP</dt>
+      <dd>
+        <span>Semi Jacketed Hollow Point</span>
+        A partially jacketed bullet with a cavity at its tip.
+      </dd>
+    </div>
+
+    <div>
+      <dt>JHP</dt>
+      <dd>
+        <span>Jacketed Hollow Point</span>
+        A jacketed bullet with a cavity at its tip.
+      </dd>
+    </div>
+
+    <div>
+      <dt>MSC</dt>
+      <dd>
+        <span>Mild Steel Core</span>
+        A projectile with a mild steel core.
+      </dd>
+    </div>
+
+    <div>
+      <dt>AP</dt>
+      <dd>
+        <span>Armor Piercing</span>
+        An armor-piercing projectile designation.
+      </dd>
+    </div>
+
+    <div>
+      <dt>gr</dt>
+      <dd>
+        <span>Grain</span>
+        Unit of projectile mass. It does not mean grams.
+      </dd>
+    </div>
+
+    <div>
+      <dt>m/s</dt>
+      <dd>
+        <span>Metres per second</span>
+        Unit of projectile velocity.
+      </dd>
+    </div>
+
+    <div>
+      <dt>mm</dt>
+      <dd>
+        <span>Millimetres</span>
+        Unit of length used in caliber designations.
+      </dd>
+    </div>
+
+    <div>
+      <dt>M80 · M193 · M855 · M2</dt>
+      <dd>
+        <span>Ammunition designations</span>
+        Identify specific ammunition types.
+        They are not protection levels.
+      </dd>
+    </div>
+
+    <div>
+      <dt>III+</dt>
+      <dd>
+        <span>Unofficial commercial designation</span>
+        Not an official NIJ 0101.06 level.
+        It does not imply automatic equivalence to RF2.
+      </dd>
+    </div>
+
+    <div>
+      <dt>P-BFD</dt>
+      <dd>
+        <span>Perforation and Backface Deformation</span>
+        Testing that evaluates perforation and the deformation
+        produced in the backing material behind the armor.
+      </dd>
+    </div>
+
+    <div>
+      <dt>CTP</dt>
+      <dd>
+        <span>Compliance Testing Program</span>
+        NIJ's compliance testing program.
+      </dd>
+    </div>
+
+    <div>
+      <dt>CPL</dt>
+      <dd>
+        <span>Compliant Products List</span>
+        List of compliant products maintained by the NIJ program.
+      </dd>
+    </div>
+
+    <div>
+      <dt>UHMWPE</dt>
+      <dd>
+        <span>Ultra-High-Molecular-Weight Polyethylene</span>
+        A polyethylene material used in ballistic protection.
+      </dd>
+    </div>
+  </dl>
+
+{% else %}
+
+  <dl class="ars-glosario">
+    <div>
+      <dt>NIJ</dt>
+      <dd>
+        <span>National Institute of Justice</span>
+        Instituto Nacional de Justicia de Estados Unidos,
+        que publica las normas balísticas de referencia.
+      </dd>
+    </div>
+
+    <div>
+      <dt>HG</dt>
+      <dd>
+        <span>Handgun · Arma corta</span>
+        Identifica la categoría de amenazas de arma corta:
+        HG1 y HG2.
+      </dd>
+    </div>
+
+    <div>
+      <dt>RF</dt>
+      <dd>
+        <span>Rifle</span>
+        Identifica la categoría de amenazas de rifle:
+        RF1, RF2 y RF3.
+      </dd>
+    </div>
+
+    <div>
+      <dt>FMJ</dt>
+      <dd>
+        <span>Full Metal Jacket · Proyectil encamisado</span>
+        El núcleo está recubierto por una camisa metálica,
+        salvo posibles zonas expuestas en la base.
+      </dd>
+    </div>
+
+    <div>
+      <dt>RN</dt>
+      <dd>
+        <span>Round Nose · Punta redonda</span>
+        Describe la forma redondeada de la punta del proyectil.
+      </dd>
+    </div>
+
+    <div>
+      <dt>FN</dt>
+      <dd>
+        <span>Flat Nose · Punta plana</span>
+        Describe la forma plana de la punta del proyectil.
+      </dd>
+    </div>
+
+    <div>
+      <dt>JSP</dt>
+      <dd>
+        <span>Jacketed Soft Point · Punta blanda encamisada</span>
+        Parte del núcleo blando queda expuesta en la punta.
+      </dd>
+    </div>
+
+    <div>
+      <dt>SJHP</dt>
+      <dd>
+        <span>Semi Jacketed Hollow Point · Punta hueca semiencamisada</span>
+        Proyectil parcialmente encamisado con una cavidad en la punta.
+      </dd>
+    </div>
+
+    <div>
+      <dt>JHP</dt>
+      <dd>
+        <span>Jacketed Hollow Point · Punta hueca encamisada</span>
+        Proyectil encamisado con una cavidad en la punta.
+      </dd>
+    </div>
+
+    <div>
+      <dt>MSC</dt>
+      <dd>
+        <span>Mild Steel Core · Núcleo de acero dulce</span>
+        Indica el material del núcleo del proyectil.
+      </dd>
+    </div>
+
+    <div>
+      <dt>AP</dt>
+      <dd>
+        <span>Armor Piercing · Perforante</span>
+        Designación de proyectiles perforantes.
+      </dd>
+    </div>
+
+    <div>
+      <dt>gr</dt>
+      <dd>
+        <span>Grain · Unidad de masa</span>
+        Indica la masa del proyectil. No significa gramos.
+      </dd>
+    </div>
+
+    <div>
+      <dt>m/s</dt>
+      <dd>
+        <span>Metros por segundo</span>
+        Unidad que expresa la velocidad del proyectil.
+      </dd>
+    </div>
+
+    <div>
+      <dt>mm</dt>
+      <dd>
+        <span>Milímetros</span>
+        Unidad de longitud utilizada en la designación del calibre.
+      </dd>
+    </div>
+
+    <div>
+      <dt>M80 · M193 · M855 · M2</dt>
+      <dd>
+        <span>Designaciones de munición</span>
+        Identifican tipos específicos de munición.
+        No son niveles de protección.
+      </dd>
+    </div>
+
+    <div>
+      <dt>III+</dt>
+      <dd>
+        <span>Designación comercial no oficial</span>
+        No es un nivel oficial de NIJ 0101.06.
+        No implica equivalencia automática con RF2.
+      </dd>
+    </div>
+
+    <div>
+      <dt>P-BFD</dt>
+      <dd>
+        <span>Perforation and Backface Deformation</span>
+        Evaluación de perforación y de la deformación producida
+        en el material de respaldo detrás del blindaje.
+      </dd>
+    </div>
+
+    <div>
+      <dt>CTP</dt>
+      <dd>
+        <span>Compliance Testing Program</span>
+        Programa de evaluación de conformidad de NIJ.
+      </dd>
+    </div>
+
+    <div>
+      <dt>CPL</dt>
+      <dd>
+        <span>Compliant Products List</span>
+        Lista de productos conformes del programa NIJ.
+      </dd>
+    </div>
+
+    <div>
+      <dt>UHMWPE</dt>
+      <dd>
+        <span>Ultra-High-Molecular-Weight Polyethylene</span>
+        Polietileno de ultra alto peso molecular,
+        utilizado en protección balística.
+      </dd>
+    </div>
+  </dl>
+
+{% endif %}
 
         <p>
           {{ 'nij.p02.text_470dff77a4' | t | escape }}
