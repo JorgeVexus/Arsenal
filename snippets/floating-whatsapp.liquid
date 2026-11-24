@@ -8,21 +8,63 @@
   if agent_name contains 'Arsenal Protección'
     assign agent_name = 'Arsenal'
   endif
-  assign status_text = settings.whatsapp_status_text | default: 'En línea'
-  assign welcome_message = settings.whatsapp_welcome_message | default: '¡Hola! 👋 Bienvenido a Arsenal. ¿En qué podemos ayudarte el día de hoy?'
+
+  assign is_en = false
+  if request.locale.iso_code == 'en'
+    assign is_en = true
+  endif
+
+  if is_en
+    assign default_status = 'Online • Quick response'
+    assign default_welcome = 'Hello! 👋 Welcome to Arsenal. How can we help you today?'
+    assign default_placeholder = 'Type your message...'
+    assign default_chat_date = 'TODAY'
+    assign default_trigger_aria = 'Open WhatsApp chat'
+    assign default_close_aria = 'Close chat'
+    assign default_send_aria = 'Send message on WhatsApp'
+    assign default_wa_msg = 'Hello, I would like more information.'
+
+    assign status_text = settings.whatsapp_status_text_en
+    if status_text == blank
+      assign status_text = default_status
+    endif
+
+    assign welcome_message = settings.whatsapp_welcome_message_en
+    if welcome_message == blank
+      assign welcome_message = default_welcome
+    endif
+
+    assign input_placeholder = settings.whatsapp_input_placeholder_en
+    if input_placeholder == blank
+      assign input_placeholder = default_placeholder
+    endif
+  else
+    assign default_status = 'En línea • Respuesta rápida'
+    assign default_welcome = '¡Hola! 👋 Bienvenido a Arsenal. ¿En qué podemos ayudarte el día de hoy?'
+    assign default_placeholder = 'Escribe tu mensaje...'
+    assign default_chat_date = 'HOY'
+    assign default_trigger_aria = 'Abrir chat de WhatsApp'
+    assign default_close_aria = 'Cerrar chat'
+    assign default_send_aria = 'Enviar mensaje a WhatsApp'
+    assign default_wa_msg = 'Hola, me gustaría recibir más información.'
+
+    assign status_text = settings.whatsapp_status_text | default: default_status
+    assign welcome_message = settings.whatsapp_welcome_message | default: default_welcome
+    assign input_placeholder = settings.whatsapp_input_placeholder | default: default_placeholder
+  endif
+
   assign welcome_message = welcome_message | replace: 'Arsenal Protección Balística', 'Arsenal' | replace: 'Arsenal Protección', 'Arsenal'
-  assign input_placeholder = settings.whatsapp_input_placeholder | default: 'Escribe tu mensaje...'
 -%}
 
 {%- if enable -%}
-<div id="arsenal-whatsapp-widget" class="arsenal-wa-widget" data-phone="{{ phone }}">
+<div id="arsenal-whatsapp-widget" class="arsenal-wa-widget" data-phone="{{ phone }}" data-default-msg="{{ default_wa_msg | escape }}" data-lang="{{ request.locale.iso_code }}">
   <!-- Floating Circle Trigger Button -->
   <div 
     role="button" 
     tabindex="0"
     id="arsenal-wa-trigger" 
     class="arsenal-wa-trigger" 
-    aria-label="Abrir chat de WhatsApp"
+    aria-label="{{ default_trigger_aria }}"
     aria-expanded="false"
   >
     <span class="arsenal-wa-online-dot"></span>
@@ -61,7 +103,7 @@
         tabindex="0"
         id="arsenal-wa-close-btn" 
         class="arsenal-wa-close-btn" 
-        aria-label="Cerrar chat"
+        aria-label="{{ default_close_aria }}"
       >
         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -72,7 +114,7 @@
 
     <!-- Body -->
     <div class="arsenal-wa-body">
-      <div class="arsenal-wa-date">HOY</div>
+      <div class="arsenal-wa-date">{{ default_chat_date }}</div>
 
       <!-- Welcome Bubble -->
       <div class="arsenal-wa-bubble">
@@ -100,7 +142,7 @@
         tabindex="0"
         id="arsenal-wa-send-btn" 
         class="arsenal-wa-send-btn" 
-        aria-label="Enviar mensaje a WhatsApp"
+        aria-label="{{ default_send_aria }}"
       >
         <svg viewBox="0 0 24 24" fill="currentColor">
           <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
@@ -525,10 +567,11 @@
 
     // Update dynamic time
     if (timeEl) {
+      var isEn = (widget.getAttribute('data-lang') === 'en');
       var now = new Date();
       var hours = now.getHours();
       var minutes = now.getMinutes();
-      var ampm = hours >= 12 ? 'p.m.' : 'a.m.';
+      var ampm = hours >= 12 ? (isEn ? 'PM' : 'p.m.') : (isEn ? 'AM' : 'a.m.');
       hours = hours % 12;
       hours = hours ? hours : 12;
       minutes = minutes < 10 ? '0' + minutes : minutes;
@@ -607,10 +650,17 @@
     function sendMessage() {
       var msg = (input ? input.value : '').trim();
       if (!msg) {
-        msg = 'Hola, me gustaría recibir más información.';
+        msg = widget.getAttribute('data-default-msg') || 'Hola, me gustaría recibir más información.';
       }
       var cleanPhone = phone.replace(/[^0-9]/g, '');
       var url = 'https://wa.me/' + cleanPhone + '?text=' + encodeURIComponent(msg);
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'whatsapp_click',
+        button_location: 'flotante',
+        page_path: window.location.pathname
+      });
+
       window.open(url, '_blank', 'noopener,noreferrer');
       if (input) input.value = '';
       closeChat();
