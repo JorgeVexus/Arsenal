@@ -7,6 +7,15 @@
   class="no-js btn-hover-up {% if request.design_mode %}theme-editor{% endif %}{% if settings.button_style == 'inv' %} btn-hover-inv{% endif %}{% if settings.button_wide_mobile %} btn-mobile-wide{% endif %}{% unless settings.enable_hyphens %} no-hyph{% endunless %}"
 >
   <head>
+    <!-- Google Tag Manager -->
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-KZZLMKLX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    </script>
+    <!-- Fin Google Tag Manager -->
+
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>
@@ -241,6 +250,7 @@
         if settings.back_to_top_button
           render 'back-to-top-button'
         endif
+        render 'floating-whatsapp'
       -%}
     </div>
     {% render 'global-variables' %}
