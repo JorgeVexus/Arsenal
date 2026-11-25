@@ -722,6 +722,14 @@
       <div class="contact-form-wrapper">
         {%- form 'contact', id: 'ContactForm' -%}
           {%- if form.posted_successfully? -%}
+            <script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'contact_form_success',
+    form_id: 'contacto',
+    page_path: window.location.pathname
+  });
+</script>
             <div class="form-status form-status--success" tabindex="-1" autofocus>
               {{ section.settings.success_message }}
             </div>
