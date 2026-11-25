@@ -1260,6 +1260,12 @@
                             if (method === 'whatsapp' || method === 'both') {
                                 const whatsappNumber = quoteBtn.dataset.whatsappNumber;
                                 const encodedMessage = encodeURIComponent(fullMessage);
+                                window.dataLayer = window.dataLayer || [];
+window.dataLayer.push({
+  event: 'whatsapp_click',
+  button_location: 'producto',
+  page_path: window.location.pathname
+});
                                 window.open('https://wa.me/' + whatsappNumber + '?text=' + encodedMessage, '_blank');
                             }
                             
