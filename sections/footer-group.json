@@ -25,7 +25,7 @@
             "text": "<h4><strong>Contacto</strong></h4><p><a href=\"tel:5515537039\" title=\"tel:5515537039\"><strong>(55) 1553-7039</strong></a></p><p><a href=\"mailto:cotizaciones@arsenalprotect.com \" title=\"mailto:cotizaciones@arsenalprotect.com \">cotizaciones@arsenalprotect.com&nbsp;</a></p><p><a href=\"mailto:info@arsenalprotect.com\" title=\"mailto:info@arsenalprotect.com\">info@arsenalprotect.com</a></p>",
             "show_phone_link": false,
             "show_mail_link": false,
-            "show_whatsapp_link": true,
+            "show_whatsapp_link": false,
             "button_label": "Quejas, sugerencias y denuncias",
             "button_link": "shopify://pages/formulario-de-quejas",
             "button_style": "secondary solid",
