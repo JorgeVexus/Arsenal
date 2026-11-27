@@ -17,15 +17,15 @@
         "7daca3af-bb39-4413-b954-ec9094bca0f7": {
           "type": "customer_support",
           "settings": {
-            "title": "<span style=\"text-decoration:underline\">Comprometidos con la Protección y la Innovación</span>",
+            "title": "",
             "title_underline_style": "accent",
             "customer_support_img": "shopify://shop_images/arsenal_logo_svg.svg",
             "customer_support_img_width": 250,
             "customer_support_img_rounded": false,
-            "text": "<h4><strong>Contacto</strong></h4><p><a href=\"tel:5515537039\" title=\"tel:5515537039\"><strong>(55) 1553-7039</strong></a></p><p><a href=\"mailto:cotizaciones@arsenalprotect.com \" title=\"mailto:cotizaciones@arsenalprotect.com \">cotizaciones@arsenalprotect.com </a></p><p><a href=\"mailto:info@arsenalprotect.com\" title=\"mailto:info@arsenalprotect.com\">info@arsenalprotect.com</a></p>",
+            "text": "<h4><strong>Contacto</strong></h4><p><a href=\"tel:5515537039\" title=\"tel:5515537039\"><strong>(55) 1553-7039</strong></a></p><p><a href=\"mailto:cotizaciones@arsenalprotect.com \" title=\"mailto:cotizaciones@arsenalprotect.com \">cotizaciones@arsenalprotect.com&nbsp;</a></p><p><a href=\"mailto:info@arsenalprotect.com\" title=\"mailto:info@arsenalprotect.com\">info@arsenalprotect.com</a></p>",
             "show_phone_link": false,
             "show_mail_link": false,
-            "show_whatsapp_link": false,
+            "show_whatsapp_link": true,
             "button_label": "Quejas, sugerencias y denuncias",
             "button_link": "shopify://pages/formulario-de-quejas",
             "button_style": "secondary solid",
